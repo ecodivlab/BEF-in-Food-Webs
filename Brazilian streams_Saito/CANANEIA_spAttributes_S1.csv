@@ -1,0 +1,42 @@
+,fw_names,species,metabolic_type,bodymass,abundance,biomass
+1,S1,Acentronichthys_leptos,ectotherm vertebrate,520.8333,0.0508,26.45833164
+2,S1,Anacroneuria,ectotherm invertebrate,3.159,4.4444,14.0398596
+3,S1,Baetidae,ectotherm invertebrate,0.4122,4.4444,1.83198168
+4,S1,Biofilm,detritus,NA,,NA
+5,S1,Blepharopus,ectotherm invertebrate,0.5273,15.5556,8.20246788
+6,S1,Campsurus,ectotherm invertebrate,3.1273,2.2222,6.94948606
+7,S1,Characidium_lanei,ectotherm vertebrate,365.5174,0.2881,105.3055629
+8,S1,Chimarra,ectotherm invertebrate,0.1543,21.1111,3.25744273
+9,S1,Chironomidae,ectotherm invertebrate,0.0291,23.3333,0.67899903
+10,S1,Corixidae,ectotherm invertebrate,0.3226,3.3333,1.07532258
+11,S1,Deuterodon_iguape,ectotherm vertebrate,1304.7835,0.6017,785.088232
+12,S1,Farrodes,ectotherm invertebrate,0.2664,3.3333,0.88799112
+13,S1,Gomphidae,ectotherm invertebrate,2.941,2.2222,6.5354902
+14,S1,Gripopteryx,ectotherm invertebrate,0.2908,2.2222,0.64621576
+15,S1,Gymnotus_pantherinus,ectotherm vertebrate,4739.2857,0.0593,281.039642
+16,S1,Heteragrion,ectotherm invertebrate,1.2648,4.4444,5.62127712
+17,S1,Heterelmis,ectotherm invertebrate,0.3638,2.2222,0.80843636
+18,S1,Hollandichthys_multifasciatus,ectotherm vertebrate,2720.8333,0.0508,138.2183316
+19,S1,Hydroptilidae,ectotherm invertebrate,0.0152,1.1111,0.01688872
+20,S1,leaf,detritus,NA,,NA
+21,S1,Leptoceridae,ectotherm invertebrate,0.4447,11.1111,4.94110617
+22,S1,Leptohyphes,ectotherm invertebrate,0.1004,17.7778,1.78489112
+23,S1,Leptonema,ectotherm invertebrate,2.344,2.2222,5.2088368
+24,S1,Leptophlebiidae_spA,ectotherm invertebrate,0.436,1.1111,0.4844396
+25,S1,Macrelmis,ectotherm invertebrate,1.9884,3.3333,6.62793372
+26,S1,Macrobrachium,ectotherm invertebrate,86.8981,8.6667,753.1197633
+27,S1,Macronema,ectotherm invertebrate,2.1222,2.2222,4.71595284
+28,S1,Mimagoniates_microlepis,ectotherm vertebrate,379.6493,0.2373,90.09077889
+29,S1,moss,plant,NA,,NA
+30,S1,Neoelmis,ectotherm invertebrate,0.0026,1.1111,0.00288886
+31,S1,Oligochaeta_spA,ectotherm invertebrate,1.4408,4.4444,6.40349152
+32,S1,Phylloicus,ectotherm invertebrate,2.2271,1.1111,2.47453081
+33,S1,Rhamdia_quelen,ectotherm vertebrate,11693.75,0.0339,396.418125
+34,S1,Schizolecis_guntheri,ectotherm vertebrate,176.2643,0.1186,20.90494598
+35,S1,Simuliidae,ectotherm invertebrate,0.3266,11.1111,3.62888526
+36,S1,Smicridea,ectotherm invertebrate,0.4812,2.2222,1.06932264
+37,S1,Synbranchus_marmoratus,ectotherm vertebrate,162500,0.0085,1381.25
+38,S1,Synoestropsis,ectotherm invertebrate,177.0459,3.3333,590.1470985
+39,S1,terrestrial_ectotherm_invertebrate,detritus,NA,,NA
+40,S1,Tipulidae,ectotherm invertebrate,0.6754,1.1111,0.75043694
+41,S1,Veliidae_spA,ectotherm invertebrate,0.2582,3.3333,0.86065806

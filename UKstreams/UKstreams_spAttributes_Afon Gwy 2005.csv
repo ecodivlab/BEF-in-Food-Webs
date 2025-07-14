@@ -1,0 +1,24 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Afon Gwy 2005","Achnanthes minutissima",0.1343331596216,"dry g.m2",2.26e-10,594394511.6,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","Achnanthes oblongella",0.0297955161177,"dry g.m2",2.23e-10,133612179.9,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","Amphinemura sulcicollis",0.0038878678944,"dry g.m2",0.000347131062,11.2,"animal","ectotherm invertebrate","species","walking",5.86853418150444e-07,0.88459897241344
+"Afon Gwy 2005","Baetis rhodani",0.0028154588832,"dry g.m2",0.000293276967,9.6,"animal","ectotherm invertebrate","species","walking",4.46272195214165e-07,0.88459897241344
+"Afon Gwy 2005","Brachysira vitrea",0.1347895799856,"dry g.m2",6.22e-10,216703504.8,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","Chironomidae",0.0014030999296,"dry g.m2",0.000109617182,12.8,"animal","ectotherm invertebrate","family","walking",2.958591780603e-07,0.88459897241344
+"Afon Gwy 2005","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Gwy 2005","Eunotia exigua",4.368185079294,"dry g.m2",3.34e-10,13078398441,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","Eunotia pectinalis",0.992056586104,"dry g.m2",1.84e-09,539161188.1,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","Eunotia rhomboidea",0.329705901783,"dry g.m2",3.27e-10,1008274929,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","Eunotia vanheurckii",0.4006137365867,"dry g.m2",7.93e-10,505187561.9,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Gwy 2005","Heptagenia",0.0005861979904,"dry g.m2",0.000366373744,1.6,"animal","ectotherm invertebrate","genus","walking",8.71098995777748e-08,0.88459897241344
+"Afon Gwy 2005","Hydropsyche siltalai",0.0041611454544,"dry g.m2",0.002600715909,1.6,"animal","ectotherm invertebrate","species","walking",3.50265367855921e-07,0.88459897241344
+"Afon Gwy 2005","Isoperla grammatica",0.022757889984,"dry g.m2",0.000592653385,38.4,"animal","ectotherm invertebrate","species","walking",2.94158239529135e-06,0.88459897241344
+"Afon Gwy 2005","Leuctra inermis",0.03907546272,"dry g.m2",0.00054271476,72,"animal","ectotherm invertebrate","species","walking",5.18131031015139e-06,0.88459897241344
+"Afon Gwy 2005","Limnius volckmari",0.0007948451136,"dry g.m2",0.000496778196,1.6,"animal","ectotherm invertebrate","species","walking",1.08132594469642e-07,0.88459897241344
+"Afon Gwy 2005","Rhyacophila dorsalis",0.030109084864,"dry g.m2",0.00940908902,3.2,"animal","ectotherm invertebrate","species","walking",1.74554080431066e-06,0.88459897241344
+"Afon Gwy 2005","Salmo trutta",0.1564,"dry g.m2",3.128,0.05,"animal","ectotherm vertebrate","species","swimming",0.00135886448237023,0.88459897241344
+"Afon Gwy 2005","Simuliidae",0.0027918489024,"dry g.m2",9.6939198e-05,28.8,"animal","ectotherm invertebrate","family","walking",6.10054064297419e-07,0.88459897241344
+"Afon Gwy 2005","Siphonoperla torrentium",0.0560854027392,"dry g.m2",0.000687321112,81.6,"animal","ectotherm invertebrate","species","walking",6.94440085058566e-06,0.88459897241344
+"Afon Gwy 2005","Tabellaria flocculosa",2.98387444332,"dry g.m2",1.01e-09,2954331132,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gwy 2005","Tipulidae",0.0021223432864,"dry g.m2",0.000663232277,3.2,"animal","ectotherm invertebrate","family","walking",2.65517921363577e-07,0.88459897241344

@@ -1,0 +1,22 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Allt na Coire nan Con","Achnanthes oblongella",0.65343972696,"dry g.m2",2.58e-10,2532712120,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt na Coire nan Con","Amphinemura sulcicollis",0.001023556768,"dry g.m2",0.00031986149,3.2,"animal","ectotherm invertebrate","species","walking",1.58210103347639e-07,0.88459897241344
+"Allt na Coire nan Con","Brachysira vitrea",2.561498989317,"dry g.m2",5.69e-10,4501755693,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt na Coire nan Con","Chironomidae",0.0096595627296,"dry g.m2",0.000287486986,33.6,"animal","ectotherm invertebrate","family","walking",1.53999545569063e-06,0.88459897241344
+"Allt na Coire nan Con","Chloroperla tripunctata",0.0040226820912,"dry g.m2",0.000838058769,4.8,"animal","ectotherm invertebrate","species","walking",4.70248437900028e-07,0.88459897241344
+"Allt na Coire nan Con","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Allt na Coire nan Con","Ecdyonurus dispar",0.003831327112,"dry g.m2",0.002394579445,1.6,"animal","ectotherm invertebrate","species","walking",3.30319336470393e-07,0.88459897241344
+"Allt na Coire nan Con","Eunotia",0.3610767797995,"dry g.m2",9.55e-11,3780908689,"plant","plant","genus","sessile",NA,0.487432933611077
+"Allt na Coire nan Con","Eunotia exigua",0.382209247948,"dry g.m2",3.56e-10,1073621483,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt na Coire nan Con","Eunotia incisa",12.47162298984,"dry g.m2",1.47e-09,8484097272,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt na Coire nan Con","Eunotia rhomboidea",0.894217139297,"dry g.m2",2.93e-10,3051935629,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt na Coire nan Con","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Allt na Coire nan Con","Hydraena gracilis",0.0001494434336,"dry g.m2",9.3402146e-05,1.6,"animal","ectotherm invertebrate","species","walking",3.30091694145031e-08,0.88459897241344
+"Allt na Coire nan Con","Isoperla grammatica",0.0011910674416,"dry g.m2",0.000744417151,1.6,"animal","ectotherm invertebrate","species","walking",1.44102280187933e-07,0.88459897241344
+"Allt na Coire nan Con","Limnius volckmari",0.0010768855136,"dry g.m2",0.000336526723,3.2,"animal","ectotherm invertebrate","species","walking",1.64019359111501e-07,0.88459897241344
+"Allt na Coire nan Con","Oreodytes sanmarkii",0.00213604292,"dry g.m2",0.000267005365,8,"animal","ectotherm invertebrate","species","walking",3.47920825843108e-07,0.88459897241344
+"Allt na Coire nan Con","Polycentropus flavomaculatus",0.0006784108816,"dry g.m2",0.000424006801,1.6,"animal","ectotherm invertebrate","species","walking",9.66308798481191e-08,0.88459897241344
+"Allt na Coire nan Con","Rhithrogena semicolorata",0.0035312558928,"dry g.m2",0.002207034933,1.6,"animal","ectotherm invertebrate","species","walking",3.11735144711319e-07,0.88459897241344
+"Allt na Coire nan Con","Simuliidae",9.32863392e-05,"dry g.m2",5.8303962e-05,1.6,"animal","ectotherm invertebrate","family","walking",2.36225544133365e-08,0.88459897241344
+"Allt na Coire nan Con","Siphonoperla torrentium",0.0133671310432,"dry g.m2",0.000759496082,17.6,"animal","ectotherm invertebrate","species","walking",1.60785561573547e-06,0.88459897241344
+"Allt na Coire nan Con","Tabellaria flocculosa",35.32980697546,"dry g.m2",9.7e-10,36422481418,"plant","plant","species","sessile",NA,0.487432933611077

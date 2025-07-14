@@ -1,0 +1,25 @@
+"","benthic detritus","fish fry","fish eggs","Cryptomonas erosa","Keratella taurocephala","Kelicottia bostoniensis","Kelicottia longispina","Mallomonas sp.","Daphnia catawba","Diaptomus minutus","Holopedium gibberum","Monostyla lunaris","Bosmina longirostris","Synchaeta sp.","Ankistrodesmus falcatus","Colletheca mutabilis","Diaphanosoma birgei","copepod nauplii","Tropocyclops prasinus","Eucyclops agilis","Mesocyclops edax","Salvelinus fontinalis","Peridinium inconspicuum","nanoflagellates "
+"benthic detritus",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"fish fry",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+"fish eggs",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Cryptomonas erosa",0,0,0,0,1,1,1,0,1,1,1,1,1,1,0,1,1,1,0,0,0,0,0,0
+"Keratella taurocephala",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Kelicottia bostoniensis",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Kelicottia longispina",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Mallomonas sp.",0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Daphnia catawba",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Diaptomus minutus",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Holopedium gibberum",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Monostyla lunaris",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Bosmina longirostris",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Synchaeta sp.",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Ankistrodesmus falcatus",0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Colletheca mutabilis",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Diaphanosoma birgei",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"copepod nauplii",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Tropocyclops prasinus",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Eucyclops agilis",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Mesocyclops edax",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"Salvelinus fontinalis",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+"Peridinium inconspicuum",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0
+"nanoflagellates ",0,0,0,0,1,1,1,0,1,0,0,1,1,1,0,1,1,1,0,0,0,0,0,0

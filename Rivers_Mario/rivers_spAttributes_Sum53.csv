@@ -1,0 +1,38 @@
+fw_name,species,metabolic_type,abundance,biomass,bodymass
+Sum53,Amphinemura wui,ectotherm invertebrate,267,3.5,0.01
+Sum53,Bacteria,detritus,,,
+Sum53,Beloneuria sp.,ectotherm invertebrate,197,115,0.58
+Sum53,Chironomidae,ectotherm invertebrate,32300,87.4,0.002705882
+Sum53,Cordulegaster sp.,ectotherm invertebrate,71,159.4,2.25
+Sum53,Detritus,detritus,,,
+Sum53,Diatoms,plant,,,
+Sum53,Diplectrona modesta,ectotherm invertebrate,408,8.5,0.02
+Sum53,Dixa sp.,ectotherm invertebrate,221,0.3,0.001357466
+Sum53,Dolophilodes sp.,ectotherm invertebrate,2,1.6,0.8
+Sum53,Ectopria thoracica,ectotherm invertebrate,36,3,0.08
+Sum53,External,detritus,,,
+Sum53,Fattigia pele,ectotherm invertebrate,8,8.1,1.01
+Sum53,Fungi,detritus,,,
+Sum53,Harpacticoida,ectotherm invertebrate,28900,28.9,0.001
+Sum53,Hexatoma spp.,ectotherm invertebrate,851,83.4,0.1
+Sum53,Isoperla spp.,ectotherm invertebrate,154,21,0.14
+Sum53,Lanthus vernalis,ectotherm invertebrate,47,87.3,1.86
+Sum53,Lepidostoma spp.,ectotherm invertebrate,431,90.2,0.21
+Sum53,Leuctra spp.,ectotherm invertebrate,925,70.1,0.08
+Sum53,Lype diversa,ectotherm invertebrate,45,3.8,0.08
+Sum53,Molophilus spp.,ectotherm invertebrate,42,24.1,0.57
+Sum53,Oligochaeta,ectotherm invertebrate,2180,20.3,0.01
+Sum53,Other detritus,detritus,,,
+Sum53,Paraleptophlebia spp.,ectotherm invertebrate,172,11,0.06
+Sum53,Parapsyche cardis,ectotherm invertebrate,250,129,0.52
+Sum53,Pedicia spp.,ectotherm invertebrate,13,50.7,3.9
+Sum53,Pycnopsyche spp.,ectotherm invertebrate,3,14,4.67
+Sum53,Rhyacophila spp.,ectotherm invertebrate,52,24.2,0.47
+Sum53,Sciara spp.,ectotherm invertebrate,149,3.6,0.02
+Sum53,Serratella spp.,ectotherm invertebrate,31,17.9,0.58
+Sum53,Simulium spp.,ectotherm invertebrate,18,0.5,0.03
+Sum53,Stenonema spp.,ectotherm invertebrate,22,20.2,0.92
+Sum53,Tallaperla maria,ectotherm invertebrate,312,86.6,0.28
+Sum53,Tanypodinae,ectotherm invertebrate,1010,10.7,0.01
+Sum53,Tipula spp.,ectotherm invertebrate,33,59.5,1.8
+Sum53,Wormaldia moesta,ectotherm invertebrate,12,3.6,0.3

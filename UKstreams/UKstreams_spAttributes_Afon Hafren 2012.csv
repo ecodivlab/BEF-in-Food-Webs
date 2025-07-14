@@ -1,0 +1,36 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Afon Hafren 2012","Achnanthes austriaca minor",0.0001362441666815,"dry g.m2",4.45e-10,306166.6667,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Achnanthes helvetica",0.001956303750087,"dry g.m2",2.61e-10,7495416.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Achnanthes minutissima",0.044226708,"dry g.m2",3.72e-10,118889000,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Amphinemura sulcicollis",0.000375071214,"dry g.m2",0.000187535607,2,"animal","ectotherm invertebrate","species","walking",6.76831709504347e-08,0.88459897241344
+"Afon Hafren 2012","Baetis rhodani",0.153063790395,"dry g.m2",0.000456906837,335,"animal","ectotherm invertebrate","species","walking",2.13345600007133e-05,0.88459897241344
+"Afon Hafren 2012","Chironomidae",0.0004623603,"dry g.m2",7.706005e-06,60,"animal","ectotherm invertebrate","subfamily","walking",2.10552930784461e-07,0.88459897241344
+"Afon Hafren 2012","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Hafren 2012","Elmis aenea",0.000608712224,"dry g.m2",3.8044514e-05,16,"animal","ectotherm invertebrate","species","walking",1.74457071764374e-07,0.88459897241344
+"Afon Hafren 2012","Eunotia exigua",0.0230727215625,"dry g.m2",4.45e-10,51848812.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Eunotia incisa",0.0001571383125,"dry g.m2",5.07e-10,309937.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Eunotia pectinalis",0.00036304,"dry g.m2",6.4e-10,567250,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Eunotia vanheurckii intermedia",0.004513394458178,"dry g.m2",4.66e-10,9685395.833,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Afon Hafren 2012","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Hafren 2012","Fragilaria vaucheriae",0.002145664666764,"dry g.m2",2.92e-10,7348166.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Fragilariforma virescens",0.0010275634375,"dry g.m2",3.11e-10,3304062.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Frustulia rhomboides",0.0001295220833105,"dry g.m2",6.85e-10,189083.3333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Hydracarina",0.000634567752,"dry g.m2",0.000317283876,2,"animal","ectotherm invertebrate","genus","walking",9.83148960760209e-08,0.88459897241344
+"Afon Hafren 2012","Isoperla grammatica",0.035505098808,"dry g.m2",0.002958758234,12,"animal","ectotherm invertebrate","species","walking",2.87892415578044e-06,0.88459897241344
+"Afon Hafren 2012","Leuctra inermis",0.012495885347,"dry g.m2",0.000265869901,47,"animal","ectotherm invertebrate","species","walking",2.03785940720237e-06,0.88459897241344
+"Afon Hafren 2012","Oligochaeta",0.000801897212,"dry g.m2",0.000200474303,4,"animal","ectotherm invertebrate","class","walking",1.41932850234762e-07,0.88459897241344
+"Afon Hafren 2012","Oreodytes sanmarkii",0.002159513598,"dry g.m2",0.001079756799,2,"animal","ectotherm invertebrate","species","walking",2.34559304640158e-07,0.88459897241344
+"Afon Hafren 2012","Oreodytes septentrionalis",0.001025427625,"dry g.m2",0.001025427625,1,"animal","ectotherm invertebrate","species","walking",1.13058652898041e-07,0.88459897241344
+"Afon Hafren 2012","Pinnularia subcapitata",0.005181436041947,"dry g.m2",8.41e-09,616104.1667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Plectrocnemia conspersa",2.0109002e-05,"dry g.m2",2.0109002e-05,1,"animal","ectotherm invertebrate","species","walking",6.9337553575967e-09,0.88459897241344
+"Afon Hafren 2012","Plectrocnemia geniculata",0.001735719935,"dry g.m2",0.001735719935,1,"animal","ectotherm invertebrate","species","walking",1.64282687811831e-07,0.88459897241344
+"Afon Hafren 2012","Potamophylax latipennis",0.01523584492,"dry g.m2",0.01523584492,1,"animal","ectotherm invertebrate","species","walking",7.68062378819287e-07,0.88459897241344
+"Afon Hafren 2012","Rhyacophila dorsalis",0.011011933583,"dry g.m2",0.000647760799,17,"animal","ectotherm invertebrate","species","walking",1.38712174055089e-06,0.88459897241344
+"Afon Hafren 2012","Rhyacophila fasciata",0.033761358252,"dry g.m2",0.005626893042,6,"animal","ectotherm invertebrate","species","walking",2.27197341967061e-06,0.88459897241344
+"Afon Hafren 2012","Salmo trutta",0.235706329798909,"dry g.m2",3.580923077,0.065822785,"animal","ectotherm vertebrate","species","swimming",0.0133262081833869,0.88459897241344
+"Afon Hafren 2012","Simuliidae",0.018398454332,"dry g.m2",0.000137301898,134,"animal","ectotherm invertebrate","family","walking",3.63426330853387e-06,0.88459897241344
+"Afon Hafren 2012","Siphonoperla torrentium",0.01541376025,"dry g.m2",0.00044039315,35,"animal","ectotherm invertebrate","species","walking",2.17148125996197e-06,0.88459897241344
+"Afon Hafren 2012","Surirella linearis",0.000236172375,"dry g.m2",3.81e-10,619875,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Tabellaria flocculosa",0.08075395834,"dry g.m2",2e-09,40376979.17,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Hafren 2012","Tanypodinae",0.000282234112,"dry g.m2",3.5279264e-05,8,"animal","ectotherm invertebrate","subfamily","walking",8.267802442579e-08,0.88459897241344
+"Afon Hafren 2012","Tipulidae",0.016360321754,"dry g.m2",0.000564149026,29,"animal","ectotherm invertebrate","family","walking",2.14510657166144e-06,0.88459897241344

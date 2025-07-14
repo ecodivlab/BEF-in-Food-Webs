@@ -1,0 +1,35 @@
+species,biomass,bodymass,metabolic_type
+Acartia,3.798357989,1.00E-05,invertebrate
+Autotroph,22.96299264,5.40E-09,primary producer
+Bosmina,0.081128682,3.40E-05,invertebrate
+Clupea harengus,6.512945499,16.6,ectotherm vertebrate
+Coregonus,0,727.2,ectotherm vertebrate
+Cyclopoida,0.034352229,1.10E-05,invertebrate
+Detritus,1,1,detritus
+Eurytemora affinis,4.27531345,1.70E-05,invertebrate
+Evadne,0.044423771,4.40E-05,invertebrate
+Gadus morhua,0,3000,ectotherm vertebrate
+Gasterosteus aculeatus,0.000202873,2.1,ectotherm vertebrate
+Gymnocephalus cernua,0.0001335,51,ectotherm vertebrate
+Heterotroph,0.49048992,1.19E-08,invertebrate
+Keratella,0.001254408,1.00E-06,invertebrate
+Limecola balthica,0,0.02,invertebrate
+Limnocalanus macrurus,0.342702312,0.000211,invertebrate
+Liparis liparis,1.29E-05,50,ectotherm vertebrate
+Marenzelleria,0,0.009,invertebrate
+Mixotroph,0.25855384,1.46E-08,primary producer
+Monoporeia affinis,0,0.002,invertebrate
+Myoxocephalus quadricornis,0.00036975,219.9,ectotherm vertebrate
+Myoxocephalus scorpius,0.00024,182.7,ectotherm vertebrate
+Neogobius melanostomus,0,50,ectotherm vertebrate
+Oligochaeta,0,0.002,invertebrate
+Osmerus eperlanus,0.04202,50.5,ectotherm vertebrate
+Platichthys flesus,0,191.8,ectotherm vertebrate
+Podon/pleopis,0.004639376,6.20E-05,invertebrate
+Pomatoschistus,4.74E-05,0.5,ectotherm vertebrate
+Pontoporeia femorata,0.099908,0.018,invertebrate
+Saduria entomon,0,0.79,invertebrate
+Sander lucioperca,0.0022555,1605,ectotherm vertebrate
+Sprattus sprattus,0.00127475,8.8,ectotherm vertebrate
+Synchaeta,1.169529616,6.00E-06,invertebrate
+Zoarces viviparus,0.109440823,61.5,ectotherm vertebrate

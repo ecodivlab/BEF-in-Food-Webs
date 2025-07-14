@@ -1,0 +1,44 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"River Etherow","Achnanthes minutissima",0.412607511108,"dry g.m2",2.34e-10,1763279962,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Achnanthes oblongella",2.0451828921,"dry g.m2",2.54e-10,8051901150,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Ameletus inopinatus",0.002508859328,"dry g.m2",0.00156803708,1.6,"animal","ectotherm invertebrate","species","walking",2.44559322722963e-07,0.88459897241344
+"River Etherow","Amphinemura sulcicollis",0.0124805427936,"dry g.m2",0.000371444726,33.6,"animal","ectotherm invertebrate","species","walking",1.8472488461998e-06,0.88459897241344
+"River Etherow","Baetis buceratus",0.0241611531392,"dry g.m2",0.000171599099,140.8,"animal","ectotherm invertebrate","species","walking",4.47372777890735e-06,0.88459897241344
+"River Etherow","Baetis vernus",0.0499123837984,"dry g.m2",0.000209364026,238.4,"animal","ectotherm invertebrate","species","walking",8.7238454196348e-06,0.88459897241344
+"River Etherow","Brachyptera risi",0.0030579409056,"dry g.m2",0.001911213066,1.6,"animal","ectotherm invertebrate","species","walking",2.81456119041988e-07,0.88459897241344
+"River Etherow","Brachysira brebissonii",2.152173332932,"dry g.m2",8.89e-09,242089238.8,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Brachysira vitrea",0.290426548285,"dry g.m2",5.65e-10,514029289,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Centroptilum luteolum",0.0020415668496,"dry g.m2",0.001275979281,1.6,"animal","ectotherm invertebrate","species","walking",2.11266288035549e-07,0.88459897241344
+"River Etherow","Chironomidae",0.0147437836368,"dry g.m2",0.000180683623,81.6,"animal","ectotherm invertebrate","family","walking",2.68945168672698e-06,0.88459897241344
+"River Etherow","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Etherow","Dicranota",0.0011754995712,"dry g.m2",0.000244895744,4.8,"animal","ectotherm invertebrate","genus","walking",1.96326608039869e-07,0.88459897241344
+"River Etherow","Elmis aenea",0.0009989246208,"dry g.m2",0.000208109296,4.8,"animal","ectotherm invertebrate","species","walking",1.74899849349845e-07,0.88459897241344
+"River Etherow","Empididae",0.0007103931696,"dry g.m2",0.000147998577,4.8,"animal","ectotherm invertebrate","family","walking",1.37304679179992e-07,0.88459897241344
+"River Etherow","Eunotia",0.0308559701838,"dry g.m2",8.9e-11,346696294.2,"plant","plant","genus","sessile",NA,0.487432933611077
+"River Etherow","Eunotia denticulata",2.18680521256,"dry g.m2",2.35e-09,930555409.6,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Eunotia exigua",0.34881237361,"dry g.m2",3.35e-10,1041230966,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Eunotia incisa",0.285779777787,"dry g.m2",1.59e-09,179735709.3,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Eunotia rhomboidea",1.079714684768,"dry g.m2",3.04e-10,3551693042,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Eunotia tenella",0.161349299144,"dry g.m2",3.8e-10,424603418.8,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Eunotia vanheurckii",0.83883063012,"dry g.m2",8.07e-10,1039443160,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Etherow","Frustulia rhomboides",0.4228119976221,"dry g.m2",9.27e-10,456107872.3,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Gomphonema angustatum",2.021014430292,"dry g.m2",8.58e-10,2355494674,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Hydropsyche siltalai",0.0033398071568,"dry g.m2",0.002087379473,1.6,"animal","ectotherm invertebrate","species","walking",2.99638924626178e-07,0.88459897241344
+"River Etherow","Isoperla grammatica",0.0056961916512,"dry g.m2",0.001780059891,3.2,"animal","ectotherm invertebrate","species","walking",5.35204556120369e-07,0.88459897241344
+"River Etherow","Leuctra inermis",0.026036369984,"dry g.m2",0.000406818281,64,"animal","ectotherm invertebrate","species","walking",3.75331961121803e-06,0.88459897241344
+"River Etherow","Limnius volckmari",0.0007259848032,"dry g.m2",0.000226870251,3.2,"animal","ectotherm invertebrate","species","walking",1.23969053981583e-07,0.88459897241344
+"River Etherow","Nemoura cinerea",0.0011058063696,"dry g.m2",0.000691128981,1.6,"animal","ectotherm invertebrate","species","walking",1.36699899115315e-07,0.88459897241344
+"River Etherow","Oligochaeta",0.0015837067232,"dry g.m2",0.000141402386,11.2,"animal","ectotherm invertebrate","class","walking",3.10172687938195e-07,0.88459897241344
+"River Etherow","Oreodytes sanmarkii",0.002491053792,"dry g.m2",0.00051896954,4.8,"animal","ectotherm invertebrate","species","walking",3.34621014175957e-07,0.88459897241344
+"River Etherow","Oulimnius tuberculatus",0.000582075984,"dry g.m2",0.00036379749,1.6,"animal","ectotherm invertebrate","species","walking",8.66745540124467e-08,0.88459897241344
+"River Etherow","Pinnularia appendiculata",37.0224846772,"dry g.m2",4.4e-08,841420106.3,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Pinnularia subcapitata",9.4344660588,"dry g.m2",2.28e-08,413792371,"plant","plant","species","sessile",NA,0.487432933611077
+"River Etherow","Plectrocnemia conspersa",0.040021765664,"dry g.m2",0.005002720708,8,"animal","ectotherm invertebrate","species","walking",2.78668369910794e-06,0.88459897241344
+"River Etherow","Protonemura meyeri",0.007276522608,"dry g.m2",0.000909565326,8,"animal","ectotherm invertebrate","species","walking",8.30660004980611e-07,0.88459897241344
+"River Etherow","Rhabdiopteryx acuminata",0.0030642144512,"dry g.m2",0.001915134032,1.6,"animal","ectotherm invertebrate","species","walking",2.8186596807685e-07,0.88459897241344
+"River Etherow","Rhyacophila obliterata",0.0106972977552,"dry g.m2",0.000955115871,11.2,"animal","ectotherm invertebrate","species","walking",1.20397944831015e-06,0.88459897241344
+"River Etherow","Simuliidae",0.000931617496,"dry g.m2",0.000582260935,1.6,"animal","ectotherm invertebrate","family","walking",1.21036056042236e-07,0.88459897241344
+"River Etherow","Siphlonurus lacustris",0.0218254722336,"dry g.m2",0.000649567626,33.6,"animal","ectotherm invertebrate","species","walking",2.74703269607167e-06,0.88459897241344
+"River Etherow","Siphonoperla torrentium",0.055480936616,"dry g.m2",0.000990731011,56,"animal","ectotherm invertebrate","species","walking",6.17842617496881e-06,0.88459897241344
+"River Etherow","Surirella minuta",0.23751941591,"dry g.m2",1.33e-09,178586027,"plant","plant","species","sessile",NA,0.487432933611077

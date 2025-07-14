@@ -1,0 +1,33 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Nant Gwryd","Achnanthes minutissima",0.01678826483449,"dry g.m2",3.47e-10,48381166.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Baetis rhodani",0.003870239884,"dry g.m2",0.000203696836,19,"animal","ectotherm invertebrate","species","walking",6.81857605777823e-07,0.88459897241344
+"Nant Gwryd","Chironomidae",0.000869715191000002,"dry g.m2",1.06062828170732e-05,82,"animal","ectotherm invertebrate","family","walking",3.61014773043983e-07,0.88459897241344
+"Nant Gwryd","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Nant Gwryd","Ecdyonurus",0.01803274692,"dry g.m2",0.01803274692,1,"animal","ectotherm invertebrate","genus","walking",8.65695554601214e-07,0.88459897241344
+"Nant Gwryd","Electrogena lateralis",0.000775767926,"dry g.m2",0.000387883963,2,"animal","ectotherm invertebrate","species","walking",1.13388637816519e-07,0.88459897241344
+"Nant Gwryd","Encyonema minutum",1.175476666706e-05,"dry g.m2",1.18e-11,996166.6667,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Encyonema silesiacum",2.68731e-05,"dry g.m2",1.48e-11,1815750,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Eunotia exigua",0.013489597,"dry g.m2",4.28e-10,31517750,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Eunotia incisa",0.008467536,"dry g.m2",4.64e-10,18249000,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Eunotia rhomboidea",0.000126194625,"dry g.m2",2.78e-10,453937.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Nant Gwryd","Fragilaria ulna",0.000165359375,"dry g.m2",4.75e-10,348125,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Fragilaria vaucheriae",0.001587282666528,"dry g.m2",4.16e-10,3815583.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Fragilariforma virescens",0.000720144833188,"dry g.m2",4.36e-10,1651708.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Frustulia rhomboides",8.563875e-05,"dry g.m2",4.92e-10,174062.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Gomphonema parvulum",5.37254375e-05,"dry g.m2",5.3e-11,1013687.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Heptagenia",0.003603295528,"dry g.m2",0.000900823882,4,"animal","ectotherm invertebrate","genus","walking",4.12492029676207e-07,0.88459897241344
+"Nant Gwryd","Leuctra hippopus",0.0012676968,"dry g.m2",7.04276e-05,18,"animal","ectotherm invertebrate","species","walking",3.03900352222735e-07,0.88459897241344
+"Nant Gwryd","Leuctra nigra",5.2873186e-05,"dry g.m2",5.2873186e-05,1,"animal","ectotherm invertebrate","species","walking",1.37739479791582e-08,0.88459897241344
+"Nant Gwryd","Limnius volckmari",0.008749079755,"dry g.m2",0.000673006135,13,"animal","ectotherm invertebrate","species","walking",1.08992874358946e-06,0.88459897241344
+"Nant Gwryd","Navicula angusta",0.00186657958297,"dry g.m2",1.09e-09,1712458.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Navicula lanceolata",0.00340393375,"dry g.m2",1.66e-09,2050562.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Oligochaeta",0.001486347137,"dry g.m2",0.000135122467,11,"animal","ectotherm invertebrate","class","walking",2.94965011933059e-07,0.88459897241344
+"Nant Gwryd","Pinnularia subcapitata",0.009303925,"dry g.m2",1.16e-08,802062.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Simuliidae",0.001644851871,"dry g.m2",0.000126527067,13,"animal","ectotherm invertebrate","family","walking",3.32701564026232e-07,0.88459897241344
+"Nant Gwryd","Siphonoperla torrentium",0.005661676579,"dry g.m2",0.000435513583,13,"animal","ectotherm invertebrate","species","walking",8.00194956376015e-07,0.88459897241344
+"Nant Gwryd","Surirella brebissonii",0.0010153434375,"dry g.m2",9.45e-10,1074437.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Surirella linearis",0.001894591458157,"dry g.m2",5.29e-09,358145.8333,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Tabellaria flocculosa",0.169265618498,"dry g.m2",1.31e-09,129210395.8,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Gwryd","Tanypodinae",9.6501728e-05,"dry g.m2",2.4125432e-05,4,"animal","ectotherm invertebrate","subfamily","walking",3.15630205881886e-08,0.88459897241344
+"Nant Gwryd","Tipulidae",0.002975271568,"dry g.m2",0.000743817892,4,"animal","ectotherm invertebrate","family","walking",3.60049771184221e-07,0.88459897241344

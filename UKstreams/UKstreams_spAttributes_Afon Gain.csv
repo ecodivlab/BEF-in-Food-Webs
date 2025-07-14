@@ -1,0 +1,40 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Afon Gain","Achnanthes",0.0577866086709,"dry g.m2",1.27e-10,455012666.7,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Amphinemura sulcicollis",0.000275248059,"dry g.m2",0.000275248059,1,"animal","ectotherm invertebrate","species","walking",4.44391225673456e-08,0.88459897241344
+"Afon Gain","Baetis rhodani",0.081437780727,"dry g.m2",0.000249045201,327,"animal","ectotherm invertebrate","species","walking",1.35352569846075e-05,0.88459897241344
+"Afon Gain","Chironomidae",0.00180109096100001,"dry g.m2",1.37487859618321e-05,131,"animal","ectotherm invertebrate","subfamily","walking",6.93426176517932e-07,0.88459897241344
+"Afon Gain","Corixidae",0.003328490706,"dry g.m2",0.001109496902,3,"animal","ectotherm invertebrate","family","walking",3.58692279130017e-07,0.88459897241344
+"Afon Gain","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Gain","Electrogena lateralis",0.00184365986,"dry g.m2",0.000460914965,4,"animal","ectotherm invertebrate","species","walking",2.56325617874257e-07,0.88459897241344
+"Afon Gain","Elmis aenea",1.0968603e-05,"dry g.m2",1.0968603e-05,1,"animal","ectotherm invertebrate","species","walking",4.50888005958502e-09,0.88459897241344
+"Afon Gain","Esolus parallelepipedus",4.178904e-05,"dry g.m2",2.089452e-05,2,"animal","ectotherm invertebrate","species","walking",1.42499797092877e-08,0.88459897241344
+"Afon Gain","Eunotia bilunaris",0.003788772213642,"dry g.m2",9.26e-10,4091546.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Eunotia curvata",0.03174302158521,"dry g.m2",4.37e-10,72638493.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Eunotia exigua",0.01301613762594,"dry g.m2",2.18e-10,59707053.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Eunotia pectinalis",0.01831609093074,"dry g.m2",7.78e-10,23542533.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Eunotia rhomboidea",0.0004605298133114,"dry g.m2",6.58e-10,699893.3333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Gain","Frustulia rhomboides",0.000540868266842,"dry g.m2",5.26e-10,1028266.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Gomphonema parvulum",0.00896929053858,"dry g.m2",7.74e-11,115882306.7,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Hydracarina",0.000114277265,"dry g.m2",0.000114277265,1,"animal","ectotherm invertebrate","genus","walking",2.38074418399069e-08,0.88459897241344
+"Afon Gain","Isoperla grammatica",0.021521410316,"dry g.m2",0.001537243594,14,"animal","ectotherm invertebrate","species","walking",2.10997152391992e-06,0.88459897241344
+"Afon Gain","Leuctra hippopus",0.00076943874,"dry g.m2",7.6943874e-05,10,"animal","ectotherm invertebrate","species","walking",1.79781426320614e-07,0.88459897241344
+"Afon Gain","Leuctra inermis",0.003053395257,"dry g.m2",0.000277581387,11,"animal","ectotherm invertebrate","species","walking",4.91768916723273e-07,0.88459897241344
+"Afon Gain","Limnius volckmari",0.000377659147,"dry g.m2",0.000377659147,1,"animal","ectotherm invertebrate","species","walking",5.56291280568875e-08,0.88459897241344
+"Afon Gain","Meridion circulare",0.00431595216,"dry g.m2",3.51e-10,12296160,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Oligochaeta",0.002896747608,"dry g.m2",0.000482791268,6,"animal","ectotherm invertebrate","class","walking",3.97357739405321e-07,0.88459897241344
+"Afon Gain","Oreodytes sanmarkii",0.001111911401,"dry g.m2",0.001111911401,1,"animal","ectotherm invertebrate","species","walking",1.19748774428473e-07,0.88459897241344
+"Afon Gain","Oulimnius",0.000509187008,"dry g.m2",0.000127296752,4,"animal","ectotherm invertebrate","genus","walking",1.02811462629727e-07,0.88459897241344
+"Afon Gain","Phoxinus phoxinus",0.025891812793,"dry g.m2",0.8855,0.029239766,"animal","ectotherm vertebrate","species","swimming",5.04252378223927e-05,0.88459897241344
+"Afon Gain","Pinnularia subcapitata",0.00321950933272,"dry g.m2",1.84e-08,174973.3333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Plectrocnemia conspersa",0.001013094369,"dry g.m2",0.000337698123,3,"animal","ectotherm invertebrate","species","walking",1.54147981098986e-07,0.88459897241344
+"Afon Gain","Plectrocnemia geniculata",0.00331587766,"dry g.m2",0.00165793883,2,"animal","ectotherm invertebrate","species","walking",3.18042296008859e-07,0.88459897241344
+"Afon Gain","Rhyacophila dorsalis",0.002289764829,"dry g.m2",0.002289764829,1,"animal","ectotherm invertebrate","species","walking",1.99992068445706e-07,0.88459897241344
+"Afon Gain","Salmo trutta",0.18572612135396,"dry g.m2",1.52444,0.121832359,"animal","ectotherm vertebrate","species","swimming",7.41570443622822e-05,0.88459897241344
+"Afon Gain","Simuliidae",0.000187489008,"dry g.m2",2.3436126e-05,8,"animal","ectotherm invertebrate","family","walking",6.18400980321756e-08,0.88459897241344
+"Afon Gain","Siphonoperla torrentium",0.022457628402,"dry g.m2",0.000340267097,66,"animal","ectotherm invertebrate","species","walking",3.40955225933307e-06,0.88459897241344
+"Afon Gain","Surirella linearis",0.0118965348,"dry g.m2",3.87e-09,3074040,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Surirella minuta",0.000412937066706,"dry g.m2",1.18e-09,349946.6667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Tabellaria flocculosa",0.20154965292,"dry g.m2",8.91e-10,226206120,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Gain","Tanypodinae",0.00056990874,"dry g.m2",3.7993916e-05,15,"animal","ectotherm invertebrate","subfamily","walking",1.63399035078267e-07,0.88459897241344
+"Afon Gain","Tipulidae",0.003255037618,"dry g.m2",0.000465005374,7,"animal","ectotherm invertebrate","family","walking",4.51392612682047e-07,0.88459897241344

@@ -1,0 +1,38 @@
+fw_name,species,metabolic_type,abundance,biomass,bodymass
+Win55,Amphinemura wui,ectotherm invertebrate,117,2.7,0.023076923
+Win55,Bacteria,detritus,,,
+Win55,Beloneuria sp.,ectotherm invertebrate,6,0.5,0.083333333
+Win55,Chironomidae,ectotherm invertebrate,13000,18.4,0.001415385
+Win55,Cordulegaster sp.,ectotherm invertebrate,2,2.3,1.15
+Win55,Detritus,detritus,,,
+Win55,Diatoms,plant,,,
+Win55,Diplectrona modesta,ectotherm invertebrate,60,19.7,0.328333333
+Win55,Dixa sp.,ectotherm invertebrate,1,0.001357466,0.001357466
+Win55,Dolophilodes sp.,ectotherm invertebrate,1,1.6,1.6
+Win55,Ectopria thoracica,ectotherm invertebrate,27,1.4,0.051851852
+Win55,Epeorus spp.,ectotherm invertebrate,17,0.242857138,0.014285714
+Win55,External,detritus,,,
+Win55,Fattigia pele,ectotherm invertebrate,14,3.9,0.278571429
+Win55,Fungi,detritus,,,
+Win55,Harpacticoida,ectotherm invertebrate,1450,1.5,0.001034483
+Win55,Hexatoma spp.,ectotherm invertebrate,116,29.2,0.251724138
+Win55,Isoperla spp.,ectotherm invertebrate,56,4.9,0.0875
+Win55,Lanthus vernalis,ectotherm invertebrate,11,6.5,0.590909091
+Win55,Leuctra spp.,ectotherm invertebrate,189,1.6,0.008465608
+Win55,Lype diversa,ectotherm invertebrate,122,3.3,0.02704918
+Win55,Molophilus spp.,ectotherm invertebrate,28,3,0.107142857
+Win55,Oligochaeta,ectotherm invertebrate,1090,50.6,0.046422018
+Win55,Other detritus,detritus,,,
+Win55,Paraleptophlebia spp.,ectotherm invertebrate,36,2.4,0.066666667
+Win55,Parapsyche cardis,ectotherm invertebrate,30,17.6,0.586666667
+Win55,Pedicia spp.,ectotherm invertebrate,1,1.5,1.5
+Win55,Pseudolimnophila,ectotherm invertebrate,1,1.4,1.4
+Win55,Pycnopsyche spp.,ectotherm invertebrate,26,1.3,0.05
+Win55,Rhyacophila spp.,ectotherm invertebrate,152,10.5,0.069078947
+Win55,Sciara spp.,ectotherm invertebrate,98,5.7,0.058163265
+Win55,Serratella spp.,ectotherm invertebrate,167,6.4,0.038323353
+Win55,Stenonema spp.,ectotherm invertebrate,14,5,0.357142857
+Win55,Tallaperla maria,ectotherm invertebrate,268,34.2,0.12761194
+Win55,Tanypodinae,ectotherm invertebrate,566,1,0.001766784
+Win55,Tipula spp.,ectotherm invertebrate,5,143,28.6
+Win55,Wormaldia moesta,ectotherm invertebrate,30,2.3,0.076666667

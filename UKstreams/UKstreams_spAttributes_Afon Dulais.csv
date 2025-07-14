@@ -1,0 +1,46 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Afon Dulais","Achnanthes",0.03014964353215,"dry g.m2",3.55e-10,84928573.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Achnanthes lanceolata",4.54212e-05,"dry g.m2",1.11e-09,40920,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Achnanthes levanderi",0.003728368744,"dry g.m2",8.18e-11,45579080,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Achnanthes minutissima",0.001974899639907,"dry g.m2",2.79e-10,7078493.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Achnanthes subatomoides",4.3717333338e-06,"dry g.m2",1.4e-10,31226.66667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Baetis rhodani",0.02604114096,"dry g.m2",0.00108504754,24,"animal","ectotherm invertebrate","species","walking",2.82449697025088e-06,0.88459897241344
+"Afon Dulais","Brachyptera risi",0.000984366085,"dry g.m2",0.000984366085,1,"animal","ectotherm invertebrate","species","walking",1.09825316415383e-07,0.88459897241344
+"Afon Dulais","Chironomidae",0.000269419606999999,"dry g.m2",1.17138959565217e-05,23,"animal","ectotherm invertebrate","subfamily","walking",1.08659336902487e-07,0.88459897241344
+"Afon Dulais","Chloroperla tripunctata",0.001117584348,"dry g.m2",0.000372528116,3,"animal","ectotherm invertebrate","species","walking",1.65274340053407e-07,0.88459897241344
+"Afon Dulais","Cottus gobio",0.00647310339502299,"dry g.m2",0.3128666667,0.020689655,"animal","ectotherm vertebrate","species","swimming",2.40906863444777e-05,0.88459897241344
+"Afon Dulais","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Dulais","Diatoma hyemalis",0.00337382456,"dry g.m2",7.18e-10,4698920,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Drusus annulatus",0.031911038742,"dry g.m2",0.005318506457,6,"animal","ectotherm invertebrate","species","walking",2.18284640600629e-06,0.88459897241344
+"Afon Dulais","Electrogena lateralis",0.000610448204,"dry g.m2",0.000610448204,1,"animal","ectotherm invertebrate","species","walking",7.82297440991969e-08,0.88459897241344
+"Afon Dulais","Encyonema minutum",3.7472000004e-07,"dry g.m2",1.2e-11,31226.66667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Esolus parallelepipedus",0.000476555849,"dry g.m2",6.8079407e-05,7,"animal","ectotherm invertebrate","species","walking",1.1537201553612e-07,0.88459897241344
+"Afon Dulais","Eunotia exigua",0.00738107552,"dry g.m2",3.29e-10,22434880,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Eunotia incisa",0.06657697888,"dry g.m2",9.47e-10,70303040,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Eunotia rhomboidea",0.0003422561066374,"dry g.m2",8.78e-10,389813.3333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Dulais","Fragilaria capucina",0.0001096056,"dry g.m2",1.17e-09,93680,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Fragilaria ulna",0.082406544,"dry g.m2",5.82e-08,1415920,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Gomphonema parvulum",0.006794841906918,"dry g.m2",7.54e-11,90117266.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Hydracarina",0.000112512484,"dry g.m2",5.6256242e-05,2,"animal","ectotherm invertebrate","genus","walking",2.87880635089564e-08,0.88459897241344
+"Afon Dulais","Isoperla grammatica",0.00192069304,"dry g.m2",0.00048017326,4,"animal","ectotherm invertebrate","species","walking",2.63884449364276e-07,0.88459897241344
+"Afon Dulais","Leuctra inermis",0.010119622986,"dry g.m2",0.000306655242,33,"animal","ectotherm invertebrate","species","walking",1.58342306221516e-06,0.88459897241344
+"Afon Dulais","Leuctra nigra",2.214112e-05,"dry g.m2",2.214112e-05,1,"animal","ectotherm invertebrate","species","walking",7.42425624626066e-09,0.88459897241344
+"Afon Dulais","Limnius volckmari",0.001666803834,"dry g.m2",9.2600213e-05,18,"animal","ectotherm invertebrate","species","walking",3.69086586429708e-07,0.88459897241344
+"Afon Dulais","Meridion circulare constrictum",0.0001223940400173,"dry g.m2",5.19e-10,235826.6667,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Afon Dulais","Micropterna lateralis",0.000178686773,"dry g.m2",0.000178686773,1,"animal","ectotherm invertebrate","species","walking",3.26999324300874e-08,0.88459897241344
+"Afon Dulais","Micropterna sequax",0.001158080322,"dry g.m2",0.001158080322,1,"animal","ectotherm invertebrate","species","walking",1.2325816886426e-07,0.88459897241344
+"Afon Dulais","Navicula rhyncocephala",0.3029236976,"dry g.m2",5.38e-09,56305520,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Navicula seminulum",1.162128e-05,"dry g.m2",1.42e-10,81840,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Odontocerum albicorne",0.03027826895,"dry g.m2",0.03027826895,1,"animal","ectotherm invertebrate","species","walking",1.25073207431447e-06,0.88459897241344
+"Afon Dulais","Oligochaeta",0.004271157801,"dry g.m2",0.000474573089,9,"animal","ectotherm invertebrate","class","walking",5.88815132778725e-07,0.88459897241344
+"Afon Dulais","Perlodes microcephalus",0.02211535301,"dry g.m2",0.02211535301,1,"animal","ectotherm invertebrate","species","walking",1.00067695689155e-06,0.88459897241344
+"Afon Dulais","Pinnularia subcapitata",0.051602232,"dry g.m2",4.26e-08,1211320,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Rhithrogena semicolorata",0.002746723496,"dry g.m2",0.001373361748,2,"animal","ectotherm invertebrate","species","walking",2.78239353227116e-07,0.88459897241344
+"Afon Dulais","Salmo trutta",0.262993103519902,"dry g.m2",0.4190549451,0.627586207,"animal","ectotherm vertebrate","species","swimming",0.000948650938359491,0.88459897241344
+"Afon Dulais","Sericostoma personatum",3.2078312e-05,"dry g.m2",3.2078312e-05,1,"animal","ectotherm invertebrate","species","walking",9.65987301128362e-09,0.88459897241344
+"Afon Dulais","Silo pallipes",0.006864067626,"dry g.m2",0.000528005202,13,"animal","ectotherm invertebrate","species","walking",9.17440108020939e-07,0.88459897241344
+"Afon Dulais","Siphonoperla torrentium",0.005723623125,"dry g.m2",0.000173443125,33,"animal","ectotherm invertebrate","species","walking",1.05651756269038e-06,0.88459897241344
+"Afon Dulais","Surirella linearis",0.0004303034666437,"dry g.m2",6.89e-09,62453.33333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Dulais","Tanypodinae",2.7829816e-05,"dry g.m2",2.7829816e-05,1,"animal","ectotherm invertebrate","subfamily","walking",8.73300251016481e-09,0.88459897241344
+"Afon Dulais","Tipulidae",0.007545289548,"dry g.m2",0.000628774129,12,"animal","ectotherm invertebrate","family","walking",9.58680083130318e-07,0.88459897241344

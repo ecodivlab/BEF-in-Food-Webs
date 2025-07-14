@@ -1,0 +1,42 @@
+"FW_name","species","species_type","metabolic_type","functional_group","taxonomic_level","movement_type","bodymass","abundance","biomass","losses","efficiencies"
+"IS7","Achnanthes","plant","plant","plant","genus","sessile",7.0952e-10,128400998.4392,0.0911030764125812,NA,0.476696907735133
+"IS7","Amphora","plant","plant","plant","genus","sessile",6.5e-10,66720348.2833333,0.0433682263841666,NA,0.476696907735133
+"IS7","Bacteria","detritus","heterotrophic bacteria","nonfeeding",NA,"sessile",NA,NA,NA,NA,0.125397594152005
+"IS7","Clinocera stagnalis","animal","ectotherm invertebrate","carnivore","species","walking",0.00014695688,16,0.00235131008,3.80026473769581e-07,0.880136145438191
+"IS7","Cocconeis","plant","plant","plant","genus","sessile",8.89733333333332e-09,49222370.14,0.437947834592293,NA,0.476696907735133
+"IS7","CPOM","detritus","detritus","detritus",NA,"sessile",NA,NA,NA,NA,0.125397594152005
+"IS7","Cricotopus sp. B","animal","ectotherm invertebrate","herbivore","genus","walking",0.00033147506,188,0.06231731128,7.95549088135725e-06,0.880136145438191
+"IS7","Cymbella","plant","plant","plant","genus","sessile",2.476e-10,1427146.461,0.0003533614637436,NA,0.476696907735133
+"IS7","Diamesa bertrami","animal","ectotherm invertebrate","herbivore","species","walking",0.000207386412,204,0.042306828048,6.18775632642784e-06,0.880136145438191
+"IS7","Diamesa zernyi","animal","ectotherm invertebrate","herbivore","species","walking",0.0002667296,84,0.0224052864,3.04634349785054e-06,0.880136145438191
+"IS7","Diatoma","plant","plant","plant","genus","sessile",2.208e-09,256480045.1,0.5663079395808,NA,0.476696907735133
+"IS7","Dicranota exclusa","animal","ectotherm invertebrate","omnivore","species","walking",0.00124821004,8,0.00998568032,8.67847182167536e-07,0.880136145438191
+"IS7","Eukiefferiella minor","animal","ectotherm invertebrate","herbivore","species","walking",0.000178163708,2548,0.453961127984,6.93857217156845e-05,0.880136145438191
+"IS7","Filamentous algae","plant","plant","plant",NA,"sessile",NA,NA,NA,NA,0.476696907735133
+"IS7","FPOM","detritus","detritus","detritus",NA,"sessile",NA,NA,NA,NA,0.125397594152005
+"IS7","Fragilaria","plant","plant","plant","genus","sessile",4.794e-10,77917476.11,0.037353638047134,NA,0.476696907735133
+"IS7","Fungi","detritus","heterotrophic fungi","nonfeeding",NA,"sessile",NA,NA,NA,NA,0.125397594152005
+"IS7","Gomphonema","plant","plant","plant","genus","sessile",2.56933333333333e-10,284708257.31,0.0731510415781826,NA,0.476696907735133
+"IS7","Green algae","plant","plant","plant",NA,"sessile",NA,NA,NA,NA,0.476696907735133
+"IS7","Meridion","plant","plant","plant","genus","sessile",1.724e-09,58795925.18,0.10136417501032,NA,0.476696907735133
+"IS7","Mesoveliidae indet. sp. A","animal","ectotherm invertebrate","carnivore","family","swimming",0.002647550832,12,0.031770609984,2.22018788271521e-06,0.880136145438191
+"IS7","Metriocnemus sp. A","animal","ectotherm invertebrate","herbivore","genus","walking",0.000368129172,48,0.017670200256,2.18821720025587e-06,0.880136145438191
+"IS7","Metriocnemus sp. B","animal","ectotherm invertebrate","herbivore","genus","walking",5.229712e-05,4,0.00020918848,4.56213606644947e-08,0.880136145438191
+"IS7","Micropsectra atrofasciata","animal","ectotherm invertebrate","herbivore","species","walking",0.000251820072,24,0.006043681728,8.35553782745664e-07,0.880136145438191
+"IS7","Navicula","plant","plant","plant","genus","sessile",2.74533333333333e-09,7821669.47476667,0.0214730899313928,NA,0.476696907735133
+"IS7","Nitzschia","plant","plant","plant","genus","sessile",2.41266666666667e-10,43168191.2565,0.0104150456104849,NA,0.476696907735133
+"IS7","Oligochaeta indet.","animal","ectotherm invertebrate","herbivore","class","walking",6.9050868e-05,5548,0.383094215664,7.70789104933442e-05,0.880136145438191
+"IS7","Potamophylax cingulatus","animal","ectotherm invertebrate","omnivore","species","walking",0.001459521228,12,0.017514254736,1.45465386529718e-06,0.880136145438191
+"IS7","Prosimulium ursinum","animal","ectotherm invertebrate","omnivore","species","walking",0.005400652044,12,0.064807824528,3.68304538023444e-06,0.880136145438191
+"IS7","Radix balthica","animal","ectotherm invertebrate","herbivore","species","walking",0.000506243468,20,0.01012486936,1.14317894416898e-06,0.880136145438191
+"IS7","Rheocricotopus effesus","animal","ectotherm invertebrate","herbivore","species","walking",0.000200137884,36,0.007204963824,1.06471979977635e-06,0.880136145438191
+"IS7","Rhoicosphenia","plant","plant","plant","genus","sessile",1.224e-10,231177.5378,2.829613062672e-05,NA,0.476696907735133
+"IS7","Rhopalodia","plant","plant","plant","genus","sessile",4.76e-09,2977322.993,0.01417205744668,NA,0.476696907735133
+"IS7","Scatella sp.","animal","ectotherm invertebrate","detritivore","genus","walking",0.001131268048,32,0.036200577536,3.23720738207255e-06,0.880136145438191
+"IS7","Simulium aureum","animal","ectotherm invertebrate","omnivore","species","walking",4.2786412e-05,16,0.000684582592,1.58247250640166e-07,0.880136145438191
+"IS7","Simulium vittatum","animal","ectotherm invertebrate","omnivore","species","walking",1.6914888e-05,60,0.00101489328,3.0705159246911e-07,0.880136145438191
+"IS7","Sperchon glandulosus","animal","ectotherm invertebrate","herbivore","species","walking",0.000588944676,220,0.12956782872,1.40011787392677e-05,0.880136145438191
+"IS7","Stauroneis","plant","plant","plant","genus","sessile",5.4e-10,4391109.043,0.00237119888322,NA,0.476696907735133
+"IS7","Synedra","plant","plant","plant","genus","sessile",2.016e-08,23261183.8,0.468945465408,NA,0.476696907735133
+"IS7","Terrestrial","detritus","ectotherm invertebrate","nonfeeding",NA,"flying",NA,NA,NA,NA,0.125397594152005
+"IS7","Thienemanniella sp.","animal","ectotherm invertebrate","herbivore","genus","walking",9.7570812e-05,1568,0.152991033216,2.78453207538238e-05,0.880136145438191

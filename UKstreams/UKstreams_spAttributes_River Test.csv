@@ -1,0 +1,89 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"River Test","Achnanthes lanceolata",0.026274951936,"dry g.m2",1.08e-09,24328659.2,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Achnanthes minutissima",0.02852041605716,"dry g.m2",2.92e-10,97672657.73,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Achnanthes oblongella",0.00359297070092,"dry g.m2",2.41e-10,14908592.12,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Agapetus fuscipes",0.1264098006,"dry g.m2",0.000351138335,360,"animal","ectotherm invertebrate","species","walking",1.90174946277756e-05,0.88459897241344
+"River Test","Amphora inariensis",6.54675183246e-05,"dry g.m2",1.41e-11,4643086.406,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Ancylus fluviatilis",0.04987907757,"dry g.m2",0.001425116502,35,"animal","ectotherm invertebrate","species","walking",4.99876883457419e-06,0.88459897241344
+"River Test","Anguilla anguilla",0.0396779664456,"dry g.m2",15.5736,0.002547771,"animal","ectotherm vertebrate","species","swimming",0.00888112762206506,0.88459897241344
+"River Test","Antocha",0.04897822635,"dry g.m2",0.000217681006,225,"animal","ectotherm invertebrate","genus","walking",8.46440325893438e-06,0.88459897241344
+"River Test","Asellus aquaticus",0.01821030099,"dry g.m2",0.000173431438,105,"animal","ectotherm invertebrate","species","walking",3.36148596276173e-06,0.88459897241344
+"River Test","Athripsodes",0.0517991578,"dry g.m2",0.00019546852,265,"animal","ectotherm invertebrate","genus","walking",9.23573932515341e-06,0.88459897241344
+"River Test","Baetis",0.10157318886,"dry g.m2",0.000153898771,660,"animal","ectotherm invertebrate","genus","walking",1.94107421448347e-05,0.88459897241344
+"River Test","Baetis muticus",0.072128667975,"dry g.m2",0.000137387939,525,"animal","ectotherm invertebrate","species","walking",1.42450527791554e-05,0.88459897241344
+"River Test","Baetis rhodani",0.02098320278,"dry g.m2",9.7596292e-05,215,"animal","ectotherm invertebrate","species","walking",4.57611955947963e-06,0.88459897241344
+"River Test","Baetis scambus",0.03118821489,"dry g.m2",9.9010206e-05,315,"animal","ectotherm invertebrate","species","walking",6.77336649995075e-06,0.88459897241344
+"River Test","Baetis vernus",0.00023167836,"dry g.m2",4.6335672e-05,5,"animal","ectotherm invertebrate","species","walking",6.2709195945689e-08,0.88459897241344
+"River Test","Barbatula barbatula",0.0035612743038,"dry g.m2",1.3978,0.002547771,"animal","ectotherm vertebrate","species","swimming",6.97284560949927e-05,0.88459897241344
+"River Test","Caenis luctuosa",0.000792737775,"dry g.m2",3.1709511e-05,25,"animal","ectotherm invertebrate","species","walking",2.39522233423194e-07,0.88459897241344
+"River Test","Caenis rivulorum",0.00918849195,"dry g.m2",2.663331e-05,345,"animal","ectotherm invertebrate","species","walking",2.92033177966898e-06,0.88459897241344
+"River Test","Calopteryx splendens",0.02765726453,"dry g.m2",0.000790207558,35,"animal","ectotherm invertebrate","species","walking",3.28870962046411e-06,0.88459897241344
+"River Test","Centroptilum luteolum",0.09580711959,"dry g.m2",0.001473955686,65,"animal","ectotherm invertebrate","species","walking",9.50820522225022e-06,0.88459897241344
+"River Test","Chaetopteryx villosa",0.029782392795,"dry g.m2",0.001985492853,15,"animal","ectotherm invertebrate","species","walking",2.71105931259861e-06,0.88459897241344
+"River Test","Cheumatopsyche lepida",0.01639814046,"dry g.m2",0.000546604682,30,"animal","ectotherm invertebrate","species","walking",2.16985432710166e-06,0.88459897241344
+"River Test","Chironomidae",0.015499983675,"dry g.m2",9.03789135568513e-06,1715,"animal","ectotherm invertebrate","family","walking",6.73958296944191e-06,0.88459897241344
+"River Test","Cocconeis placentula",0.8658871101316,"dry g.m2",8.93e-09,96963842.12,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Coronadinium",1.581744768807e-05,"dry g.m2",5.11e-12,3095390.937,"plant","plant","genus","sessile",NA,0.487432933611077
+"River Test","Cottus gobio",0.0215364862496128,"dry g.m2",0.7684609786,0.028025478,"animal","ectotherm vertebrate","species","swimming",0.00109432622552251,0.88459897241344
+"River Test","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Test","Diatoma vulgaris",0.04497872373104,"dry g.m2",5.92e-10,75977573.87,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Dicranota",0.00072271855,"dry g.m2",7.2271855e-05,10,"animal","ectotherm invertebrate","genus","walking",1.71960769759515e-07,0.88459897241344
+"River Test","Drusus annulatus",0.03771149772,"dry g.m2",0.003771149772,10,"animal","ectotherm invertebrate","species","walking",2.85008381291346e-06,0.88459897241344
+"River Test","Elmis aenea",0.01707992551,"dry g.m2",7.9441514e-05,215,"animal","ectotherm invertebrate","species","walking",3.95397064646778e-06,0.88459897241344
+"River Test","Ephemera danica",0.115608115,"dry g.m2",0.000578040575,200,"animal","ectotherm invertebrate","species","walking",1.5051564816399e-05,0.88459897241344
+"River Test","Erpobdella octoculata",0.130797397,"dry g.m2",0.0261594794,5,"animal","ectotherm invertebrate","species","walking",5.63699838329577e-06,0.88459897241344
+"River Test","Eunotia incisa",0.0355196110095,"dry g.m2",1.35e-09,26310822.97,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Test","Fragilaria capucina",0.0256753502043,"dry g.m2",1.41e-09,18209468.23,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Fragilaria vaucheriae",0.00445349678288,"dry g.m2",2.36e-09,1887074.908,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Gammarus pulex",0.5773248534,"dry g.m2",0.00050642531,1140,"animal","ectotherm invertebrate","species","swimming",7.81037766486173e-05,0.88459897241344
+"River Test","Gasterosteus aculeatus",0.0003806369874,"dry g.m2",0.1494,0.002547771,"animal","ectotherm vertebrate","species","swimming",1.42538767048033e-05,0.88459897241344
+"River Test","Glossiphonia complanata",0.071032497165,"dry g.m2",0.004735499811,15,"animal","ectotherm invertebrate","species","walking",5.02530286555217e-06,0.88459897241344
+"River Test","Gomphonema olivaceum",0.00968627848127,"dry g.m2",9.61e-11,100793740.7,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Heptagenia sulphurea",0.01937020789,"dry g.m2",0.000176092799,110,"animal","ectotherm invertebrate","species","walking",3.55983989555926e-06,0.88459897241344
+"River Test","Hydracarina",0.02298423675,"dry g.m2",9.1936947e-05,250,"animal","ectotherm invertebrate","genus","walking",5.10010610058394e-06,0.88459897241344
+"River Test","Hydropsyche pellucidula",0.500420033785,"dry g.m2",0.003228516347,155,"animal","ectotherm invertebrate","species","walking",3.95626221307445e-05,0.88459897241344
+"River Test","Hydropsyche siltalai",0.77692982472,"dry g.m2",0.002158138402,360,"animal","ectotherm invertebrate","species","walking",6.90335243268953e-05,0.88459897241344
+"River Test","Hydroptila",0.028038144375,"dry g.m2",3.0981375e-05,905,"animal","ectotherm invertebrate","genus","walking",8.52886647318784e-06,0.88459897241344
+"River Test","Hydroptilidae",0.00109784367,"dry g.m2",1.2198263e-05,90,"animal","ectotherm invertebrate","family","walking",4.37598003025699e-07,0.88459897241344
+"River Test","Isoperla grammatica",0.02096795245,"dry g.m2",0.000838718098,25,"animal","ectotherm invertebrate","species","walking",2.45057854022677e-06,0.88459897241344
+"River Test","Ithytrichia",0.00499659472,"dry g.m2",3.1228717e-05,160,"animal","ectotherm invertebrate","genus","walking",1.51640312477084e-06,0.88459897241344
+"River Test","Lepidostoma hirtum",0.022534134105,"dry g.m2",0.000214610801,105,"animal","ectotherm invertebrate","species","walking",3.91041783352665e-06,0.88459897241344
+"River Test","Leptoceridae",0.00132791938,"dry g.m2",0.000132791938,10,"animal","ectotherm invertebrate","family","walking",2.64858039882003e-07,0.88459897241344
+"River Test","Leuctra fusca",0.01098228766,"dry g.m2",0.000115603028,95,"animal","ectotherm invertebrate","species","walking",2.28030527226135e-06,0.88459897241344
+"River Test","Limnephilidae",0.00222250804,"dry g.m2",0.000444501608,5,"animal","ectotherm invertebrate","family","walking",3.12263569856934e-07,0.88459897241344
+"River Test","Limnephilus lunatus",0.192954386295,"dry g.m2",0.001169420523,165,"animal","ectotherm invertebrate","species","walking",2.0478794897989e-05,0.88459897241344
+"River Test","Limnius volckmari",0.05590253937,"dry g.m2",0.000162036346,345,"animal","ectotherm invertebrate","species","walking",1.05245897360344e-05,0.88459897241344
+"River Test","Mystacides longicornis",0.01018707121,"dry g.m2",0.002037414242,5,"animal","ectotherm invertebrate","species","walking",9.20402058358023e-07,0.88459897241344
+"River Test","Navicula cryptocephala",0.1220699532168,"dry g.m2",2.16e-09,56513867.23,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Navicula cryptotenella",0.0046407768183,"dry g.m2",1.89e-09,2455437.47,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Navicula lanceolata",0.1820616229115,"dry g.m2",5.35e-09,34030209.89,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Navicula menisculus",0.00602009125488,"dry g.m2",1.79e-09,3363179.472,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Navicula minima",0.000422079023736,"dry g.m2",2.51e-10,1681589.736,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Navicula pupula",0.14888830414,"dry g.m2",1.48e-08,10060020.55,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Navicula seminulum",0.000640745924166,"dry g.m2",4.14e-10,1547695.469,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Navicula tripunctata",0.0206875315638,"dry g.m2",5.9e-09,3506361.282,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Nitzschia dissipata",0.000776836854108,"dry g.m2",1.61e-10,4825073.628,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Nitzschia recta",0.00900650890647,"dry g.m2",2.79e-10,32281393.93,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Oecetis ochracea",0.002551125495,"dry g.m2",0.000510225099,5,"animal","ectotherm invertebrate","species","walking",3.44383347142527e-07,0.88459897241344
+"River Test","Oligochaeta",0.082100215395,"dry g.m2",8.7807717e-05,935,"animal","ectotherm invertebrate","class","walking",1.8462098548616e-05,0.88459897241344
+"River Test","Paraleptophlebia submarginata",0.001221885805,"dry g.m2",3.4911023e-05,35,"animal","ectotherm invertebrate","species","walking",3.59031637529495e-07,0.88459897241344
+"River Test","Phoxinus phoxinus",0.0239785988561001,"dry g.m2",0.6722571429,0.03566879,"animal","ectotherm vertebrate","species","swimming",0.000953722572846078,0.88459897241344
+"River Test","Physa fontinalis",0.023112931,"dry g.m2",0.000577823275,40,"animal","ectotherm invertebrate","species","walking",3.0095094462685e-06,0.88459897241344
+"River Test","Piscicola geometra",0.03607643354,"dry g.m2",0.007215286708,5,"animal","ectotherm invertebrate","species","walking",2.25887033767114e-06,0.88459897241344
+"River Test","Pisidium",0.00038101502,"dry g.m2",3.8101502e-05,10,"animal","ectotherm invertebrate","genus","walking",1.0915160738217e-07,0.88459897241344
+"River Test","Plectrocnemia conspersa",0.003471768215,"dry g.m2",0.000694353643,5,"animal","ectotherm invertebrate","species","walking",4.28601376589301e-07,0.88459897241344
+"River Test","Polycelis tenuis",0.0395998086,"dry g.m2",0.00071999652,55,"animal","ectotherm invertebrate","species","walking",4.83758399526328e-06,0.88459897241344
+"River Test","Polycentropus flavomaculatus",0.02796228984,"dry g.m2",0.000699057246,40,"animal","ectotherm invertebrate","species","walking",3.44528604541136e-06,0.88459897241344
+"River Test","Rhithrogena semicolorata",0.00305006985,"dry g.m2",0.000122002794,25,"animal","ectotherm invertebrate","species","walking",6.23481823962383e-07,0.88459897241344
+"River Test","Rhyacophila dorsalis",0.09170782621,"dry g.m2",0.001667415022,55,"animal","ectotherm invertebrate","species","walking",8.78162667938367e-06,0.88459897241344
+"River Test","Salmo salar",0.0203836966626,"dry g.m2",8.0006,0.002547771,"animal","ectotherm vertebrate","species","swimming",0.000721908814276614,0.88459897241344
+"River Test","Salmo trutta",0.284672644914,"dry g.m2",111.734,0.002547771,"animal","ectotherm vertebrate","species","swimming",0.00938656993083201,0.88459897241344
+"River Test","Sericostoma personatum",0.05375823467,"dry g.m2",0.000370746446,145,"animal","ectotherm invertebrate","species","walking",7.96111535767549e-06,0.88459897241344
+"River Test","Serratella ignita",0.2435435104,"dry g.m2",0.000152214694,1600,"animal","ectotherm invertebrate","species","walking",4.66901641589333e-05,0.88459897241344
+"River Test","Silo nigricornis",0.0832810794,"dry g.m2",0.000832810794,100,"animal","ectotherm invertebrate","species","walking",9.75324541862678e-06,0.88459897241344
+"River Test","Sphaeromias",0.00199707536,"dry g.m2",1.4264824e-05,140,"animal","ectotherm invertebrate","genus","walking",7.60708798479885e-07,0.88459897241344
+"River Test","Tabellaria flocculosa",0.0116090855231,"dry g.m2",2.9e-09,4003132.939,"plant","plant","species","sessile",NA,0.487432933611077
+"River Test","Tanypodinae",0.00868994901,"dry g.m2",2.5188258e-05,345,"animal","ectotherm invertebrate","subfamily","walking",2.80692634515245e-06,0.88459897241344
+"River Test","Thymallus thymallus",0.039026756178,"dry g.m2",15.318,0.002547771,"animal","ectotherm vertebrate","species","swimming",0.000381625634985618,0.88459897241344
+"River Test","Tipulidae",0.005162377935,"dry g.m2",0.000344158529,15,"animal","ectotherm invertebrate","family","walking",7.81179912803632e-07,0.88459897241344

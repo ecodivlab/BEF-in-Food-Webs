@@ -1,0 +1,54 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Nant Clywedog Uchaf","Achnanthes minutissima",0.013335036,"dry g.m2",2.6e-10,51288600,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Baetis muticus",0.000179438412,"dry g.m2",8.9719206e-05,2,"animal","ectotherm invertebrate","species","walking",4.00995862989021e-08,0.88459897241344
+"Nant Clywedog Uchaf","Baetis rhodani",0.004497850434,"dry g.m2",9.1792866e-05,49,"animal","ectotherm invertebrate","species","walking",9.98508272679696e-07,0.88459897241344
+"Nant Clywedog Uchaf","Brachysira vitrea",0.00814002839937,"dry g.m2",1.89e-09,4306893.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Chaetopteryx villosa",0.0110189446,"dry g.m2",0.00220378892,5,"animal","ectotherm invertebrate","species","walking",9.73154842607663e-07,0.88459897241344
+"Nant Clywedog Uchaf","Chironomidae",0.001823239992,"dry g.m2",1.28397182535211e-05,142,"animal","ectotherm invertebrate","family","walking",7.16018085859184e-07,0.88459897241344
+"Nant Clywedog Uchaf","Chloroperla tripunctata",0.000557305729,"dry g.m2",0.000557305729,1,"animal","ectotherm invertebrate","species","walking",7.33310050835495e-08,0.88459897241344
+"Nant Clywedog Uchaf","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Nant Clywedog Uchaf","Cymbella gracilis",9.12370346752e-05,"dry g.m2",2.56e-11,3563946.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Diatoma hyemalis",0.00297767744,"dry g.m2",5.57e-10,5345920,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Diatoma vulgaris",0.002539312,"dry g.m2",4.75e-10,5345920,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Drusus annulatus",0.00391721825,"dry g.m2",0.001958609125,2,"animal","ectotherm invertebrate","species","walking",3.57992692749366e-07,0.88459897241344
+"Nant Clywedog Uchaf","Ecdyonurus",0.10771545416,"dry g.m2",0.01346443177,8,"animal","ectotherm invertebrate","genus","walking",5.62826756504369e-06,0.88459897241344
+"Nant Clywedog Uchaf","Electrogena lateralis",0.000730206899,"dry g.m2",0.000730206899,1,"animal","ectotherm invertebrate","species","walking",8.883985862923e-08,0.88459897241344
+"Nant Clywedog Uchaf","Elmis aenea",0.001985327104,"dry g.m2",3.1020736e-05,64,"animal","ectotherm invertebrate","species","walking",6.03690317773563e-07,0.88459897241344
+"Nant Clywedog Uchaf","Esolus parallelepipedus",6.4579401e-05,"dry g.m2",6.4579401e-05,1,"animal","ectotherm invertebrate","species","walking",1.58755213366426e-08,0.88459897241344
+"Nant Clywedog Uchaf","Eunotia rhomboidea",0.0528342378704,"dry g.m2",1.12e-09,47173426.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Nant Clywedog Uchaf","Fragilaria construens",0.00488101639905,"dry g.m2",2.85e-10,17126373.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Fragilariforma virescens",0.00778951632186,"dry g.m2",5.58e-10,13959706.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Frustulia rhomboides",0.4499834328,"dry g.m2",1.11e-09,405390480,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Gomphonema parvulum",0.005814818386902,"dry g.m2",7.06e-11,82362866.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Halesus radiatus",0.007096415253,"dry g.m2",0.002365471751,3,"animal","ectotherm invertebrate","species","walking",6.13993983784671e-07,0.88459897241344
+"Nant Clywedog Uchaf","Helodes",0.000928191241,"dry g.m2",0.000928191241,1,"animal","ectotherm invertebrate","genus","walking",1.0533770397798e-07,0.88459897241344
+"Nant Clywedog Uchaf","Hydracarina",0.000112423482,"dry g.m2",0.000112423482,1,"animal","ectotherm invertebrate","genus","walking",2.3532590635342e-08,0.88459897241344
+"Nant Clywedog Uchaf","Hydropsyche",0.001098745904,"dry g.m2",0.001098745904,1,"animal","ectotherm invertebrate","genus","walking",1.18740345488437e-07,0.88459897241344
+"Nant Clywedog Uchaf","Hydropsyche siltalai",0.01138526271,"dry g.m2",0.001138526271,10,"animal","ectotherm invertebrate","species","walking",1.21776872744725e-06,0.88459897241344
+"Nant Clywedog Uchaf","Isoperla grammatica",0.08224274615,"dry g.m2",0.001644854923,50,"animal","ectotherm invertebrate","species","walking",7.90645578870656e-06,0.88459897241344
+"Nant Clywedog Uchaf","Leuctra inermis",0.014126209448,"dry g.m2",0.000271657874,52,"animal","ectotherm invertebrate","species","walking",2.28939337684176e-06,0.88459897241344
+"Nant Clywedog Uchaf","Leuctra nigra",0.000785726158,"dry g.m2",0.000392863079,2,"animal","ectotherm invertebrate","species","walking",1.14420148273759e-07,0.88459897241344
+"Nant Clywedog Uchaf","Limnius volckmari",0.003987725181,"dry g.m2",0.000120840157,33,"animal","ectotherm invertebrate","species","walking",8.17419881361566e-07,0.88459897241344
+"Nant Clywedog Uchaf","Meridion circulare constrictum",0.1081714581831,"dry g.m2",5.07e-10,213355933.3,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Micropterna",0.000315078997,"dry g.m2",0.000315078997,1,"animal","ectotherm invertebrate","genus","walking",4.89146623178487e-08,0.88459897241344
+"Nant Clywedog Uchaf","Navicula minima",0.0082926207996,"dry g.m2",1.2e-10,69105173.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Navicula seminulum",0.01441849524,"dry g.m2",3.13e-10,46065480,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Nemoura",0.0001834217,"dry g.m2",0.0001834217,1,"animal","ectotherm invertebrate","genus","walking",3.33128089640907e-08,0.88459897241344
+"Nant Clywedog Uchaf","Nitzschia",0.002254779256,"dry g.m2",8.53e-11,26433520,"plant","plant","genus","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Oligochaeta",0.00551537588,"dry g.m2",0.00019697771,28,"animal","ectotherm invertebrate","class","walking",9.81195184867453e-07,0.88459897241344
+"Nant Clywedog Uchaf","Oreodytes sanmarkii",0.005721871355,"dry g.m2",0.001144374271,5,"animal","ectotherm invertebrate","species","walking",6.11103247798272e-07,0.88459897241344
+"Nant Clywedog Uchaf","Oulimnius",0.000462746142,"dry g.m2",2.5708119e-05,18,"animal","ectotherm invertebrate","genus","walking",1.48587975793295e-07,0.88459897241344
+"Nant Clywedog Uchaf","Plectrocnemia conspersa",0.001246215732,"dry g.m2",0.000311553933,4,"animal","ectotherm invertebrate","species","walking",1.9410192277568e-07,0.88459897241344
+"Nant Clywedog Uchaf","Rhithrogena semicolorata",0.013856229036,"dry g.m2",0.003464057259,4,"animal","ectotherm invertebrate","species","walking",1.07331360049924e-06,0.88459897241344
+"Nant Clywedog Uchaf","Rhyacophila dorsalis",0.027673879644,"dry g.m2",0.003074875516,9,"animal","ectotherm invertebrate","species","walking",2.2190204717231e-06,0.88459897241344
+"Nant Clywedog Uchaf","Salmo trutta",1.92968553568202,"dry g.m2",3.339537415,0.577830189,"animal","ectotherm vertebrate","species","swimming",0.000143786743131528,0.88459897241344
+"Nant Clywedog Uchaf","Sericostoma personatum",0.022165949718,"dry g.m2",0.002015086338,11,"animal","ectotherm invertebrate","species","walking",2.00910405369225e-06,0.88459897241344
+"Nant Clywedog Uchaf","Serratella ignita",0.00018343414,"dry g.m2",3.6686828e-05,5,"animal","ectotherm invertebrate","species","walking",5.31292233848043e-08,0.88459897241344
+"Nant Clywedog Uchaf","Silo pallipes",0.003365056028,"dry g.m2",0.001682528014,2,"animal","ectotherm invertebrate","species","walking",3.21384167891476e-07,0.88459897241344
+"Nant Clywedog Uchaf","Simuliidae",0.004915580733,"dry g.m2",0.000114315831,43,"animal","ectotherm invertebrate","family","walking",1.02396527962915e-06,0.88459897241344
+"Nant Clywedog Uchaf","Siphonoperla torrentium",0.040584102538,"dry g.m2",0.000285803539,142,"animal","ectotherm invertebrate","species","walking",6.48123232120262e-06,0.88459897241344
+"Nant Clywedog Uchaf","Surirella linearis",0.653961802633,"dry g.m2",1.01e-08,64748693.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Tabellaria flocculosa",3.596031432126,"dry g.m2",3.78e-09,951331066.7,"plant","plant","species","sessile",NA,0.487432933611077
+"Nant Clywedog Uchaf","Tanypodinae",0.000280594041,"dry g.m2",4.0084863e-05,7,"animal","ectotherm invertebrate","subfamily","walking",7.92091538110137e-08,0.88459897241344
+"Nant Clywedog Uchaf","Tipulidae",0.01026570309,"dry g.m2",0.000684380206,15,"animal","ectotherm invertebrate","family","walking",1.27266379310302e-06,0.88459897241344

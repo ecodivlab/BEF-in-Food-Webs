@@ -1,0 +1,20 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"River Duddon","Amphinemura sulcicollis",0.0007919609952,"dry g.m2",0.000247487811,3.2,"animal","ectotherm invertebrate","species","walking",1.31866486158556e-07,0.88459897241344
+"River Duddon","Brachysira",0.0865963483308,"dry g.m2",1.89e-09,45818173.72,"plant","plant","genus","sessile",NA,0.487432933611077
+"River Duddon","Chironomidae",0.0021330195936,"dry g.m2",0.000222189541,9.6,"animal","ectotherm invertebrate","family","walking",3.66442843575792e-07,0.88459897241344
+"River Duddon","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Duddon","Eunotia",0.0755459054838,"dry g.m2",6.39e-10,118225204.2,"plant","plant","genus","sessile",NA,0.487432933611077
+"River Duddon","Eunotia exigua",0.0465852422452,"dry g.m2",3.89e-10,119756406.8,"plant","plant","species","sessile",NA,0.487432933611077
+"River Duddon","Eunotia rhomboidea",0.0572308602414,"dry g.m2",3.07e-10,186419740.2,"plant","plant","species","sessile",NA,0.487432933611077
+"River Duddon","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Duddon","Fragilaria",0.05693910741513,"dry g.m2",6.57e-10,86665308.09,"plant","plant","genus","sessile",NA,0.487432933611077
+"River Duddon","Hydracarina",0.0001221610928,"dry g.m2",7.6350683e-05,1.6,"animal","ectotherm invertebrate","genus","walking",2.86074012574366e-08,0.88459897241344
+"River Duddon","Isoperla grammatica",0.0018840365344,"dry g.m2",0.001177522834,1.6,"animal","ectotherm invertebrate","species","walking",1.99558145545033e-07,0.88459897241344
+"River Duddon","Leuctra inermis",0.0086505603008,"dry g.m2",0.000491509108,17.6,"animal","ectotherm invertebrate","species","walking",1.18048732857817e-06,0.88459897241344
+"River Duddon","Peronia fibula",0.3220060368668,"dry g.m2",5.72e-10,562947616.9,"plant","plant","species","sessile",NA,0.487432933611077
+"River Duddon","Pinnularia subcapitata",0.949604253975,"dry g.m2",1.95e-08,48697654.05,"plant","plant","species","sessile",NA,0.487432933611077
+"River Duddon","Salmo trutta",0.115,"dry g.m2",5.75,0.02,"animal","ectotherm vertebrate","species","swimming",0.000190330436399003,0.88459897241344
+"River Duddon","Siphonoperla torrentium",0.027752515648,"dry g.m2",0.00078842374,35.2,"animal","ectotherm invertebrate","species","walking",3.30219938726321e-06,0.88459897241344
+"River Duddon","Tabellaria flocculosa",0.14759607478,"dry g.m2",1.16e-09,127237995.5,"plant","plant","species","sessile",NA,0.487432933611077
+"River Duddon","Tanypodinae",0.0022708922336,"dry g.m2",0.000709653823,3.2,"animal","ectotherm invertebrate","subfamily","walking",2.78582783672929e-07,0.88459897241344
+"River Duddon","Tipulidae",0.0055473093792,"dry g.m2",0.003467068362,1.6,"animal","ectotherm invertebrate","family","walking",4.29590369992979e-07,0.88459897241344

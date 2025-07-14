@@ -1,0 +1,74 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"River Lyde","Achnanthes lanceolata",0.0606716653747,"dry g.m2",1.03e-09,58904529.49,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Achnanthes minutissima",0.00513413277053,"dry g.m2",2.83e-10,18141811.91,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Agapetus fuscipes",0.00283121354,"dry g.m2",0.000283121354,10,"animal","ectotherm invertebrate","species","walking",4.53379429928429e-07,0.88459897241344
+"River Lyde","Baetis",0.01757155464,"dry g.m2",0.000585718488,30,"animal","ectotherm invertebrate","genus","walking",2.27898593048949e-06,0.88459897241344
+"River Lyde","Baetis rhodani",0.0164034885,"dry g.m2",0.00032806977,50,"animal","ectotherm invertebrate","species","walking",2.51690755020907e-06,0.88459897241344
+"River Lyde","Baetis scambus",0.000128531085,"dry g.m2",2.5706217e-05,5,"animal","ectotherm invertebrate","species","walking",4.12722695950237e-08,0.88459897241344
+"River Lyde","Calopteryx splendens",0.00201171292,"dry g.m2",0.000402342584,5,"animal","ectotherm invertebrate","species","walking",2.90933955812336e-07,0.88459897241344
+"River Lyde","Calopteryx virgo",0.025480821755,"dry g.m2",0.005096164351,5,"animal","ectotherm invertebrate","species","walking",1.76471299446174e-06,0.88459897241344
+"River Lyde","Centroptilum luteolum",0.01127857158,"dry g.m2",0.000563928579,20,"animal","ectotherm invertebrate","species","walking",1.47897337936838e-06,0.88459897241344
+"River Lyde","Chironomidae",0.00890616583,"dry g.m2",8.09651439090909e-06,1100,"animal","ectotherm invertebrate","family","walking",3.99802566535322e-06,0.88459897241344
+"River Lyde","Cocconeis placentula",0.452719287876,"dry g.m2",4.65e-09,97358986.64,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Cottus gobio",0.436468621386364,"dry g.m2",0.8028867234,0.543624161,"animal","ectotherm vertebrate","species","swimming",0.000235189871192313,0.88459897241344
+"River Lyde","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Lyde","Crangonyx pseudogracilis",0.00247077728,"dry g.m2",0.000247077728,10,"animal","ectotherm invertebrate","species","swimming",4.1159785475491e-07,0.88459897241344
+"River Lyde","Cymbella",4.55813024088e-05,"dry g.m2",4.02e-11,1133863.244,"plant","plant","genus","sessile",NA,0.487432933611077
+"River Lyde","Diatoma vulgaris",0.0266230713054,"dry g.m2",6.06e-10,43932460.9,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Dicranota",0.002985679575,"dry g.m2",0.000119427183,25,"animal","ectotherm invertebrate","genus","walking",6.14107667231059e-07,0.88459897241344
+"River Lyde","Dixa",0.00059419682,"dry g.m2",5.9419682e-05,10,"animal","ectotherm invertebrate","genus","walking",1.49641404821258e-07,0.88459897241344
+"River Lyde","Donacia",0.00029364977,"dry g.m2",5.8729954e-05,5,"animal","ectotherm invertebrate","genus","walking",7.42030250465436e-08,0.88459897241344
+"River Lyde","Elmis aenea",0.038084044185,"dry g.m2",7.6937463e-05,495,"animal","ectotherm invertebrate","species","walking",8.89865414291248e-06,0.88459897241344
+"River Lyde","Eloeophila",0.003522799035,"dry g.m2",0.000704559807,5,"animal","ectotherm invertebrate","genus","walking",4.33064849852801e-07,0.88459897241344
+"River Lyde","Ephemera danica",0.37842269946,"dry g.m2",0.000970314614,390,"animal","ectotherm invertebrate","species","walking",4.23968685478022e-05,0.88459897241344
+"River Lyde","Eunotia bilunaris",0.0339667659461,"dry g.m2",2.99e-09,11360122.39,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"River Lyde","Fragilaria capucina",0.1055190964092,"dry g.m2",1.38e-09,76463113.34,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Fragilaria fasciculata",0.078251196348,"dry g.m2",3.12e-09,25080511.65,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Frustulia rhomboides",0.00258927802518,"dry g.m2",9.94e-10,2604907.47,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Gammarus pulex",3.70409774284,"dry g.m2",0.000765309451,4840,"animal","ectotherm invertebrate","species","swimming",0.000444560562392946,0.88459897241344
+"River Lyde","Gasterosteus aculeatus",0.0093583893072,"dry g.m2",0.1992,0.046979866,"animal","ectotherm vertebrate","species","swimming",1.74839477861313e-05,0.88459897241344
+"River Lyde","Gomphonema constrictum",0.0004535452976,"dry g.m2",4e-10,1133863.244,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Gomphonema olivaceum",0.005912696596544,"dry g.m2",9.28e-11,63714402.98,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Gyrosigma",0.000401789591952,"dry g.m2",3.36e-10,1195802.357,"plant","plant","genus","sessile",NA,0.487432933611077
+"River Lyde","Gyrosigma acuminatum",0.00769977424944,"dry g.m2",3.36e-10,22915994.79,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Halesus digitatus",0.00662613712,"dry g.m2",0.001325227424,5,"animal","ectotherm invertebrate","species","walking",6.78199469623441e-07,0.88459897241344
+"River Lyde","Halesus radiatus",0.07104075295,"dry g.m2",0.01420815059,5,"animal","ectotherm invertebrate","species","walking",3.65454162686833e-06,0.88459897241344
+"River Lyde","Heptagenia sulphurea",0.001247449325,"dry g.m2",0.000249489865,5,"animal","ectotherm invertebrate","species","walking",2.07223410080389e-07,0.88459897241344
+"River Lyde","Hydracarina",0.01850508303,"dry g.m2",6.9830502e-05,265,"animal","ectotherm invertebrate","genus","walking",4.4471234726728e-06,0.88459897241344
+"River Lyde","Hydropsyche pellucidula",0.048324387495,"dry g.m2",0.003221625833,15,"animal","ectotherm invertebrate","species","walking",3.82283740318701e-06,0.88459897241344
+"River Lyde","Hydroptila",0.00120086783,"dry g.m2",1.2640714e-05,95,"animal","ectotherm invertebrate","genus","walking",4.73742876056264e-07,0.88459897241344
+"River Lyde","Hydroptilidae",1.868837e-05,"dry g.m2",3.737674e-06,5,"animal","ectotherm invertebrate","family","walking",1.04973157203413e-08,0.88459897241344
+"River Lyde","Ithytrichia",0.00791967592,"dry g.m2",7.615073e-06,1040,"animal","ectotherm invertebrate","genus","walking",3.61895494956927e-06,0.88459897241344
+"River Lyde","Lepidostoma hirtum",0.000793807615,"dry g.m2",0.000158761523,5,"animal","ectotherm invertebrate","species","walking",1.50335097497753e-07,0.88459897241344
+"River Lyde","Limnephilus lunatus",0.02883428204,"dry g.m2",0.000720857051,40,"animal","ectotherm invertebrate","species","walking",3.52122791062603e-06,0.88459897241344
+"River Lyde","Limnius volckmari",0.03337868184,"dry g.m2",0.000139077841,240,"animal","ectotherm invertebrate","species","walking",6.56879375802267e-06,0.88459897241344
+"River Lyde","Lype reducta",0.002985399465,"dry g.m2",0.000597079893,5,"animal","ectotherm invertebrate","species","walking",3.85047482624741e-07,0.88459897241344
+"River Lyde","Melosira varians",0.0159099448838,"dry g.m2",2.09e-10,76124138.2,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Meridion circulare",0.004585591493319,"dry g.m2",6.77e-10,6773399.547,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Navicula capitata",0.01087374851133,"dry g.m2",1.37e-09,7937042.709,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Navicula capitoradiata",0.014547310656,"dry g.m2",1.41e-09,10317241.6,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Navicula reinhardtii",0.090612523248,"dry g.m2",7.8e-09,11616990.16,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Navicula tripunctata",0.00084295245375,"dry g.m2",2.5e-09,337180.9815,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Nitzschia recta",0.00374174870575,"dry g.m2",2.75e-10,13606358.93,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Oligochaeta",0.2738210478,"dry g.m2",0.000112915896,2425,"animal","ectotherm invertebrate","class","walking",5.72438849898574e-05,0.88459897241344
+"River Lyde","Paraleptophlebia submarginata",0.000745960725,"dry g.m2",2.9838429e-05,25,"animal","ectotherm invertebrate","species","walking",2.29399349984554e-07,0.88459897241344
+"River Lyde","Phoxinus phoxinus",0.00933892631925,"dry g.m2",0.69575,0.013422819,"animal","ectotherm vertebrate","species","swimming",4.2489914413382e-05,0.88459897241344
+"River Lyde","Physa fontinalis",0.00751711893,"dry g.m2",0.000751711893,10,"animal","ectotherm invertebrate","species","walking",9.06896563736173e-07,0.88459897241344
+"River Lyde","Pinnularia microstauron",0.09070296952,"dry g.m2",4.85e-08,1870164.32,"plant","plant","species","sessile",NA,0.487432933611077
+"River Lyde","Pisidium",0.01086318688,"dry g.m2",2.3875136e-05,455,"animal","ectotherm invertebrate","genus","walking",3.56380719470997e-06,0.88459897241344
+"River Lyde","Planaria torva",0.00062207967,"dry g.m2",0.000124415934,5,"animal","ectotherm invertebrate","species","walking",1.2644254088588e-07,0.88459897241344
+"River Lyde","Polycelis tenuis",0.00290772724,"dry g.m2",0.000290772724,10,"animal","ectotherm invertebrate","species","walking",4.62045079174517e-07,0.88459897241344
+"River Lyde","Polycentropus flavomaculatus",0.003360408885,"dry g.m2",0.000224027259,15,"animal","ectotherm invertebrate","species","walking",5.75925251412628e-07,0.88459897241344
+"River Lyde","Potamopyrgus antipodarum",2.51091849696,"dry g.m2",0.000331037376,7585,"animal","ectotherm invertebrate","species","walking",0.000384263845131402,0.88459897241344
+"River Lyde","Pseudolimnophila",0.002982495805,"dry g.m2",0.000596499161,5,"animal","ectotherm invertebrate","genus","walking",3.84781546572058e-07,0.88459897241344
+"River Lyde","Ptychoptera scutellaris",0.1166318893,"dry g.m2",0.004665275572,25,"animal","ectotherm invertebrate","species","walking",8.28712978343522e-06,0.88459897241344
+"River Lyde","Rhithrogena semicolorata",0.044740129335,"dry g.m2",0.000271152299,165,"animal","ectotherm invertebrate","species","walking",7.25481977304558e-06,0.88459897241344
+"River Lyde","Salmo trutta",0.2343221477916,"dry g.m2",3.4914,0.067114094,"animal","ectotherm vertebrate","species","swimming",0.00240406552247342,0.88459897241344
+"River Lyde","Sericostoma personatum",0.02416861439,"dry g.m2",0.004833722878,5,"animal","ectotherm invertebrate","species","walking",1.69969615816151e-06,0.88459897241344
+"River Lyde","Serratella ignita",0.00230442561,"dry g.m2",5.1209458e-05,45,"animal","ectotherm invertebrate","species","walking",6.05915954637416e-07,0.88459897241344
+"River Lyde","Sialis lutaria",0.00467783162,"dry g.m2",0.000935566324,5,"animal","ectotherm invertebrate","species","walking",5.29656375059356e-07,0.88459897241344
+"River Lyde","Silo nigricornis",0.08301919986,"dry g.m2",0.001383653331,60,"animal","ectotherm invertebrate","species","walking",8.39154398958794e-06,0.88459897241344
+"River Lyde","Silo pallipes",0.315262318035,"dry g.m2",0.002174222883,145,"animal","ectotherm invertebrate","species","walking",2.7952144554421e-05,0.88459897241344
+"River Lyde","Sphaeromias",0.00648025874,"dry g.m2",2.8175038e-05,230,"animal","ectotherm invertebrate","genus","walking",2.02624933634458e-06,0.88459897241344
+"River Lyde","Tanypodinae",0.006176694825,"dry g.m2",2.7451977e-05,225,"animal","ectotherm invertebrate","subfamily","walking",1.94594714511837e-06,0.88459897241344
