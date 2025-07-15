@@ -1,4 +1,4 @@
-"PhytoP","Copepoda","Zooplankton","Tetraclita.stalactifera","Eurypanopeus.abreviatus","Crassostrea.virginica","Tanaidacea","Polychaeta","Bathygobius.soporator","Palaemon.northropi","Callinectes.sapidus"
+PhytoP,Copepoda,Zooplankton,Tetraclita.stalactifera,Eurypanopeus.abreviatus,Crassostrea.virginica,Tanaidacea,Polychaeta,Bathygobius.soporator,Palaemon.northropi,Callinectes.sapidus
 0,1,1,1,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,1,0
 0,1,1,1,1,1,1,1,0,0,0
@@ -9,4 +9,4 @@
 0,0,0,0,1,0,0,1,1,1,1
 0,0,0,0,0,0,0,0,0,0,1
 0,0,0,0,0,0,0,0,0,1,0
-0,0,0,0,0,0,0,0,1,0,0
+0,0,0,0,0,0,0,0,0.1,0,0
