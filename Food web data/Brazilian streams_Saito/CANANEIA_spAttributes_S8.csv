@@ -1,0 +1,29 @@
+,fw_names,species,metabolic_type,bodymass,abundance,biomass
+1,S8,Acentronichthys_leptos,ectotherm vertebrate,561.4583,0.24,134.749992
+2,S8,Anacroneuria,ectotherm invertebrate,3.02,1.1111,3.355522
+3,S8,Argia,ectotherm invertebrate,1.4303,4.4444,6.35682532
+4,S8,Biofilm,detritus,NA,,NA
+5,S8,Blepharopus,ectotherm invertebrate,0.1852,10,1.852
+6,S8,Ceratopogonidae,ectotherm invertebrate,0.0057,2.2222,0.01266654
+7,S8,Chironomidae,ectotherm invertebrate,0.0241,5.5556,0.13388996
+8,S8,Corixidae,ectotherm invertebrate,0.1863,1.1111,0.20699793
+9,S8,Cyrnellus,ectotherm invertebrate,0.2874,1.1111,0.31933014
+10,S8,Farrodes,ectotherm invertebrate,0.436,1.1111,0.4844396
+11,S8,Gomphidae,ectotherm invertebrate,0.0875,1.1111,0.09722125
+12,S8,Gripopteryx,ectotherm invertebrate,0.2001,4.4444,0.88932444
+13,S8,Gymnotus_pantherinus,ectotherm vertebrate,2418.85,0.17,411.2045
+14,S8,Heteragrion,ectotherm invertebrate,2.3141,3.3333,7.71358953
+15,S8,Heterelmis,ectotherm invertebrate,0.4968,1.1111,0.55199448
+16,S8,Hydropsychidae_spA,ectotherm invertebrate,0.0545,3.3333,0.18166485
+17,S8,Kempnyia,ectotherm invertebrate,4.688,1.1111,5.2088368
+18,S8,leaf,detritus,NA,,NA
+19,S8,Leptoceridae,ectotherm invertebrate,1.3512,1.1111,1.50131832
+20,S8,Macrobrachium,ectotherm invertebrate,91.201,4.5111,411.4168311
+21,S8,Megaloptera,ectotherm invertebrate,4.7863,1.1111,5.31805793
+22,S8,Miroculis,ectotherm invertebrate,0.0497,1.1111,0.05522167
+23,S8,moss,plant,NA,,NA
+24,S8,Neoelmis,ectotherm invertebrate,0.0306,2.2222,0.06799932
+25,S8,Oligochaeta_spA,ectotherm invertebrate,2.2277,6.6667,14.85140759
+26,S8,Smicridea,ectotherm invertebrate,0.4749,2.2222,1.05532278
+27,S8,Synoestropsis,ectotherm invertebrate,0.8878,6.6667,5.91869626
+28,S8,terrestrial_ectotherm_invertebrate,detritus,NA,,NA

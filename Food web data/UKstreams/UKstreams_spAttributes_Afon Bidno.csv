@@ -1,0 +1,34 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Afon Bidno","Achnanthes",0.1364355311814,"dry g.m2",2.42e-10,563783186.7,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Achnanthes austriaca minor",0.0018709386,"dry g.m2",1.29e-10,14503400,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Afon Bidno","Achnanthes levanderi",0.0006714606079776,"dry g.m2",6.72e-11,9991973.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Baetis rhodani",3.88495511072262e-05,"dry g.m2",3.4964596e-05,1.111111111,"animal","ectotherm invertebrate","species","walking",1.14102453506061e-08,0.88459897241344
+"Afon Bidno","Ceratopogonidae",6.34115333269922e-06,"dry g.m2",5.707038e-06,1.111111111,"animal","ectotherm invertebrate","family","walking",3.15043396034589e-09,0.88459897241344
+"Afon Bidno","Chironomidae",0.000155223003329758,"dry g.m2",1.99572432846844e-05,7.777777778,"animal","ectotherm invertebrate","family","walking",5.36399259143589e-08,0.88459897241344
+"Afon Bidno","Chloroperla tripunctata",0.00054692664216753,"dry g.m2",0.000492233978,1.111111111,"animal","ectotherm invertebrate","species","walking",7.46037341545997e-08,0.88459897241344
+"Afon Bidno","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Bidno","Diploneis elliptica",0.002225241773557,"dry g.m2",6.71e-10,3316306.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Encyonema minutum",1.279152e-05,"dry g.m2",1.2e-11,1065960,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Encyonema silesiacum",3.304476e-05,"dry g.m2",1.55e-11,2131920,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Eunotia denticulata",0.00069202816,"dry g.m2",4.12e-10,1679680,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Eunotia exigua",0.0615645099199,"dry g.m2",4.03e-10,152765533.3,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Eunotia incisa",0.0104496,"dry g.m2",5e-10,20899200,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Eunotia pectinalis",0.1620115372,"dry g.m2",5.86e-10,276470200,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Eunotia rhomboidea",0.0158846676,"dry g.m2",6.83e-10,23257200,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Bidno","Frustulia rhomboides",0.0257143536,"dry g.m2",4.68e-10,54945200,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Leuctra inermis",0.0043469915027656,"dry g.m2",0.000244518272,17.77777778,"animal","ectotherm invertebrate","species","walking",7.26339656349058e-07,0.88459897241344
+"Afon Bidno","Limnius volckmari",0.000434692992178753,"dry g.m2",0.000391223693,1.111111111,"animal","ectotherm invertebrate","species","walking",6.33783010363534e-08,0.88459897241344
+"Afon Bidno","Meridion circulare constrictum",0.00035070084,"dry g.m2",3.29e-10,1065960,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Afon Bidno","Oligochaeta",0.00264773608,"dry g.m2",0.000132386804,20,"animal","ectotherm invertebrate","class","walking",5.2856813545143e-07,0.88459897241344
+"Afon Bidno","Oulimnius",0.000174857971093625,"dry g.m2",7.8686087e-05,2.222222222,"animal","ectotherm invertebrate","genus","walking",4.05916099714047e-08,0.88459897241344
+"Afon Bidno","Pinnularia microstauron",0.0782648373294,"dry g.m2",1.18e-08,6632613.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Pinnularia subcapitata",0.1120911653277,"dry g.m2",1.69e-08,6632613.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Salmo salar",0.0171327912669206,"dry g.m2",0.3448363636,0.04968383,"animal","ectotherm vertebrate","species","swimming",0.000490459267116222,0.88459897241344
+"Afon Bidno","Salmo trutta",0.0103884376,"dry g.m2",2.3,0.004516712,"animal","ectotherm vertebrate","species","swimming",0.000297914808938292,0.88459897241344
+"Afon Bidno","Simuliidae",4.15836199958416e-05,"dry g.m2",3.7425258e-05,1.111111111,"animal","ectotherm invertebrate","family","walking",1.19747304914642e-08,0.88459897241344
+"Afon Bidno","Siphonoperla torrentium",0.00384731792611705,"dry g.m2",0.000164885054,23.33333333,"animal","ectotherm invertebrate","species","walking",7.2067050650041e-07,0.88459897241344
+"Afon Bidno","Tabellaria flocculosa",0.1173077831455,"dry g.m2",3.65e-10,321391186.7,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Tabellaria quadriseptata",0.0709919320107,"dry g.m2",3.21e-09,22115866.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Bidno","Tanypodinae",4.02048399959795e-05,"dry g.m2",3.6184356e-05,1.111111111,"animal","ectotherm invertebrate","subfamily","walking",1.16914543820684e-08,0.88459897241344
+"Afon Bidno","Tipulidae",0.00268124124639854,"dry g.m2",0.001206558561,2.222222222,"animal","ectotherm invertebrate","family","walking",2.81999346078569e-07,0.88459897241344

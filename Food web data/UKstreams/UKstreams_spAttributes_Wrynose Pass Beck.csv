@@ -1,0 +1,29 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Wrynose Pass Beck","Amphinemura sulcicollis",0.0005685149056,"dry g.m2",0.000177660908,3.2,"animal","ectotherm invertebrate","species","walking",1.04212894476922e-07,0.88459897241344
+"Wrynose Pass Beck","Baetis rhodani",0.0011685918656,"dry g.m2",0.000365184958,3.2,"animal","ectotherm invertebrate","species","walking",1.7381824903193e-07,0.88459897241344
+"Wrynose Pass Beck","Calopteryx splendens",0.0011770903984,"dry g.m2",0.000735681499,1.6,"animal","ectotherm invertebrate","species","walking",1.42899599732841e-07,0.88459897241344
+"Wrynose Pass Beck","Ceratopogonidae",0.0003968827344,"dry g.m2",8.2683903e-05,4.8,"animal","ectotherm invertebrate","family","walking",9.08178826438559e-08,0.88459897241344
+"Wrynose Pass Beck","Chironomidae",0.0121906479632,"dry g.m2",0.000113718731,107.2,"animal","ectotherm invertebrate","family","walking",2.54329510778263e-06,0.88459897241344
+"Wrynose Pass Beck","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Wrynose Pass Beck","Dicranota",0.0004217690336,"dry g.m2",0.000263605646,1.6,"animal","ectotherm invertebrate","genus","walking",6.89539377458482e-08,0.88459897241344
+"Wrynose Pass Beck","Eunotia exigua",0.125875846336,"dry g.m2",3.8e-10,331252227.2,"plant","plant","species","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Eunotia naegelii",4.2641161556,"dry g.m2",2.26e-08,188677706,"plant","plant","species","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Eunotia rhomboidea",0.1149655552655,"dry g.m2",3.13e-10,367302093.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Wrynose Pass Beck","Fragilaria",0.3624695393088,"dry g.m2",9.24e-10,392283051.2,"plant","plant","genus","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Frustulia rhomboides saxonica",0.2997630050427,"dry g.m2",7.83e-10,382839086.9,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Gomphonema acuminatum",0.0554929166066,"dry g.m2",2.09e-10,265516347.4,"plant","plant","species","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Halesus radiatus",0.0089860456352,"dry g.m2",0.002808139261,3.2,"animal","ectotherm invertebrate","species","walking",7.39755939754148e-07,0.88459897241344
+"Wrynose Pass Beck","Hydropsyche siltalai",0.011904091944,"dry g.m2",0.001488011493,8,"animal","ectotherm invertebrate","species","walking",1.17815300943838e-06,0.88459897241344
+"Wrynose Pass Beck","Isoperla grammatica",0.01133498212,"dry g.m2",0.001012051975,11.2,"animal","ectotherm invertebrate","species","walking",1.25450752211535e-06,0.88459897241344
+"Wrynose Pass Beck","Leuctra inermis",0.0279963263328,"dry g.m2",0.000603369102,46.4,"animal","ectotherm invertebrate","species","walking",3.59992294528653e-06,0.88459897241344
+"Wrynose Pass Beck","Nitzschia",0.1013931491103,"dry g.m2",1.59e-10,637692761.7,"plant","plant","genus","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Oligochaeta",0.000599579312,"dry g.m2",7.4947414e-05,8,"animal","ectotherm invertebrate","class","walking",1.41165463168909e-07,0.88459897241344
+"Wrynose Pass Beck","Pinnularia subcapitata",12.0963933405,"dry g.m2",2.1e-08,576018730.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Plectrocnemia conspersa",0.007535759616,"dry g.m2",0.00017443888,43.2,"animal","ectotherm invertebrate","species","walking",1.38871053321709e-06,0.88459897241344
+"Wrynose Pass Beck","Sericostoma personatum",0.0101407582704,"dry g.m2",0.002112657973,4.8,"animal","ectotherm invertebrate","species","walking",9.0663235062615e-07,0.88459897241344
+"Wrynose Pass Beck","Simuliidae",0.0005980043888,"dry g.m2",0.000373752743,1.6,"animal","ectotherm invertebrate","family","walking",8.8351951341606e-08,0.88459897241344
+"Wrynose Pass Beck","Siphonoperla torrentium",0.060362769312,"dry g.m2",0.000628778847,96,"animal","ectotherm invertebrate","species","walking",7.66948152377038e-06,0.88459897241344
+"Wrynose Pass Beck","Tabellaria flocculosa",0.8505480185358,"dry g.m2",9.22e-10,922503273.9,"plant","plant","species","sessile",NA,0.487432933611077
+"Wrynose Pass Beck","Tanypodinae",0.1886009882,"dry g.m2",0.000943004941,200,"animal","ectotherm invertebrate","subfamily","walking",2.1305717306634e-05,0.88459897241344
+"Wrynose Pass Beck","Tipulidae",0.037408188312,"dry g.m2",0.004676023539,8,"animal","ectotherm invertebrate","family","walking",2.65621780284688e-06,0.88459897241344

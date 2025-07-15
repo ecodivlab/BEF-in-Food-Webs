@@ -1,0 +1,21 @@
+species,movement_type,bodymass,metabolic_type,biomass,fw_name
+Polychaeta,walking,0.2243,invertebrate,0.89,SF2M3.csv
+Eteone longa,walking,0.0186,invertebrate,0.07,SF2M3.csv
+Alitta virens,walking,0.6969,invertebrate,1.39,SF2M3.csv
+PhytoP,other,1.00E-04,primary producer,2.5,SF2M3.csv
+Mytilus sp.,sessile,1.2729,invertebrate,25.96,SF2M3.csv
+Zooplankton,swimming,0.001,invertebrate,10,SF2M3.csv
+Fabricia stellaris,sessile,2.00E-04,invertebrate,2.00E-04,SF2M3.csv
+Eteone sp.,walking,0.0022,invertebrate,0.0065,SF2M3.csv
+Oligochaeta,walking,0.001,invertebrate,0.001,SF2M3.csv
+Gammarus oceanicus,swimming,0.1751,invertebrate,1.75,SF2M3.csv
+Balanus crenatus,sessile,0.1624,invertebrate,0.65,SF2M3.csv
+Fucus,sessile,0.000228,primary producer,79.55,SF2M3.csv
+Littorina littorea,walking,0.0019,invertebrate,0.004,SF2M3.csv
+Littorina obtusata,walking,0.0914,invertebrate,0.91,SF2M3.csv
+Littorina saxatilis,walking,0.0425,invertebrate,0.59,SF2M3.csv
+Testudinalia testudinalis,walking,0.185,invertebrate,0.56,SF2M3.csv
+Acari,walking,2.00E-04,invertebrate,2.00E-04,SF2M3.csv
+Nematoda,walking,0.01,invertebrate,0.01,SF2M3.csv
+Ralfsia fungiformis,sessile,0.000228,primary producer,26.27,SF2M3.csv
+Ralfsia verrucosa,sessile,0.000228,primary producer,0.1,SF2M3.csv

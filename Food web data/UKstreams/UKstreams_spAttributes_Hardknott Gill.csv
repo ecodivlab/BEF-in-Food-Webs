@@ -1,0 +1,45 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Hardknott Gill","Achnanthes",0.479125547057,"dry g.m2",8.23e-11,5821695590,"plant","plant","species","sessile",NA,0.487432933611077
+"Hardknott Gill","Ancylus fluviatilis",0.0089084634432,"dry g.m2",0.005567789652,1.6,"animal","ectotherm invertebrate","species","walking",6.01334376218836e-07,0.88459897241344
+"Hardknott Gill","Baetis",0.0025070160192,"dry g.m2",3.7306786e-05,67.2,"animal","ectotherm invertebrate","genus","walking",7.22603205433414e-07,0.88459897241344
+"Hardknott Gill","Baetis muticus",0.0075895958688,"dry g.m2",0.000143742346,52.8,"animal","ectotherm invertebrate","species","walking",1.4793819891294e-06,0.88459897241344
+"Hardknott Gill","Baetis rhodani",0.0397591991472,"dry g.m2",0.000435956131,91.2,"animal","ectotherm invertebrate","species","walking",5.6177248765004e-06,0.88459897241344
+"Hardknott Gill","Baetis scambus",0.0045263357392,"dry g.m2",0.000257178167,17.6,"animal","ectotherm invertebrate","species","walking",7.45315449256698e-07,0.88459897241344
+"Hardknott Gill","Baetis vernus",0.009161245392,"dry g.m2",0.00014681483,62.4,"animal","ectotherm invertebrate","species","walking",1.77481252423527e-06,0.88459897241344
+"Hardknott Gill","Brachysira",17.575905267,"dry g.m2",2.25e-09,7811513452,"plant","plant","genus","sessile",NA,0.487432933611077
+"Hardknott Gill","Calopteryx splendens",0.0006128,"dry g.m2",0.000383,1.6,"animal","ectotherm invertebrate","species","walking",8.98984821907434e-08,0.88459897241344
+"Hardknott Gill","Chironomidae",0.0155618853632,"dry g.m2",0.000110524754,140.8,"animal","ectotherm invertebrate","family","walking",3.27355911086088e-06,0.88459897241344
+"Hardknott Gill","Chloroperla tripunctata",0.011717374544,"dry g.m2",0.000732335909,16,"animal","ectotherm invertebrate","species","walking",1.42437900571489e-06,0.88459897241344
+"Hardknott Gill","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Hardknott Gill","Diatoma hyemale quadratum",1.33938965325,"dry g.m2",3.94e-10,3399466125,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Hardknott Gill","Diplectrona felix",0.0076221334608,"dry g.m2",0.001587944471,4.8,"animal","ectotherm invertebrate","species","walking",7.4027921487428e-07,0.88459897241344
+"Hardknott Gill","Electrogena lateralis",0.0785238577344,"dry g.m2",0.000454420473,172.8,"animal","ectotherm invertebrate","species","walking",1.09622597085238e-05,0.88459897241344
+"Hardknott Gill","Elmis aenea",0.000582075984,"dry g.m2",0.00036379749,1.6,"animal","ectotherm invertebrate","species","walking",8.66745540124467e-08,0.88459897241344
+"Hardknott Gill","Empididae",0.0005645827584,"dry g.m2",0.000176432112,3.2,"animal","ectotherm invertebrate","family","walking",1.03700618073344e-07,0.88459897241344
+"Hardknott Gill","Eunotia",1.069238439366,"dry g.m2",6.18e-10,1730159287,"plant","plant","genus","sessile",NA,0.487432933611077
+"Hardknott Gill","Eunotia exigua",0.417274194785,"dry g.m2",3.55e-10,1175420267,"plant","plant","species","sessile",NA,0.487432933611077
+"Hardknott Gill","Eunotia incisa",6.103741269,"dry g.m2",1.5e-09,4069160846,"plant","plant","species","sessile",NA,0.487432933611077
+"Hardknott Gill","Eunotia rhomboidea",0.763801211572,"dry g.m2",2.98e-10,2563091314,"plant","plant","species","sessile",NA,0.487432933611077
+"Hardknott Gill","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Hardknott Gill","Fragilaria",0.761302237617,"dry g.m2",6.39e-10,1191396303,"plant","plant","genus","sessile",NA,0.487432933611077
+"Hardknott Gill","Frustulia rhomboides saxonica",3.378849359756,"dry g.m2",7.46e-10,4529288686,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Hardknott Gill","Gammarus pulex",0.0591499264752,"dry g.m2",0.001120263759,52.8,"animal","ectotherm invertebrate","species","swimming",6.35641982033159e-06,0.88459897241344
+"Hardknott Gill","Gomphonema",0.227208140291,"dry g.m2",1.87e-10,1215016793,"plant","plant","genus","sessile",NA,0.487432933611077
+"Hardknott Gill","Gyrinidae",0.0012910659488,"dry g.m2",0.000806916218,1.6,"animal","ectotherm invertebrate","family","walking",1.52591177831915e-07,0.88459897241344
+"Hardknott Gill","Hydropsyche siltalai",0.0350889656832,"dry g.m2",0.001686969504,20.8,"animal","ectotherm invertebrate","species","walking",3.34865739525639e-06,0.88459897241344
+"Hardknott Gill","Isoperla grammatica",0.00541186452,"dry g.m2",0.000375823925,14.4,"animal","ectotherm invertebrate","species","walking",7.98293660151109e-07,0.88459897241344
+"Hardknott Gill","Leuctra inermis",0.023983937432,"dry g.m2",0.000230614783,104,"animal","ectotherm invertebrate","species","walking",4.07609650903793e-06,0.88459897241344
+"Hardknott Gill","Limnius volckmari",0.0005384427568,"dry g.m2",0.000336526723,1.6,"animal","ectotherm invertebrate","species","walking",8.20096795557503e-08,0.88459897241344
+"Hardknott Gill","Oligochaeta",0.001570653856,"dry g.m2",0.000245414665,6.4,"animal","ectotherm invertebrate","class","walking",2.62162508460471e-07,0.88459897241344
+"Hardknott Gill","Oulimnius",0.0002084243184,"dry g.m2",0.000130265199,1.6,"animal","ectotherm invertebrate","genus","walking",4.18031875885069e-08,0.88459897241344
+"Hardknott Gill","Perla bipunctata",0.0347712,"dry g.m2",0.005433,6.4,"animal","ectotherm invertebrate","species","walking",2.36384726300734e-06,0.88459897241344
+"Hardknott Gill","Peronia fibula",2.86007846979,"dry g.m2",5.63e-10,5080068330,"plant","plant","species","sessile",NA,0.487432933611077
+"Hardknott Gill","Philopotamus montanus",0.0035470198592,"dry g.m2",0.002216887412,1.6,"animal","ectotherm invertebrate","species","walking",3.12722559792096e-07,0.88459897241344
+"Hardknott Gill","Pinnularia subcapitata",26.3366708372,"dry g.m2",2.11e-08,1248183452,"plant","plant","species","sessile",NA,0.487432933611077
+"Hardknott Gill","Protonemura meyeri",0.0003372628432,"dry g.m2",0.000210789277,1.6,"animal","ectotherm invertebrate","species","walking",5.88320084541723e-08,0.88459897241344
+"Hardknott Gill","Salmo trutta",0.32200000001,"dry g.m2",2.476923077,0.13,"animal","ectotherm vertebrate","species","swimming",0.00125603924299164,0.88459897241344
+"Hardknott Gill","Silo pallipes",0.0003174640528,"dry g.m2",0.000198415033,1.6,"animal","ectotherm invertebrate","species","walking",5.63584677342327e-08,0.88459897241344
+"Hardknott Gill","Siphonoperla torrentium",0.018802011792,"dry g.m2",0.000391708579,48,"animal","ectotherm invertebrate","species","walking",2.74035150725902e-06,0.88459897241344
+"Hardknott Gill","Tabellaria flocculosa",10.38025882986,"dry g.m2",1.02e-09,10176724343,"plant","plant","species","sessile",NA,0.487432933611077
+"Hardknott Gill","Tanypodinae",0.010205866944,"dry g.m2",0.00070874076,14.4,"animal","ectotherm invertebrate","subfamily","walking",1.25247711804933e-06,0.88459897241344
+"Hardknott Gill","Tipulidae",0.0007884798576,"dry g.m2",0.000492799911,1.6,"animal","ectotherm invertebrate","family","walking",1.07517057581781e-07,0.88459897241344

@@ -1,0 +1,32 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"L8","Achnanthes",0.01241809580295,"dry g.m2",8.85e-10,14031746.67,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Achnanthes levanderi",0.000357849504,"dry g.m2",8.76e-11,4085040,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Amphinemura sulcicollis",0.00252448879936888,"dry g.m2",0.00018933666,13.33333333,"animal","ectotherm invertebrate","species","walking",4.54293610825638e-07,0.88459897241344
+"L8","Baetis rhodani",0.000603131379939687,"dry g.m2",0.000180939414,3.333333333,"animal","ectotherm invertebrate","species","walking",1.09973627309412e-07,0.88459897241344
+"L8","Chironomidae",0.00038961493323593,"dry g.m2",2.922112e-05,13.33333333,"animal","ectotherm invertebrate","subfamily","walking",1.20543765223312e-07,0.88459897241344
+"L8","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"L8","Elmis aenea",3.40361244410408e-05,"dry g.m2",3.0632512e-05,1.111111111,"animal","ectotherm invertebrate","species","walking",1.03874367520985e-08,0.88459897241344
+"L8","Eunotia bilunaris",0.0007781292,"dry g.m2",3.27e-09,237960,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Eunotia exigua",0.03243517554811,"dry g.m2",4.33e-10,74908026.67,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Eunotia rhomboidea",0.0519207789373,"dry g.m2",1.19e-09,43630906.67,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Eunotia tenella",0.001723307893244,"dry g.m2",2.68e-10,6430253.333,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"L8","Fragilaria construens",0.000538543466552,"dry g.m2",3.44e-10,1565533.333,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Fragilaria ulna",0.03137288,"dry g.m2",8.47e-08,370400,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Frustulia rhomboides",0.00303399,"dry g.m2",8.5e-10,3569400,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Hydracarina",3.26417788856247e-05,"dry g.m2",2.9377601e-05,1.111111111,"animal","ectotherm invertebrate","genus","walking",1.00834774312826e-08,0.88459897241344
+"L8","Leuctra inermis",0.00128076655876081,"dry g.m2",0.001152689903,1.111111111,"animal","ectotherm invertebrate","species","walking",1.36500613985567e-07,0.88459897241344
+"L8","Leuctra nigra",0.000380194251073092,"dry g.m2",0.000171087413,2.222222222,"animal","ectotherm invertebrate","species","walking",7.04585263386863e-08,0.88459897241344
+"L8","Navicula minima",0.00160439388,"dry g.m2",1.41e-10,11378680,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Nemoura",0.000625083454381936,"dry g.m2",0.000562575109,1.111111111,"animal","ectotherm invertebrate","genus","walking",8.2025125194112e-08,0.88459897241344
+"L8","Nemoura erratica",0.000147970893318536,"dry g.m2",0.000133173804,1.111111111,"animal","ectotherm invertebrate","species","walking",2.94887313788384e-08,0.88459897241344
+"L8","Nitzschia commutata",5.949e-05,"dry g.m2",2.5e-10,237960,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Nitzschia recta",0.00019893536,"dry g.m2",2.21e-10,900160,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Oligochaeta",0.000269085795528647,"dry g.m2",0.000121088608,2.222222222,"animal","ectotherm invertebrate","class","walking",5.51254397421123e-08,0.88459897241344
+"L8","Plectrocnemia conspersa",0.0048447526972933,"dry g.m2",0.004360277428,1.111111111,"animal","ectotherm invertebrate","species","walking",3.51053869793212e-07,0.88459897241344
+"L8","Rhithrogena semicolorata",0.00201907379535365,"dry g.m2",0.000908583208,2.222222222,"animal","ectotherm invertebrate","species","walking",2.30561970243478e-07,0.88459897241344
+"L8","Simuliidae",0.000415280825514027,"dry g.m2",0.000373752743,1.111111111,"animal","ectotherm invertebrate","family","walking",6.13555217588686e-08,0.88459897241344
+"L8","Siphonoperla torrentium",0.00428227560085646,"dry g.m2",0.000256936536,16.66666667,"animal","ectotherm invertebrate","species","walking",7.05320263048165e-07,0.88459897241344
+"L8","Surirella linearis",0.0376636373298,"dry g.m2",1.06e-08,3553173.333,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Tabellaria flocculosa",0.0216937996,"dry g.m2",1.21e-09,17928760,"plant","plant","species","sessile",NA,0.487432933611077
+"L8","Tanypodinae",0.000268214459973179,"dry g.m2",0.000120696507,2.222222222,"animal","ectotherm invertebrate","subfamily","walking",5.49986426688431e-08,0.88459897241344

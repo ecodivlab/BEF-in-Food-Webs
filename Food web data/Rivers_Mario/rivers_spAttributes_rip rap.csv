@@ -1,0 +1,16 @@
+fw_name,species,metabolic_type,bodymass,abundance,biomass
+rip rap,Ancylus fluviatilis,ectotherm invertebrate,2.176129787,946.3783741,2059.44217
+rip rap,Chelicorophium curvispinum,ectotherm invertebrate,0.200956836,8241.695319,1656.225018
+rip rap,Chironominae Gen. sp.,ectotherm invertebrate,0.121201067,17015.94465,2062.350641
+rip rap,Dikerogammarus villosus,ectotherm invertebrate,2.983270798,6251.208754,18649.04853
+rip rap,Dreissena polymorpha,ectotherm invertebrate,325.8509732,6.220894738,2027.084605
+rip rap,Heptagenia sulphurea,ectotherm invertebrate,2.195956178,11.25418549,24.71369816
+rip rap,Hydropsyche bulgaromanorum,ectotherm invertebrate,0.320415529,1596.034654,511.3942875
+rip rap,Hydropsyche contubernalis,ectotherm invertebrate,0.320415529,1596.034654,511.3942875
+rip rap,Jaera istri,ectotherm invertebrate,0.033907751,7064.234214,239.532298
+rip rap,Oligochaeta Gen. sp.,ectotherm invertebrate,0.026954323,12660.29392,341.2496495
+rip rap,Orthocladiinae Gen. sp.,ectotherm invertebrate,0.041519302,7296.591833,302.9494033
+rip rap,Biofilm,plant,,,73
+rip rap,BOM,detritus,,,356
+rip rap,Phytoplankton,plant,,,2.30E+08
+rip rap,t-POM,detritus,,,1151

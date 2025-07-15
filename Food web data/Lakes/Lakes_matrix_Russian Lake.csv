@@ -1,0 +1,25 @@
+"","benthic detritus","fish fry","Chydorus sphaericus","fish eggs","Perca flavescens","Oocyctis sp.","Diaptomus minutus","Cryptomonas erosa","Keratella taurocephala","Cryptomonas ovata","Kelicottia longispina","Mallomonas sp.","Lecane mira","Dinobryon sp.","Navicula sp.","Gastropus stylifer","Polyarthra major","Chrysosphaerella longispina","Trichocerca multicrinis","Bosmina longirostris","Synchaeta sp.","copepod nauplii","Polyphemus pediculus","Peridinium inconspicuum"
+"benthic detritus",0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"fish fry",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Chydorus sphaericus",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+"fish eggs",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Perca flavescens",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Oocyctis sp.",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Diaptomus minutus",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Cryptomonas erosa",0,0,1,0,0,0,1,0,1,0,1,0,1,0,0,1,1,0,1,1,1,1,0,0
+"Keratella taurocephala",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Cryptomonas ovata",0,0,1,0,0,0,1,0,1,0,1,0,1,0,0,1,1,0,1,1,1,1,0,0
+"Kelicottia longispina",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Mallomonas sp.",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Lecane mira",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Dinobryon sp.",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Navicula sp.",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Gastropus stylifer",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Polyarthra major",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Chrysosphaerella longispina",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Trichocerca multicrinis",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Bosmina longirostris",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+"Synchaeta sp.",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"copepod nauplii",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+"Polyphemus pediculus",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+"Peridinium inconspicuum",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

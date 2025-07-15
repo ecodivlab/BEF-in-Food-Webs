@@ -1,0 +1,48 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Afon Ceirw","Achnanthes lanceolata",0.003453944960328,"dry g.m2",9.84e-10,3510106.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Achnanthes levanderi",9.4480496e-05,"dry g.m2",7.16e-11,1319560,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Achnanthes minutissima",0.00194751,"dry g.m2",1.35e-10,14426000,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Achnanthes oblongella",0.000906912746744,"dry g.m2",2.32e-10,3909106.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Amphinemura sulcicollis",0.000107834004,"dry g.m2",0.000107834004,1,"animal","ectotherm invertebrate","species","walking",2.28464021139208e-08,0.88459897241344
+"Afon Ceirw","Baetis muticus",0.001020484442,"dry g.m2",0.000510242221,2,"animal","ectotherm invertebrate","species","walking",1.37756620951226e-07,0.88459897241344
+"Afon Ceirw","Baetis rhodani",0.00700632053,"dry g.m2",0.000318469115,22,"animal","ectotherm invertebrate","species","walking",1.08433063021874e-06,0.88459897241344
+"Afon Ceirw","Chaetopteryx villosa",0.000532732859,"dry g.m2",0.000532732859,1,"animal","ectotherm invertebrate","species","walking",7.10203783270455e-08,0.88459897241344
+"Afon Ceirw","Chironomidae",0.001323918728,"dry g.m2",1.61453503414634e-05,82,"animal","ectotherm invertebrate","family","walking",4.86506677600504e-07,0.88459897241344
+"Afon Ceirw","Chloroperla tripunctata",0.00120126051,"dry g.m2",0.000600630255,2,"animal","ectotherm invertebrate","species","walking",1.54668672550047e-07,0.88459897241344
+"Afon Ceirw","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Ceirw","Cymbella aspera",4.29943466756e-05,"dry g.m2",2.68e-10,160426.6667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Diatoma hyemale quadratum",0.003021015573212,"dry g.m2",3.64e-10,8299493.333,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Afon Ceirw","Electrogena lateralis",0.016884884299,"dry g.m2",0.000888678121,19,"animal","ectotherm invertebrate","species","walking",1.94054373309446e-06,0.88459897241344
+"Afon Ceirw","Encyonema minutum",1.68179144e-05,"dry g.m2",4.39e-12,3830960,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Esolus parallelepipedus",8.1229035e-05,"dry g.m2",8.1229035e-05,1,"animal","ectotherm invertebrate","species","walking",1.86834152260638e-08,0.88459897241344
+"Afon Ceirw","Eunotia curvata",0.0032720352,"dry g.m2",2.03e-09,1611840,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Eunotia exigua",0.0209711530702,"dry g.m2",1.06e-09,19784106.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Eunotia rhomboidea",0.004620288,"dry g.m2",1.2e-09,3850240,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Afon Ceirw","Fragilaria arcus",0.003998381333646,"dry g.m2",9.38e-10,4262666.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Fragilaria capucina",0.01593961722412,"dry g.m2",7.64e-10,20863373.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Fragilaria ulna",0.012768032,"dry g.m2",4.88e-08,261640,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Frustulia rhomboides",0.0001450039066883,"dry g.m2",6.49e-10,223426.6667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Gomphonema acuminatum",0.00018958976,"dry g.m2",2.92e-10,649280,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Gomphonema olivaceum",0.000901229697069,"dry g.m2",7.93e-11,11364813.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Gomphonema parvulum",0.000539465466631,"dry g.m2",1.07e-10,5041733.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Hydraena",2.5506795e-05,"dry g.m2",2.5506795e-05,1,"animal","ectotherm invertebrate","genus","walking",8.20893714433729e-09,0.88459897241344
+"Afon Ceirw","Isoperla grammatica",0.00431771306,"dry g.m2",0.00431771306,1,"animal","ectotherm invertebrate","species","walking",3.13755558867962e-07,0.88459897241344
+"Afon Ceirw","Leuctra inermis",0.002201551037,"dry g.m2",7.5915553e-05,29,"animal","ectotherm invertebrate","species","walking",5.16409335406376e-07,0.88459897241344
+"Afon Ceirw","Limnius volckmari",0.001209595532,"dry g.m2",0.000302398883,4,"animal","ectotherm invertebrate","species","walking",1.90034813144053e-07,0.88459897241344
+"Afon Ceirw","Navicula minima",0.000372464573423,"dry g.m2",2.69e-10,1384626.667,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Nitzschia",1.65239466701e-05,"dry g.m2",1.03e-10,160426.6667,"plant","plant","genus","sessile",NA,0.487432933611077
+"Afon Ceirw","Oligochaeta",0.000559808538,"dry g.m2",0.000279904269,2,"animal","ectotherm invertebrate","class","walking",8.99431314020669e-08,0.88459897241344
+"Afon Ceirw","Oulimnius",6.8000952e-05,"dry g.m2",2.2666984e-05,3,"animal","ectotherm invertebrate","genus","walking",2.26470717448617e-08,0.88459897241344
+"Afon Ceirw","Pisidium",2.0640361e-05,"dry g.m2",2.0640361e-05,1,"animal","ectotherm invertebrate","genus","walking",7.0633466738599e-09,0.88459897241344
+"Afon Ceirw","Plectrocnemia conspersa",3.1318056e-05,"dry g.m2",3.1318056e-05,1,"animal","ectotherm invertebrate","species","walking",9.4967619641686e-09,0.88459897241344
+"Afon Ceirw","Plectrocnemia geniculata",6.0926939e-05,"dry g.m2",6.0926939e-05,1,"animal","ectotherm invertebrate","species","walking",1.523266504638e-08,0.88459897241344
+"Afon Ceirw","Rhithrogena semicolorata",0.00720148766,"dry g.m2",0.001440297532,5,"animal","ectotherm invertebrate","species","walking",7.19502529729084e-07,0.88459897241344
+"Afon Ceirw","Rhyacophila dorsalis",0.003794661063,"dry g.m2",0.003794661063,1,"animal","ectotherm invertebrate","species","walking",2.86268835126829e-07,0.88459897241344
+"Afon Ceirw","Salmo trutta",0.552245333328,"dry g.m2",2.655025641,0.208,"animal","ectotherm vertebrate","species","swimming",0.000769716691792725,0.88459897241344
+"Afon Ceirw","Serratella ignita",1.6415764e-05,"dry g.m2",1.6415764e-05,1,"animal","ectotherm invertebrate","species","walking",6.00339097604465e-09,0.88459897241344
+"Afon Ceirw","Simuliidae",0.00100683333,"dry g.m2",5.5935185e-05,18,"animal","ectotherm invertebrate","family","walking",2.58041856755785e-07,0.88459897241344
+"Afon Ceirw","Siphonoperla torrentium",0.009161769101,"dry g.m2",0.000398337787,23,"animal","ectotherm invertebrate","species","walking",1.32882457921389e-06,0.88459897241344
+"Afon Ceirw","Synedra acus",0.050536032,"dry g.m2",2.98e-08,1695840,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Tabellaria flocculosa",0.0976649366583,"dry g.m2",2.51e-09,38910333.33,"plant","plant","species","sessile",NA,0.487432933611077
+"Afon Ceirw","Tipulidae",0.000558280244,"dry g.m2",0.000558280244,1,"animal","ectotherm invertebrate","family","walking",7.34220238531841e-08,0.88459897241344

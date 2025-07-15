@@ -1,0 +1,38 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Allt a'Mharcaidh","Achnanthes minutissima",2.790244232101,"dry g.m2",2.39e-10,11674662059,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Achnanthes modestiformis",0.2042388176058,"dry g.m2",2.39e-10,854555722.2,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Achnanthes oblongella",0.282603851065,"dry g.m2",2.35e-10,1202569579,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Amphinemura sulcicollis",0.0061714359824,"dry g.m2",0.000296703653,20.8,"animal","ectotherm invertebrate","species","walking",9.74930902337966e-07,0.88459897241344
+"Allt a'Mharcaidh","Baetis rhodani",0.2677784997888,"dry g.m2",0.000475458984,563.2,"animal","ectotherm invertebrate","species","walking",3.68955649304081e-05,0.88459897241344
+"Allt a'Mharcaidh","Brachyptera risi",0.050142018384,"dry g.m2",0.00101092779,49.6,"animal","ectotherm invertebrate","species","walking",5.55129388839248e-06,0.88459897241344
+"Allt a'Mharcaidh","Chironomidae",0.010182283008,"dry g.m2",0.000198872715,51.2,"animal","ectotherm invertebrate","family","walking",1.806423615146e-06,0.88459897241344
+"Allt a'Mharcaidh","Chloroperla tripunctata",0.0076986798672,"dry g.m2",0.000687382131,11.2,"animal","ectotherm invertebrate","species","walking",9.53213136662126e-07,0.88459897241344
+"Allt a'Mharcaidh","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Allt a'Mharcaidh","Diatoma hyemale",2.95563340544,"dry g.m2",6.4e-10,4618177196,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Dicranota",0.0025740219904,"dry g.m2",0.000201095468,12.8,"animal","ectotherm invertebrate","genus","walking",4.55183842741428e-07,0.88459897241344
+"Allt a'Mharcaidh","Ecdyonurus dispar",0.002084491752,"dry g.m2",0.001302807345,1.6,"animal","ectotherm invertebrate","species","walking",2.14410559780831e-07,0.88459897241344
+"Allt a'Mharcaidh","Elmis aenea",0.0044237266304,"dry g.m2",0.000197487796,22.4,"animal","ectotherm invertebrate","species","walking",7.86398818365415e-07,0.88459897241344
+"Allt a'Mharcaidh","Empididae",6.89759904e-05,"dry g.m2",4.3109994e-05,1.6,"animal","ectotherm invertebrate","family","walking",1.90647705655955e-08,0.88459897241344
+"Allt a'Mharcaidh","Eunotia",0.140844797088,"dry g.m2",1.02e-10,1380831344,"plant","plant","genus","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Eunotia incisa",1.66549409851,"dry g.m2",1.37e-09,1215689123,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Eunotia vanheurckii",2.115279655456,"dry g.m2",7.36e-10,2874021271,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Allt a'Mharcaidh","Fragilaria vaucheriae",9.278884109457,"dry g.m2",8.77e-10,10580255541,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Gomphonema angustatum",5.852590544901,"dry g.m2",7.99e-10,7324894299,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Hannaea arcus",7.96950742514,"dry g.m2",5.78e-09,1378807513,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Hydracarina",0.002715876432,"dry g.m2",7.380099e-05,36.8,"animal","ectotherm invertebrate","genus","walking",6.42293044662549e-07,0.88459897241344
+"Allt a'Mharcaidh","Isoperla grammatica",0.0489293594624,"dry g.m2",0.000955651552,51.2,"animal","ectotherm invertebrate","species","walking",5.50609756332116e-06,0.88459897241344
+"Allt a'Mharcaidh","Leuctra hippopus",0.0064677362496,"dry g.m2",0.000336861263,19.2,"animal","ectotherm invertebrate","species","walking",9.8481065207361e-07,0.88459897241344
+"Allt a'Mharcaidh","Leuctra inermis",0.0728445523968,"dry g.m2",0.000297567616,244.8,"animal","ectotherm invertebrate","species","walking",1.14978988364572e-05,0.88459897241344
+"Allt a'Mharcaidh","Limnius volckmari",0.0014151524384,"dry g.m2",0.000442235137,3.2,"animal","ectotherm invertebrate","species","walking",1.99124652057025e-07,0.88459897241344
+"Allt a'Mharcaidh","Oreodytes sanmarkii",0.000830351264,"dry g.m2",0.00051896954,1.6,"animal","ectotherm invertebrate","species","walking",1.11540338058652e-07,0.88459897241344
+"Allt a'Mharcaidh","Plectrocnemia geniculata",0.0227957595072,"dry g.m2",0.002374558282,9.6,"animal","ectotherm invertebrate","species","walking",1.97013638621355e-06,0.88459897241344
+"Allt a'Mharcaidh","Protonemura meyeri",0.0346437455168,"dry g.m2",0.000773297891,44.8,"animal","ectotherm invertebrate","species","walking",4.14539106933825e-06,0.88459897241344
+"Allt a'Mharcaidh","Rhithrogena semicolorata",0.031261580496,"dry g.m2",0.001085471545,28.8,"animal","ectotherm invertebrate","species","walking",3.39033669002024e-06,0.88459897241344
+"Allt a'Mharcaidh","Rhyacophila fasciata",0.0196712435216,"dry g.m2",0.000647080379,30.4,"animal","ectotherm invertebrate","species","walking",2.47864982176417e-06,0.88459897241344
+"Allt a'Mharcaidh","Salmo trutta",0.34500000001,"dry g.m2",4.312500000125,0.08,"animal","ectotherm vertebrate","species","swimming",0.000155167849209126,0.88459897241344
+"Allt a'Mharcaidh","Simuliidae",0.0389454382032,"dry g.m2",0.000477272527,81.6,"animal","ectotherm invertebrate","family","walking",5.36013311842759e-06,0.88459897241344
+"Allt a'Mharcaidh","Siphonoperla torrentium",0.0113205055248,"dry g.m2",0.000786146217,14.4,"animal","ectotherm invertebrate","species","walking",1.34812791898185e-06,0.88459897241344
+"Allt a'Mharcaidh","Synedra minuscula",132.48190516758,"dry g.m2",5.34e-09,24809345537,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Tabellaria flocculosa",10.96396953295,"dry g.m2",1.33e-09,8243586115,"plant","plant","species","sessile",NA,0.487432933611077
+"Allt a'Mharcaidh","Tipulidae",0.010427883936,"dry g.m2",0.000434495164,24,"animal","ectotherm invertebrate","family","walking",1.47482945031695e-06,0.88459897241344

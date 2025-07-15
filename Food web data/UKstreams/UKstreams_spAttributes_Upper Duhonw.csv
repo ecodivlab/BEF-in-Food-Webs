@@ -1,0 +1,60 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Upper Duhonw","Achnanthes minutissima",0.00494547418629,"dry g.m2",3.63e-10,13623895.83,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Amphinemura sulcicollis",0.000295311039970469,"dry g.m2",0.000265779936,1.111111111,"animal","ectotherm invertebrate","species","walking",4.81647704011551e-08,0.88459897241344
+"Upper Duhonw","Amphora ovalis",8.238043646159e-05,"dry g.m2",9.77e-12,8431979.167,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Baetis muticus",0.0100817417323252,"dry g.m2",0.000302452252,33.33333333,"animal","ectotherm invertebrate","species","walking",1.58382187303224e-06,0.88459897241344
+"Upper Duhonw","Baetis rhodani",0.00259948226697794,"dry g.m2",0.000179964157,14.44444444,"animal","ectotherm invertebrate","species","walking",4.74727250010168e-07,0.88459897241344
+"Upper Duhonw","Caenis rivulorum",0.000639824840031991,"dry g.m2",9.5973726e-05,6.666666667,"animal","ectotherm invertebrate","species","walking",1.40216189551216e-07,0.88459897241344
+"Upper Duhonw","Chaetopteryx villosa",0.022695194393286,"dry g.m2",0.005106418739,4.444444444,"animal","ectotherm invertebrate","species","walking",1.57087414197885e-06,0.88459897241344
+"Upper Duhonw","Chironomidae",0.000723631010042567,"dry g.m2",1.2769959e-05,56.66666667,"animal","ectotherm invertebrate","subfamily","walking",2.84631827292962e-07,0.88459897241344
+"Upper Duhonw","Chloroperla tripunctata",0.000657521168823137,"dry g.m2",0.000591769052,1.111111111,"animal","ectotherm invertebrate","species","walking",8.50250379467784e-08,0.88459897241344
+"Upper Duhonw","Cottus gobio",0.0177608695373574,"dry g.m2",0.9103714286,0.019509476,"animal","ectotherm vertebrate","species","swimming",5.14267753495971e-05,0.88459897241344
+"Upper Duhonw","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Upper Duhonw","Ecdyonurus",0.377611279337579,"dry g.m2",0.006179093662,61.11111111,"animal","ectotherm invertebrate","genus","walking",2.47307917138334e-05,0.88459897241344
+"Upper Duhonw","Electrogena lateralis",0.0829709627373803,"dry g.m2",0.001357706663,61.11111111,"animal","ectotherm invertebrate","species","walking",8.43283593972716e-06,0.88459897241344
+"Upper Duhonw","Encyonema minutum",3.343021875e-05,"dry g.m2",1.35e-11,2476312.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Encyonema silesiacum",2.46748249959e-05,"dry g.m2",1.23e-11,2006083.333,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Esolus parallelepipedus",0.000277771586597224,"dry g.m2",2.0832869e-05,13.33333333,"animal","ectotherm invertebrate","species","walking",9.48007629606508e-08,0.88459897241344
+"Upper Duhonw","Eunotia exigua",0.004331928375,"dry g.m2",5.58e-10,7763312.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Eunotia incisa",0.00829444183518,"dry g.m2",5.54e-10,14971916.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Upper Duhonw","Fragilaria arcus",0.001151977749804,"dry g.m2",5.88e-10,1959145.833,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Fragilaria capucina",0.00877671768663,"dry g.m2",2.61e-10,33627270.83,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Fragilaria ulna",0.26549645625,"dry g.m2",1.81e-08,14668312.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Frustulia rhomboides",0.001243546875,"dry g.m2",7.17e-10,1734375,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Gammarus pulex",0.256831451281004,"dry g.m2",0.002222579866,115.5555556,"animal","ectotherm invertebrate","species","swimming",2.26266789156873e-05,0.88459897241344
+"Upper Duhonw","Gomphonema angustatum",0.0006934199375,"dry g.m2",7.85e-11,8833375,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Gomphonema parvulum",0.001549572266944,"dry g.m2",8.32e-11,18624666.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Habrophlebia fusca",3.00820399969918e-05,"dry g.m2",2.7073836e-05,1.111111111,"animal","ectotherm invertebrate","species","walking",9.51544473643294e-09,0.88459897241344
+"Upper Duhonw","Halesus radiatus",0.0410469108403398,"dry g.m2",0.01847110988,2.222222222,"animal","ectotherm invertebrate","species","walking",1.95685550133955e-06,0.88459897241344
+"Upper Duhonw","Hydracarina",0.000126974738876191,"dry g.m2",0.000114277265,1.111111111,"animal","ectotherm invertebrate","genus","walking",2.64527131528068e-08,0.88459897241344
+"Upper Duhonw","Hydropsyche angustipennis",0.00728222542816067,"dry g.m2",0.006554002886,1.111111111,"animal","ectotherm invertebrate","species","walking",4.68854883366849e-07,0.88459897241344
+"Upper Duhonw","Hydropsyche pellucidula",0.00368285057074283,"dry g.m2",0.003314565514,1.111111111,"animal","ectotherm invertebrate","species","walking",2.88949288226447e-07,0.88459897241344
+"Upper Duhonw","Hydropsyche siltalai",0.0205786914847017,"dry g.m2",0.002315102792,8.888888889,"animal","ectotherm invertebrate","species","walking",1.79165185117943e-06,0.88459897241344
+"Upper Duhonw","Isoperla grammatica",0.00510965743726681,"dry g.m2",0.002299345847,2.222222222,"animal","ectotherm invertebrate","species","walking",4.45746339645921e-07,0.88459897241344
+"Upper Duhonw","Leuctra inermis",0.016658599849204,"dry g.m2",0.000107090999,155.5555556,"animal","ectotherm invertebrate","species","walking",3.53648143176518e-06,0.88459897241344
+"Upper Duhonw","Leuctra moselyi",0.0064032711024685,"dry g.m2",0.000110825846,57.77777778,"animal","ectotherm invertebrate","species","walking",1.34591375197338e-06,0.88459897241344
+"Upper Duhonw","Leuctra nigra",0.0013506215865316,"dry g.m2",0.000303889857,4.444444444,"animal","ectotherm invertebrate","species","walking",2.11888425782758e-07,0.88459897241344
+"Upper Duhonw","Limnius volckmari",0.00130407897653626,"dry g.m2",0.000391223693,3.333333333,"animal","ectotherm invertebrate","species","walking",1.9013490310906e-07,0.88459897241344
+"Upper Duhonw","Melampophylax mucoreus",0.00239950658087116,"dry g.m2",0.002159555923,1.111111111,"animal","ectotherm invertebrate","species","walking",2.13165786373577e-07,0.88459897241344
+"Upper Duhonw","Meridion circulare",0.0010736105625,"dry g.m2",3.73e-10,2878312.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Navicula cryptocephala",0.0134817791678,"dry g.m2",3.4e-09,3965229.167,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Navicula gregaria",0.02076837583623,"dry g.m2",8.69e-10,23899166.67,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Navicula lanceolata",0.0865873636933,"dry g.m2",7.99e-10,108369666.7,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Odontocerum albicorne",0.00616056444160617,"dry g.m2",0.005544507998,1.111111111,"animal","ectotherm invertebrate","species","walking",4.16352788655662e-07,0.88459897241344
+"Upper Duhonw","Oligochaeta",0.00229489222732235,"dry g.m2",0.000147528786,15.55555556,"animal","ectotherm invertebrate","class","walking",4.43965557589428e-07,0.88459897241344
+"Upper Duhonw","Orectochilus",0.00011314026443313,"dry g.m2",0.000101826238,1.111111111,"animal","ectotherm invertebrate","genus","walking",2.43724463980902e-08,0.88459897241344
+"Upper Duhonw","Oreodytes sanmarkii",0.00826665024041333,"dry g.m2",0.001239997536,6.666666667,"animal","ectotherm invertebrate","species","walking",8.62578783709833e-07,0.88459897241344
+"Upper Duhonw","Oulimnius",0.000235739606678454,"dry g.m2",3.5360941e-05,6.666666667,"animal","ectotherm invertebrate","genus","walking",6.90115681214444e-08,0.88459897241344
+"Upper Duhonw","Polycentropus flavomaculatus",0.000360563901075055,"dry g.m2",0.000324507511,1.111111111,"animal","ectotherm invertebrate","species","walking",5.54994031379633e-08,0.88459897241344
+"Upper Duhonw","Potamophylax rotundipennis",0.00200575290646609,"dry g.m2",0.001805177616,1.111111111,"animal","ectotherm invertebrate","species","walking",1.87692921743219e-07,0.88459897241344
+"Upper Duhonw","Rhithrogena semicolorata",0.0153699026674352,"dry g.m2",0.0023054854,6.666666667,"animal","ectotherm invertebrate","species","walking",1.33977316645484e-06,0.88459897241344
+"Upper Duhonw","Salmo salar",0.422511705685655,"dry g.m2",0.3550285714,1.190078038,"animal","ectotherm vertebrate","species","swimming",0.000237177523234085,0.88459897241344
+"Upper Duhonw","Salmo trutta",2.27314102155807,"dry g.m2",11.02166216,0.206243032,"animal","ectotherm vertebrate","species","swimming",0.000302092199267528,0.88459897241344
+"Upper Duhonw","Sericostoma personatum",0.000772744359922726,"dry g.m2",0.000231823308,3.333333333,"animal","ectotherm invertebrate","species","walking",1.31129840357609e-07,0.88459897241344
+"Upper Duhonw","Serratella ignita",0.00182070360882386,"dry g.m2",5.8522616e-05,31.11111111,"animal","ectotherm invertebrate","species","walking",4.60549821342912e-07,0.88459897241344
+"Upper Duhonw","Siphonoperla torrentium",0.0133452033319988,"dry g.m2",0.0004003561,33.33333333,"animal","ectotherm invertebrate","species","walking",1.93275574074756e-06,0.88459897241344
+"Upper Duhonw","Surirella linearis",0.00065593125,"dry g.m2",1.35e-09,485875,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Tabellaria flocculosa",0.180712877334,"dry g.m2",1.27e-09,142293604.2,"plant","plant","species","sessile",NA,0.487432933611077
+"Upper Duhonw","Tanypodinae",0.000176875961125261,"dry g.m2",3.1837673e-05,5.555555556,"animal","ectotherm invertebrate","subfamily","walking",5.33798166557946e-08,0.88459897241344
+"Upper Duhonw","Tipulidae",0.00236400233309693,"dry g.m2",0.0007092007,3.333333333,"animal","ectotherm invertebrate","family","walking",2.90058831359222e-07,0.88459897241344

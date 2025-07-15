@@ -1,0 +1,43 @@
+fw_name,species,metabolic_type,bodymass,bodymass_sd,abundance,biomass
+mordown1,Aeshna cf mixta,ectotherm invertebrate,208.2244689,NA,2,416.4489377
+mordown1,Ancylus fluviatilis,ectotherm invertebrate,6.704252478,1.789383289,4,26.81700991
+mordown1,Anguilla anguilla,ectotherm vertebrate,182400,0,0.01,1824
+mordown1,Animal detritus,detritus,NA,NA,NA,NA
+mordown1,Antocha sp.,ectotherm invertebrate,0.227176381,0.085317933,12,2.726116571
+mordown1,Apsectrotanypus sp.,ectotherm invertebrate,0.188293804,0.007835728,2,0.376587609
+mordown1,Barbus haasi,ectotherm vertebrate,40600,14522.12106,0.05,2030
+mordown1,Bithynia tentaculata,ectotherm invertebrate,0.47,NA,6,2.82
+mordown1,Caenis luctuosa,ectotherm invertebrate,0.325004011,0.17728903,116,37.70046532
+mordown1,Centroptilum luteolum,ectotherm invertebrate,0.040197625,NA,2,0.08039525
+mordown1,Chaetocladius sp.,ectotherm invertebrate,0.158133423,0.064446538,180,28.46401609
+mordown1,Chironomus sp.,ectotherm invertebrate,0.057406744,0.069331489,2,0.114813487
+mordown1,Parachondrostoma miegii,ectotherm vertebrate,13104.16667,7949.186498,0.24,3145
+mordown1,Cricotopus sp.,ectotherm invertebrate,0.312221316,0.212264685,1800,561.9983688
+mordown1,Detritus,detritus,NA,NA,NA,NA
+mordown1,Diatoms,plant,NA,NA,NA,NA
+mordown1,Eukiefferiella sp.,ectotherm invertebrate,0.114113406,0.067912706,1136,129.632829
+mordown1,Filamentous algae,plant,NA,NA,NA,NA
+mordown1,Fungi,fungi,NA,NA,NA,NA
+mordown1,Gobio lozanoi,ectotherm vertebrate,12234.61538,5932.890222,0.55,6729.038462
+mordown1,Habrophlebia fusca,ectotherm invertebrate,0.080548359,NA,2,0.161096718
+mordown1,Hydracarina,ectotherm invertebrate,0.450014409,0.515039591,28,12.60040344
+mordown1,Hydropsyche exocellata,ectotherm invertebrate,4.093028753,2.292107543,4,16.37211501
+mordown1,Leuctra cf inermis,ectotherm invertebrate,0.068165348,0.037616461,14,0.954314872
+mordown1,Limnius volckmari,ectotherm invertebrate,0.852474612,0.10161533,4,3.409898449
+mordown1,Luciobarbus graellsii,ectotherm vertebrate,234970,156774.7177,0.19,44644.3
+mordown1,Nilotanypus sp.,ectotherm invertebrate,0.39756814,0.277534706,10,3.975681398
+mordown1,Non-filamentous algae,plant,NA,NA,NA,NA
+mordown1,Onychogomphus cf uncatus,ectotherm invertebrate,12.5466589,10.79623479,8,100.3732712
+mordown1,Orthocladius sp.,ectotherm invertebrate,0.112504574,0.085894724,718,80.77828402
+mordown1,Orectochilus villosus,ectotherm invertebrate,0.1156,0,1,0.1156
+mordown1,Oulimnius rivularis (Adult),ectotherm invertebrate,0.183609571,0.002014701,8,1.468876571
+mordown1,Palpomyia sp.,ectotherm invertebrate,0.084236433,0.012613342,8,0.673891467
+mordown1,Parametriocnemus sp.,ectotherm invertebrate,0.192453387,0.125689628,454,87.37383773
+mordown1,Paratrichocladius sp.,ectotherm invertebrate,0.388016167,0.116323,286,110.9726238
+mordown1,Philopotamus montanus,ectotherm invertebrate,2.574125182,2.374125182,2,5.148250364
+mordown1,Plectrocnemia cf laetabilis,ectotherm invertebrate,1.504206901,NA,2,3.008413802
+mordown1,Radix sp.,ectotherm invertebrate,371.5295616,NA,2,743.0591232
+mordown1,Salmo trutta,ectotherm vertebrate,91100,0,0.01,911
+mordown1,Simulium erytrocephalum,ectotherm invertebrate,0.525443264,0.17533,20,10.50886528
+mordown1,Tanytarsus sp.,ectotherm invertebrate,0.144498881,0.071710499,16,2.311982102
+mordown1,Vegetal material,detritus,NA,NA,NA,NA

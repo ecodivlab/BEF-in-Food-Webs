@@ -1,0 +1,52 @@
+fw_name,species,metabolic_type,bodymass,bodymass_sd,abundance,biomass
+mordown3,Aeshna cf mixta,ectotherm invertebrate,17.24069647,NA,2,34.48139294
+mordown3,Alona sp.,ectotherm invertebrate,0.004740494,0.001871975,76,0.360277544
+mordown3,Ancylus fluviatilis,ectotherm invertebrate,14.91950346,9.230388397,28,417.7460969
+mordown3,Animal detritus,detritus,NA,NA,NA,NA
+mordown3,Atherix ibis,ectotherm invertebrate,0.041891563,0,2,0.083783126
+mordown3,Bacteria,heterotrophic bacteria,NA,NA,NA,NA
+mordown3,Barbus haasi,ectotherm vertebrate,16586.66667,13291.89561,0.21,3483.2
+mordown3,Bithynia tentaculata,ectotherm invertebrate,0.1175,0,1,0.1175
+mordown3,Brachyptera cf arcuata,ectotherm invertebrate,0.225149351,0,1,0.225149351
+mordown3,Caenis luctuosa,ectotherm invertebrate,0.520650072,0.325329575,220,114.5430158
+mordown3,Centroptilum luteolum,ectotherm invertebrate,0.013161599,0.010377263,210,2.76393579
+mordown3,cf Serratella ignita,ectotherm invertebrate,0.972248911,0.625776754,254,246.9512234
+mordown3,Chimarra cf marginata,ectotherm invertebrate,2.071406048,0,2,4.142812096
+mordown3,Chironomus sp.,ectotherm invertebrate,0.248634112,0.088751697,2,0.497268224
+mordown3,Chydorus sp.,ectotherm invertebrate,0.000652444,0.000428775,152,0.099171489
+mordown3,Corynoneura sp.,ectotherm invertebrate,0.677823097,0.324711301,218,147.7654351
+mordown3,Cricotopus sp.,ectotherm invertebrate,0.153721165,0.05950867,1524,234.2710555
+mordown3,Detritus,detritus,NA,NA,NA,NA
+mordown3,Diatoms,plant,NA,NA,NA,NA
+mordown3,Filamentous algae,plant,NA,NA,NA,NA
+mordown3,Fungi,fungi,NA,NA,NA,NA
+mordown3,Gobio lozanoi,ectotherm vertebrate,8760,4288.869315,0.05,438
+mordown3,Habrophlebia fusca,ectotherm invertebrate,0.583579087,0.301163414,8,4.668632696
+mordown3,Hydracarina,ectotherm invertebrate,0.039168054,0.014218836,8,0.313344432
+mordown3,Hydroptila sp.,ectotherm invertebrate,0.852158286,0,7,5.965108005
+mordown3,Isoperla cf grammatica,ectotherm invertebrate,0.060904242,0.011258616,2,0.121808484
+mordown3,Luciobarbus graellsii,ectotherm vertebrate,87977.78,71830.6771,0.26,22874.2228
+mordown3,Lumbriculidae,ectotherm invertebrate,0.413142482,0.306080627,8,3.305139856
+mordown3,Naididae,ectotherm invertebrate,0.028366384,0.008541063,3320,94.17639488
+mordown3,Natrix maura,ectotherm vertebrate,86530,NA,0.01,865.3
+mordown3,Nilotanypus sp.,ectotherm invertebrate,0.619131695,0.306585,35,21.66960933
+mordown3,Non-filamentous algae,plant,NA,NA,NA,NA
+mordown3,Onychogomphus cf uncatus,ectotherm invertebrate,12.6208597,0.1692352,4,50.4834388
+mordown3,Orthocladius sp.,ectotherm invertebrate,0.220692438,0.085452837,1088,240.1133721
+mordown3,Oulimnius rivularis,ectotherm invertebrate,10.77380648,8.498627818,88,948.0949702
+mordown3,Oxygastra curtisii,ectotherm invertebrate,0.053457762,,8,0.427662096
+mordown3,Parachondrostoma miegii,ectotherm vertebrate,5677.78,4566.409833,1.7,9652.226
+mordown3,Paracricotopus sp.,ectotherm invertebrate,0.200027559,0.082438875,325,65.00895663
+mordown3,Parametriocnemus sp.,ectotherm invertebrate,0.200027559,0.082438875,1088,217.6299842
+mordown3,Paratanytarsus sp.,ectotherm invertebrate,0.144949478,0.049806519,222,32.17878407
+mordown3,Paratrichocladius sp.,ectotherm invertebrate,0.200027559,0.082438875,654,130.8180235
+mordown3,Pelophylax perezi,ectotherm vertebrate,57850,7750,0.02,1157
+mordown3,Potamopyrgus antipodarum,ectotherm invertebrate,0.235029851,0.184064786,4,0.940119403
+mordown3,Prosimulium sp.,ectotherm invertebrate,0.602103407,0.295385794,88,52.98509983
+mordown3,Psychodidae,ectotherm invertebrate,0.056984411,0.007560704,2,0.113968822
+mordown3,Simulium erytrocephalum,ectotherm invertebrate,0.873894438,0.396645146,140,122.3452213
+mordown3,Stenelmis consobrina,ectotherm invertebrate,0.51896954,NA,2,1.03793908
+mordown3,Synorthocladius sp.,ectotherm invertebrate,0.078576067,0.003914088,25.4213198,1.997507324
+mordown3,Tinodes cf maculicornis,ectotherm invertebrate,1.287803074,0.839903608,4,5.151212296
+mordown3,Tipulidae,ectotherm invertebrate,37.60432803,8.325569572,4,150.4173121
+mordown3,Vegetal material,detritus,NA,NA,NA,NA

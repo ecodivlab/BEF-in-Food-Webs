@@ -1,0 +1,22 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Old Lodge","Brachysira brebissonii",0.7462236146106,"dry g.m2",8.33e-09,89582666.82,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","Brachysira vitrea",0.312103159767,"dry g.m2",5.51e-10,566430417,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","Centroptilum luteolum",0.0040831336992,"dry g.m2",0.001275979281,3.2,"animal","ectotherm invertebrate","species","walking",4.22532576071099e-07,0.88459897241344
+"Old Lodge","Chironomidae",0.005080234432,"dry g.m2",7.9378663e-05,64,"animal","ectotherm invertebrate","family","walking",1.17633469056932e-06,0.88459897241344
+"Old Lodge","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Old Lodge","Eunotia exigua",0.602243056184,"dry g.m2",3.08e-10,1955334598,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","Eunotia incisa",0.345447646156,"dry g.m2",1.51e-09,228773275.6,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","Eunotia pectinalis",0.620001245436,"dry g.m2",1.64e-09,378049539.9,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","Eunotia rhomboidea",0.0600840349495,"dry g.m2",3.05e-10,196996835.9,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","Eunotia vanheurckii",0.622035604933,"dry g.m2",7.66e-10,812056925.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Old Lodge","Frustulia rhomboides saxonica",0.05340288856588,"dry g.m2",9.73e-10,54884777.56,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Old Lodge","Frustulia rhomboides viridula",0.3158357039448,"dry g.m2",6.78e-10,465834371.6,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Old Lodge","Leuctra nigra",0.073310658176,"dry g.m2",0.00034193404,214.4,"animal","ectotherm invertebrate","species","walking",1.11143760755171e-05,0.88459897241344
+"Old Lodge","Nemoura cinerea",0.1216772793664,"dry g.m2",0.000355365886,342.4,"animal","ectotherm invertebrate","species","walking",1.82420975889896e-05,0.88459897241344
+"Old Lodge","Plectrocnemia conspersa",0.1441541309952,"dry g.m2",0.002815510371,51.2,"animal","ectotherm invertebrate","species","walking",1.18581454070404e-05,0.88459897241344
+"Old Lodge","Salmo trutta",0.45999999997,"dry g.m2",6.571428571,0.07,"animal","ectotherm vertebrate","species","swimming",0.000209258219480321,0.88459897241344
+"Old Lodge","Simuliidae",0.0170985448608,"dry g.m2",0.000184251561,92.8,"animal","ectotherm invertebrate","family","walking",3.10135269505231e-06,0.88459897241344
+"Old Lodge","Siphonoperla torrentium",0.016613922912,"dry g.m2",0.001038370182,16,"animal","ectotherm invertebrate","species","walking",1.82511946865502e-06,0.88459897241344
+"Old Lodge","Surirella linearis",1.811051251352,"dry g.m2",9.19e-09,197067600.8,"plant","plant","species","sessile",NA,0.487432933611077
+"Old Lodge","Tanypodinae",0.0038507477632,"dry g.m2",0.000601679338,6.4,"animal","ectotherm invertebrate","subfamily","walking",4.95553377673141e-07,0.88459897241344

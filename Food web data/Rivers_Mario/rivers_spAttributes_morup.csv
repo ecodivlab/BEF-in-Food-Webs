@@ -1,0 +1,41 @@
+fw_name,species,metabolic_type,bodymass,bodymass_sd,abundance,biomass
+morup,Agabus bipustulatus,ectotherm invertebrate,28.28507766,16.67430189,4,113.1403106
+morup,Ancylus fluviatilis,ectotherm invertebrate,14.98787622,6.715299458,130,1948.423908
+morup,Animal detritus,detritus,NA,NA,NA,NA
+morup,Brachyptera cf arcuata,ectotherm invertebrate,0.477618647,0.533732138,16,7.641898344
+morup,Centroptilum luteolum,ectotherm invertebrate,0.056773313,0.023441563,2,0.113546626
+morup,Corynoneura sp.,ectotherm invertebrate,0.125346313,0.121489665,56,7.019393516
+morup,Cricotopus sp.,ectotherm invertebrate,0.186356685,0.15986523,112,20.87194871
+morup,Detritus,detritus,NA,NA,NA,NA
+morup,Diatoms,plant,NA,NA,NA,NA
+morup,Filamentous algae,plant,NA,NA,NA,NA
+morup,Fungi,fungi,NA,NA,NA,NA
+morup,Graptodytes flavipes,ectotherm invertebrate,0.437384973,0.287668063,4,1.749539892
+morup,Isoperla cf grammatica,ectotherm invertebrate,3.135631116,1.734649133,28,87.79767125
+morup,Lestes cf barbarus,ectotherm invertebrate,0.235384038,0,13,3.059992489
+morup,Libellula cf depressa,ectotherm invertebrate,0.22839861,0,1,0.22839861
+morup,Limnephilus cf guadarramicus,ectotherm invertebrate,9.711398752,5.085372975,8,77.69119002
+morup,Limnius volckmari,ectotherm invertebrate,0.722537165,0.670813845,2,1.445074331
+morup,Lumbriculidae,ectotherm invertebrate,0.304181328,0.2631643,2,0.608362656
+morup,Mesovelia vittigera,ectotherm invertebrate,1.001231333,0,2,2.002462666
+morup,Natrix maura,ectotherm vertebrate,165000,0,0.01,1650
+morup,Nemoura cf cinerea,ectotherm invertebrate,0.194759473,0.062704664,278,54.14313354
+morup,Non-filamentous algae,plant,NA,NA,NA,NA
+morup,Orthocladius sp.,ectotherm invertebrate,0.234226092,0.14629479,734,171.9219514
+morup,Ostracoda,ectotherm invertebrate,0.124910509,0.076335012,34,4.246957306
+morup,Oulimnius rivularis (Adult),ectotherm invertebrate,0.812145391,0.006918705,7,5.685017738
+morup,Palpomyia sp.,ectotherm invertebrate,0.089176648,0.016766782,2,0.178353295
+morup,Paracricotopus sp.,ectotherm invertebrate,0.204491392,0.166990485,5,1.022456958
+morup,Parametriocnemus sp.,ectotherm invertebrate,0.194444452,0.15737821,56,10.8888893
+morup,Paratrichocladius sp.,ectotherm invertebrate,0.281626844,0.213858664,170,47.87656356
+morup,Pelophylax perezi,ectotherm vertebrate,13810,3.6,0.02,276.2
+morup,Perlodes cf microcephala,ectotherm invertebrate,1.512217664,1.494245933,12,18.14661196
+morup,Prosimulium sp.,ectotherm invertebrate,1.128530596,0.378160832,32,36.11297906
+morup,Rhabdiopteryx sp.,ectotherm invertebrate,1.39050025,0,4,5.562001
+morup,Simulium erytrocephalum,ectotherm invertebrate,0.776261815,0.419315532,32,24.84037807
+morup,Oxycera sp.,ectotherm invertebrate,0.055548313,0,1,0.055548313
+morup,Tanypodinae,ectotherm invertebrate,0.375722027,0,1,0.375722027
+morup,Tanytarsini,ectotherm invertebrate,0.155138042,0.151046003,5,0.310276083
+morup,Tubificidae,ectotherm invertebrate,0.221457639,0.042785206,308,68.20895278
+morup,Tvetenia sp.,ectotherm invertebrate,0.170399338,0.112627111,56,9.542362952
+morup,Vegetal material,detritus,NA,NA,NA,NA

@@ -1,0 +1,133 @@
+"species","movement_type","bodymass","metabolic_type","biomass"
+"Abax ovalis","walking",0.178420123,"invertebrate",0.178420123
+"Abax parallelepipedus","walking",0.427211499,"invertebrate",0.427211499
+"Aegopinella nitidula juv","walking",0.006715285,"invertebrate",0.006715285
+"Strigamia acuminata","walking",0.006997365,"invertebrate",0.11195784
+"Anelasmocephalus cambridgei","walking",0.008190923,"invertebrate",0.131054768
+"Trogulus tricarinatus","walking",0.019162779,"invertebrate",0.306604464
+"Agriotes acuminatus juv","walking",0.009457606,"invertebrate",0.151321696
+"Lithobius crassipes","walking",0.003348347,"invertebrate",0.107147104
+"Lithobius cf crassipes juv","walking",0.000951286,"invertebrate",0.015220576
+"Lithobius piceus","walking",0.007029912,"invertebrate",0.112478592
+"Lithobius cf mutabilis juv","walking",0.001784674,"invertebrate",0.114219136
+"Lithobius dentatus","walking",0.006537213,"invertebrate",0.104595408
+"Lithobius sp.","walking",0.00359344,"invertebrate",0.11139664
+"Geophilus ribauti","walking",0.004253993,"invertebrate",0.544511104
+"Geophilus insculptus","walking",0.005906476,"invertebrate",0.189007232
+"Schendyla nemorensis","walking",0.005111424,"invertebrate",0.490696704
+"Geophilus flavus","walking",0.007949148,"invertebrate",0.127186368
+"Harpalus latus","walking",0.131065377,"invertebrate",2.097046032
+"Amaurobius sp. juv","walking",0.012068147,"invertebrate",0.060340735
+"Clubiona comta","walking",0.009930466,"invertebrate",0.009930466
+"Pterostichus sp.","walking",0.14115915,"invertebrate",0.14115915
+"Geophilomorpha sp.","walking",0.006669259,"invertebrate",0.026677036
+"Harpactea lepida large","walking",0.014693674,"invertebrate",0.014693674
+"algae","sessile",-999,"primary producer",NA
+"Sminthurinus aureus","walking",5.1e-06,"invertebrate",0.002601
+"Scolopendrella cf subnuda s","walking",2.33e-05,"invertebrate",0.0029824
+"omnivorous nematodes","walking",6.02e-05,"invertebrate",NA
+"Enchytraeidae","walking",-999,"invertebrate",NA
+"Scutigerella immaculata m","walking",0.000203722,"invertebrate",0.068450592
+"Campodea sp. l","walking",0.002292383,"invertebrate",0.18339064
+"Allaiulus nitidus xl","walking",0.00468865,"invertebrate",0.2250552
+"amoebae","other",2.8e-08,"invertebrate",NA
+"Ceratophysella denticulata","walking",5.96e-06,"invertebrate",0.0015198
+"Isotomiella minor","walking",3.27e-06,"invertebrate",0.01331544
+"Parisotoma notabilis","walking",2.41e-06,"invertebrate",0.00736014
+"Aporrectodea caliginosa","walking",0.607275641,"invertebrate",2.429102564
+"Aporrectodea rosea","walking",0.219642857,"invertebrate",1.757142856
+"Aporrectodea rosea juv","walking",0.085811429,"invertebrate",1.71622858
+"Aporrectodea sp. juv xl","walking",0.05,"invertebrate",0.4
+"Lumbricus terrestris","walking",6.054848485,"invertebrate",24.21939394
+"Lumbricus terrestris juv xl","walking",0.073333333,"invertebrate",1.759999992
+"predacious nematodes","walking",3.56e-06,"invertebrate",NA
+"Robertus lividus","walking",0.008396656,"invertebrate",0.134346496
+"Apostenus fuscus","walking",0.008812524,"invertebrate",0.008812524
+"Athous haemorrhoidalis juv","walking",0.011601014,"invertebrate",0.185616224
+"Athous sp. juv","walking",0.000875669,"invertebrate",0.014010704
+"Histeridae sp.","walking",0.002114101,"invertebrate",0.033825616
+"Xantholinus sp. juv m","walking",0.001552369,"invertebrate",0.024837904
+"Diplocephalus picinus","walking",0.001612679,"invertebrate",0.027415543
+"Hahnia pusilla","walking",0.001021355,"invertebrate",0.041875555
+"Harpactea lepida juv small","walking",0.002996785,"invertebrate",0.04794856
+"Microneta viaria","walking",0.001863227,"invertebrate",0.003726454
+"Tenuiphantes tenebricola","walking",0.001080164,"invertebrate",0.017282624
+"Macrargus rufus","walking",0.004556828,"invertebrate",0.004556828
+"Clubionidae juv","walking",0.003435355,"invertebrate",0.003435355
+"Lithobius sp3 m","walking",0.000204057,"invertebrate",0.006529824
+"Staphylinidae spec","walking",0.004003596,"invertebrate",0.004003596
+"Harpactea lepida juv large","walking",0.004962887,"invertebrate",0.004962887
+"Theridiidae sp. juv","walking",0.003831577,"invertebrate",0.003831577
+"Walckenaeria atrotibialis","walking",0.004654898,"invertebrate",0.004654898
+"Athous subfuscus juv m","walking",0.000471002,"invertebrate",0.060288256
+"Lithobius sp2 s","walking",6.6e-05,"invertebrate",0.006336
+"Linyphiidae juv","walking",0.000519895,"invertebrate",0.00623874
+"Trombidiidae","walking",0.000694885,"invertebrate",0.01111816
+"Athous vittatus juv","walking",0.007401825,"invertebrate",0.1184292
+"Athous zebei juv m","walking",0.004052368,"invertebrate",0.129675776
+"Atropacarus striculus","walking",2.49e-05,"invertebrate",0.1013928
+"Lithobius sp1 s","walking",4.11e-05,"invertebrate",0.0006576
+"bacteria","other",9.5e-16,"heterotrophic bacteria",NA
+"Deuteraphorura inermis","walking",8.45e-06,"invertebrate",0.00215475
+"Oribatula tibialis","walking",3.63e-05,"invertebrate",0.0184767
+"Porcellio spinicornis","walking",0.010511452,"invertebrate",0.168183232
+"Polydesmidae sp.","walking",0.000201582,"invertebrate",0.003225312
+"Tachypodoiulus niger","walking",0.063822,"invertebrate",1.021152
+"bacterivorous nematodes","walking",8.52e-07,"invertebrate",NA
+"flagellates","other",3.63e-07,"invertebrate",NA
+"ciliates","other",2.63e-09,"invertebrate",NA
+"Julidae sp.","walking",0.00617,"invertebrate",0.03702
+"Trichoniscus pusillus l","walking",0.001396168,"invertebrate",0.067016064
+"Cylisticus sp.","walking",0.003154401,"invertebrate",0.009463203
+"Trichoniscus sp.","walking",0.001742812,"invertebrate",0.00871406
+"Trachelipus ratzeburgii","walking",0.010365996,"invertebrate",0.010365996
+"Philoscia muscorum","walking",0.00320492,"invertebrate",0.00640984
+"Mesaphorura sp.","walking",1.46e-05,"invertebrate",0.0074314
+"Micranurida pygmaea","walking",5.04e-06,"invertebrate",0.0012852
+"Paratullbergia callipygos","walking",1.46e-05,"invertebrate",0.003723
+"Vulgarogamasus sp. juv","walking",5.1e-05,"invertebrate",0.013005
+"Leitneria granulata juv","walking",4.8e-06,"invertebrate",0.001224
+"Prozercon fimbriatus","walking",6.12e-06,"invertebrate",0.0015606
+"Rhodacarellus kreuzi","walking",7.04e-06,"invertebrate",0.00358336
+"Urodiaspis tecta juv","walking",2.28e-05,"invertebrate",0.005814
+"Uropoda cassidea","walking",8.54e-05,"invertebrate",0.021777
+"Uropoda cassidea juv","walking",3.95e-05,"invertebrate",0.0100725
+"Uropoda minima","walking",1.34e-05,"invertebrate",0.0068206
+"Veigaia sp. juv","walking",6.03e-06,"invertebrate",0.00153765
+"Zercon cf gurensis","walking",1.22e-05,"invertebrate",0.0155306
+"Zercon sp. juv","walking",7.12e-06,"invertebrate",0.0018156
+"Hypochthonius rufulus","walking",2.51e-05,"invertebrate",0.0064005
+"Oribatida sp. juv","walking",7.36e-07,"invertebrate",0.007117856
+"Microppia minus","walking",3.83e-06,"invertebrate",0.00194947
+"Nothrus silvestris","walking",8.43e-05,"invertebrate",0.0214965
+"Oppiella nova","walking",8.99e-06,"invertebrate",0.05491092
+"Oppiella subpectinata","walking",1.52e-05,"invertebrate",0.1121912
+"Suctobelbella sp.","walking",6.17e-06,"invertebrate",0.02041653
+"Pergamasinae juv s","walking",1.87e-05,"invertebrate",0.0047685
+"Hahnia pusilla juv","walking",0.000174151,"invertebrate",0.025077744
+"Chamobates cuspidatus","walking",1.55e-05,"invertebrate",0.0078895
+"Curculionidae sp.","walking",0.006092829,"invertebrate",0.006092829
+"dead organic matter","sessile",-999,"dead organic material",NA
+"Phthiracarus longulus","walking",6.8e-05,"invertebrate",0.01734
+"Platynothrus peltifer","walking",0.000111057,"invertebrate",0.084847548
+"Porobelba spinosa","walking",1.49e-05,"invertebrate",0.0037995
+"Tectocepheus minor","walking",9.85e-06,"invertebrate",0.00501365
+"Tectocepheus velatus alatus","walking",1.35e-05,"invertebrate",0.0034425
+"saphrophytes","other",-999,"heterotrophic fungi",NA
+"Elateridae sp1 juv m","walking",0.000283672,"invertebrate",0.013616256
+"Folsomia quadrioculata","walking",5.41e-06,"invertebrate",0.06058118
+"Folsomia spinosa","walking",5.41e-06,"invertebrate",0.00964062
+"fungivorous nematodes","walking",5.35e-07,"invertebrate",NA
+"Glomeris marginata","walking",0.016627644,"invertebrate",0.266042304
+"Glomeris sp.","walking",0.226675,"invertebrate",0.45335
+"leaf litter","sessile",-999,"dead organic material",NA
+"Lepidocyrtus lanuginosus","walking",8.99e-06,"invertebrate",0.01144427
+"mykorrhiza","other",-999,"heterotrophic fungi",NA
+"Pantelozetes paolii","walking",1.22e-05,"invertebrate",0.003111
+"Steganacarus magnus","walking",0.0004634,"invertebrate",0.3540376
+"Otiorhynchus sp.","walking",0.002731116,"invertebrate",0.087395712
+"plants","sessile",-999,"primary producer",NA
+"Cepea hortensis","walking",0.278305436,"invertebrate",0.278305436
+"root exudates","sessile",-999,"primary producer",NA
+"root feeding nematodes","walking",2.35e-07,"invertebrate",NA
+"roots","sessile",-999,"primary producer",NA

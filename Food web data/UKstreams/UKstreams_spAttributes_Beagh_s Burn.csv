@@ -1,0 +1,29 @@
+"FW_name","species","biomass","units","bodymass","abundance","species_type","metabolic_type","taxonomic_level","movement_type","losses","efficiencies"
+"Beagh's Burn","Achnanthes minutissima",0.0321616976098,"dry g.m2",2.42e-10,132899576.9,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Achnanthes modestiformis",0.01249015071064,"dry g.m2",2.48e-10,50363510.93,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Achnanthes oblongella",0.029002653873,"dry g.m2",2.71e-10,107020863,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Baetis vernus",0.0037723732032,"dry g.m2",0.000168409518,22.4,"animal","ectotherm invertebrate","species","walking",7.02311168516593e-07,0.88459897241344
+"Beagh's Burn","Ceratopogonidae",9.39332048e-05,"dry g.m2",5.8708253e-05,1.6,"animal","ectotherm invertebrate","family","walking",2.37387382264945e-08,0.88459897241344
+"Beagh's Burn","Chironomidae",0.0372115881984,"dry g.m2",0.000176191232,211.2,"animal","ectotherm invertebrate","family","walking",6.83760500096586e-06,0.88459897241344
+"Beagh's Burn","CPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Beagh's Burn","Empididae",0.0004187723456,"dry g.m2",0.000261732716,1.6,"animal","ectotherm invertebrate","family","walking",6.86057344928875e-08,0.88459897241344
+"Beagh's Burn","Eunotia exigua",0.114946666497,"dry g.m2",3.9e-10,294735042.3,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Eunotia meisteri",0.02357492146929,"dry g.m2",3.93e-10,59987077.53,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Eunotia minutissima",0.01318263092175,"dry g.m2",4.25e-10,31017955.11,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Eunotia pectinalis",0.0391652265664,"dry g.m2",1.76e-09,22252969.64,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Eunotia rhomboidea",0.01695252166289,"dry g.m2",3.07e-10,55219940.27,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Eunotia tenella",0.00951047171158,"dry g.m2",3.97e-10,23955848.14,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","FPOM",NA,"dry g.m2",NA,NA,"detritus","detritus","species","NA",NA,0.13019011553718
+"Beagh's Burn","Fragilaria vaucheriae",0.0346344178734,"dry g.m2",8.55e-10,40508091.08,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Frustulia rhomboides saxonica",0.009495351695268,"dry g.m2",9.54e-10,9953198.842,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Beagh's Burn","Frustulia rhomboides viridula",0.0796360060968,"dry g.m2",7.08e-10,112480234.6,"plant","plant","infraspecies","sessile",NA,0.487432933611077
+"Beagh's Burn","Gomphonema angustatum",0.1065565036245,"dry g.m2",8.31e-10,128226839.5,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Gomphonema parvulum",0.001914795885727,"dry g.m2",7.87e-11,24330316.21,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Leuctra inermis",0.0009702077936,"dry g.m2",0.000606379871,1.6,"animal","ectotherm invertebrate","species","walking",1.24574749056268e-07,0.88459897241344
+"Beagh's Burn","Pinnularia appendiculata",0.671395204032,"dry g.m2",4.48e-08,14986500.09,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Pinnularia subcapitata",2.2251626218,"dry g.m2",2.06e-08,108017603,"plant","plant","species","sessile",NA,0.487432933611077
+"Beagh's Burn","Plectrocnemia conspersa",0.0079131975328,"dry g.m2",0.004945748458,1.6,"animal","ectotherm invertebrate","species","walking",5.52822826432243e-07,0.88459897241344
+"Beagh's Burn","Salmo trutta",0.46,"dry g.m2",46,0.01,"animal","ectotherm vertebrate","species","swimming",0.0149959726350939,0.88459897241344
+"Beagh's Burn","Simuliidae",0.0095841741024,"dry g.m2",0.000352359342,27.2,"animal","ectotherm invertebrate","family","walking",1.44042304961234e-06,0.88459897241344
+"Beagh's Burn","Siphonoperla torrentium",0.0035781177792,"dry g.m2",0.001118161806,3.2,"animal","ectotherm invertebrate","species","walking",3.84724221534278e-07,0.88459897241344
+"Beagh's Burn","Synedra minuscula",0.0932665612636,"dry g.m2",4.99e-09,18690693.64,"plant","plant","species","sessile",NA,0.487432933611077
