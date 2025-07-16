@@ -1,19 +1,19 @@
-# NDVI & Chlorophyll-a
+# Estimation of NPP via remotely sensed NDVI & Chlorophyll-a
 
-We used the Normalized Difference Vegetation Index (NDVI) and the concentratin of chlorophyll-a as proxies for the net primary productivity for land and marine environments, respectively.
+We used the Normalized Difference Vegetation Index (NDVI) and the concentration of chlorophyll-a as proxies for the net primary productivity (NPP) for land and marine environments, respectively.
 
 NDVI was obtained from the composite Landsat product (Landsat Collection 2 Tier 1 Level 2 Annual NDVI Composite) at 30 meters resolution (Masek et al., 2006; Vermote et al. 2016).
 We masked this layer using the Landsat Global Land Cover Facility inland surface water layer (Feng et al., 2016) and retained only land pixels.
-We calculated the average NDVI for the time period spanning the sampling of the foodwebs plus one year prior for the area inscribed by a circle of radius of 100 meters from the food web location.
+We calculated the average NDVI for the time period spanning the sampling of the food webs plus one year prior for the area inscribed by a circle of radius of 100 meters from the food web location.
 For lake food webs, we extended the radius to 2,000 meters, to be sure to capture some land pixels.
 
 Chlorophyll-a concentration was obtained from the Aqua satellite at ca. 4,600 meters resolution (NASA/JPL, 2020).
-We calculated the average Chlorophyll-a for the time period spanning food web sampling plus one year prior for the area inscibed by a circle of radius of 5,000 meters.
+We calculated the average Chlorophyll-a for the time period spanning food web sampling plus one year prior for the area inscribed by a circle of radius of 5,000 meters.
 
 Average for NDVI and Chlorophyll-a concentration was calculated across time and space.
 
 Landsat Spectral Indices products courtesy of the U.S. Geological Survey Earth Resources Observation and Science Center.
-Chlorophill-a Indices products courtesy of NASA/JPL.
+Chlorophyll-a Indices products courtesy of NASA/JPL.
 Data access and calculations were performed on Google Earth Engine using the Python API (Google, 2025).
 
 # References
