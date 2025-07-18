@@ -144,41 +144,41 @@ meta.Lakes <- filter(meta.Lakes, second.consumption > 0) #remove food webs with 
 library(iNEXT)
 library(ggplot2)
 
-# Get the full set of unique species across all files
-files <- list.files("Lakes", pattern = "^Lakes_spAttributes_", full.names = TRUE)
-
-all_taxa <- unique(unlist(lapply(files, function(f) {
-  dat <- read.csv(f, stringsAsFactors = FALSE)
-  unique(dat$taxonomy)
-})))
-
-all_taxa <- sort(all_taxa)
-
-# Create abundance matrix
-abundance_matrix <- matrix(0, nrow = length(files), ncol = length(all_taxa))
-colnames(abundance_matrix) <- all_taxa
-rownames(abundance_matrix) <- sub("^Lakes_spAttributes_(.*)\\.csv$", "\\1", basename(files))
-
-# Loop over files to build rows
-for (i in seq_along(files)) {
-  community <- read.csv(files[i], stringsAsFactors = FALSE)
-  sp <- as.character(community$taxonomy)
-  abund <- community$density.comb
-  abundance_matrix[i, sp] <- abund
-}
-abundance_matrix <- abundance_matrix[!row.names(abundance_matrix) %in% c("Brook trout lake", "South Lake"),]
-abundance_matrix[is.na(abundance_matrix)] <- 0
-species_counts <- rowSums(abundance_matrix > 0)
-
-# create list for iNEXT
-abund_list <- apply(abundance_matrix, 1, ceiling)
-abund_list <- as.list(data.frame(abund_list))
-names(abund_list) <- rownames(abundance_matrix)
-
-coverage <- DataInfo(abund_list, datatype = "abundance")  #iNEXT
-colnames(coverage)[colnames(coverage) == 'Assemblage']  <- "FW_name"
-
-meta.Lakes$SC <- coverage$SC[match(meta.Lakes$FW_name, coverage$FW_name)]
+# # Get the full set of unique species across all files
+# files <- list.files("Lakes", pattern = "^Lakes_spAttributes_", full.names = TRUE)
+# 
+# all_taxa <- unique(unlist(lapply(files, function(f) {
+#   dat <- read.csv(f, stringsAsFactors = FALSE)
+#   unique(dat$taxonomy)
+# })))
+# 
+# all_taxa <- sort(all_taxa)
+# 
+# # Create abundance matrix
+# abundance_matrix <- matrix(0, nrow = length(files), ncol = length(all_taxa))
+# colnames(abundance_matrix) <- all_taxa
+# rownames(abundance_matrix) <- sub("^Lakes_spAttributes_(.*)\\.csv$", "\\1", basename(files))
+# 
+# # Loop over files to build rows
+# for (i in seq_along(files)) {
+#   community <- read.csv(files[i], stringsAsFactors = FALSE)
+#   sp <- as.character(community$taxonomy)
+#   abund <- community$density.comb
+#   abundance_matrix[i, sp] <- abund
+# }
+# abundance_matrix <- abundance_matrix[!row.names(abundance_matrix) %in% c("Brook trout lake", "South Lake"),]
+# abundance_matrix[is.na(abundance_matrix)] <- 0
+# species_counts <- rowSums(abundance_matrix > 0)
+# 
+# # create list for iNEXT
+# abund_list <- apply(abundance_matrix, 1, ceiling)
+# abund_list <- as.list(data.frame(abund_list))
+# names(abund_list) <- rownames(abundance_matrix)
+# 
+# coverage <- DataInfo(abund_list, datatype = "abundance")  #iNEXT
+# colnames(coverage)[colnames(coverage) == 'Assemblage']  <- "FW_name"
+# 
+# meta.Lakes$SC <- coverage$SC[match(meta.Lakes$FW_name, coverage$FW_name)]
 write.csv(meta.Lakes, file = 'meta.Lakes.csv', row.names = F)
 
 
