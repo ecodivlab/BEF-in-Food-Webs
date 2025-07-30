@@ -26,8 +26,9 @@ NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDV
 meta.Marine <- read.csv('meta.Marine.csv')  
   meta.Marine <- meta.Marine %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Marine)[19] <- "NPP.proxy"
-  meta.Marine <- meta.Marine %>% mutate(NPP.scale = logit((NPP.proxy - min(NPP.proxy, na.rm = TRUE)) /
-    (max(NPP.proxy, na.rm = TRUE) - min(NPP.proxy, na.rm = TRUE))))
+  meta.Marine <- meta.Marine %>% mutate(clean_var = ifelse(is.na(NPP.proxy), 0.5, NPP.proxy),  #Temporary - replace BS NAs with 0.5
+                                        NPP.scale = logit((clean_var - min(clean_var, na.rm = TRUE)) /
+    (max(clean_var, na.rm = TRUE) - min(clean_var, na.rm = TRUE))))
   
 meta.Soils <- read.csv('meta.Soils.csv')
   meta.Soils <- meta.Soils %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
@@ -188,7 +189,7 @@ S.prim.cons.sjp_global <- ggplot(prim.cons_global, aes(x, predicted)) +
 ## Produce Figure 3 ##
 Richness_main <- grid.arrange(patchworkGrob(S.predation.sjp_global / S.prim.cons.sjp_global)) 
 
-#ggsave("Figure 3 scatterplots.svg", Richness_main, width = 8, height = 10.5, units = "cm")
+ggsave("Figure 3 scatterplots.svg", Richness_main, width = 8, height = 10.5, units = "cm")
 
 
 
@@ -508,6 +509,11 @@ effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect
 
 
 #### Cross-ecosystem SEM ####
+modS = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data)
+plot(modS, which=1)
+qqnorm(modS)
+summary(modS)
+
 mod1 = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data)
 plot(mod1, which=1)
 qqnorm(mod1)
@@ -523,31 +529,31 @@ summary(mod1)
 # qqnorm(mod2a)
 # summary(mod2a)
 
-mod2b = lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data)
+mod2b = lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID)), random=~1|ecosystem.type/study_ID, data=all_data)
 plot(mod2b, which=1)
 qqnorm(mod2b)
 summary(mod2b)
 
 #anova(mod2, mod2a, mod2b)
 
-# mod3 = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|study_ID, data=all_data) #Best model
-# plot(mod3, which=1)
-# qqnorm(mod3)
-# summary(mod3)
+mod3 = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, data=all_data) #Best model
+plot(mod3, which=1)
+qqnorm(mod3)
+summary(mod3)
 
-mod3a = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data) #Best model
+mod3a = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data) #Best model
 plot(mod3a, which=1)
 qqnorm(mod3a)
 summary(mod3a)
 
-#anova(mod3, mod3a)
+anova(mod3, mod3a)
 
 # mod4 = lme(log(log10(prim.consumption)) ~ logit(sim.prim.cons), random=~1|study_ID, data=all_data) #Best model
 # plot(mod4, which=1)
 # qqnorm(mod4)
 # summary(mod4)
 
-mod4a = lme(log(prim.consumption) ~ logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID)), random=~1|study_ID, data=all_data) #Best model
+mod4a = lme(log(prim.consumption) ~ logit(sim.prim.cons), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data) #Best model
 plot(mod4a, which=1)
 qqnorm(mod4a)
 summary(mod4a)
@@ -559,7 +565,7 @@ summary(mod4a)
 # qqnorm(mod5)
 # summary(mod5)
 
-mod5a = lme(log(second.consumption) ~ logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data) # Best model
+mod5a = lme(log(second.consumption) ~ logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), random=~1|ecosystem.type/study_ID, data=all_data) # Best model
 plot(mod5a, which=1)
 qqnorm(mod5a)
 summary(mod5a)
@@ -569,12 +575,12 @@ summary(mod5a)
 
 ### Maximal model
 SEM.all <- psem(
-  
-  lme(log(MaxTL) ~ log(S), random=~1|study_ID, data=all_data),
-  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data),
-  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data),
-  lme(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID)), random=~1|study_ID, data=all_data),
-  lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data),
+  lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), random=~1|ecosystem.type/study_ID, data=all_data),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
   log(prim.consumption) %~~% logit(sim.sec.cons),
@@ -586,12 +592,12 @@ summary(SEM.all)
 
 ### Min adequate model
 SEM.all2 <- psem(
-  
-  lme(log(MaxTL) ~ log(S), random=~1|study_ID, data=all_data),
-  lme(logit(sim.prim.cons) ~ log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data),
-  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data),
-  lme(log(prim.consumption) ~ log(S), weights=varComb(varIdent(form=~1|study_ID)), random=~1|study_ID, data=all_data),
-  lme(log(second.consumption) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data),
+  lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.prim.cons) ~ log(S), weights=varComb(varIdent(form=~1|study_ID)), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(prim.consumption) ~ log(S) + NPP.scale, weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), random=~1|ecosystem.type/study_ID, data=all_data),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
   log(prim.consumption) %~~% logit(sim.sec.cons),
@@ -710,10 +716,11 @@ summary(mod5)
 
 ### Maximal model
 SEM.Marine2 <- psem(
-
-  gls(log(MaxTL) ~ log(S), data=meta.Marine),
-  gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine),
-  gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), data=meta.Marine),
+  
+  gls(log(S) ~ NPP.scale, data=meta.Marine),
+  gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Marine),
+  gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine),
+  gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, data=meta.Marine),
   gls(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), data=meta.Marine),
   gls(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), data=meta.Marine),
 
@@ -728,11 +735,12 @@ summary(SEM.Marine2)
 ### Min adequate model
 SEM.Marine3 <- psem(
   
-  gls(log(MaxTL) ~ log(S), data=meta.Marine),
+  gls(log(S) ~ NPP.scale, data=meta.Marine),
+  gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Marine),
   gls(logit(sim.prim.cons) ~ log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine),
-  gls(logit(sim.sec.cons) ~ log(S) + log(MaxTL), data=meta.Marine),
-  gls(log(prim.consumption) ~ log(S) + logit(sim.prim.cons), data=meta.Marine),
-  gls(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), data=meta.Marine),
+  gls(logit(sim.sec.cons) ~ log(S) + log(MaxTL) + NPP.scale, data=meta.Marine),
+  gls(log(prim.consumption) ~ log(S) + NPP.scale + log(MaxTL), data=meta.Marine),
+  gls(log(second.consumption) ~ log(MaxTL) + NPP.scale, data=meta.Marine),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
   log(prim.consumption) %~~% logit(sim.sec.cons),
@@ -857,9 +865,10 @@ anova(mod5, mod5a, mod5b)
 ### Maximal model
 SEM.Soils2 <- psem(
 
-  gls(log(MaxTL) ~ log(S), data=meta.Soils),
-  gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), data=meta.Soils),
-  gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), data=meta.Soils),
+  gls(log(S) ~ NPP.scale, data=meta.Soils),
+  gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Soils),
+  gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, data=meta.Soils),
+  gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, data=meta.Soils),
   gls(log(prim.consumption) ~ logit(sim.prim.cons) + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID)), data=meta.Soils),
   gls(log(second.consumption) ~ logit(sim.sec.cons) + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Soils),
 
@@ -875,10 +884,11 @@ summary(SEM.Soils2)
 ### Min adequate model
 SEM.Soils3 <- psem(
   
+  gls(log(S) ~ NPP.scale, data=meta.Soils),
   gls(log(MaxTL) ~ log(S), data=meta.Soils),
   gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), data=meta.Soils),
-  gls(logit(sim.sec.cons) ~ log(S), data=meta.Soils),
-  gls(log(prim.consumption) ~ log(S), weights=varComb(varIdent(form=~1|study_ID)), data=meta.Soils),
+  gls(logit(sim.sec.cons) ~ NPP.scale, data=meta.Soils),
+  gls(log(prim.consumption) ~ log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID)), data=meta.Soils),
   gls(log(second.consumption) ~ log(S) + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Soils),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
@@ -964,10 +974,11 @@ summary(mod5)
 
 ### Maximal model
 SEM.Streams2 <- psem(
-
-  lme(log(MaxTL) ~ log(S), random=~1|study_ID, data=meta.Streams),
-  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
-  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Streams),
+  
+  lme(log(S) ~ NPP.scale, random=~1|study_ID, data=meta.Streams),
+  lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|study_ID, data=meta.Streams),
+  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Streams),
   lme(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), random=~1|study_ID, data=meta.Streams),
   lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), random=~1|study_ID, data=meta.Streams),
 
@@ -983,10 +994,11 @@ summary(SEM.Streams2)
 ### Min adequate model
 SEM.Streams3 <- psem(
   
+  lme(log(S) ~ NPP.scale, random=~1|study_ID, data=meta.Streams),
   lme(log(MaxTL) ~ log(S), random=~1|study_ID, data=meta.Streams),
   lme(logit(sim.prim.cons) ~ log(MaxTL), random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
-  lme(logit(sim.sec.cons) ~ log(S) + log(MaxTL), random=~1|study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Streams),
-  lme(log(prim.consumption) ~ log(S) + logit(sim.prim.cons), random=~1|study_ID, data=meta.Streams),
+  lme(logit(sim.sec.cons) ~ log(S) + log(MaxTL) + NPP.scale, random=~1|study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Streams),
+  lme(log(prim.consumption) ~ log(S) , random=~1|study_ID, data=meta.Streams),
   lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), random=~1|study_ID, data=meta.Streams),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
@@ -1044,13 +1056,17 @@ streams.effects <- ggplot(eff.table_streams,
 
 
 #### Lakes ####
+mod0 = gls(log(S) ~ NPP.scale, weights=varExp(form=~S), data=meta.Lakes)
+plot(mod0, which=1)
+qqnorm(mod0)
+summary(mod0)
 
 mod1 = gls(log(MaxTL) ~ log(S), data=meta.Lakes)
 plot(mod1, which=1)
 qqnorm(mod1)
 summary(mod1)
 
-mod1a = gls(log(MaxTL) ~ log(S), weights=varExp(form=~S), data=meta.Lakes)
+mod1a = gls(log(MaxTL) ~ log(S) + NPP.scale, weights=varPower(form=~S), data=meta.Lakes)
 plot(mod1a, which=1)
 qqnorm(mod1a)
 summary(mod1a)
@@ -1060,22 +1076,22 @@ summary(mod1a)
 # qqnorm(mod2)
 # summary(mod2)
 
-mod2a = gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varExp(form=~S), data=meta.Lakes, na.action = na.omit)
+mod2a = gls(logit(sim.prim.cons) ~ log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), data=meta.Lakes, na.action = na.omit)
 plot(mod2a, which=1)
 qqnorm(mod2a)
 summary(mod2a)
 
-mod3 = gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varPower(form=~S), data=meta.Lakes)
+mod3 = gls(logit(sim.sec.cons) ~ log(MaxTL), weights=varComb(varExp(form=~S), varExp(form=~MaxTL)), data=meta.Lakes)
 plot(mod3, which=1)
 qqnorm(mod3)
 summary(mod3)
 
-mod4 = gls(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), data=meta.Lakes)
+mod4 = gls(log(prim.consumption) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Lakes)
 plot(mod4, which=1)
 qqnorm(mod4)
 summary(mod4)
 
-mod5 = gls(log(second.consumption) ~ logit(sim.sec.cons), data=meta.Lakes)
+mod5 = gls(log(second.consumption) ~ logit(sim.sec.cons) + log(S),  data=meta.Lakes)
 plot(mod5, which=1)
 qqnorm(mod5)
 summary(mod5)
@@ -1084,9 +1100,10 @@ summary(mod5)
 ### Maximal model
 SEM.Lakes2 <- psem(
 
-  gls(log(MaxTL) ~ log(S), data=meta.Lakes),
-  gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varPower(form=~S)), data=meta.Lakes),
-  gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varComb(varPower(form=~S)), data=meta.Lakes),
+  gls(log(S) ~ NPP.scale, data=meta.Lakes),
+  gls(log(MaxTL) ~ log(S) + NPP.scale, weights=varPower(form=~S), data=meta.Lakes),
+  gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varComb(varPower(form=~S)), data=meta.Lakes),
+  gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varPower(form=~log(MaxTL)), data=meta.Lakes),
   gls(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), data=meta.Lakes),
   gls(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), data=meta.Lakes),
 
@@ -1102,11 +1119,12 @@ summary(SEM.Lakes2)
 ### Min adequate model
 SEM.Lakes3 <- psem(
   
-  gls(log(MaxTL) ~ log(S), data=meta.Lakes),
-  gls(logit(sim.prim.cons) ~ log(S), weights=varComb(varPower(form=~S)), data=meta.Lakes),
-  gls(logit(sim.sec.cons) ~ log(S) + log(MaxTL), weights=varComb(varPower(form=~S)), data=meta.Lakes),
-  gls(log(prim.consumption) ~ log(S) + log(MaxTL) , data=meta.Lakes),
-  gls(log(second.consumption) ~ log(S) + logit(sim.sec.cons), data=meta.Lakes),
+  gls(log(S) ~ NPP.scale, data=meta.Lakes),
+  gls(log(MaxTL) ~ log(S) + NPP.scale, weights=varPower(form=~S), data=meta.Lakes),
+  gls(logit(sim.prim.cons) ~ log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), data=meta.Lakes),
+  gls(logit(sim.sec.cons) ~ log(MaxTL), weights=varPower(form=~log(MaxTL)), data=meta.Lakes),
+  gls(log(prim.consumption) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Lakes),
+  gls(log(second.consumption) ~ logit(sim.sec.cons) + log(S), data=meta.Lakes),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
   log(prim.consumption) %~~% logit(sim.sec.cons),
