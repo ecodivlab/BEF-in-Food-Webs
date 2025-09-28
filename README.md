@@ -27,6 +27,8 @@ The following R scripts call datasets contained within the node-level data folde
 
 Each of these scripts additionally call functions from the file 'Food_web_functions.r' created by Benoit Gauzens (https://github.com/gauzens), which contains custom functions to calculate various food web properties.
 
+The folder 'NDVI and Chlorophyll-a' provides code and data for estimation of NPP via remotely sensed NDVI & Chlorophyll-a. We used the Normalized Difference Vegetation Index (NDVI) and the concentration of chlorophyll-a as proxies for the net primary productivity (NPP) for land and marine environments, respectively.
+
 
 
 

@@ -1,2 +1,0 @@
-mapfile urls < ndvi.log
-
