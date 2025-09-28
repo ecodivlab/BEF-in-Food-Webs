@@ -26,24 +26,33 @@ NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDV
 meta.Marine <- read.csv('meta.Marine.csv')  
   meta.Marine <- meta.Marine %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Marine)[19] <- "NPP.proxy"
-  meta.Marine <- meta.Marine %>% mutate(NPP.scale = logit((NPP.proxy - min(NPP.proxy, na.rm = TRUE)) /
-                                                            (max(NPP.proxy, na.rm = TRUE) - min(NPP.proxy, na.rm = TRUE))))
+  meta.Marine <- meta.Marine %>% mutate(clean_var = ifelse(is.na(NPP.proxy), 0.5, NPP.proxy),  #Temporary - replace BS NAs with 0.5
+                                        NPP.scale = logit((clean_var - min(clean_var, na.rm = TRUE)) /
+    (max(clean_var, na.rm = TRUE) - min(clean_var, na.rm = TRUE))))
+  # Calculate inverse of the leading eigenvalue to represent stability (so positive values = greater resilience) 
+  meta.Marine$stability <- -scale(log(meta.Marine$stability))[,1] # scale and log-transform for model fitting
   
 meta.Soils <- read.csv('meta.Soils.csv')
   meta.Soils <- meta.Soils %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Soils)[c(7,19)] <- c("temperature_C", "NPP.proxy")
   meta.Soils <- meta.Soils %>% mutate(NPP.scale = logit(NPP.proxy))
+  # Calculate inverse of the leading eigenvalue to represent stability (so positive values = greater resilience)
+  meta.Soils$stability <- -scale(log(meta.Soils$stability))[,1] # scale and log-transform for model fitting
                                       
 meta.Streams <- read.csv('meta.Streams.csv')
   meta.Streams <- meta.Streams %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Streams)[c(5,20)] <- c("temperature_C", "NPP.proxy")
   meta.Streams <- meta.Streams %>% mutate(clean_var = ifelse(NPP.proxy < 0, 0, NPP.proxy), # replace negative value at Cananeia SP6 with 0
                   NPP.scale = logit(clean_var))
+  # Calculate inverse of the leading eigenvalue to represent stability (so positive values = greater resilience)
+  meta.Streams$stability <- -scale(log(meta.Streams$stability))[,1] # scale and log-transform for model fitting
   
 meta.Lakes <- read.csv('meta.Lakes.csv')
   meta.Lakes <- meta.Lakes %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Lakes)[19] <- "NPP.proxy"
   meta.Lakes <- meta.Lakes %>% mutate(NPP.scale = logit(NPP.proxy))
+  # Calculate inverse of the leading eigenvalue to represent stability (so positive values = greater resilience)
+  meta.Lakes$stability <- -scale(log(meta.Lakes$stability))[,1] # scale and log-transform for model fitting
 
 ## Compile data sets for cross-ecosystem analysis ##
 commcols <- intersect(names(meta.Marine), names(meta.Soils))
@@ -83,56 +92,17 @@ plot(S.flux_Globala)
 qqnorm(S.flux_Globala)
 summary(S.flux_Globala)
 
-S.flux_Global = S.flux_Globala
+S.flux_Globalb=update(S.flux_Global, weights=varPower(form=~S))
+anova(S.flux_Global,S.flux_Globala,S.flux_Globalb)
+plot(S.flux_Globalb)
+qqnorm(S.flux_Globalb)
+summary(S.flux_Globalb)
 
-# S.flux_Globalb=update(S.flux_Global, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)))
-# anova(S.flux_Global,S.flux_Globala,S.flux_Globalb)
-# plot(S.flux_Globalb)
-# qqnorm(S.flux_Globalb)
-# summary(S.flux_Globalb)
-
-## Predation
-S.predation_Global <- lme(log10(second.consumption) ~ log10(S), random = ~1|ecosystem.type/study_ID, data=all_data)
-plot(S.predation_Global, which=1)
-qqnorm(S.predation_Global)
-summary(S.predation_Global)
-
-S.predation_Globala=update(S.predation_Global, random = ~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID))
-anova(S.predation_Global,S.predation_Globala)
-plot(S.predation_Globala)
-qqnorm(S.predation_Globala)
-summary(S.predation_Globala)
-
-S.predation_Globalb=update(S.predation_Global, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S))) #Best model
-anova(S.predation_Global,S.predation_Globala,S.predation_Globalb)
-plot(S.predation_Globalb)
-qqnorm(S.predation_Globalb)
-summary(S.predation_Globalb)
-
-S.predation_Global <- S.predation_Globalb
-
-## Primary consumption
-S.prim.cons_Global <- lme(log10(prim.consumption) ~ log10(S), random = ~1|ecosystem.type/study_ID, data=all_data)
-plot(S.prim.cons_Global, which=1)
-qqnorm(S.prim.cons_Global)
-summary(S.prim.cons_Global)
-
-S.prim.cons_Globala=update(S.prim.cons_Global, weights=varIdent(form=~1|study_ID)) #Best model
-anova(S.prim.cons_Global,S.prim.cons_Globala)
-plot(S.prim.cons_Globala)
-qqnorm(S.prim.cons_Globala)
-summary(S.prim.cons_Globala)
-
-# S.prim.cons_Globalb=update(S.prim.cons_Global, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)))
-# anova(S.prim.cons_Global,S.prim.cons_Globala,S.prim.cons_Globalb)
-# plot(S.prim.cons_Globalb)
-# qqnorm(S.prim.cons_Globalb)
-# summary(S.prim.cons_Globalb)
-
-S.prim.cons_Global = S.prim.cons_Globala
+S.flux_Global = S.flux_Globalb
 
 all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
                                   levels = c("Marine", "Soils", "Streams", "Lakes"))
+
 
 ## Graph BEF for total flux 
 Total_flux_Global=ggpredict(S.flux_Global, terms = "S")
@@ -147,471 +117,106 @@ S.total.sjp_global <- ggplot(Total_flux_Global, aes(x, predicted)) +
   coord_trans(y = "log10", x = "log10")+
   theme(legend.position="top", plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"), text=element_text(size=14)) 
 
-## Produce Supplementary Figure 1 ##
+## Produce Supplementary Figure 1 scatterplot ##
 #ggsave("Supplementary fig 1 scatterplot.svg", S.total.sjp_global, width = 16, height = 16, units = "cm")
 
 
-## Graph BEF for predation and primary consumption 
-predation_global=ggpredict(S.predation_Global, terms = "S")
-S.predation.sjp_global <- ggplot(predation_global, aes(x, predicted)) + 
-  ylab('Predation') + 
-  geom_line(aes(linetype=group, color='#C257579E'), linewidth=1.5) +
+## Stability
+S.stability_Global <- lme(stability ~ log10(S), random = ~1|ecosystem.type/study_ID, data=all_data, na.action=na.omit)
+plot(S.stability_Global, which=1)
+qqnorm(S.stability_Global)
+summary(S.stability_Global)
+
+S.stability_Globala=update(S.stability_Global, random = ~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID)) #Best model
+anova(S.stability_Global,S.stability_Globala)
+plot(S.stability_Globala)
+qqnorm(S.stability_Globala)
+summary(S.stability_Globala)
+
+S.stability_Globalb=update(S.stability_Global, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)))
+anova(S.stability_Global,S.stability_Globala,S.stability_Globalb)
+plot(S.stability_Globalb)
+qqnorm(S.stability_Globalb)
+summary(S.stability_Globalb)
+
+S.stability_Global = S.stability_Globalb
+## Graph BEF for total flux 
+Stability_Global=ggpredict(S.stability_Global, terms = "S")
+S.total.sjp_global <- ggplot(Stability_Global, aes(x, predicted)) + 
+  ylab('Stability') + xlab("Multitrophic taxon richness") + 
+  geom_line(linewidth=1.5) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = all_data, aes(x = S, y = second.consumption, color='#C257579E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
+  geom_point(data = all_data, aes(x = S, y = stability, colour=ecosystem.type), size=2, alpha=0.4) +
+  labs(colour = ("Ecosystem type")) +
+  #scale_y_continuous(breaks=breaks_log(n = 6), labels = label_log(digits = 2)) +
   scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", axis.text.x = element_blank(),
-        plot.title = element_text(size = 14),
-        #axis.ticks.x = element_blank(),
-        axis.title.x = element_blank(),
-        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) +
-  scale_colour_identity()
-
-prim.cons_global=ggpredict(S.prim.cons_Global, terms = "S")
-S.prim.cons.sjp_global <- ggplot(prim.cons_global, aes(x, predicted)) + 
-  geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) + 
-  ylab('Primary consumption') + xlab("Taxon richness") +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = all_data, aes(x = S, y = prim.consumption, color='#3A67AE9E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", plot.margin = unit(c(4, 5.5, 5.5, 5.5), "pt")) +
-  scale_colour_identity()
+  coord_trans(x = "log10")+
+  theme(legend.position="top", plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"), text=element_text(size=14)) 
 
 
-#(max(prim.cons_global$predicted)-min(prim.cons_global$predicted))/min(prim.cons_global$predicted)*100
-#(max(predation_global$predicted)-min(predation_global$predicted))/min(predation_global$predicted)*100
+#### Supplementary Fig 2. Raincloud plot of food web properties ####
+
+max.TL <- ggplot(all_data, aes(x = ecosystem.type, y = MaxTL, fill = 	ecosystem.type)) +
+  geom_rain(alpha = .5, cov='ecosystem.type',
+            boxplot.args.pos = list(width = .1, position = position_nudge(x = -.2))) + 
+  ylab('Maximum trophic level') + xlab('Ecosystem type') +
+  theme(legend.position="none", 
+        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) 
+
+prim.similarity <- ggplot(all_data, aes(x = ecosystem.type, y = sim.prim.cons, fill = 	ecosystem.type)) +
+  geom_rain(alpha = .5, cov='ecosystem.type',
+            boxplot.args.pos = list(width = .1, position = position_nudge(x = -.2))) + 
+  ylab('1\u00B0 consumer dissimilarity') + xlab('Ecosystem type') +
+  theme(legend.position="none", 
+        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
+
+pred.similarity <- ggplot(all_data, aes(x = ecosystem.type, y = sim.sec.cons, fill = 	ecosystem.type)) +
+  geom_rain(alpha = .5, cov='ecosystem.type',
+            boxplot.args.pos = list(width = .1, position = position_nudge(x = -.2))) + 
+  ylab('Predator dissimilarity') + xlab('Ecosystem type') +
+  theme(legend.position="none", 
+        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
+
+FW.Properties <- Richness_main <- grid.arrange(patchworkGrob(max.TL | prim.similarity | pred.similarity)) 
+
+#ggsave(filename = "FW.Properties.svg", FW.Properties, width = 200, height = 75, unit = "mm", dpi = 300)
 
 
-## Produce Figure 3 ##
-Richness_main <- grid.arrange(patchworkGrob(S.predation.sjp_global / S.prim.cons.sjp_global)) 
-
-ggsave("Figure 3 scatterplots.svg", Richness_main, width = 8, height = 10.5, units = "cm")
-
-
-
-
-#### Ecosystem-specific analyses #####
-
-## MARINE ##
-S.predation_MAR <- gls(log10(second.consumption) ~ log10(S), data=meta.Marine)
-plot(S.predation_MAR, which=1)
-qqnorm(S.predation_MAR)
-summary(S.predation_MAR)
-
-S.predation_MARa=update(S.predation_MAR, weights=varIdent(form=~1|study_ID))
-anova(S.predation_MAR,S.predation_MARa)
-plot(S.predation_MARa)
-qqnorm(S.predation_MARa)
-summary(S.predation_MARa)
-
-S.predation_MARb=update(S.predation_MAR, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S))) #Best model
-anova(S.predation_MAR,S.predation_MARa,S.predation_MARb)
-plot(S.predation_MARb)
-qqnorm(S.predation_MARb)
-summary(S.predation_MARb)
-
-S.predation_MAR <- S.predation_MARb
-
-# S.predation_MAR.mm <- lme(log10(second.consumption) ~ log10(S), random=~1|study_ID, data=meta.Marine)
-# plot(S.predation_MAR.mm, which=1)
-# qqnorm(S.predation_MAR.mm)
-# summary(S.predation_MAR.mm)
-# 
-# anova(S.predation_MAR.mm, S.predation_MAR, S.predation_MARa, S.predation_MARb)
-
-S.prim.cons_MAR <- gls(log10(prim.consumption) ~ log10(S), data=meta.Marine) #Best model
-plot(S.prim.cons_MAR, which=1)
-qqnorm(S.prim.cons_MAR)
-summary(S.prim.cons_MAR)
-
-# S.prim.cons_MARa=update(S.prim.cons_MAR, weights=varIdent(form=~1|study_ID))
-# anova(S.prim.cons_MAR,S.prim.cons_MARa)
-# plot(S.prim.cons_MARa)
-# qqnorm(S.prim.cons_MARa)
-# summary(S.prim.cons_MARa)
-# 
-# S.prim.cons_MARb=update(S.prim.cons_MAR, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)))
-# anova(S.prim.cons_MAR,S.prim.cons_MARa,S.prim.cons_MARb)
-# plot(S.prim.cons_MARb)
-# qqnorm(S.prim.cons_MARb)
-# summary(S.prim.cons_MARb)
-# 
-# S.prim.cons_MAR.mm <- lme(log10(prim.consumption) ~ log10(S), random=~1|study_ID, data=meta.Marine)
-# plot(S.prim.cons_MAR.mm, which=1)
-# qqnorm(S.prim.cons_MAR)
-# summary(S.prim.cons_MAR.mm)
-# 
-# anova(S.prim.cons_MAR.mm, S.prim.cons_MAR, S.prim.cons_MARa, S.prim.cons_MARb)
-
-
-predation_MAR=ggpredict(S.predation_MAR, terms = "S")
-S.predation.sjp_MAR <- ggplot(predation_MAR, aes(x, predicted)) + 
-  ylab('Predation') + ggtitle("Marine (n = 131)") +
-  geom_line(aes(linetype=group, color='#C257579E'), linewidth=1.5) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = meta.Marine, aes(x = S, y = second.consumption, color='#C257579E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", axis.text.x = element_blank(),
-        plot.title = element_text(size = 12),
-        #axis.ticks.x = element_blank(),
-        axis.title.x = element_blank(),
-        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) +
-  scale_colour_identity()
-
-
-prim.cons_MAR=ggpredict(S.prim.cons_MAR, terms = "S")
-S.prim.cons.sjp_MAR <- ggplot(prim.cons_MAR, aes(x, predicted)) + 
-  geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) + 
-  ylab('Primary<br>consumption') + 
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = meta.Marine, aes(x = S, y = prim.consumption, color='#3A67AE9E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5), "pt"), 
-        axis.title.x = element_blank(), axis.title.y = element_markdown()) +
-  scale_colour_identity()
-
-
-## SOIL ##
-S.predation_SOIL <- gls(log10(second.consumption) ~ log10(S), data=meta.Soils)
-plot(S.predation_SOIL, which=1)
-qqnorm(S.predation_SOIL)
-summary(S.predation_SOIL)
-
-S.predation_SOILa=update(S.predation_SOIL, weights=varIdent(form=~1|study_ID)) #Best model
-anova(S.predation_SOIL,S.predation_SOILa)
-plot(S.predation_SOILa)
-qqnorm(S.predation_SOILa)
-summary(S.predation_SOILa)
-
-S.predation_SOIL <- S.predation_SOILa
-
-# S.predation_SOILb=update(S.predation_SOILa, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S))) #Best model
-# anova(S.predation_SOIL,S.predation_SOILa, S.predation_SOILb)
-# plot(S.predation_SOILb)
-# qqnorm(S.predation_SOILb)
-# summary(S.predation_SOILb)
-
-# S.predation_SOIL.mm <- lme(log10(second.consumption) ~ log10(S), random=~1|study_ID, data=meta.Soils)
-# plot(S.predation_SOIL.mm, which=1)
-# qqnorm(S.predation_SOIL.mm)
-# summary(S.predation_SOIL.mm)
-# 
-# anova(S.predation_SOIL.mm, S.predation_SOIL, S.predation_SOILa)
-
-S.prim.cons_SOIL <- gls(log10(prim.consumption) ~ log10(S), data=meta.Soils)
-plot(S.prim.cons_SOIL, which=1)
-qqnorm(S.prim.cons_SOIL)
-summary(S.prim.cons_SOIL)
-
-S.prim.cons_SOILa=update(S.prim.cons_SOIL, weights=varIdent(form=~1|study_ID)) #Best model
-anova(S.prim.cons_SOIL,S.prim.cons_SOILa)
-plot(S.prim.cons_SOILa)
-qqnorm(S.prim.cons_SOILa)
-summary(S.prim.cons_SOILa)
-
-S.prim.cons_SOIL <- S.prim.cons_SOILa
-
-# S.prim.cons_SOILb=update(S.prim.cons_SOILa, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S))) #Best model
-# anova(S.prim.cons_SOIL,S.prim.cons_SOILa, S.prim.cons_SOILb)
-# plot(S.prim.cons_SOILb)
-# qqnorm(S.prim.cons_SOILb)
-# summary(S.prim.cons_SOILb)
-
-# S.prim.cons_SOIL.mm <- lme(log10(prim.consumption) ~ log10(S), random=~1|study_ID, data=meta.Soils)
-# plot(S.prim.cons_SOIL.mm, which=1)
-# qqnorm(S.prim.cons_SOIL.mm)
-# summary(S.prim.cons_SOIL.mm)
-# 
-# anova(S.prim.cons_SOIL.mm, S.prim.cons_SOIL, S.prim.cons_SOILa)
-
-predation_SOIL=ggpredict(S.predation_SOIL, terms = "S")
-S.predation.sjp_SOIL <- ggplot(predation_SOIL, aes(x, predicted)) +  ggtitle("Soils (n = 65)") +
-  geom_line(aes(linetype=group, color='#C257579E'), linewidth=1.5) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = meta.Soils, aes(x = S, y = second.consumption, color='#C257579E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=9), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", axis.text.x = element_blank(),
-        plot.title = element_text(size = 12),
-        #axis.ticks.x = element_blank(),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) +
-  scale_colour_identity()
-
-prim.cons_SOIL=ggpredict(S.prim.cons_SOIL, terms = "S")
-S.prim.cons.sjp_SOIL <- ggplot(prim.cons_SOIL, aes(x, predicted)) + 
-  geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) + 
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = meta.Soils, aes(x = S, y = prim.consumption, color='#3A67AE9E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=9), expand = expansion(mult = c(0.05, 0.1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5),"pt"), 
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank()) +
-  scale_colour_identity()
-
-
-## LAKES ## 
-S.predation_LAKE <- gls(log10(second.consumption) ~ log10(S), data=meta.Lakes)
-plot(S.predation_LAKE, which=1)
-qqnorm(S.predation_LAKE)
-summary(S.predation_LAKE)
-
-S.predation_LAKEa=update(S.predation_LAKE, weights=varPower(form=~S))
-anova(S.predation_LAKE,S.predation_LAKEa)
-plot(S.predation_LAKEa)
-qqnorm(S.predation_LAKEa)
-summary(S.predation_LAKEa)
-
-S.predation_LAKEb=update(S.predation_LAKE, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S))) #Best model
-anova(S.predation_LAKE,S.predation_LAKEa, S.predation_LAKEb)
-plot(S.predation_LAKEb)
-qqnorm(S.predation_LAKEb)
-summary(S.predation_LAKEb)
-
-S.predation_LAKE <- S.predation_LAKEb
-
-S.prim.cons_LAKE <- gls(log10(prim.consumption) ~ log10(S), data=meta.Lakes) #Best model
-plot(S.prim.cons_LAKE, which=1)
-qqnorm(S.prim.cons_LAKE)
-summary(S.prim.cons_LAKE)
-
-# S.prim.cons_LAKEa=update(S.prim.cons_LAKE, weights=varPower(form=~S)) 
-# anova(S.prim.cons_LAKE,S.prim.cons_LAKEa)
-# plot(S.prim.cons_LAKEa)
-# qqnorm(S.prim.cons_LAKEa)
-# summary(S.prim.cons_LAKEa)
-
-predation_LAKE=ggpredict(S.predation_LAKE, terms = "S")
-S.predation.sjp_LAKE <- ggplot(predation_LAKE, aes(x, predicted)) +  ggtitle("Lakes (n = 48)") +
-  geom_line(aes(linetype=group, color='#C257579E'), linewidth=1.5) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = meta.Lakes, aes(x = S, y = second.consumption, color='#C257579E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = math_format(format = log10)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", axis.text.x = element_blank(),
-        plot.title = element_text(size = 12),
-        #axis.ticks.x = element_blank(),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) +
-  scale_colour_identity()
-
-prim.cons_LAKE=ggpredict(S.prim.cons_LAKE, terms = "S")
-S.prim.cons.sjp_LAKE <- ggplot(prim.cons_LAKE, aes(x, predicted)) + 
-  geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) +
-  scale_linetype_manual(values = c("dashed")) +
-  #geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, fill = '#3A67AE9E', alpha = 0.15) +
-  geom_point(data = meta.Lakes, aes(x = S, y = prim.consumption, color='#3A67AE9E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), expand = expansion(mult = c(0.5, .1)), labels = math_format(format = log10)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5), "pt"), 
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank()) +
-  scale_colour_identity()
-
-
-## STREAMS ##
-# S.predation_STREAM <- gls(log10(second.consumption) ~ log10(S), data=meta.Streams)
-# plot(S.predation_STREAM, which=1)
-# qqnorm(S.predation_STREAM)
-# summary(S.predation_STREAM)
-
-S.predation_STREAM.mm <- lme(log10(second.consumption) ~ log10(S), random=~1|study_ID, data=meta.Streams) #Best model
-plot(S.predation_STREAM.mm, which=1)
-qqnorm(S.predation_STREAM.mm)
-summary(S.predation_STREAM.mm)
-
-# anova(S.predation_STREAM.mm, S.predation_STREAM)
-
-
-# S.prim.cons_STREAM <- gls(log10(prim.consumption) ~ log10(S), data=meta.Streams)
-# plot(S.prim.cons_STREAM, which=1)
-# qqnorm(S.prim.cons_STREAM)
-# summary(S.prim.cons_STREAM)
-
-S.prim.cons_STREAM.mm <- lme(log10(prim.consumption) ~ log10(S), random=~1|study_ID, data=meta.Streams) #Best model
-plot(S.prim.cons_STREAM.mm, which=1)
-qqnorm(S.predation_STREAM.mm)
-summary(S.prim.cons_STREAM.mm)
-
-#anova(S.prim.cons_STREAM, S.prim.cons_STREAM.mm)
-
-predation_STREAM=ggpredict(S.predation_STREAM.mm, terms = "S", interval = "confidence")
-S.predation.sjp_STREAM <- ggplot(predation_STREAM, aes(x, predicted)) +  ggtitle("Streams (n = 74)") +
-  geom_line(aes(linetype="group", color='#C257579E'), linewidth=1.5) + 
-  #scale_linetype_manual(values = c("dashed")) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = meta.Streams, aes(x = S, y = second.consumption, color='#C257579E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", axis.text.x = element_blank(),
-        plot.title = element_text(size = 12),
-        #axis.ticks.x = element_blank(),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) +
-  scale_colour_identity()
-
-prim.cons_STREAM=ggpredict(S.prim.cons_STREAM.mm, terms = "S", interval = "confidence")
-S.prim.cons.sjp_STREAM <- ggplot(prim.cons_STREAM, aes(x, predicted)) + 
-  geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) + 
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = meta.Streams, aes(x = S, y = prim.consumption, color='#3A67AE9E'), size=2, alpha=0.5) +
-  scale_y_continuous(breaks=breaks_log(n = 5), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5), "pt"), 
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank()) +
-  scale_colour_identity()
-
-
-
-
-#### Produce BEF graphs for Fig. 4 ####
-
-Richness_ECOSYSTEM <- grid.arrange(patchworkGrob(S.predation.sjp_MAR / S.prim.cons.sjp_MAR |
-  S.predation.sjp_SOIL / S.prim.cons.sjp_SOIL |
-  S.predation.sjp_STREAM / S.prim.cons.sjp_STREAM |
-  S.predation.sjp_LAKE / S.prim.cons.sjp_LAKE), bottom=textGrob("Multitrophic taxon richness", gp=gpar(fontsize=10))) 
-
-ggsave(filename = "Figure 4 scatterplots.svg", Richness_ECOSYSTEM, width = 200, height = 80, unit = "mm", dpi = 300)
-
-
-
-
-# ########################################################################################################
-# #### Structural Equation Models ########################################################################
-# ########################################################################################################
+##################################################################
+#### Structural Equation Models including food web stability #####
+##################################################################
 
 
 ## Create vectors for effect size plotting ##
-flux <- c(rep(c(rep("predation", 3), rep("primary consumption",3)),2))
-FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 4)
-effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
+flux <- c(rep(c(rep("stability", 3), rep("predation", 3), rep("primary consumption",3)),2))
+FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 6)
+effect.type <- factor(c(rep("direct", 9),rep("indirect", 9)), levels=c('indirect', 'direct'))
 
 
 #### Cross-ecosystem SEM ####
-modS = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data)
-  plot(modS, which=1)
-  qqnorm(modS)
-modSa = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data)
-  plot(modSa, which=1)
-  qqnorm(modSa)
-modSb = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data)
-  plot(modSb, which=1)
-  qqnorm(modSb)
-modSc = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
-  plot(modSc, which=1)
-  qqnorm(modSc)
-modSd = lme(log(S) ~ poly(NPP.scale, degree=2), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
-  plot(modSc, which=1)
-  qqnorm(modSc)
-anova(modS, modSa, modSb, modSc, modSd)
-summary(modSd)
 
-##Explore S~NPP relationship
-# S.NPP=ggpredict(modSc, terms = "NPP.scale", interval = "confidence")
-# ggplot(S.NPP, aes(x, predicted)) + 
-#   geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) + 
-#   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-#   geom_point(data = all_data, aes(x = NPP.scale, y = S, color='#3A67AE9E'), size=2, alpha=0.5) +
-#   coord_trans(y = "log10")+
-#   theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5), "pt"), 
-#         axis.title.x = element_blank(),
-#         axis.title.y = element_blank()) +
-#   scale_colour_identity()
-
-
-mod1 = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data)
-  plot(mod1, which=1)
-  qqnorm(mod1)
-mod1a = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data)
-  plot(mod1a, which=1)
-  qqnorm(mod1a)
-mod1b = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data)
-  plot(mod1b, which=1)
-  qqnorm(mod1b)
-mod1c = lme(log(MaxTL) ~ log(S) + log(NPP.scale), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
-  plot(mod1c, which=1)
-  qqnorm(mod1c)
-mod1d = lme(log(MaxTL) ~ log(S) + poly(NPP.scale,2), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
-  plot(mod1d, which=1)
-  qqnorm(mod1d)
-anova(mod1, mod1a, mod1b, mod1c, mod1d)
-summary(mod1c)
-
-mod2 = lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, data=all_data)
-  plot(mod2, which=1)
-  qqnorm(mod2)
-mod2a = lme(logit(sim.prim.cons) ~ log(S), weights=varComb(varExp(form=~NPP.scale), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data)  #Best model
-  plot(mod2a, which=1)
-  qqnorm(mod2a)
-mod2b = lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID, data=all_data)
-  plot(mod2b, which=1)
-  qqnorm(mod2b)
-anova(mod2, mod2a, mod2b)
-summary(mod2a)
-
-mod3 = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, data=all_data) 
-  plot(mod3, which=1)
-  qqnorm(mod3)
-mod3a = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data) #Best model
-  plot(mod3a, which=1)
-  qqnorm(mod3a)
-# mod3b = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID, data=all_data) #convergence failure
-#   plot(mod3b, which=1)
-#   qqnorm(mod3b)
-anova(mod3, mod3a)
-summary(mod3a)
-
-mod4 = lme(log(prim.consumption) ~ logit(sim.prim.cons), random=~1|study_ID, data=all_data) 
-  plot(mod4, which=1)
-  qqnorm(mod4)
-mod4a = lme(log(prim.consumption) ~ logit(sim.prim.cons), weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data)
-  plot(mod4a, which=1)
-  qqnorm(mod4a)
-mod4b = lme(log(prim.consumption) ~ logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data) #Best model
-  plot(mod4b, which=1)
-  qqnorm(mod4b)
-anova(mod4, mod4a, mod4b)
-summary(mod4b)
-
-mod5 = lme(log(second.consumption) ~ logit(sim.sec.cons), random=~1|study_ID, data=all_data) 
-  plot(mod5, which=1)
-  qqnorm(mod5)
-mod5a = lme(log(second.consumption) ~ logit(sim.sec.cons), weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data) 
-  plot(mod5a, which=1)
-  qqnorm(mod5a)
-mod5b = lme(log(second.consumption) ~ logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data) # Best model
-  plot(mod5b, which=1)
-  qqnorm(mod5b)
-anova(mod5, mod5a, mod5b)
-summary(mod5b)
+modStability = lme(stability ~ logit(sim.sec.cons) + logit(sim.prim.cons) + logit(sim.prim.cons) + log(MaxTL), random=~1|study_ID, data=all_data) 
+  plot(modStability, which=1)
+  qqnorm(modStability)
+modStabilitya = lme(stability ~ logit(sim.sec.cons) + logit(sim.prim.cons) + logit(sim.prim.cons) + log(MaxTL), weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data) 
+  plot(modStabilitya, which=1)
+  qqnorm(modStabilitya)
+modStabilityb = lme(stability ~ log(prim.consumption) + log(second.consumption), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data) # Best model
+  plot(modStabilityb, which=1)
+  qqnorm(modStabilityb)
+anova(modStability, modStabilitya, modStabilityb)
+summary(modStabilityb)
 
 
 ### Maximal model
 SEM.all <- psem(
   lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
   lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
-  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varPower(form=~NPP.scale), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
-  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data),
-  lme(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
-  lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.prim.cons) ~ log(S), random=~1|ecosystem.type/study_ID, weights=varComb(varPower(form=~NPP.scale), varExp(form=~S)), data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data),
+  lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), data=all_data),
+  lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data),
+  lme(stability ~ log(prim.consumption) + log(second.consumption), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
   log(prim.consumption) %~~% logit(sim.sec.cons),
@@ -630,6 +235,7 @@ SEM.all2 <- psem(
   lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data),
   lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), data=all_data),
   lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data),
+  lme(stability ~ log(prim.consumption) + log(second.consumption) + log(S) + logit(sim.prim.cons) + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
   log(prim.consumption) %~~% logit(sim.sec.cons),
@@ -638,7 +244,7 @@ SEM.all2 <- psem(
 )
 
 summary(SEM.all2)
-results.allSEM <- summary(SEM.all2)$coefficients[c(1:12,16),c(1:5, 8, 7)]
+results.allSEM <- summary(SEM.all2)$coefficients[c(1:17),c(1:5, 8, 7)]
 names(results.allSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
 fun <- function(x) {
   formatC(x, format = "f", digits = 3)
@@ -650,19 +256,30 @@ allSEM_table <- nice_table(results.allSEM, col.format.custom = c(3:4,6:7), forma
 
 ## Create results dataframe for summary boxplots
 std.effect <- c(
-  SR.direct.pred <- results.allSEM[11,6],
-  MTL.direct.pred <- results.allSEM[10,6],
-  SIM.direct.pred <- 0,
+  
   SR.direct.prim <- results.allSEM[8,6],
   MTL.direct.prim <- 0,
   SIM.direct.prim <- 0,
-  
-  SR.indirect.pred <- (results.allSEM[2,6]*results.allSEM[10,6]),
-  MTL.indirect.pred <- 0,
-  SIM.indirect.pred <- 0,
+  SR.direct.stab <- results.allSEM[15,6],
+  MTL.direct.stab <- results.allSEM[17,6],
+  SIM.direct.stab <- results.allSEM[16,6],
+  SR.direct.pred <- results.allSEM[11,6],
+  MTL.direct.pred <- results.allSEM[10,6],
+  SIM.direct.pred <- 0,
+
   SR.indirect.prim <- 0,
   MTL.indirect.prim <- 0,
-  SIM.indirect.prim <- 0
+  SIM.indirect.prim <- 0,
+  SR.indirect.stab <- (results.allSEM[8,6]*results.allSEM[13,6] + 
+                         results.allSEM[4,6]*results.allSEM[16,6] +
+                         results.allSEM[2,6]*results.allSEM[17,6] +
+                         results.allSEM[2,6]*results.allSEM[10,6]*results.allSEM[17,6]+
+                         results.allSEM[11,6]*results.allSEM[14,6]),
+  MTL.indirect.stab <- results.allSEM[10,6]*results.allSEM[14,6],
+  SIM.indirect.stab <- 0,
+  SR.indirect.pred <- (results.allSEM[2,6]*results.allSEM[10,6]),
+  MTL.indirect.pred <- 0,
+  SIM.indirect.pred <- 0
 )
 eff.table_all <- data.frame(FW_prop, flux, effect.type, std.effect)
 
@@ -673,7 +290,7 @@ global.effects <- ggplot(eff.table_all,
   geom_hline(yintercept = 0, linetype = "dashed", linewidth = .5) +
   geom_bar_pattern(stat = "identity", position = "stack", pattern_color = 'White', pattern_fill = "white", width = .98,
                    pattern_alpha = 0.7, pattern_angle = 55, pattern_density = 0.75, pattern_spacing = 0.1, pattern_size=0) +
-  scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
+  scale_fill_manual(values = c("#F5C2699E", "#C257579E", "#3A67AE9E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
   facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
@@ -683,7 +300,7 @@ global.effects <- ggplot(eff.table_all,
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
 
-#ggsave("Global effects.svg", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Global effects stability.svg", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 
@@ -692,16 +309,6 @@ global.effects <- ggplot(eff.table_all,
 
 
 #### MARINE ####
-mod0 = gls(log(S) ~ NPP.scale, weights=varPower(form=~NPP.scale), data=meta.Marine)
-plot(mod0, which=1)
-qqnorm(mod0)
-summary(mod0)
-
-mod0a = gls(log(S) ~ poly(NPP.scale, degree=2), weights=varPower(form=~NPP.scale), data=meta.Marine)
-plot(mod0a, which=1)
-qqnorm(mod0a)
-anova(mod0, mod0a)
-summary(mod0a)
 
 mod1 = gls(log(MaxTL) ~ log(S), data=meta.Marine)
 plot(mod1, which=1)
@@ -755,7 +362,6 @@ summary(mod5)
 # summary(mod5a)
 # 
 # anova(mod5, mod5a)
-
 
 ### Maximal model
 SEM.Marine2 <- psem(
@@ -843,24 +449,6 @@ marine.effects <- ggplot(eff.table_marine,
 
 
 #### SOIL ####
-mod0 = gls(log(S) ~ NPP.scale, data=meta.Soils) #Best model
-plot(mod0, which=1)
-qqnorm(mod0)
-summary(mod0)
-
-mod0a = gls(log(S) ~ NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Soils) #Best model
-plot(mod0a, which=1)
-qqnorm(mod0a)
-summary(mod0a)
-
-mod0b = gls(log(S) ~ poly(NPP.scale, degree=2), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Soils)
-plot(mod0b, which=1)
-qqnorm(mod0b)
-summary(mod0b)
-
-anova(mod0, mod0a, mod0b)
-
-
 mod1 = gls(log(MaxTL) ~ log(S), data=meta.Soils) #Best model
 plot(mod1, which=1)
 qqnorm(mod1)
@@ -1007,23 +595,6 @@ soils.effects <- ggplot(eff.table_soils,
 
 #### STREAMs ####
 
-mod0 = lme(log(S) ~ NPP.scale, random=~1|study_ID, data=meta.Streams)
-plot(mod0, which=1)
-qqnorm(mod0)
-summary(mod0)
-
-mod0a = lme(log(S) ~ NPP.scale, random=~1|study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Streams) #Best model
-plot(mod0a, which=1)
-qqnorm(mod0a)
-summary(mod0a)
-
-mod0b = lme(log(S) ~ poly(NPP.scale, 2), random=~1|study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Streams)
-plot(mod0b, which=1)
-qqnorm(mod0b)
-summary(mod0b)
-
-anova(mod0, mod0a, mod0b)
-
 mod1 = lme(log(MaxTL) ~ log(S), random=~1|study_ID, data=meta.Streams)
 plot(mod1, which=1)
 qqnorm(mod1)
@@ -1134,18 +705,10 @@ streams.effects <- ggplot(eff.table_streams,
 
 
 #### Lakes ####
-mod0 = gls(log(S) ~ NPP.scale, weights=varPower(form=~S), data=meta.Lakes)
+mod0 = gls(log(S) ~ NPP.scale, weights=varExp(form=~S), data=meta.Lakes)
 plot(mod0, which=1)
 qqnorm(mod0)
 summary(mod0)
-
-mod0a = gls(log(S) ~ poly(NPP.scale, 2), weights=varPower(form=~S), data=meta.Lakes)
-plot(mod0a, which=1)
-qqnorm(mod0a)
-summary(mod0a)
-
-
-anova(mod0, mod0a)
 
 mod1 = gls(log(MaxTL) ~ log(S), data=meta.Lakes)
 plot(mod1, which=1)
@@ -1262,33 +825,4 @@ lakes.effects <- ggplot(eff.table_lakes,
 
 #ggsave("Lakes effects.svg", lakes.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
-
-
-
-#################################################
-#### Map of food web sampling sites - Fig. 2 ####
-#################################################
-
-world <- map_data("world")
-
-all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
-                                  levels = c("Marine", "Soils", "Streams", "Lakes"))
-
-ggplot() +
-  geom_map(data = world, map = world,
-    aes(long, lat, map_id = region),
-    color = "white", fill = "lightgray", linewidth = 0.1) + 
-  xlim(-130, 75) + ylim(-52, 80) +
-  geom_point(data = all_data, size=2, stroke = 1,
-    aes(lon, lat, color = ecosystem.type),
-    alpha = 0.4, shape=21) +
-  geom_jitter(width = 25) +
-# scale_size_continuous(range=c(4,5)) +
-  theme_void()+
-  labs(colour = ("Ecosystem type")) +
-  theme(panel.background = element_rect(fill = "white"), legend.key=element_blank(),
-        legend.position = c(.2, .4), legend.justification = c("right", "top"),
-        legend.box.just = "left", legend.margin = margin(6, 6, 6, 6)) + 
-  guides(colour = guide_legend(override.aes = list(size=2.5, stroke = 1.5, shape=21, alpha=0.9)), shape=19)
-ggsave("map.svg", width = 17, height = 11, units = "cm")
 

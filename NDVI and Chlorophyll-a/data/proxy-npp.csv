@@ -1,319 +1,319 @@
 FW_name,ecosystem.type,study_ID,lat,metric,avg
-AP1,Marine,Intertidal rockpools,-23.812962,Chl-a,3.388634443283081
-AP2,Marine,Intertidal rockpools,-23.812993,Chl-a,3.388634443283081
-AP3,Marine,Intertidal rockpools,-23.813024,Chl-a,3.388634443283081
-AP4,Marine,Intertidal rockpools,-23.813107,Chl-a,3.388634443283081
-BP1,Marine,Intertidal rockpools,-23.524249,Chl-a,1.8965937174856664
-BP2,Marine,Intertidal rockpools,-23.524136,Chl-a,1.8966937061393392
-BP3,Marine,Intertidal rockpools,-23.523881,Chl-a,1.897608268524194
-CGP1,Marine,Intertidal rockpools,-23.8226002,Chl-a,3.388634443283081
-CGP2,Marine,Intertidal rockpools,-23.82601,Chl-a,3.388634443283081
-CGP3,Marine,Intertidal rockpools,-23.825912,Chl-a,3.388634443283081
-CR1P1,Marine,Intertidal rockpools,38.709952,Chl-a,2.4439984275221067
-CR1P2,Marine,Intertidal rockpools,38.710015,Chl-a,2.4440710342963703
-CR1P3,Marine,Intertidal rockpools,38.709936,Chl-a,2.443528192921689
-CR1P4,Marine,Intertidal rockpools,38.709946,Chl-a,2.44180159679445
-CR2P1,Marine,Intertidal rockpools,38.710621,Chl-a,2.4384004749468904
-CR2P2,Marine,Intertidal rockpools,38.71063,Chl-a,2.4388422181463647
-CR2P3,Marine,Intertidal rockpools,38.71067,Chl-a,2.4389283304806693
-CR2P4,Marine,Intertidal rockpools,38.710653,Chl-a,2.4389283304806693
-F1P1,Marine,Intertidal rockpools,-25.969864,Chl-a,0.6966936442965552
-F1P2,Marine,Intertidal rockpools,-25.969947,Chl-a,0.6938912608190222
-F1P3,Marine,Intertidal rockpools,-25.970258,Chl-a,0.6848902833336995
-F1P4,Marine,Intertidal rockpools,-25.970464,Chl-a,0.6826520967767353
-F2P1,Marine,Intertidal rockpools,-25.971056,Chl-a,0.6713167813763407
-F2P2,Marine,Intertidal rockpools,-25.971186,Chl-a,0.6719229520502545
-F2P3,Marine,Intertidal rockpools,-25.971569,Chl-a,0.6711996597903117
-F2P4,Marine,Intertidal rockpools,-25.971744,Chl-a,0.6701685617898258
-FP1,Marine,Intertidal rockpools,-23.529452,Chl-a,1.8561611748178592
-FXAP1,Marine,Intertidal rockpools,-3.2116634,Chl-a,1.4275790443912442
-FXAP2,Marine,Intertidal rockpools,-3.216738,Chl-a,1.4323264546442351
-FXAP3,Marine,Intertidal rockpools,-3.216667,Chl-a,1.4316001894885373
-FXAP4,Marine,Intertidal rockpools,-3.216639,Chl-a,1.4322833422833063
-FXBP1,Marine,Intertidal rockpools,-3.217707,Chl-a,1.447790361465292
-FXBP2,Marine,Intertidal rockpools,-3.217727,Chl-a,1.4468820770229918
-FXBP3,Marine,Intertidal rockpools,-3.217815,Chl-a,1.4497175525341717
-FXBP4,Marine,Intertidal rockpools,-3.217817,Chl-a,1.4489136819533486
-GJAP1,Marine,Intertidal rockpools,-3.23754,Chl-a,1.367292240435975
-GJAP2,Marine,Intertidal rockpools,-3.237669,Chl-a,1.3680119204428167
-GJAP3,Marine,Intertidal rockpools,-3.237576,Chl-a,1.3684057896433313
-GJAP4,Marine,Intertidal rockpools,-3.23772,Chl-a,1.3670526981044524
-GJBP1,Marine,Intertidal rockpools,-3.239132,Chl-a,1.3614477514453531
-GJBP2,Marine,Intertidal rockpools,-3.2391122,Chl-a,1.3605152327227807
-GJBP3,Marine,Intertidal rockpools,-3.239011,Chl-a,1.3609699816275869
-GJBP4,Marine,Intertidal rockpools,-3.239112,Chl-a,1.3605152327227807
-L1P1,Marine,Intertidal rockpools,39.286564,Chl-a,1.878028745081887
-L1P2,Marine,Intertidal rockpools,39.286564,Chl-a,1.8790923906233157
-L1P3,Marine,Intertidal rockpools,39.286584,Chl-a,1.8790923906233157
-L1P4,Marine,Intertidal rockpools,39.286595,Chl-a,1.8778268876722304
-L2P1,Marine,Intertidal rockpools,39.286558,Chl-a,1.8724463729115275
-L2P2,Marine,Intertidal rockpools,39.286575,Chl-a,1.8724463729115275
-L2P3,Marine,Intertidal rockpools,39.286569,Chl-a,1.8724463729115275
-L2P4,Marine,Intertidal rockpools,39.286623,Chl-a,1.87037729391288
-L3P1,Marine,Intertidal rockpools,39.241002,Chl-a,2.268562229510346
-L3P2,Marine,Intertidal rockpools,39.240973,Chl-a,2.268562229510346
-L3P3,Marine,Intertidal rockpools,39.241035,Chl-a,2.267337721776744
-L3P4,Marine,Intertidal rockpools,39.241023,Chl-a,2.267337721776744
-L4P1,Marine,Intertidal rockpools,39.241695,Chl-a,2.2568694380074064
-L4P2,Marine,Intertidal rockpools,39.241695,Chl-a,2.257413166063326
-L4P3,Marine,Intertidal rockpools,39.241812,Chl-a,2.255537309988732
-L4P4,Marine,Intertidal rockpools,39.241808,Chl-a,2.255537309988732
-MBP1,Marine,Intertidal rockpools,50.357325,Chl-a,3.34780383423755
-MBP2,Marine,Intertidal rockpools,50.357154,Chl-a,3.344887019762026
-MBP3,Marine,Intertidal rockpools,50.358082,Chl-a,3.363519746916635
-MBP4,Marine,Intertidal rockpools,50.358041,Chl-a,3.3570128662485472
-PC1P1,Marine,Intertidal rockpools,32.775718,Chl-a,0.22070017877814851
-PC1P2,Marine,Intertidal rockpools,32.775723,Chl-a,0.22070017877814851
-PC1P3,Marine,Intertidal rockpools,32.775719,Chl-a,0.22070017877814851
-PC1P4,Marine,Intertidal rockpools,32.775718,Chl-a,0.22070017877814851
-PC2P1,Marine,Intertidal rockpools,32.775966,Chl-a,0.2205367406361849
-PC2P2,Marine,Intertidal rockpools,32.775963,Chl-a,0.2205367406361849
-PC2P3,Marine,Intertidal rockpools,32.776023,Chl-a,0.22043630754810636
-PC2P4,Marine,Intertidal rockpools,32.776016,Chl-a,0.22043630754810636
-PC2P5,Marine,Intertidal rockpools,32.77602,Chl-a,0.22043630754810636
-PGSBP1,Marine,Intertidal rockpools,-23.824578,Chl-a,3.388634443283081
-PGSBP2,Marine,Intertidal rockpools,-23.824949,Chl-a,3.388634443283081
-PGUBP1,Marine,Intertidal rockpools,-23.466834,Chl-a,1.500201933121567
-PGUBP2,Marine,Intertidal rockpools,-23.466831,Chl-a,1.500201933121567
-PGUBP3,Marine,Intertidal rockpools,-23.466854,Chl-a,1.500201933121567
-PGUBP4,Marine,Intertidal rockpools,-23.466893,Chl-a,1.5000173250834146
-PP1I1,Marine,Intertidal rockpools,48.493018,Chl-a,7.447057133033629
-PP1I2,Marine,Intertidal rockpools,48.492827,Chl-a,7.4461110826398516
-PP1I3,Marine,Intertidal rockpools,48.49427,Chl-a,7.456450574350036
-PP1I4,Marine,Intertidal rockpools,48.4938,Chl-a,7.454468015726509
-PP2I1,Marine,Intertidal rockpools,48.496957,Chl-a,7.484680499021823
-PP2I2,Marine,Intertidal rockpools,48.497064,Chl-a,7.485662513054335
-PP2I3,Marine,Intertidal rockpools,48.497064,Chl-a,7.485662513054335
-PP2I4,Marine,Intertidal rockpools,48.497256,Chl-a,7.487588784027101
-PP2M1,Marine,Intertidal rockpools,48.497597,Chl-a,7.490726147460939
-PP2M2,Marine,Intertidal rockpools,48.497686,Chl-a,7.491706590270997
-PP2M3,Marine,Intertidal rockpools,48.497783,Chl-a,7.492883068084717
-PP2M4,Marine,Intertidal rockpools,48.497865,Chl-a,7.493863510894776
-RMP1,Marine,Intertidal rockpools,32.645518,Chl-a,0.18359592296466248
-RMP2,Marine,Intertidal rockpools,32.645521,Chl-a,0.18361911046724777
-RMP3,Marine,Intertidal rockpools,32.645613,Chl-a,0.18368163992864173
-RMP4,Marine,Intertidal rockpools,32.645638,Chl-a,0.18368163992864173
-RMP5,Marine,Intertidal rockpools,32.645678,Chl-a,0.18371908174146137
-RV1P1,Marine,Intertidal rockpools,38.702144,Chl-a,2.578171647271734
-RV1P2,Marine,Intertidal rockpools,38.702092,Chl-a,2.5783527702547624
-RV1P3,Marine,Intertidal rockpools,38.702141,Chl-a,2.5795046589306714
-RV1P4,Marine,Intertidal rockpools,38.702162,Chl-a,2.5793252676202543
-RV2P1,Marine,Intertidal rockpools,38.701839,Chl-a,2.5867386883810943
-RV2P2,Marine,Intertidal rockpools,38.701801,Chl-a,2.58879093216076
-RV2P3,Marine,Intertidal rockpools,38.701801,Chl-a,2.589993766113952
-RV2P4,Marine,Intertidal rockpools,38.70178,Chl-a,2.589993766113952
-SF1I1,Marine,Intertidal rockpools,48.612351,Chl-a,8.028544171651204
-SF1I2,Marine,Intertidal rockpools,48.612273,Chl-a,8.048186894276695
-SF1I3,Marine,Intertidal rockpools,48.612238,Chl-a,8.028544171651204
-SF1I4,Marine,Intertidal rockpools,48.612345,Chl-a,8.028544171651204
-SF1M1,Marine,Intertidal rockpools,48.612117,Chl-a,7.973684575184283
-SF1M2,Marine,Intertidal rockpools,48.612209,Chl-a,7.98647995178516
-SF1M3,Marine,Intertidal rockpools,48.612074,Chl-a,7.973684575184283
-SF1M4,Marine,Intertidal rockpools,48.612159,Chl-a,7.9938259376324625
-SF2I1,Marine,Intertidal rockpools,48.612671,Chl-a,7.984569715017295
-SF2I2,Marine,Intertidal rockpools,48.612735,Chl-a,8.006865723241717
-SF2I3,Marine,Intertidal rockpools,48.612756,Chl-a,8.006865723241717
-SF2I4,Marine,Intertidal rockpools,48.612827,Chl-a,8.009559734262151
-SF2M1,Marine,Intertidal rockpools,48.612437,Chl-a,7.9916652739048
-SF2M2,Marine,Intertidal rockpools,48.612451,Chl-a,7.981589386262089
-SF2M3,Marine,Intertidal rockpools,48.612572,Chl-a,7.994638438408191
-SF2M4,Marine,Intertidal rockpools,48.612274,Chl-a,7.956342900347766
-SP1,Marine,Intertidal rockpools,-23.828842,Chl-a,3.388634443283081
-WP1,Marine,Intertidal rockpools,50.31675,Chl-a,2.8708195708539455
-WP2,Marine,Intertidal rockpools,50.316709,Chl-a,2.871399579767408
-WP3,Marine,Intertidal rockpools,50.316572,Chl-a,2.8711854829912524
-WP4,Marine,Intertidal rockpools,50.316449,Chl-a,2.873120471918694
-fw1981,Marine,Baltic Sea,57.78,Chl-a,NA
-fw1986,Marine,Baltic Sea,57.78,Chl-a,NA
-fw1991,Marine,Baltic Sea,57.78,Chl-a,NA
-fw1996,Marine,Baltic Sea,57.78,Chl-a,NA
-fw2001,Marine,Baltic Sea,57.78,Chl-a,NA
-fw2006,Marine,Baltic Sea,57.78,Chl-a,NA
-fw2011,Marine,Baltic Sea,57.78,Chl-a,NA
-AEW01,Soils,Biodiversity exploratories,48.48,NDVI,0.6196339874317934
-AEW02,Soils,Biodiversity exploratories,48.38,NDVI,0.6984937161086698
-AEW04,Soils,Biodiversity exploratories,48.4,NDVI,0.6215283980248192
-AEW05,Soils,Biodiversity exploratories,48.42,NDVI,0.6851038170214935
-AEW07,Soils,Biodiversity exploratories,48.4,NDVI,0.6317602579864869
-AEW08,Soils,Biodiversity exploratories,48.38,NDVI,0.6696695752571847
-AEW09,Soils,Biodiversity exploratories,48.37,NDVI,0.696979600037884
-AEW17,Soils,Biodiversity exploratories,48.4,NDVI,0.6215283980248192
-AEW18,Soils,Biodiversity exploratories,48.37,NDVI,0.66399727874716
-AEW25,Soils,Biodiversity exploratories,48.48,NDVI,0.6976179608286236
-AEW27,Soils,Biodiversity exploratories,48.4,NDVI,0.6658301418826412
-AEW30,Soils,Biodiversity exploratories,48.37,NDVI,0.7198323164565927
-AEW49,Soils,Biodiversity exploratories,48.45,NDVI,0.6844128649073342
-HEW01,Soils,Biodiversity exploratories,51.19,NDVI,0.7214268190699896
-HEW02,Soils,Biodiversity exploratories,51.21,NDVI,0.743099245347406
-HEW03,Soils,Biodiversity exploratories,51.27,NDVI,0.7381788347731382
-HEW04,Soils,Biodiversity exploratories,51.37,NDVI,0.7442683760132066
-HEW05,Soils,Biodiversity exploratories,51.26,NDVI,0.7466222935832911
-HEW06,Soils,Biodiversity exploratories,51.27,NDVI,0.7198328337157804
-HEW10,Soils,Biodiversity exploratories,51.09,NDVI,0.7180162872097319
-HEW11,Soils,Biodiversity exploratories,51.1,NDVI,0.7401630567746934
-HEW12,Soils,Biodiversity exploratories,51.1,NDVI,0.6974610290938569
-HEW13,Soils,Biodiversity exploratories,51.24,NDVI,0.7329554741678614
-HEW16,Soils,Biodiversity exploratories,51.18,NDVI,0.7218223244578745
-HEW17,Soils,Biodiversity exploratories,51.28,NDVI,0.737018245212024
-HEW21,Soils,Biodiversity exploratories,51.19,NDVI,0.7214268190699896
-HEW22,Soils,Biodiversity exploratories,51.34,NDVI,0.7497296034094986
-HEW36,Soils,Biodiversity exploratories,51.11,NDVI,0.7000993299311968
-HEW47,Soils,Biodiversity exploratories,51.18,NDVI,0.6830660608205609
-SEW01,Soils,Biodiversity exploratories,52.9,NDVI,0.6567974114392363
-SEW02,Soils,Biodiversity exploratories,52.95,NDVI,0.7084968236795408
-SEW03,Soils,Biodiversity exploratories,52.92,NDVI,0.7270009916900453
-SEW04,Soils,Biodiversity exploratories,52.92,NDVI,0.7051049122201616
-SEW05,Soils,Biodiversity exploratories,53.06,NDVI,0.5110832826784695
-SEW06,Soils,Biodiversity exploratories,52.91,NDVI,0.7017548896710532
-SEW07,Soils,Biodiversity exploratories,53.11,NDVI,0.5777105968385747
-SEW08,Soils,Biodiversity exploratories,53.19,NDVI,0.6889177382796506
-SEW09,Soils,Biodiversity exploratories,53.04,NDVI,0.6742331675316521
-SEW18,Soils,Biodiversity exploratories,52.86,NDVI,0.6551604258752604
-SEW35,Soils,Biodiversity exploratories,52.91,NDVI,0.7598305461702775
-SEW36,Soils,Biodiversity exploratories,52.95,NDVI,0.69870111903857135
-SEW37,Soils,Biodiversity exploratories,52.94,NDVI,0.6861196585017525
-SEW41,Soils,Biodiversity exploratories,52.91,NDVI,0.6729062339544243
-SEW43,Soils,Biodiversity exploratories,52.9,NDVI,0.6772314470897259
-SEW48,Soils,Biodiversity exploratories,53.05,NDVI,0.730294127746219
-foodweb1,Soils,Russian soils,44.475455,NDVI,0.7467357628819834
-foodweb2,Soils,Russian soils,44.715321,NDVI,0.4769411831966318
-foodweb3,Soils,Russian soils,44.588447,NDVI,0.6994333138239253
-foodweb4,Soils,Russian soils,44.747369,NDVI,0.585564446273347
-foodweb5,Soils,Russian soils,52.594845,NDVI,0.6704015050572462
-foodweb6,Soils,Russian soils,52.580094,NDVI,0.7253522461630058
-foodweb7,Soils,Russian soils,51.818968,NDVI,0.6212905213395932
-foodweb8,Soils,Russian soils,51.812436,NDVI,0.6844576478386462
-foodweb9,Soils,Russian soils,56.647912,NDVI,0.6882965074703356
-foodweb10,Soils,Russian soils,56.521919,NDVI,0.7672120158802916
-foodweb11,Soils,Russian soils,56.155257,NDVI,0.8085034358504708
-foodweb12,Soils,Russian soils,56.140112,NDVI,0.7838873628112207
-foodweb13,Soils,Russian soils,61.99292,NDVI,0.6791004546820654
-foodweb14,Soils,Russian soils,61.85056,NDVI,0.72933191667987185
-foodweb15,Soils,Russian soils,60.33975,NDVI,0.6600151238794261
-foodweb16,Soils,Russian soils,60.32878,NDVI,0.6604910979351808
-foodweb17,Soils,Russian soils,66.82928,NDVI,0.5521025515356166
-foodweb18,Soils,Russian soils,66.79567,NDVI,0.6068125607035246
-foodweb19,Soils,Russian soils,66.78124,NDVI,0.4917579002818504
-foodweb20,Soils,Russian soils,67.07881,NDVI,0.5454931419817861
-IS1,Streams,Hengill valley,64.05396,NDVI,0.5279789182224807
-IS3,Streams,Hengill valley,64.05635,NDVI,0.49087879563626785
-IS4,Streams,Hengill valley,64.05656,NDVI,0.4654350455028165
-IS5,Streams,Hengill valley,64.05562,NDVI,0.5569970054830031
-IS6,Streams,Hengill valley,64.05669,NDVI,0.5552971626646371
-IS7,Streams,Hengill valley,64.05738,NDVI,0.5003777779076564
-IS8,Streams,Hengill valley,64.05745,NDVI,0.4802435260181005
-IS9,Streams,Hengill valley,64.05782,NDVI,0.3932886362622729
-IS10,Streams,Hengill valley,64.05831,NDVI,0.34739909202913893
-IS11,Streams,Hengill valley,64.05881,NDVI,0.3931364429974389
-IS12,Streams,Hengill valley,64.04801,NDVI,0.4622466787733158
-IS13,Streams,Hengill valley,64.053609,NDVI,0.5328301586938174
-IS14,Streams,Hengill valley,64.06031,NDVI,0.5592544151548646
-IS16,Streams,Hengill valley,64.056653,NDVI,0.4804633465435241
-Afon Berwyn,Streams,UK chalk streams,52.21996,NDVI,0.6479910346668809
-Afon Bidno,Streams,UK chalk streams,52.42676,NDVI,0.6845623901102749
-Afon Ceirw,Streams,UK chalk streams,52.8442,NDVI,0.589769410902095
-Afon Dulais,Streams,UK chalk streams,52.04286,NDVI,0.653055093394187
-Afon Gain,Streams,UK chalk streams,52.88488,NDVI,0.5133587468527621
-Afon Gwy 2005,Streams,UK chalk streams,52.4535,NDVI,0.5474557567408079
-Afon Gwy 2012,Streams,UK chalk streams,52.45369,NDVI,0.4611536413112032
-Afon Hafren 2005,Streams,UK chalk streams,52.4737,NDVI,0.6794481189278719
-Afon Hafren 2012,Streams,UK chalk streams,52.47543,NDVI,0.676027176674773
-Afon Marteg,Streams,UK chalk streams,52.33123,NDVI,0.64166659433618
-Allt a_Mharcaidh,Streams,UK chalk streams,57.11777,NDVI,0.563181584270358
-Allt na Coire nan Con,Streams,UK chalk streams,56.75857,NDVI,0.5958274437147218
-Beagh_s Burn,Streams,UK chalk streams,55.10064,NDVI,0.6217566992317074
-Broadstone Stream,Streams,UK chalk streams,51.08178,NDVI,0.6569838023467595
-D6,Streams,UK chalk streams,54.40691,NDVI,0.5881967455330019
-Dargall Lane,Streams,UK chalk streams,55.07752,NDVI,0.4735741989095362
-Duddon Pike Beck,Streams,UK chalk streams,54.40501,NDVI,0.5842851662664066
-G1,Streams,UK chalk streams,52.10348,NDVI,0.6045778962697292
-G2,Streams,UK chalk streams,52.10269,NDVI,0.57660897995274
-Hardknott Gill,Streams,UK chalk streams,54.40401,NDVI,0.6002475491266006
-L3,Streams,UK chalk streams,52.14271,NDVI,0.6329621898305327
-L6,Streams,UK chalk streams,52.13286,NDVI,0.607800754382184
-L7,Streams,UK chalk streams,52.12941,NDVI,0.6286708718313707
-L8,Streams,UK chalk streams,52.1264,NDVI,0.5901883552331922
-Lone Oak,Streams,UK chalk streams,51.07648,NDVI,0.7321276318819947
-Mill Stream,Streams,UK chalk streams,50.67748,NDVI,0.639326933494297
-Mosedale Beck,Streams,UK chalk streams,54.40799,NDVI,0.4970949991931184
-Nant Clywedog Uchaf,Streams,UK chalk streams,52.14532,NDVI,0.6142265994251787
-Nant Gelli Gethin,Streams,UK chalk streams,52.6479,NDVI,0.6437918256563036
-Nant Gwryd,Streams,UK chalk streams,53.09602,NDVI,0.5765844392585358
-Nant Pen y Cwm,Streams,UK chalk streams,52.6422,NDVI,0.7060142988651061
-Narrator Brook,Streams,UK chalk streams,50.50447,NDVI,0.6752836683266541
-Old Lodge,Streams,UK chalk streams,51.04404,NDVI,0.5207059733468435
-River Bure,Streams,UK chalk streams,52.82422,NDVI,0.7399409293476856
-River Duddon,Streams,UK chalk streams,54.40515,NDVI,0.6127369654705254
-River Etherow,Streams,UK chalk streams,53.49273,NDVI,0.642703563113233
-River Fiddich,Streams,UK chalk streams,57.44091616,NDVI,0.5898037652444424
-River Loddon,Streams,UK chalk streams,51.29222,NDVI,0.6963947259775203
-River Lyde,Streams,UK chalk streams,51.28754,NDVI,0.7020585273430644
-River Test,Streams,UK chalk streams,51.13945,NDVI,0.7494296118048654
-River Wensum,Streams,UK chalk streams,52.77651,NDVI,0.716925307175023
-Upper Duhonw,Streams,UK chalk streams,52.12884,NDVI,0.6655203621076308
-Upper Llugwy,Streams,UK chalk streams,53.11242,NDVI,0.41560101284291423
-Wrynose Pass Beck,Streams,UK chalk streams,54.41411,NDVI,0.6005447539154741
-revetment,Streams,Elbe,51.883449,NDVI,0.33345029317877967
-rip rap,Streams,Elbe,51.884135,NDVI,0.6085269184731495
-wing dike,Streams,Elbe,51.874583,NDVI,0.32472004126145426
-Sum53,Streams,Hall et al,35.06136111,NDVI,0.6534411096530545
-Win53,Streams,Hall et al,35.06136111,NDVI,0.6534411096530545
-Sum55,Streams,Hall et al,35.06136111,NDVI,0.6534411096530545
-Win55,Streams,Hall et al,35.06136111,NDVI,0.6534411096530545
-morup,Streams,Montsant,41.3303954,NDVI,0.3386650433191647
-mordown1,Streams,Montsant,41.296295,NDVI,0.5242886436529293
-mordown2,Streams,Montsant,41.288889,NDVI,0.43108509370700343
-mordown3,Streams,Montsant,41.249028,NDVI,0.5394403235129076
-S1,Streams,Cananeia,-25.04,NDVI,0.5999723810572369
-S6,Streams,Cananeia,-25.02,NDVI,-0.3763036293418489
-S8,Streams,Cananeia,-24.95,NDVI,0.7971028369455803
-S8B,Streams,Cananeia,-24.95,NDVI,0.7971028369455803
-S8C,Streams,Cananeia,-24.95,NDVI,0.8637732766340401
-Alford lake,Lakes,Adirondack lakes,44.26,NDVI,0.5759657096347806
-Balsam lake,Lakes,Adirondack lakes,43.62833333,NDVI,0.5586450643790076
-Beaver lake,Lakes,Adirondack lakes,43.65111111,NDVI,0.5767325968197023
-Big hope lake,Lakes,Adirondack lakes,44.51194444,NDVI,0.5937209911065474
-Brandy lake,Lakes,Adirondack lakes,44.28472222,NDVI,0.6358194126670854
-Bridge brook lake,Lakes,Adirondack lakes,44.1625,NDVI,0.6099184924793429
-Buck pond,Lakes,Adirondack lakes,43.53,NDVI,0.6342792547691084
-Burntbridge lake,Lakes,Adirondack lakes,44.21222222,NDVI,0.5987405847798181
-Cascade lake,Lakes,Adirondack lakes,43.78916667,NDVI,0.5748679994353244
-Chub lake,Lakes,Adirondack lakes,43.8325,NDVI,0.5858485672338537
-Chub pond,Lakes,Adirondack lakes,43.55416667,NDVI,0.6424780629700835
-Connera lake,Lakes,Adirondack lakes,44.30638889,NDVI,0.6389077305066141
-Constable lake,Lakes,Adirondack lakes,43.83055556,NDVI,0.5940117385130018
-Deep lake,Lakes,Adirondack lakes,43.61611111,NDVI,0.5790425398219856
-Emerald lake,Lakes,Adirondack lakes,44.02277778,NDVI,0.5817970914638764
-Falls lake,Lakes,Adirondack lakes,43.6325,NDVI,0.5926609937084703
-Fawn lake,Lakes,Adirondack lakes,43.71333333,NDVI,0.5996260611743873
-Federation lake,Lakes,Adirondack lakes,44.33972222,NDVI,0.5936303159532815
-Goose lake,Lakes,Adirondack lakes,43.78027778,NDVI,0.5985508005761107
-Grass lake,Lakes,Adirondack lakes,44.37694444,NDVI,0.6254765514289015
-Gull lake,Lakes,Adirondack lakes,43.55138889,NDVI,0.634373076901476
-Gull lake north,Lakes,Adirondack lakes,43.8625,NDVI,0.6275880459546881
-Helldiver pond,Lakes,Adirondack lakes,43.66944444,NDVI,0.5834901874808912
-High pond,Lakes,Adirondack lakes,44.08527778,NDVI,0.5737643109760233
-Hoel lake,Lakes,Adirondack lakes,44.35805556,NDVI,0.6079101417865695
-Horseshoe Lake,Lakes,Adirondack lakes,44.31722222,NDVI,0.6021567695228379
-Indian Lake,Lakes,Adirondack lakes,43.62333333,NDVI,0.5616464746240865
-Little Rainbow Lake,Lakes,Adirondack lakes,44.35916667,NDVI,0.6109345859184352
-Long Lake,Lakes,Adirondack lakes,44.31638889,NDVI,0.6316607430998703
-Loon Lake,Lakes,Adirondack lakes,44.4875,NDVI,0.6211224968659571
-Lost Lake,Lakes,Adirondack lakes,44.46194444,NDVI,0.6158589653326452
-Lost Lake East,Lakes,Adirondack lakes,43.68777778,NDVI,0.6026708763221378
-Lower Sister Lake,Lakes,Adirondack lakes,43.87166667,NDVI,0.614641144939608
-Oswego Lake,Lakes,Adirondack lakes,43.85027778,NDVI,0.6056875234195068
-Owl Lake,Lakes,Adirondack lakes,44.26833333,NDVI,0.628847161789304
-Rat Lake,Lakes,Adirondack lakes,44.35277778,NDVI,0.631478533097589
-Razorback Lake,Lakes,Adirondack lakes,43.84861111,NDVI,0.6038558970147629
-Rock Lake,Lakes,Adirondack lakes,44.01055556,NDVI,0.5855213761526706
-Russian Lake,Lakes,Adirondack lakes,43.84138889,NDVI,0.5931812053172123
-Safford Lake,Lakes,Adirondack lakes,43.78416667,NDVI,0.6085516046420361
-Sand Lake,Lakes,Adirondack lakes,44.01055556,NDVI,0.5840197750837341
-Squaw Lake,Lakes,Adirondack lakes,43.63611111,NDVI,0.5905240196062608
-Stink Lake,Lakes,Adirondack lakes,43.63083333,NDVI,0.5567235874041806
-Twelfth Tee Lake,Lakes,Adirondack lakes,44.34166667,NDVI,0.6014455385149869
-Twin Lake East,Lakes,Adirondack lakes,43.62027778,NDVI,0.5606213179235323
-Twin Lake West,Lakes,Adirondack lakes,43.6175,NDVI,0.5585166697672332
-Whipple Lake,Lakes,Adirondack lakes,44.39388889,NDVI,0.5981939690448443
-Maggiore,Lakes,Lake Maggiore,46.098056,NDVI,0.46305488369455994
+AP1,Marine,Intertidal rockpools,-23.812962,Chl-a,3.388634443
+AP2,Marine,Intertidal rockpools,-23.812993,Chl-a,3.388634443
+AP3,Marine,Intertidal rockpools,-23.813024,Chl-a,3.388634443
+AP4,Marine,Intertidal rockpools,-23.813107,Chl-a,3.388634443
+BP1,Marine,Intertidal rockpools,-23.524249,Chl-a,1.896593717
+BP2,Marine,Intertidal rockpools,-23.524136,Chl-a,1.896693706
+BP3,Marine,Intertidal rockpools,-23.523881,Chl-a,1.897608269
+CGP1,Marine,Intertidal rockpools,-23.8226002,Chl-a,3.388634443
+CGP2,Marine,Intertidal rockpools,-23.82601,Chl-a,3.388634443
+CGP3,Marine,Intertidal rockpools,-23.825912,Chl-a,3.388634443
+CR1P1,Marine,Intertidal rockpools,38.709952,Chl-a,2.443998428
+CR1P2,Marine,Intertidal rockpools,38.710015,Chl-a,2.444071034
+CR1P3,Marine,Intertidal rockpools,38.709936,Chl-a,2.443528193
+CR1P4,Marine,Intertidal rockpools,38.709946,Chl-a,2.441801597
+CR2P1,Marine,Intertidal rockpools,38.710621,Chl-a,2.438400475
+CR2P2,Marine,Intertidal rockpools,38.71063,Chl-a,2.438842218
+CR2P3,Marine,Intertidal rockpools,38.71067,Chl-a,2.43892833
+CR2P4,Marine,Intertidal rockpools,38.710653,Chl-a,2.43892833
+F1P1,Marine,Intertidal rockpools,-25.969864,Chl-a,0.696693644
+F1P2,Marine,Intertidal rockpools,-25.969947,Chl-a,0.693891261
+F1P3,Marine,Intertidal rockpools,-25.970258,Chl-a,0.684890283
+F1P4,Marine,Intertidal rockpools,-25.970464,Chl-a,0.682652097
+F2P1,Marine,Intertidal rockpools,-25.971056,Chl-a,0.671316781
+F2P2,Marine,Intertidal rockpools,-25.971186,Chl-a,0.671922952
+F2P3,Marine,Intertidal rockpools,-25.971569,Chl-a,0.67119966
+F2P4,Marine,Intertidal rockpools,-25.971744,Chl-a,0.670168562
+FP1,Marine,Intertidal rockpools,-23.529452,Chl-a,1.856161175
+FXAP1,Marine,Intertidal rockpools,-3.2116634,Chl-a,1.427579044
+FXAP2,Marine,Intertidal rockpools,-3.216738,Chl-a,1.432326455
+FXAP3,Marine,Intertidal rockpools,-3.216667,Chl-a,1.431600189
+FXAP4,Marine,Intertidal rockpools,-3.216639,Chl-a,1.432283342
+FXBP1,Marine,Intertidal rockpools,-3.217707,Chl-a,1.447790361
+FXBP2,Marine,Intertidal rockpools,-3.217727,Chl-a,1.446882077
+FXBP3,Marine,Intertidal rockpools,-3.217815,Chl-a,1.449717553
+FXBP4,Marine,Intertidal rockpools,-3.217817,Chl-a,1.448913682
+GJAP1,Marine,Intertidal rockpools,-3.23754,Chl-a,1.36729224
+GJAP2,Marine,Intertidal rockpools,-3.237669,Chl-a,1.36801192
+GJAP3,Marine,Intertidal rockpools,-3.237576,Chl-a,1.36840579
+GJAP4,Marine,Intertidal rockpools,-3.23772,Chl-a,1.367052698
+GJBP1,Marine,Intertidal rockpools,-3.239132,Chl-a,1.361447751
+GJBP2,Marine,Intertidal rockpools,-3.2391122,Chl-a,1.360515233
+GJBP3,Marine,Intertidal rockpools,-3.239011,Chl-a,1.360969982
+GJBP4,Marine,Intertidal rockpools,-3.239112,Chl-a,1.360515233
+L1P1,Marine,Intertidal rockpools,39.286564,Chl-a,1.878028745
+L1P2,Marine,Intertidal rockpools,39.286564,Chl-a,1.879092391
+L1P3,Marine,Intertidal rockpools,39.286584,Chl-a,1.879092391
+L1P4,Marine,Intertidal rockpools,39.286595,Chl-a,1.877826888
+L2P1,Marine,Intertidal rockpools,39.286558,Chl-a,1.872446373
+L2P2,Marine,Intertidal rockpools,39.286575,Chl-a,1.872446373
+L2P3,Marine,Intertidal rockpools,39.286569,Chl-a,1.872446373
+L2P4,Marine,Intertidal rockpools,39.286623,Chl-a,1.870377294
+L3P1,Marine,Intertidal rockpools,39.241002,Chl-a,2.26856223
+L3P2,Marine,Intertidal rockpools,39.240973,Chl-a,2.26856223
+L3P3,Marine,Intertidal rockpools,39.241035,Chl-a,2.267337722
+L3P4,Marine,Intertidal rockpools,39.241023,Chl-a,2.267337722
+L4P1,Marine,Intertidal rockpools,39.241695,Chl-a,2.256869438
+L4P2,Marine,Intertidal rockpools,39.241695,Chl-a,2.257413166
+L4P3,Marine,Intertidal rockpools,39.241812,Chl-a,2.25553731
+L4P4,Marine,Intertidal rockpools,39.241808,Chl-a,2.25553731
+MBP1,Marine,Intertidal rockpools,50.357325,Chl-a,3.347803834
+MBP2,Marine,Intertidal rockpools,50.357154,Chl-a,3.34488702
+MBP3,Marine,Intertidal rockpools,50.358082,Chl-a,3.363519747
+MBP4,Marine,Intertidal rockpools,50.358041,Chl-a,3.357012866
+PC1P1,Marine,Intertidal rockpools,32.775718,Chl-a,0.220700179
+PC1P2,Marine,Intertidal rockpools,32.775723,Chl-a,0.220700179
+PC1P3,Marine,Intertidal rockpools,32.775719,Chl-a,0.220700179
+PC1P4,Marine,Intertidal rockpools,32.775718,Chl-a,0.220700179
+PC2P1,Marine,Intertidal rockpools,32.775966,Chl-a,0.220536741
+PC2P2,Marine,Intertidal rockpools,32.775963,Chl-a,0.220536741
+PC2P3,Marine,Intertidal rockpools,32.776023,Chl-a,0.220436308
+PC2P4,Marine,Intertidal rockpools,32.776016,Chl-a,0.220436308
+PC2P5,Marine,Intertidal rockpools,32.77602,Chl-a,0.220436308
+PGSBP1,Marine,Intertidal rockpools,-23.824578,Chl-a,3.388634443
+PGSBP2,Marine,Intertidal rockpools,-23.824949,Chl-a,3.388634443
+PGUBP1,Marine,Intertidal rockpools,-23.466834,Chl-a,1.500201933
+PGUBP2,Marine,Intertidal rockpools,-23.466831,Chl-a,1.500201933
+PGUBP3,Marine,Intertidal rockpools,-23.466854,Chl-a,1.500201933
+PGUBP4,Marine,Intertidal rockpools,-23.466893,Chl-a,1.500017325
+PP1I1,Marine,Intertidal rockpools,48.493018,Chl-a,7.447057133
+PP1I2,Marine,Intertidal rockpools,48.492827,Chl-a,7.446111083
+PP1I3,Marine,Intertidal rockpools,48.49427,Chl-a,7.456450574
+PP1I4,Marine,Intertidal rockpools,48.4938,Chl-a,7.454468016
+PP2I1,Marine,Intertidal rockpools,48.496957,Chl-a,7.484680499
+PP2I2,Marine,Intertidal rockpools,48.497064,Chl-a,7.485662513
+PP2I3,Marine,Intertidal rockpools,48.497064,Chl-a,7.485662513
+PP2I4,Marine,Intertidal rockpools,48.497256,Chl-a,7.487588784
+PP2M1,Marine,Intertidal rockpools,48.497597,Chl-a,7.490726147
+PP2M2,Marine,Intertidal rockpools,48.497686,Chl-a,7.49170659
+PP2M3,Marine,Intertidal rockpools,48.497783,Chl-a,7.492883068
+PP2M4,Marine,Intertidal rockpools,48.497865,Chl-a,7.493863511
+RMP1,Marine,Intertidal rockpools,32.645518,Chl-a,0.183595923
+RMP2,Marine,Intertidal rockpools,32.645521,Chl-a,0.18361911
+RMP3,Marine,Intertidal rockpools,32.645613,Chl-a,0.18368164
+RMP4,Marine,Intertidal rockpools,32.645638,Chl-a,0.18368164
+RMP5,Marine,Intertidal rockpools,32.645678,Chl-a,0.183719082
+RV1P1,Marine,Intertidal rockpools,38.702144,Chl-a,2.578171647
+RV1P2,Marine,Intertidal rockpools,38.702092,Chl-a,2.57835277
+RV1P3,Marine,Intertidal rockpools,38.702141,Chl-a,2.579504659
+RV1P4,Marine,Intertidal rockpools,38.702162,Chl-a,2.579325268
+RV2P1,Marine,Intertidal rockpools,38.701839,Chl-a,2.586738688
+RV2P2,Marine,Intertidal rockpools,38.701801,Chl-a,2.588790932
+RV2P3,Marine,Intertidal rockpools,38.701801,Chl-a,2.589993766
+RV2P4,Marine,Intertidal rockpools,38.70178,Chl-a,2.589993766
+SF1I1,Marine,Intertidal rockpools,48.612351,Chl-a,8.028544172
+SF1I2,Marine,Intertidal rockpools,48.612273,Chl-a,8.048186894
+SF1I3,Marine,Intertidal rockpools,48.612238,Chl-a,8.028544172
+SF1I4,Marine,Intertidal rockpools,48.612345,Chl-a,8.028544172
+SF1M1,Marine,Intertidal rockpools,48.612117,Chl-a,7.973684575
+SF1M2,Marine,Intertidal rockpools,48.612209,Chl-a,7.986479952
+SF1M3,Marine,Intertidal rockpools,48.612074,Chl-a,7.973684575
+SF1M4,Marine,Intertidal rockpools,48.612159,Chl-a,7.993825938
+SF2I1,Marine,Intertidal rockpools,48.612671,Chl-a,7.984569715
+SF2I2,Marine,Intertidal rockpools,48.612735,Chl-a,8.006865723
+SF2I3,Marine,Intertidal rockpools,48.612756,Chl-a,8.006865723
+SF2I4,Marine,Intertidal rockpools,48.612827,Chl-a,8.009559734
+SF2M1,Marine,Intertidal rockpools,48.612437,Chl-a,7.991665274
+SF2M2,Marine,Intertidal rockpools,48.612451,Chl-a,7.981589386
+SF2M3,Marine,Intertidal rockpools,48.612572,Chl-a,7.994638438
+SF2M4,Marine,Intertidal rockpools,48.612274,Chl-a,7.9563429
+SP1,Marine,Intertidal rockpools,-23.828842,Chl-a,3.388634443
+WP1,Marine,Intertidal rockpools,50.31675,Chl-a,2.870819571
+WP2,Marine,Intertidal rockpools,50.316709,Chl-a,2.87139958
+WP3,Marine,Intertidal rockpools,50.316572,Chl-a,2.871185483
+WP4,Marine,Intertidal rockpools,50.316449,Chl-a,2.873120472
+fw1981,Marine,Baltic Sea,57.78,Chl-a,2.060062109
+fw1986,Marine,Baltic Sea,57.78,Chl-a,2.741798064
+fw1991,Marine,Baltic Sea,57.78,Chl-a,3.266991921
+fw1996,Marine,Baltic Sea,57.78,Chl-a,2.455816058
+fw2001,Marine,Baltic Sea,57.78,Chl-a,4.766450952
+fw2006,Marine,Baltic Sea,57.78,Chl-a,4.801985206
+fw2011,Marine,Baltic Sea,57.78,Chl-a,3.503003332
+AEW01,Soils,Biodiversity exploratories,48.48,NDVI,0.619633987
+AEW02,Soils,Biodiversity exploratories,48.38,NDVI,0.698493716
+AEW04,Soils,Biodiversity exploratories,48.4,NDVI,0.621528398
+AEW05,Soils,Biodiversity exploratories,48.42,NDVI,0.685103817
+AEW07,Soils,Biodiversity exploratories,48.4,NDVI,0.631760258
+AEW08,Soils,Biodiversity exploratories,48.38,NDVI,0.669669575
+AEW09,Soils,Biodiversity exploratories,48.37,NDVI,0.6969796
+AEW17,Soils,Biodiversity exploratories,48.4,NDVI,0.621528398
+AEW18,Soils,Biodiversity exploratories,48.37,NDVI,0.663997279
+AEW25,Soils,Biodiversity exploratories,48.48,NDVI,0.697617961
+AEW27,Soils,Biodiversity exploratories,48.4,NDVI,0.665830142
+AEW30,Soils,Biodiversity exploratories,48.37,NDVI,0.719832316
+AEW49,Soils,Biodiversity exploratories,48.45,NDVI,0.684412865
+HEW01,Soils,Biodiversity exploratories,51.19,NDVI,0.721426819
+HEW02,Soils,Biodiversity exploratories,51.21,NDVI,0.743099245
+HEW03,Soils,Biodiversity exploratories,51.27,NDVI,0.738178835
+HEW04,Soils,Biodiversity exploratories,51.37,NDVI,0.744268376
+HEW05,Soils,Biodiversity exploratories,51.26,NDVI,0.746622294
+HEW06,Soils,Biodiversity exploratories,51.27,NDVI,0.719832834
+HEW10,Soils,Biodiversity exploratories,51.09,NDVI,0.718016287
+HEW11,Soils,Biodiversity exploratories,51.1,NDVI,0.740163057
+HEW12,Soils,Biodiversity exploratories,51.1,NDVI,0.697461029
+HEW13,Soils,Biodiversity exploratories,51.24,NDVI,0.732955474
+HEW16,Soils,Biodiversity exploratories,51.18,NDVI,0.721822324
+HEW17,Soils,Biodiversity exploratories,51.28,NDVI,0.737018245
+HEW21,Soils,Biodiversity exploratories,51.19,NDVI,0.721426819
+HEW22,Soils,Biodiversity exploratories,51.34,NDVI,0.749729603
+HEW36,Soils,Biodiversity exploratories,51.11,NDVI,0.70009933
+HEW47,Soils,Biodiversity exploratories,51.18,NDVI,0.683066061
+SEW01,Soils,Biodiversity exploratories,52.9,NDVI,0.656797411
+SEW02,Soils,Biodiversity exploratories,52.95,NDVI,0.708496824
+SEW03,Soils,Biodiversity exploratories,52.92,NDVI,0.727000992
+SEW04,Soils,Biodiversity exploratories,52.92,NDVI,0.705104912
+SEW05,Soils,Biodiversity exploratories,53.06,NDVI,0.511083283
+SEW06,Soils,Biodiversity exploratories,52.91,NDVI,0.70175489
+SEW07,Soils,Biodiversity exploratories,53.11,NDVI,0.577710597
+SEW08,Soils,Biodiversity exploratories,53.19,NDVI,0.688917738
+SEW09,Soils,Biodiversity exploratories,53.04,NDVI,0.674233168
+SEW18,Soils,Biodiversity exploratories,52.86,NDVI,0.655160426
+SEW35,Soils,Biodiversity exploratories,52.91,NDVI,0.759830546
+SEW36,Soils,Biodiversity exploratories,52.95,NDVI,0.698701119
+SEW37,Soils,Biodiversity exploratories,52.94,NDVI,0.686119659
+SEW41,Soils,Biodiversity exploratories,52.91,NDVI,0.672906234
+SEW43,Soils,Biodiversity exploratories,52.9,NDVI,0.677231447
+SEW48,Soils,Biodiversity exploratories,53.05,NDVI,0.730294128
+foodweb1,Soils,Russian soils,44.475455,NDVI,0.746735763
+foodweb2,Soils,Russian soils,44.715321,NDVI,0.476941183
+foodweb3,Soils,Russian soils,44.588447,NDVI,0.699433314
+foodweb4,Soils,Russian soils,44.747369,NDVI,0.585564446
+foodweb5,Soils,Russian soils,52.594845,NDVI,0.670401505
+foodweb6,Soils,Russian soils,52.580094,NDVI,0.725352246
+foodweb7,Soils,Russian soils,51.818968,NDVI,0.621290521
+foodweb8,Soils,Russian soils,51.812436,NDVI,0.684457648
+foodweb9,Soils,Russian soils,56.647912,NDVI,0.688296507
+foodweb10,Soils,Russian soils,56.521919,NDVI,0.767212016
+foodweb11,Soils,Russian soils,56.155257,NDVI,0.808503436
+foodweb12,Soils,Russian soils,56.140112,NDVI,0.783887363
+foodweb13,Soils,Russian soils,61.99292,NDVI,0.679100455
+foodweb14,Soils,Russian soils,61.85056,NDVI,0.729331917
+foodweb15,Soils,Russian soils,60.33975,NDVI,0.660015124
+foodweb16,Soils,Russian soils,60.32878,NDVI,0.660491098
+foodweb17,Soils,Russian soils,66.82928,NDVI,0.552102552
+foodweb18,Soils,Russian soils,66.79567,NDVI,0.606812561
+foodweb19,Soils,Russian soils,66.78124,NDVI,0.4917579
+foodweb20,Soils,Russian soils,67.07881,NDVI,0.545493142
+IS1,Streams,Hengill valley,64.05396,NDVI,0.527978918
+IS3,Streams,Hengill valley,64.05635,NDVI,0.490878796
+IS4,Streams,Hengill valley,64.05656,NDVI,0.465435046
+IS5,Streams,Hengill valley,64.05562,NDVI,0.556997005
+IS6,Streams,Hengill valley,64.05669,NDVI,0.555297163
+IS7,Streams,Hengill valley,64.05738,NDVI,0.500377778
+IS8,Streams,Hengill valley,64.05745,NDVI,0.480243526
+IS9,Streams,Hengill valley,64.05782,NDVI,0.393288636
+IS10,Streams,Hengill valley,64.05831,NDVI,0.347399092
+IS11,Streams,Hengill valley,64.05881,NDVI,0.393136443
+IS12,Streams,Hengill valley,64.04801,NDVI,0.462246679
+IS13,Streams,Hengill valley,64.053609,NDVI,0.532830159
+IS14,Streams,Hengill valley,64.06031,NDVI,0.559254415
+IS16,Streams,Hengill valley,64.056653,NDVI,0.480463347
+Afon Berwyn,Streams,UK chalk streams,52.21996,NDVI,0.647991035
+Afon Bidno,Streams,UK chalk streams,52.42676,NDVI,0.68456239
+Afon Ceirw,Streams,UK chalk streams,52.8442,NDVI,0.589769411
+Afon Dulais,Streams,UK chalk streams,52.04286,NDVI,0.653055093
+Afon Gain,Streams,UK chalk streams,52.88488,NDVI,0.513358747
+Afon Gwy 2005,Streams,UK chalk streams,52.4535,NDVI,0.547455757
+Afon Gwy 2012,Streams,UK chalk streams,52.45369,NDVI,0.461153641
+Afon Hafren 2005,Streams,UK chalk streams,52.4737,NDVI,0.679448119
+Afon Hafren 2012,Streams,UK chalk streams,52.47543,NDVI,0.676027177
+Afon Marteg,Streams,UK chalk streams,52.33123,NDVI,0.641666594
+Allt a_Mharcaidh,Streams,UK chalk streams,57.11777,NDVI,0.563181584
+Allt na Coire nan Con,Streams,UK chalk streams,56.75857,NDVI,0.595827444
+Beagh_s Burn,Streams,UK chalk streams,55.10064,NDVI,0.621756699
+Broadstone Stream,Streams,UK chalk streams,51.08178,NDVI,0.656983802
+D6,Streams,UK chalk streams,54.40691,NDVI,0.588196746
+Dargall Lane,Streams,UK chalk streams,55.07752,NDVI,0.473574199
+Duddon Pike Beck,Streams,UK chalk streams,54.40501,NDVI,0.584285166
+G1,Streams,UK chalk streams,52.10348,NDVI,0.604577896
+G2,Streams,UK chalk streams,52.10269,NDVI,0.57660898
+Hardknott Gill,Streams,UK chalk streams,54.40401,NDVI,0.600247549
+L3,Streams,UK chalk streams,52.14271,NDVI,0.63296219
+L6,Streams,UK chalk streams,52.13286,NDVI,0.607800754
+L7,Streams,UK chalk streams,52.12941,NDVI,0.628670872
+L8,Streams,UK chalk streams,52.1264,NDVI,0.590188355
+Lone Oak,Streams,UK chalk streams,51.07648,NDVI,0.732127632
+Mill Stream,Streams,UK chalk streams,50.67748,NDVI,0.639326933
+Mosedale Beck,Streams,UK chalk streams,54.40799,NDVI,0.497094999
+Nant Clywedog Uchaf,Streams,UK chalk streams,52.14532,NDVI,0.614226599
+Nant Gelli Gethin,Streams,UK chalk streams,52.6479,NDVI,0.643791826
+Nant Gwryd,Streams,UK chalk streams,53.09602,NDVI,0.576584439
+Nant Pen y Cwm,Streams,UK chalk streams,52.6422,NDVI,0.706014299
+Narrator Brook,Streams,UK chalk streams,50.50447,NDVI,0.675283668
+Old Lodge,Streams,UK chalk streams,51.04404,NDVI,0.520705973
+River Bure,Streams,UK chalk streams,52.82422,NDVI,0.739940929
+River Duddon,Streams,UK chalk streams,54.40515,NDVI,0.612736965
+River Etherow,Streams,UK chalk streams,53.49273,NDVI,0.642703563
+River Fiddich,Streams,UK chalk streams,57.44091616,NDVI,0.589803765
+River Loddon,Streams,UK chalk streams,51.29222,NDVI,0.696394726
+River Lyde,Streams,UK chalk streams,51.28754,NDVI,0.702058527
+River Test,Streams,UK chalk streams,51.13945,NDVI,0.749429612
+River Wensum,Streams,UK chalk streams,52.77651,NDVI,0.716925307
+Upper Duhonw,Streams,UK chalk streams,52.12884,NDVI,0.665520362
+Upper Llugwy,Streams,UK chalk streams,53.11242,NDVI,0.415601013
+Wrynose Pass Beck,Streams,UK chalk streams,54.41411,NDVI,0.600544754
+revetment,Streams,Elbe,51.883449,NDVI,0.333450293
+rip rap,Streams,Elbe,51.884135,NDVI,0.608526918
+wing dike,Streams,Elbe,51.874583,NDVI,0.324720041
+Sum53,Streams,Hall et al,35.06136111,NDVI,0.65344111
+Win53,Streams,Hall et al,35.06136111,NDVI,0.65344111
+Sum55,Streams,Hall et al,35.06136111,NDVI,0.65344111
+Win55,Streams,Hall et al,35.06136111,NDVI,0.65344111
+morup,Streams,Montsant,41.3303954,NDVI,0.338665043
+mordown1,Streams,Montsant,41.296295,NDVI,0.524288644
+mordown2,Streams,Montsant,41.288889,NDVI,0.431085094
+mordown3,Streams,Montsant,41.249028,NDVI,0.539440324
+S1,Streams,Cananeia,-25.04,NDVI,0.599972381
+S6,Streams,Cananeia,-25.02,NDVI,-0.376303629
+S8,Streams,Cananeia,-24.95,NDVI,0.797102837
+S8B,Streams,Cananeia,-24.95,NDVI,0.797102837
+S8C,Streams,Cananeia,-24.95,NDVI,0.863773277
+Alford lake,Lakes,Adirondack lakes,44.26,NDVI,0.57596571
+Balsam lake,Lakes,Adirondack lakes,43.62833333,NDVI,0.558645064
+Beaver lake,Lakes,Adirondack lakes,43.65111111,NDVI,0.576732597
+Big hope lake,Lakes,Adirondack lakes,44.51194444,NDVI,0.593720991
+Brandy lake,Lakes,Adirondack lakes,44.28472222,NDVI,0.635819413
+Bridge brook lake,Lakes,Adirondack lakes,44.1625,NDVI,0.609918492
+Buck pond,Lakes,Adirondack lakes,43.53,NDVI,0.634279255
+Burntbridge lake,Lakes,Adirondack lakes,44.21222222,NDVI,0.598740585
+Cascade lake,Lakes,Adirondack lakes,43.78916667,NDVI,0.574867999
+Chub lake,Lakes,Adirondack lakes,43.8325,NDVI,0.585848567
+Chub pond,Lakes,Adirondack lakes,43.55416667,NDVI,0.642478063
+Connera lake,Lakes,Adirondack lakes,44.30638889,NDVI,0.638907731
+Constable lake,Lakes,Adirondack lakes,43.83055556,NDVI,0.594011739
+Deep lake,Lakes,Adirondack lakes,43.61611111,NDVI,0.57904254
+Emerald lake,Lakes,Adirondack lakes,44.02277778,NDVI,0.581797091
+Falls lake,Lakes,Adirondack lakes,43.6325,NDVI,0.592660994
+Fawn lake,Lakes,Adirondack lakes,43.71333333,NDVI,0.599626061
+Federation lake,Lakes,Adirondack lakes,44.33972222,NDVI,0.593630316
+Goose lake,Lakes,Adirondack lakes,43.78027778,NDVI,0.598550801
+Grass lake,Lakes,Adirondack lakes,44.37694444,NDVI,0.625476551
+Gull lake,Lakes,Adirondack lakes,43.55138889,NDVI,0.634373077
+Gull lake north,Lakes,Adirondack lakes,43.8625,NDVI,0.627588046
+Helldiver pond,Lakes,Adirondack lakes,43.66944444,NDVI,0.583490187
+High pond,Lakes,Adirondack lakes,44.08527778,NDVI,0.573764311
+Hoel lake,Lakes,Adirondack lakes,44.35805556,NDVI,0.607910142
+Horseshoe Lake,Lakes,Adirondack lakes,44.31722222,NDVI,0.60215677
+Indian Lake,Lakes,Adirondack lakes,43.62333333,NDVI,0.561646475
+Little Rainbow Lake,Lakes,Adirondack lakes,44.35916667,NDVI,0.610934586
+Long Lake,Lakes,Adirondack lakes,44.31638889,NDVI,0.631660743
+Loon Lake,Lakes,Adirondack lakes,44.4875,NDVI,0.621122497
+Lost Lake,Lakes,Adirondack lakes,44.46194444,NDVI,0.615858965
+Lost Lake East,Lakes,Adirondack lakes,43.68777778,NDVI,0.602670876
+Lower Sister Lake,Lakes,Adirondack lakes,43.87166667,NDVI,0.614641145
+Oswego Lake,Lakes,Adirondack lakes,43.85027778,NDVI,0.605687523
+Owl Lake,Lakes,Adirondack lakes,44.26833333,NDVI,0.628847162
+Rat Lake,Lakes,Adirondack lakes,44.35277778,NDVI,0.631478533
+Razorback Lake,Lakes,Adirondack lakes,43.84861111,NDVI,0.603855897
+Rock Lake,Lakes,Adirondack lakes,44.01055556,NDVI,0.585521376
+Russian Lake,Lakes,Adirondack lakes,43.84138889,NDVI,0.593181205
+Safford Lake,Lakes,Adirondack lakes,43.78416667,NDVI,0.608551605
+Sand Lake,Lakes,Adirondack lakes,44.01055556,NDVI,0.584019775
+Squaw Lake,Lakes,Adirondack lakes,43.63611111,NDVI,0.59052402
+Stink Lake,Lakes,Adirondack lakes,43.63083333,NDVI,0.556723587
+Twelfth Tee Lake,Lakes,Adirondack lakes,44.34166667,NDVI,0.601445539
+Twin Lake East,Lakes,Adirondack lakes,43.62027778,NDVI,0.560621318
+Twin Lake West,Lakes,Adirondack lakes,43.6175,NDVI,0.55851667
+Whipple Lake,Lakes,Adirondack lakes,44.39388889,NDVI,0.598193969
+Maggiore,Lakes,Lake Maggiore,46.098056,NDVI,0.463054884
