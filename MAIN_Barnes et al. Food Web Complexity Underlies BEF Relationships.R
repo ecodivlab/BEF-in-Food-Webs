@@ -19,30 +19,32 @@ library(ggh4x); library(scales); library(ggtext); library(ggrain)
 
 ## Clear environment and read ecosystem-specific food web data sets ##
 rm(list=ls())
+options(scipen = 999)
 
 setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
 
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data
 meta.Marine <- read.csv('meta.Marine.csv')  
   meta.Marine <- meta.Marine %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
-  colnames(meta.Marine)[19] <- "NPP.proxy"
-  meta.Marine <- meta.Marine %>% mutate(NPP.scale = logit((NPP.proxy - min(NPP.proxy, na.rm = TRUE)) /
-                                                            (max(NPP.proxy, na.rm = TRUE) - min(NPP.proxy, na.rm = TRUE))))
+  colnames(meta.Marine)[20] <- "NPP.proxy"
+  meta.Marine$NPP.proxy <- (meta.Marine$NPP.proxy - min(meta.Marine$NPP.proxy, na.rm = TRUE)) /
+    (max(meta.Marine$NPP.proxy, na.rm = TRUE) - min(meta.Marine$NPP.proxy, na.rm = TRUE))
+  meta.Marine <- meta.Marine %>% mutate(NPP.scale = logit(NPP.proxy))
   
 meta.Soils <- read.csv('meta.Soils.csv')
   meta.Soils <- meta.Soils %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
-  colnames(meta.Soils)[c(7,19)] <- c("temperature_C", "NPP.proxy")
+  colnames(meta.Soils)[c(7,20)] <- c("temperature_C", "NPP.proxy")
   meta.Soils <- meta.Soils %>% mutate(NPP.scale = logit(NPP.proxy))
                                       
 meta.Streams <- read.csv('meta.Streams.csv')
   meta.Streams <- meta.Streams %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
-  colnames(meta.Streams)[c(5,20)] <- c("temperature_C", "NPP.proxy")
-  meta.Streams <- meta.Streams %>% mutate(clean_var = ifelse(NPP.proxy < 0, 0, NPP.proxy), # replace negative value at Cananeia SP6 with 0
-                  NPP.scale = logit(clean_var))
+  colnames(meta.Streams)[c(5,21)] <- c("temperature_C", "NPP.raw")
+  meta.Streams <- meta.Streams %>% mutate(NPP.proxy = ifelse(NPP.raw < 0, 0, NPP.raw), # replace negative value at Cananeia SP6 with 0
+                  NPP.scale = logit(NPP.proxy))
   
 meta.Lakes <- read.csv('meta.Lakes.csv')
   meta.Lakes <- meta.Lakes %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
-  colnames(meta.Lakes)[19] <- "NPP.proxy"
+  colnames(meta.Lakes)[20] <- "NPP.proxy"
   meta.Lakes <- meta.Lakes %>% mutate(NPP.scale = logit(NPP.proxy))
 
 ## Compile data sets for cross-ecosystem analysis ##
@@ -386,11 +388,11 @@ plot(S.prim.cons_LAKE, which=1)
 qqnorm(S.prim.cons_LAKE)
 summary(S.prim.cons_LAKE)
 
-# S.prim.cons_LAKEa=update(S.prim.cons_LAKE, weights=varPower(form=~S)) 
-# anova(S.prim.cons_LAKE,S.prim.cons_LAKEa)
-# plot(S.prim.cons_LAKEa)
-# qqnorm(S.prim.cons_LAKEa)
-# summary(S.prim.cons_LAKEa)
+S.prim.cons_LAKEa=update(S.prim.cons_LAKE, weights=varPower(form=~S))
+anova(S.prim.cons_LAKE,S.prim.cons_LAKEa)
+plot(S.prim.cons_LAKEa)
+qqnorm(S.prim.cons_LAKEa)
+summary(S.prim.cons_LAKEa)
 
 predation_LAKE=ggpredict(S.predation_LAKE, terms = "S")
 S.predation.sjp_LAKE <- ggplot(predation_LAKE, aes(x, predicted)) +  ggtitle("Lakes (n = 48)") +
@@ -509,29 +511,29 @@ effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect
 modS = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data)
   plot(modS, which=1)
   qqnorm(modS)
-modSa = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data)
+modSa = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~S), data=all_data)
   plot(modSa, which=1)
   qqnorm(modSa)
-modSb = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data)
+modSb = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data)
   plot(modSb, which=1)
   qqnorm(modSb)
-modSc = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
+modSc = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), data=all_data) #Best model
   plot(modSc, which=1)
   qqnorm(modSc)
-modSd = lme(log(S) ~ poly(NPP.scale, degree=2), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
+modSd = lme(log(S) ~ NPP.scale + I(NPP.scale^2), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data) #Best model
   plot(modSc, which=1)
   qqnorm(modSc)
 anova(modS, modSa, modSb, modSc, modSd)
 summary(modSd)
 
 ##Explore S~NPP relationship
-# S.NPP=ggpredict(modSc, terms = "NPP.scale", interval = "confidence")
-# ggplot(S.NPP, aes(x, predicted)) + 
-#   geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) + 
+# S.NPP=ggpredict(modSd, terms = "NPP.scale[all]", interval = "confidence")
+# ggplot(S.NPP, aes(x, predicted)) +
+#   geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) +
 #   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
 #   geom_point(data = all_data, aes(x = NPP.scale, y = S, color='#3A67AE9E'), size=2, alpha=0.5) +
 #   coord_trans(y = "log10")+
-#   theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5), "pt"), 
+#   theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5), "pt"),
 #         axis.title.x = element_blank(),
 #         axis.title.y = element_blank()) +
 #   scale_colour_identity()
@@ -760,7 +762,7 @@ summary(mod5)
 ### Maximal model
 SEM.Marine2 <- psem(
   
-  gls(log(S) ~ NPP.scale, data=meta.Marine),
+  gls(log(S) ~ NPP.scale + NPP.scale, data=meta.Marine),
   gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Marine),
   gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine),
   gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, data=meta.Marine),

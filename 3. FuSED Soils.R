@@ -92,6 +92,7 @@ for(i in 1:length(web)){
 
   ## Food web metrics
   meta.BioExp$S[i] <- Number.of.species(matrix)
+  meta.BioExp$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.BioExp$MaxTL[i] <- max(attributes$TL)
   meta.BioExp$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.BioExp$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
@@ -182,6 +183,7 @@ for(i in 1:length(web)){
 
   ## Food web metrics
   meta.Russian$S[i] <- Number.of.species(matrix)
+  meta.Russian$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.Russian$MaxTL[i] <- max(attributes$TL)
   meta.Russian$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.Russian$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])

@@ -84,6 +84,7 @@ for(i in 1:length(web)){
 
   ## Food web metrics
   meta.RP$S[i] <- Number.of.species(matrix)
+  meta.RP$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.RP$MaxTL[i] <- max(attributes$TL)
   meta.RP$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.RP$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
@@ -169,6 +170,7 @@ for(i in 1:length(web)){
 
   ## Food web metrics
   meta.BS$S[i] <- Number.of.species(matrix)
+  meta.BS$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.BS$MaxTL[i] <- max(attributes$TL)
   meta.BS$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.BS$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])

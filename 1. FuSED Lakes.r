@@ -128,6 +128,7 @@ for(i in 1:length(lakes)) {
 
   ## Food web metrics
   meta$S[i] <- Number.of.species(bin.matrix)
+  meta$density[i] <- sum(attributes$density.comb[animals], na.rm = TRUE)
   meta$MaxTL[i] <- max(TL(bin.matrix))
   meta$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])

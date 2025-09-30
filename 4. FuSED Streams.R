@@ -68,6 +68,7 @@ for(i in 1:length(web)){
   
   ## Food web metrics
   meta.IS$S[i] <- Number.of.species(bin.matrix)
+  meta.IS$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.IS$MaxTL[i] <- max(attributes$TL)
   meta.IS$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.IS$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
@@ -148,6 +149,7 @@ for(i in 1:length(web)){
 
   ## Food web metrics
   meta.UK$S[i] <- Number.of.species(bin.matrix)
+  meta.UK$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.UK$MaxTL[i] <- max(attributes$TL)
   meta.UK$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.UK$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
@@ -233,6 +235,7 @@ for(i in 1:length(web)){
 
   ## Food web metrics
   meta.Brauns$S[i] <- Number.of.species(bin.matrix)
+  meta.Brauns$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.Brauns$MaxTL[i] <- max(attributes$TL)
   meta.Brauns$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.Brauns$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
@@ -315,6 +318,7 @@ for(i in 1:length(web)){
  
   ## Food web metrics
   meta.Brazil$S[i] <- Number.of.species(bin.matrix)
+  meta.Brazil$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
   meta.Brazil$MaxTL[i] <- max(attributes$TL)
   meta.Brazil$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.Brazil$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
