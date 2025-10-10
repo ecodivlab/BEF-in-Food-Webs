@@ -30,22 +30,27 @@ meta.Marine <- read.csv('meta.Marine.csv')
   meta.Marine$NPP.proxy <- (meta.Marine$NPP.proxy - min(meta.Marine$NPP.proxy, na.rm = TRUE)) /
     (max(meta.Marine$NPP.proxy, na.rm = TRUE) - min(meta.Marine$NPP.proxy, na.rm = TRUE))
   meta.Marine <- meta.Marine %>% mutate(NPP.scale = logit(NPP.proxy))
+  meta.Marine <- meta.Marine %>% mutate(NPP.scale2 = NPP.scale^2)
   
 meta.Soils <- read.csv('meta.Soils.csv')
   meta.Soils <- meta.Soils %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Soils)[c(7,20)] <- c("temperature_C", "NPP.proxy")
   meta.Soils <- meta.Soils %>% mutate(NPP.scale = logit(NPP.proxy))
+  meta.Soils <- meta.Soils %>% mutate(NPP.scale2 = NPP.scale^2)
                                       
 meta.Streams <- read.csv('meta.Streams.csv')
   meta.Streams <- meta.Streams %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Streams)[c(5,21)] <- c("temperature_C", "NPP.raw")
   meta.Streams <- meta.Streams %>% mutate(NPP.proxy = ifelse(NPP.raw < 0, 0, NPP.raw), # replace negative value at Cananeia SP6 with 0
                   NPP.scale = logit(NPP.proxy))
+  meta.Streams <- meta.Streams %>% mutate(NPP.scale2 = NPP.scale^2)
   
 meta.Lakes <- read.csv('meta.Lakes.csv')
   meta.Lakes <- meta.Lakes %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name")
   colnames(meta.Lakes)[20] <- "NPP.proxy"
   meta.Lakes <- meta.Lakes %>% mutate(NPP.scale = logit(NPP.proxy))
+  meta.Lakes <- meta.Lakes %>% mutate(NPP.scale2 = NPP.scale^2)
+  
 
 ## Compile data sets for cross-ecosystem analysis ##
 commcols <- intersect(names(meta.Marine), names(meta.Soils))
@@ -57,6 +62,7 @@ all_data <- bind_rows(select(meta.Marine, all_of(commcols)),
                          select(meta.Soils, all_of(commcols)),
                          select(meta.Streams, all_of(commcols)),
                          select(meta.Lakes, all_of(commcols)))
+
 
 #write.csv(all_data, file="Master dataset_FuSED.csv", row.names = F)
 
@@ -507,112 +513,129 @@ FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 4)
 effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
 
 
+
 #### Cross-ecosystem SEM ####
-modS = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data)
+##Explore simple linearity of simple NPP relationships
+ggplot(all_data, aes(x = NPP.scale, y = log(S))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(MaxTL))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = logit(sim.prim.cons))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = logit(sim.sec.cons))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(prim.consumption))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(second.consumption))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) 
+
+modS = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
   plot(modS, which=1)
   qqnorm(modS)
-modSa = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~S), data=all_data)
+modSa = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data, method="ML")
   plot(modSa, which=1)
   qqnorm(modSa)
-modSb = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data)
+modSb = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data, method="ML")
   plot(modSb, which=1)
   qqnorm(modSb)
-modSc = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), data=all_data) #Best model
+modSc = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data, method="ML")
   plot(modSc, which=1)
   qqnorm(modSc)
-modSd = lme(log(S) ~ NPP.scale + I(NPP.scale^2), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data) #Best model
-  plot(modSc, which=1)
-  qqnorm(modSc)
+modSd = lme(log(S) ~ poly(NPP.scale,2,raw=TRUE), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data, method="ML") #Best model
+  plot(modSd, which=1)
+  qqnorm(modSd)
 anova(modS, modSa, modSb, modSc, modSd)
 summary(modSd)
 
-##Explore S~NPP relationship
-# S.NPP=ggpredict(modSd, terms = "NPP.scale[all]", interval = "confidence")
-# ggplot(S.NPP, aes(x, predicted)) +
-#   geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) +
-#   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-#   geom_point(data = all_data, aes(x = NPP.scale, y = S, color='#3A67AE9E'), size=2, alpha=0.5) +
-#   coord_trans(y = "log10")+
-#   theme(legend.position="none", plot.margin = unit(c(4, 5.5, 0, 5.5), "pt"),
-#         axis.title.x = element_blank(),
-#         axis.title.y = element_blank()) +
-#   scale_colour_identity()
 
-
-mod1 = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data)
+mod1 = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
   plot(mod1, which=1)
   qqnorm(mod1)
-mod1a = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data)
+mod1a = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data, method="ML")
   plot(mod1a, which=1)
   qqnorm(mod1a)
-mod1b = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data)
+mod1b = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data, method="ML")
   plot(mod1b, which=1)
   qqnorm(mod1b)
-mod1c = lme(log(MaxTL) ~ log(S) + log(NPP.scale), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
+mod1c = lme(log(MaxTL) ~ log(S) + poly(NPP.scale,2,raw=TRUE), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data, method="ML") #Best model
   plot(mod1c, which=1)
   qqnorm(mod1c)
-mod1d = lme(log(MaxTL) ~ log(S) + poly(NPP.scale,2), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data) #Best model
-  plot(mod1d, which=1)
-  qqnorm(mod1d)
-anova(mod1, mod1a, mod1b, mod1c, mod1d)
+anova(mod1, mod1a, mod1b, mod1c)
 summary(mod1c)
 
-mod2 = lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, data=all_data)
+
+mod2 = lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
   plot(mod2, which=1)
   qqnorm(mod2)
-mod2a = lme(logit(sim.prim.cons) ~ log(S), weights=varComb(varExp(form=~NPP.scale), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data)  #Best model
+mod2a = lme(logit(sim.prim.cons) ~ log(S), weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID, data=all_data, method="ML")  
   plot(mod2a, which=1)
   qqnorm(mod2a)
-mod2b = lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID, data=all_data)
+mod2b = lme(logit(sim.prim.cons) ~ log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #Best model
   plot(mod2b, which=1)
   qqnorm(mod2b)
-anova(mod2, mod2a, mod2b)
+mod2c = lme(logit(sim.prim.cons) ~ log(S), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+  plot(mod2c, which=1)
+  qqnorm(mod2c)
+anova(mod2, mod2a, mod2b, mod2c)
 summary(mod2a)
 
-mod3 = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, data=all_data) 
+mod3 = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML") 
   plot(mod3, which=1)
   qqnorm(mod3)
-mod3a = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data) #Best model
+mod3a = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") 
   plot(mod3a, which=1)
   qqnorm(mod3a)
-# mod3b = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID, data=all_data) #convergence failure
-#   plot(mod3b, which=1)
-#   qqnorm(mod3b)
-anova(mod3, mod3a)
-summary(mod3a)
+mod3b = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #Best model
+  plot(mod3b, which=1)
+  qqnorm(mod3b)
+mod3c = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + poly(NPP.scale,2,raw=TRUE), weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") 
+  plot(mod3c, which=1)
+  qqnorm(mod3c)
+anova(mod3, mod3a, mod3b, mod3c)
+summary(mod3b)
 
-mod4 = lme(log(prim.consumption) ~ logit(sim.prim.cons), random=~1|study_ID, data=all_data) 
+mod4 = lme(log(prim.consumption) ~ logit(sim.prim.cons) + NPP.scale, random=~1|study_ID, data=all_data, method="ML") 
   plot(mod4, which=1)
   qqnorm(mod4)
-mod4a = lme(log(prim.consumption) ~ logit(sim.prim.cons), weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data)
+mod4a = lme(log(prim.consumption) ~ logit(sim.prim.cons) + NPP.scale, weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
   plot(mod4a, which=1)
   qqnorm(mod4a)
-mod4b = lme(log(prim.consumption) ~ logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data) #Best model
+mod4b = lme(log(prim.consumption) ~ logit(sim.prim.cons) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #Best model
   plot(mod4b, which=1)
   qqnorm(mod4b)
-anova(mod4, mod4a, mod4b)
-summary(mod4b)
+mod4c = lme(log(prim.consumption) ~ logit(sim.prim.cons) + poly(NPP.scale,2,raw=TRUE), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #Best model
+  plot(mod4c, which=1)
+  qqnorm(mod4c)
+anova(mod4, mod4a, mod4b, mod4c)
+summary(mod4c)
 
-mod5 = lme(log(second.consumption) ~ logit(sim.sec.cons), random=~1|study_ID, data=all_data) 
+mod5 = lme(log(second.consumption) ~ logit(sim.sec.cons) + NPP.scale, random=~1|study_ID, data=all_data, method="ML") 
   plot(mod5, which=1)
   qqnorm(mod5)
-mod5a = lme(log(second.consumption) ~ logit(sim.sec.cons), weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data) 
+mod5a = lme(log(second.consumption) ~ logit(sim.sec.cons) + NPP.scale, weights=varPower(form=~S), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") 
   plot(mod5a, which=1)
   qqnorm(mod5a)
-mod5b = lme(log(second.consumption) ~ logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data) # Best model
+mod5b = lme(log(second.consumption) ~ logit(sim.sec.cons) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") # Best model
   plot(mod5b, which=1)
   qqnorm(mod5b)
-anova(mod5, mod5a, mod5b)
-summary(mod5b)
+mod5c = lme(log(second.consumption) ~ logit(sim.sec.cons) + poly(NPP.scale,2,raw=TRUE), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") # Best model
+  plot(mod5c, which=1)
+  qqnorm(mod5c)
+anova(mod5, mod5a, mod5b, mod5c)
+summary(mod5c)
+
 
 
 ### Maximal model
 SEM.all <- psem(
-  lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
+  lme(log(S) ~ NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data),
   lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
-  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varPower(form=~NPP.scale), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
-  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varPower(form=~NPP.scale), random=~1|ecosystem.type/study_ID, data=all_data),
-  lme(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID)), random=~1|ecosystem.type/study_ID, 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
   lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|ecosystem.type/study_ID, data=all_data),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
@@ -626,11 +649,13 @@ summary(SEM.all)
 
 ### Min adequate model
 SEM.all2 <- psem(
-  lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
-  lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
-  lme(logit(sim.prim.cons) ~ log(S), random=~1|ecosystem.type/study_ID, weights=varComb(varPower(form=~NPP.scale), varExp(form=~S)), data=all_data),
-  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varPower(form=~NPP.scale), data=all_data),
-  lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), data=all_data),
+  lme(log(S) ~ NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=all_data),
+  lme(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
+  lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)),
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(prim.consumption) ~ log(S) + NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data),
   lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
@@ -640,7 +665,8 @@ SEM.all2 <- psem(
 )
 
 summary(SEM.all2)
-results.allSEM <- summary(SEM.all2)$coefficients[c(1:12,16),c(1:5, 8, 7)]
+
+results.allSEM <- summary(SEM.all2)$coefficients[c(1:15,19),c(1:5, 8, 7)]
 names(results.allSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
 fun <- function(x) {
   formatC(x, format = "f", digits = 3)
@@ -649,8 +675,34 @@ allSEM_table <- nice_table(results.allSEM, col.format.custom = c(3:4,6:7), forma
 
 #flextable::save_as_docx(allSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/allSEM_table.docx")
 
+####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
+#Refit SEM.all2 without NPP.scale quadratic variable
+SEM.all_no.NPP_R2 <- rsquared(psem(
+  lme(log(S) ~ 1, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)),
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(MaxTL) ~ log(S), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~NPP.scale)), data=all_data),
+  lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)),
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varExp(form=~S)), 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(prim.consumption) ~ log(S), random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)),
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=all_data),
+  
+  logit(sim.prim.cons) %~~% logit(sim.sec.cons),
+  log(prim.consumption) %~~% logit(sim.sec.cons),
+  log(second.consumption) %~~% logit(sim.prim.cons),
+  log(second.consumption) %~~% log(prim.consumption)
+))
+SEM.all2_R2 <- rsquared(SEM.all2)
 
-## Create results dataframe for summary boxplots
+#Calculate Cohen's f² = (R²full - R²reduced) / (1 - R²full)
+SEM.all2_Q.Std.Est <- data.fram(SEM.all2_R2[,1],
+  (SEM.all2_R2[,6] - SEM.all_no.NPP_R2[,6]) / (1 - SEM.all2_R2[,6]),
+  row.names=NULL)
+colnames(SEM.all2_Q.Std.Est) <- c("response", "F^2")
+
+#### Create results dataframe for summary boxplots ####
 std.effect <- c(
   SR.direct.pred <- results.allSEM[11,6],
   MTL.direct.pred <- results.allSEM[10,6],
@@ -694,21 +746,43 @@ global.effects <- ggplot(eff.table_all,
 
 
 #### MARINE ####
+##Explore simple linearity of simple NPP relationships
+ggplot(meta.Marine, aes(x = NPP.scale, y = log(S))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Marine, aes(x = NPP.scale, y = log(MaxTL))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Marine, aes(x = NPP.scale, y = logit(sim.prim.cons))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Marine, aes(x = NPP.scale, y = logit(sim.sec.cons))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Marine, aes(x = NPP.scale, y = log(prim.consumption))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Marine, aes(x = NPP.scale, y = log(second.consumption))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) 
+
 mod0 = gls(log(S) ~ NPP.scale, weights=varPower(form=~NPP.scale), data=meta.Marine)
 plot(mod0, which=1)
 qqnorm(mod0)
 summary(mod0)
 
-mod0a = gls(log(S) ~ poly(NPP.scale, degree=2), weights=varPower(form=~NPP.scale), data=meta.Marine)
+mod0a = gls(log(S) ~ poly(NPP.scale, degree=2, raw=TRUE), weights=varPower(form=~NPP.scale), data=meta.Marine) # Best model
 plot(mod0a, which=1)
 qqnorm(mod0a)
 anova(mod0, mod0a)
 summary(mod0a)
 
-mod1 = gls(log(MaxTL) ~ log(S), data=meta.Marine)
+
+mod1 = gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Marine)
 plot(mod1, which=1)
 qqnorm(mod1)
 summary(mod1)
+
+mod1a = gls(log(MaxTL) ~ log(S) + poly(NPP.scale,2,raw=TRUE), data=meta.Marine) # Best model
+plot(mod1a, which=1)
+qqnorm(mod1a)
+anova(mod1, mod1a)
+summary(mod1a)
+
 
 mod2 = gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), data=meta.Marine)
 plot(mod2, which=1)
@@ -718,9 +792,9 @@ summary(mod2)
 mod2a = gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine) #Best model
 plot(mod2a, which=1)
 qqnorm(mod2a)
+anova(mod2, mod2a)
 summary(mod2a)
 
-#anova(mod2, mod2a)
 
 mod3 = gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), data=meta.Marine) #Best model
 plot(mod3, which=1)
@@ -734,17 +808,22 @@ summary(mod3)
 # 
 # anova(mod3, mod3a)
 
-mod4 = gls(log(prim.consumption) ~ logit(sim.prim.cons), data=meta.Marine) #Best model
+mod4 = gls(log(prim.consumption) ~ log(S) + NPP.scale + log(MaxTL), data=meta.Marine) #Best model
 plot(mod4, which=1)
 qqnorm(mod4)
 summary(mod4)
 
-# mod4a = gls(log(prim.consumption) ~ logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine)
-# plot(mod4a, which=1)
-# qqnorm(mod4a)
-# summary(mod4a)
-# 
-# anova(mod4, mod4a)
+mod4a = gls(log(prim.consumption) ~ log(S) + NPP.scale + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Marine)  #Best model
+plot(mod4a, which=1)
+qqnorm(mod4a)
+summary(mod4a)
+
+# mod4b = gls(log(prim.consumption) ~ log(S) + poly(NPP.scale,2,raw=TRUE) + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Marine)
+# plot(mod4b, which=1)
+# qqnorm(mod4b)
+# summary(mod4b)
+
+#anova(mod4, mod4a, mod4b)
 
 mod5 = gls(log(second.consumption) ~ logit(sim.sec.cons), data=meta.Marine) # Best model
 plot(mod5, which=1)
@@ -762,11 +841,11 @@ summary(mod5)
 ### Maximal model
 SEM.Marine2 <- psem(
   
-  gls(log(S) ~ NPP.scale + NPP.scale, data=meta.Marine),
-  gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Marine),
+  gls(log(S) ~ NPP.scale + NPP.scale2, data=meta.Marine),
+  gls(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, data=meta.Marine),
   gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine),
   gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, data=meta.Marine),
-  gls(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), data=meta.Marine),
+  gls(log(prim.consumption) ~ log(MaxTL) + logit(sim.prim.cons), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Marine),
   gls(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), data=meta.Marine),
 
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
@@ -780,11 +859,11 @@ summary(SEM.Marine2)
 ### Min adequate model
 SEM.Marine3 <- psem(
   
-  gls(log(S) ~ NPP.scale, data=meta.Marine),
-  gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Marine),
+  gls(log(S) ~ NPP.scale + NPP.scale2, data=meta.Marine),
+  gls(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, data=meta.Marine),
   gls(logit(sim.prim.cons) ~ log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Marine),
   gls(logit(sim.sec.cons) ~ log(S) + log(MaxTL) + NPP.scale, data=meta.Marine),
-  gls(log(prim.consumption) ~ log(S) + NPP.scale + log(MaxTL), data=meta.Marine),
+  gls(log(prim.consumption) ~ log(S) + NPP.scale + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Marine),
   gls(log(second.consumption) ~ log(MaxTL) + NPP.scale, data=meta.Marine),
   
   logit(sim.prim.cons) %~~% logit(sim.sec.cons),
@@ -845,53 +924,83 @@ marine.effects <- ggplot(eff.table_marine,
 
 
 #### SOIL ####
+##Explore simple linearity of simple NPP relationships
+ggplot(meta.Soils, aes(x = NPP.scale, y = log(S))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Soils, aes(x = NPP.scale, y = log(MaxTL))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Soils, aes(x = NPP.scale, y = logit(sim.prim.cons))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Soils, aes(x = NPP.scale, y = logit(sim.sec.cons))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Soils, aes(x = NPP.scale, y = log(prim.consumption))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(meta.Soils, aes(x = NPP.scale, y = log(second.consumption))) +
+  geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2))
+
 mod0 = gls(log(S) ~ NPP.scale, data=meta.Soils) #Best model
 plot(mod0, which=1)
 qqnorm(mod0)
 summary(mod0)
 
-mod0a = gls(log(S) ~ NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Soils) #Best model
+mod0a = gls(log(S) ~ NPP.scale, weights=varPower(form=~NPP.scale), data=meta.Soils) #Best model
 plot(mod0a, which=1)
 qqnorm(mod0a)
 summary(mod0a)
 
-mod0b = gls(log(S) ~ poly(NPP.scale, degree=2), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Soils)
-plot(mod0b, which=1)
-qqnorm(mod0b)
-summary(mod0b)
+# mod0b = gls(log(S) ~ poly(NPP.scale,2,raw=TRUE), weights=varPower(form=~NPP.scale), data=meta.Soils)
+# plot(mod0b, which=1)
+# qqnorm(mod0b)
+# anova(mod0, mod0a, mod0b)
+# summary(mod0b)
 
 anova(mod0, mod0a, mod0b)
 
 
-mod1 = gls(log(MaxTL) ~ log(S), data=meta.Soils) #Best model
+mod1 = gls(log(MaxTL) ~ log(S) + NPP.scale, data=meta.Soils) #Best model
 plot(mod1, which=1)
 qqnorm(mod1)
 summary(mod1)
 
-# mod1a = gls(log(MaxTL) ~ log(S), weights=varIdent(form=~1|study_ID), data=meta.Soils)
-# plot(mod1, which=1)
-# qqnorm(mod1)
-# summary(mod1)
+# mod1a = gls(log(MaxTL) ~ log(S) + NPP.scale, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Soils)
+# plot(mod1a, which=1)
+# qqnorm(mod1a)
+# summary(mod1a)
 # 
-# anova(mod1, mod1a)
+# mod1b = gls(log(MaxTL) ~ log(S) + poly(NPP.scale,2,raw=TRUE), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~NPP.scale)), data=meta.Soils)
+# plot(mod1b, which=1)
+# qqnorm(mod1b)
+# summary(mod1b)
+# anova(mod1, mod1a, mod1b)
 
-mod2 = gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), data=meta.Soils)
+
+mod2 = gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + NPP.scale, data=meta.Soils) # Best model
 plot(mod2, which=1)
 qqnorm(mod2)
 summary(mod2)
 
+# mod2a = gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S) + poly(NPP.scale,2,raw=TRUE), data=meta.Soils)
+# plot(mod2a, which=1)
+# qqnorm(mod2a)
+# summary(mod2a)
+# anova(mod2, mod2a)
 
-mod3 = gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), data=meta.Soils)
+mod3 = gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, data=meta.Soils) # Best model
 plot(mod3, which=1)
 qqnorm(mod3)
 summary(mod3)
 
-# mod3a = gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Soils)
+# mod3a = gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + poly(NPP.scale,2,raw=TRUE), data=meta.Soils)
 # plot(mod3a, which=1)
 # qqnorm(mod3a)
 # summary(mod3a)
 # 
-# anova(mod3, mod3a)
+# mod3b = gls(logit(sim.sec.cons) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), data=meta.Soils)
+# plot(mod3b, which=1)
+# qqnorm(mod3b)
+# summary(mod3b)
+# 
+# anova(mod3, mod3a, mod3b)
 
 mod4 = gls(log(prim.consumption) ~ logit(sim.prim.cons) + log(MaxTL), data=meta.Soils)
 plot(mod4, which=1)
