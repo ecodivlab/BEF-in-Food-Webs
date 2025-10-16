@@ -58,9 +58,12 @@ for(i in 1:length(web)){
   
   primary.cons.and.omnivores = omnivores | prim.cons
   
-  ## Calculating fluxes
+  ## Calculating fluxes 
+  # Total flux
   flux <- fluxing(mat=matrix, biomasses=attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies, 
                   bioms.losses=F, bioms.prefs = T) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, attributes$abundance, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -80,7 +83,9 @@ for(i in 1:length(web)){
   ## Food web fluxes
   meta.RP$flux[i] <- sum(flux)
   meta.RP$second.consumption[i] <- sum(flux[animals])
-  meta.RP$prim.consumption[i] <- sum(flux[plants,])
+  meta.RP$prim.consumption[i] <- sum(flux[plants,])  
+  # Per capita flux
+  meta.RP$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
 
   ## Food web metrics
   meta.RP$S[i] <- Number.of.species(matrix)
@@ -143,9 +148,12 @@ for(i in 1:length(web)){
   
   primary.cons.and.omnivores = omnivores | prim.cons
   
-  ## Calculating fluxes
+  ## Calculating fluxes 
+  # Total flux
   flux <- fluxing(mat=matrix, biomasses=attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies, 
                   bioms.losses=F, bioms.prefs = T) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, attributes$abundance, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -166,7 +174,9 @@ for(i in 1:length(web)){
   ## Food web fluxes  
   meta.BS$flux[i] <- sum(flux)
   meta.BS$second.consumption[i] <- sum(flux[eat.animals])
-  meta.BS$prim.consumption[i] <- sum(flux[basals,])
+  meta.BS$prim.consumption[i] <- sum(flux[basals,])  
+  # Per capita flux
+  meta.BS$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
 
   ## Food web metrics
   meta.BS$S[i] <- Number.of.species(matrix)
@@ -182,44 +192,4 @@ commcols <- intersect(names(meta.RP), names(meta.BS))
 meta.Marine <- bind_rows(select(meta.RP, all_of(commcols)),
                           select(meta.BS, all_of(commcols)))
 
-
-# #### Calculate sample coverage ####
-# library(ggplot2)
-# # Get the full set of unique species across all files
-# files.RP <- list.files("Intertidalrockpools", pattern = "^Intertidalrockypools_spAttributes_", full.names = TRUE)
-# files.BS <- list.files("baltic_sea", pattern = "^baltic_spAttributes_", full.names = TRUE)
-# all_files <- c(files.RP, files.BS)
-# 
-# all_taxa <- unique(unlist(lapply(all_files, function(f) {
-#   dat <- read.csv(f, stringsAsFactors = FALSE)
-#   unique(dat$species)
-# })))
-# 
-# all_taxa <- sort(all_taxa)
-# 
-# # Create abundance matrix
-# abundance_matrix <- matrix(0, nrow = length(all_files), ncol = length(all_taxa))
-# colnames(abundance_matrix) <- all_taxa
-# base_names <- basename(all_files)
-# rownames(abundance_matrix) <- sub("^(Intertidalrockypools_spAttributes_|baltic_spAttributes_)(.*)\\.csv$", "\\2", base_names) 
-# 
-# # Loop over files to build rows
-# for (i in seq_along(all_files)) {
-#   community <- read.csv(all_files[i], stringsAsFactors = FALSE)
-#   sp <- as.character(community$species)
-#   abund <- community$biomass/community$bodymass
-#   abundance_matrix[i, sp] <- abund
-# }
-# abundance_matrix[is.na(abundance_matrix)] <- 0
-# species_counts <- rowSums(abundance_matrix > 0)
-# 
-# # create list for iNEXT
-# abund_list <- apply(abundance_matrix, 1, ceiling)
-# abund_list <- as.list(data.frame(abund_list))
-# names(abund_list) <- rownames(abundance_matrix)
-# 
-# coverage <- DataInfo(abund_list, datatype = "abundance")  #iNEXT
-# colnames(coverage)[colnames(coverage) == 'Assemblage']  <- "FW_name"
-# 
-# meta.Marine$SC <- coverage$SC[match(meta.Marine$FW_name, coverage$FW_name)]
 write.csv(meta.Marine, file = 'meta.Marine.csv', row.names = F)

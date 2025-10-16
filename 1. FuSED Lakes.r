@@ -95,7 +95,8 @@ for(i in 1:length(lakes)) {
   omnivores = eat.basals & eat.animals
   primary.cons.and.omnivores = omnivores | prim.cons
 
-  ## Calculating fluxes
+  ## Calculating fluxes 
+  # Total flux
   if(meta$study_ID[i]=='Lake Maggiore'){
   flux <- fluxing(mat=bin.matrix, biomasses=attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies,
                   bioms.losses=F, bioms.prefs = T) * perday}
@@ -103,6 +104,8 @@ for(i in 1:length(lakes)) {
   flux <- fluxing(mat=bin.matrix, biomasses=attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies,
                   bioms.losses=F, bioms.prefs = T) * perday * 1000000 #*1000000 to convert from ml to cubic meters for Adirondack Lakes
   }
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, nodes$density.comb, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -125,6 +128,8 @@ for(i in 1:length(lakes)) {
   meta$second.consumption[i] <- sum(flux[animals])
   meta$second.consumption[meta$second.consumption==0] <- NA
   meta$prim.consumption[i] <- sum(flux[plants,], flux[detritus,])
+  # Per capita flux
+  meta$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
 
   ## Food web metrics
   meta$S[i] <- Number.of.species(bin.matrix)
@@ -140,46 +145,6 @@ meta.Lakes <- meta[,-c(2:32, 34)]
 
 meta.Lakes <- filter(meta.Lakes, second.consumption > 0) #remove food webs with no secondary consumers (Brooke Trout and South Lake. 
 
-
-#### Calculate sample coverage using iNEXT #### 
-library(iNEXT)
-library(ggplot2)
-
-# # Get the full set of unique species across all files
-# files <- list.files("Lakes", pattern = "^Lakes_spAttributes_", full.names = TRUE)
-# 
-# all_taxa <- unique(unlist(lapply(files, function(f) {
-#   dat <- read.csv(f, stringsAsFactors = FALSE)
-#   unique(dat$taxonomy)
-# })))
-# 
-# all_taxa <- sort(all_taxa)
-# 
-# # Create abundance matrix
-# abundance_matrix <- matrix(0, nrow = length(files), ncol = length(all_taxa))
-# colnames(abundance_matrix) <- all_taxa
-# rownames(abundance_matrix) <- sub("^Lakes_spAttributes_(.*)\\.csv$", "\\1", basename(files))
-# 
-# # Loop over files to build rows
-# for (i in seq_along(files)) {
-#   community <- read.csv(files[i], stringsAsFactors = FALSE)
-#   sp <- as.character(community$taxonomy)
-#   abund <- community$density.comb
-#   abundance_matrix[i, sp] <- abund
-# }
-# abundance_matrix <- abundance_matrix[!row.names(abundance_matrix) %in% c("Brook trout lake", "South Lake"),]
-# abundance_matrix[is.na(abundance_matrix)] <- 0
-# species_counts <- rowSums(abundance_matrix > 0)
-# 
-# # create list for iNEXT
-# abund_list <- apply(abundance_matrix, 1, ceiling)
-# abund_list <- as.list(data.frame(abund_list))
-# names(abund_list) <- rownames(abundance_matrix)
-# 
-# coverage <- DataInfo(abund_list, datatype = "abundance")  #iNEXT
-# colnames(coverage)[colnames(coverage) == 'Assemblage']  <- "FW_name"
-# 
-# meta.Lakes$SC <- coverage$SC[match(meta.Lakes$FW_name, coverage$FW_name)]
 write.csv(meta.Lakes, file = 'meta.Lakes.csv', row.names = F)
 
 

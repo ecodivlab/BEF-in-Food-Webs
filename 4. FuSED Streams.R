@@ -42,8 +42,11 @@ for(i in 1:length(web)){
   primary.cons.and.omnivores = omnivores | prim.cons
   
   ## Calculating fluxes
+  # Total fluxes
   flux <- fluxing(mat=matrix, biomasses=attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies, 
                   bioms.losses=F, bioms.prefs = T) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, (attributes$biomass/attributes$bodymass), FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -65,6 +68,7 @@ for(i in 1:length(web)){
   meta.IS$flux[i] <- sum(flux)
   meta.IS$second.consumption[i] <- sum(flux[attributes$species_type=="animal",])
   meta.IS$prim.consumption[i] <- sum(flux[plants,], flux[detritus,])
+  meta.IS$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
   
   ## Food web metrics
   meta.IS$S[i] <- Number.of.species(bin.matrix)
@@ -123,8 +127,11 @@ for(i in 1:length(web)){
   
   
   ## Calculating fluxes
+  # Total flux
   flux <- fluxing(mat=matrix, biomasses=attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies, 
                   bioms.losses=F, bioms.prefs = T) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, attributes$abundance, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -144,8 +151,10 @@ for(i in 1:length(web)){
   
   ## food web fluxes
   meta.UK$flux[i] <- sum(flux)
-  meta.UK$second.consumption[i] <- sum(flux[attributes$species_type=="animal",])
+  meta.UK$second.consumption[i] <- sum(flux[animals,])
   meta.UK$prim.consumption[i] <- sum(flux[plants,], flux[detritus,])
+  # Per capita flux
+  meta.UK$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
 
   ## Food web metrics
   meta.UK$S[i] <- Number.of.species(bin.matrix)
@@ -209,8 +218,11 @@ for(i in 1:length(web)){
   primary.cons.and.omnivores = omnivores | prim.cons
   
   ## Calculating fluxes
+  # Total flux
   flux <- fluxing(mat=matrix, biomasses = attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies, 
                   bioms.losses=F, bioms.prefs = T) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, attributes$abundance, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -232,6 +244,8 @@ for(i in 1:length(web)){
   meta.Brauns$flux[i] <- sum(flux)
   meta.Brauns$second.consumption[i] <- sum(flux[eat.animals])
   meta.Brauns$prim.consumption[i] <- sum(flux[basals,])
+  # Per capita flux
+  meta.Brauns$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
 
   ## Food web metrics
   meta.Brauns$S[i] <- Number.of.species(bin.matrix)
@@ -292,8 +306,11 @@ for(i in 1:length(web)){
   
   
   ## Calculating fluxes
+  # Total flux
   flux <- fluxing(mat=matrix, biomasses=attributes$biomass, losses=attributes$losses, efficiencies=attributes$efficiencies, 
                   bioms.losses=F, bioms.prefs = T) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, attributes$abundance, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -313,9 +330,11 @@ for(i in 1:length(web)){
 
   ## food web fluxes
   meta.Brazil$flux[i] <- sum(flux)
-  meta.Brazil$second.consumption[i] <- sum(flux[eat.animals])
+  meta.Brazil$second.consumption[i] <- sum(flux[animals,])
   meta.Brazil$prim.consumption[i] <- sum(flux[plants,], flux[detritus,])
- 
+  # Per capita flux
+  meta.Brazil$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
+  
   ## Food web metrics
   meta.Brazil$S[i] <- Number.of.species(bin.matrix)
   meta.Brazil$density[i] <- sum(attributes$abundance[animals], na.rm = TRUE)
@@ -334,59 +353,4 @@ meta.Streams <- bind_rows(select(meta.IS, all_of(commcols)),
                           select(meta.Brauns, all_of(commcols)),
                           select(meta.Brazil, all_of(commcols)))
 
-
-# #### Calculate sample coverage using iNEXT ####
-# library(iNEXT)
-# library(ggplot2)
-# 
-# # Get the full set of unique species across all files
-# files.IS <- list.files("IcelandicStreams", pattern = "^IcelandicStreams_spAttributes_", full.names = TRUE)
-# files.UK <- list.files("UKstreams", pattern = "^UKstreams_spAttributes_", full.names = TRUE)
-# files.Brauns <- list.files("Rivers_Mario", pattern = "^rivers_spAttributes_", full.names = TRUE)
-# files.Brazil <- list.files("Brazilian streams_Saito", pattern = "^CANANEIA_spAttributes_", full.names = TRUE)
-# all_files <- c(files.IS, files.UK, files.Brauns, files.Brazil)
-# folder_labels <- c(
-#   rep("IS", length(files.IS)),
-#   rep("UK", length(files.UK)),
-#   rep("Brauns", length(files.Brauns)),
-#   rep("Brazil", length(files.Brazil))
-# )
-# 
-# all_taxa <- unique(unlist(lapply(all_files, function(f) {
-#   dat <- read.csv(f, stringsAsFactors = FALSE)
-#   unique(dat$species)
-# })))
-# 
-# all_taxa <- sort(all_taxa)
-# 
-# # Create abundance matrix
-# abundance_matrix <- matrix(0, nrow = length(all_files), ncol = length(all_taxa))
-# colnames(abundance_matrix) <- all_taxa
-# base_names <- basename(all_files)
-# rownames(abundance_matrix) <- sub(
-#   "^(IcelandicStreams_spAttributes_|UKstreams_spAttributes_|rivers_spAttributes_|CANANEIA_spAttributes_)(.*)\\.csv$", "\\2", 
-#   base_names)
-# 
-# # Loop over files to build rows
-# for (i in seq_along(all_files)) {
-#   community <- read.csv(all_files[i], stringsAsFactors = FALSE)
-#   community <- community[!is.na(community$abundance), ]
-#   sp <- as.character(community$species)
-#   abund <- community$abundance
-#   abundance_matrix[i, sp] <- abund
-# }
-# abundance_matrix[is.na(abundance_matrix)] <- 0
-# species_counts <- rowSums(abundance_matrix > 0)
-# 
-# 
-# # create list for iNEXT
-# abund_list <- apply(abundance_matrix, 1, ceiling)
-# abund_list <- as.list(data.frame(abund_list))
-# names(abund_list) <- rownames(abundance_matrix)
-# 
-# #Calculate sample coverage
-# coverage <- DataInfo(abund_list, datatype = "abundance")  #iNEXT
-# colnames(coverage)[colnames(coverage) == 'Assemblage']  <- "FW_name"
-# 
-# meta.Streams$SC <- coverage$SC[match(meta.Streams$FW_name, coverage$FW_name)]
 write.csv(meta.Streams, file = 'meta.Streams.csv', row.names = F)

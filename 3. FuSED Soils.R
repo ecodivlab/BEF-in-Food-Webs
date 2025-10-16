@@ -66,8 +66,11 @@ for(i in 1:length(web)){
   primary.cons.and.omnivores = omnivores | prim.cons
   
   ## Calculating fluxes
+  # Total flux
   flux <- fluxing(mat=matrix, losses=attributes$losses, efficiencies=attributes$efficiencies, bioms.losses=F, bioms.prefs = T,
                   biomass = attributes$biomass) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, attributes$abundance, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -89,6 +92,8 @@ for(i in 1:length(web)){
   meta.BioExp$flux[i] <- sum(flux)
   meta.BioExp$second.consumption[i] <- sum(flux[animals])
   meta.BioExp$prim.consumption[i] <- sum(flux[plants,], flux[detritus,])
+  # Per capita flux
+  meta.BioExp$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
 
   ## Food web metrics
   meta.BioExp$S[i] <- Number.of.species(matrix)
@@ -157,8 +162,11 @@ for(i in 1:length(web)){
   primary.cons.and.omnivores = omnivores | prim.cons
   
   ## Calculating fluxes
+  # Total flux
   flux <- fluxing(mat=matrix, losses=attributes$losses, efficiencies=attributes$efficiencies, 
                   biomass = attributes$biomass, bioms.losses=F, bioms.prefs = T) * perday
+  # Per capita flux
+  PC.flux <- sweep(flux, 1, attributes$abundance, FUN = "/")
   
   ## Food web stability 
   # create vector that encodes for species types (animal, detritus or plant)
@@ -180,6 +188,8 @@ for(i in 1:length(web)){
   meta.Russian$flux[i] <- sum(flux)
   meta.Russian$second.consumption[i] <- sum(flux[animals])
   meta.Russian$prim.consumption[i] <- sum(flux[plants,], flux[detritus,])
+  # Per capita flux
+  meta.Russian$PC.predation[i] <- mean(PC.flux[animals], na.rm = TRUE)
 
   ## Food web metrics
   meta.Russian$S[i] <- Number.of.species(matrix)
@@ -194,63 +204,4 @@ commcols <- intersect(names(meta.BioExp), names(meta.Russian))
 meta.Soils <- bind_rows(select(meta.BioExp, all_of(commcols)),
                          select(meta.Russian, all_of(commcols)))
 
-
-# #### Calculate sample coverage using iNEXT ####
-# library(iNEXT)
-# library(ggplot2)
-# 
-# # Get the full set of unique species across all files
-# files.BioExp <- list.files("Biodiversity Exploratories", pattern = "^explo_spAttributes_", full.names = TRUE)
-# files.Russian <- list.files("Russian soils", pattern = "^Russianforests_spAttributes_", full.names = TRUE)
-# all_files <- c(files.BioExp, files.Russian)
-# folder_labels <- c(
-#   rep("BioExp", length(files.BioExp)),
-#   rep("Russian", length(files.Russian))
-# )
-# 
-# all_taxa <- unique(unlist(mapply(function(f, label) {
-#   dat <- read.csv(f, stringsAsFactors = FALSE)
-#   if (label == "BioExp") {
-#     unique(dat$species)
-#   } else if (label == "Russian") {
-#     unique(dat$taxon)
-#   }
-# },
-# f = all_files,
-# label = folder_labels,
-# SIMPLIFY = FALSE)
-# ))
-# 
-# all_taxa <- sort(all_taxa)
-# 
-# # Create abundance matrix
-# abundance_matrix <- matrix(0, nrow = length(all_files), ncol = length(all_taxa))
-# colnames(abundance_matrix) <- all_taxa
-# base_names <- basename(all_files)
-# rownames(abundance_matrix) <- sub("^(explo_spAttributes_|Russianforests_spAttributes_)(.*)\\.csv$", "\\2", base_names) #need to fix naming of baltic sea sites...
-# 
-# # Loop over files to build rows
-# for (i in seq_along(all_files)) {
-#   community <- read.csv(all_files[i], stringsAsFactors = FALSE)
-#   community <- community[!is.na(community$biomass) & !is.na(community$bodymass) & community$bodymass > 0, ]
-#   if ("species" %in% names(community)) {sp <- as.character(community$species)} 
-#   else if ("taxon" %in% names(community)) {sp <- as.character(community$taxon)} 
-#   else {stop(paste("No 'species' or 'taxon' column in file:", all_files[i]))}
-#   abund <- community$biomass/community$bodymass
-#   abundance_matrix[i, sp] <- abund
-# }
-# abundance_matrix[is.na(abundance_matrix)] <- 0
-# species_counts <- rowSums(abundance_matrix > 0)
-# 
-# 
-# # create list for iNEXT
-# abund_list <- apply(abundance_matrix, 1, ceiling)
-# abund_list <- as.list(data.frame(abund_list))
-# names(abund_list) <- rownames(abundance_matrix)
-# 
-# #Calculate sample coverage
-# coverage <- DataInfo(abund_list, datatype = "abundance")  #iNEXT
-# colnames(coverage)[colnames(coverage) == 'Assemblage']  <- "FW_name"
-# 
-# meta.Soils$SC <- coverage$SC[match(meta.Soils$FW_name, coverage$FW_name)]
 write.csv(meta.Soils, file = 'meta.Soils.csv', row.names = F)
