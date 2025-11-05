@@ -15,7 +15,7 @@
 ## Load packages ##
 library(tidyverse); library(sjPlot); library(ggeffects); library(gridExtra); library(piecewiseSEM);
 library(patchwork); library(nlme); library(grid); library(car); library(rempsyc); library(ggpattern);
-library(ggh4x); library(scales); library(ggtext); library(ggrain); library(rsvg)
+library(ggh4x); library(scales); library(ggtext); library(ggrain)
 
 ## Clear environment and read ecosystem-specific food web data sets ##
 rm(list=ls())
@@ -395,11 +395,11 @@ plot(S.prim.cons_LAKE, which=1)
 qqnorm(S.prim.cons_LAKE)
 summary(S.prim.cons_LAKE)
 
-S.prim.cons_LAKEa=update(S.prim.cons_LAKE, weights=varPower(form=~S))
-anova(S.prim.cons_LAKE,S.prim.cons_LAKEa)
-plot(S.prim.cons_LAKEa)
-qqnorm(S.prim.cons_LAKEa)
-summary(S.prim.cons_LAKEa)
+# S.prim.cons_LAKEa=update(S.prim.cons_LAKE, weights=varPower(form=~S))
+# anova(S.prim.cons_LAKE,S.prim.cons_LAKEa)
+# plot(S.prim.cons_LAKEa)
+# qqnorm(S.prim.cons_LAKEa)
+# summary(S.prim.cons_LAKEa)
 
 predation_LAKE=ggpredict(S.predation_LAKE, terms = "S")
 S.predation.sjp_LAKE <- ggplot(predation_LAKE, aes(x, predicted)) +  ggtitle("Lakes (n = 48)") +
