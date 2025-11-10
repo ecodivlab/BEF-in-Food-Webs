@@ -71,8 +71,6 @@ all_data <- bind_rows(select(meta.Marine, all_of(commcols)),
 set_theme(base=theme_classic(base_size = 10))
 
 
-
-
 ############################################################################
 #### Construct linear models and graphs for bivariate BEF relationships ####
 ############################################################################
@@ -638,7 +636,7 @@ fun <- function(x) {
 }
 allSEM_table <- nice_table(results.allSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
-#flextable::save_as_docx(allSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/allSEM_table.docx")
+flextable::save_as_docx(allSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/allSEM_table.docx")
 
 ####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
 #Refit SEM.all2 without NPP.scale quadratic variable

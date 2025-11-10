@@ -68,16 +68,10 @@ all_data <- bind_rows(select(meta.Marine, all_of(commcols)),
                       select(meta.Streams, all_of(commcols)),
                       select(meta.Lakes, all_of(commcols)))
 
-## Set ggplot2 theme ##
+## graphics settings ##
 set_theme(base=theme_classic(base_size = 10))
-
-
-
-
-############################################################################
-#### Construct linear models and graphs for bivariate BEF relationships ####
-############################################################################
-
+all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
+                                  levels = c("Marine", "Soils", "Streams", "Lakes"))
 
 #### Supplementary figure 1 bivariate relationship #####
 
@@ -101,9 +95,6 @@ summary(S.flux_Globalb)
 
 S.flux_Global = S.flux_Globalb
 
-all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
-                                  levels = c("Marine", "Soils", "Streams", "Lakes"))
-
 
 ## Graph BEF for total flux 
 Total_flux_Global=ggpredict(S.flux_Global, terms = "S")
@@ -124,32 +115,130 @@ S.total.sjp_global <- ggplot(Total_flux_Global, aes(x, predicted)) +
 
 
 
-#### Supplementary Fig 2. Raincloud plot of food web properties ####
+
+
+#### Supplementary Fig 2. Raincloud plot of ecosystem and food web properties ####
+all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
+                                  levels = c("Marine", "Soils", "Streams", "Lakes"))
+
+NPP <- ggplot(all_data, aes(x = ecosystem.type, y = NPP.scale, fill = ecosystem.type)) +
+  geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
+            boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
+            violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) + 
+  ylab('Net primary productivity') + xlab('') +
+  theme(legend.position="none", 
+        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) 
+
+Temperature <- ggplot(all_data, aes(x = ecosystem.type, y = temperature_C, fill = ecosystem.type)) +
+  geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
+            boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
+            violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) + 
+  ylab('Temperature (°C)') + xlab('') +
+  theme(legend.position="none", 
+        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
+
+Diversity <- ggplot(all_data, aes(x = ecosystem.type, y = S, fill = ecosystem.type)) +
+  geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
+            boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
+            violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) + 
+  ylab('Taxon richness') + xlab('') +
+  theme(legend.position="none", 
+        plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
 
 max.TL <- ggplot(all_data, aes(x = ecosystem.type, y = MaxTL, fill = 	ecosystem.type)) +
-  geom_rain(alpha = .5, cov='ecosystem.type',
-            boxplot.args.pos = list(width = .1, position = position_nudge(x = -.2))) + 
+  geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
+            boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
+            violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) + 
   ylab('Maximum trophic level') + xlab('Ecosystem type') +
   theme(legend.position="none", 
         plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt")) 
 
 prim.similarity <- ggplot(all_data, aes(x = ecosystem.type, y = sim.prim.cons, fill = 	ecosystem.type)) +
-  geom_rain(alpha = .5, cov='ecosystem.type',
-            boxplot.args.pos = list(width = .1, position = position_nudge(x = -.2))) + 
+  geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
+            boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
+            violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) +  
   ylab('1\u00B0 consumer dissimilarity') + xlab('Ecosystem type') +
   theme(legend.position="none", 
         plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
 
 pred.similarity <- ggplot(all_data, aes(x = ecosystem.type, y = sim.sec.cons, fill = 	ecosystem.type)) +
-  geom_rain(alpha = .5, cov='ecosystem.type',
-            boxplot.args.pos = list(width = .1, position = position_nudge(x = -.2))) + 
+  geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
+            boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
+            violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) + 
   ylab('Predator dissimilarity') + xlab('Ecosystem type') +
   theme(legend.position="none", 
         plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
 
-FW.Properties <- Richness_main <- grid.arrange(patchworkGrob(max.TL | prim.similarity | pred.similarity)) 
+FW.Properties <- Richness_main <- grid.arrange(patchworkGrob((NPP | Temperature | Diversity)/
+                                                             (max.TL | prim.similarity | pred.similarity))) 
 
-#ggsave(filename = "FW.Properties.svg", FW.Properties, width = 200, height = 75, unit = "mm", dpi = 300)
+ggsave(filename = "FW.Properties.png", FW.Properties, width = 200, height = 130, unit = "mm", dpi = 300)
+
+
+
+#### Predation/prim. consumption relationships with environmental temperature and NPP ####
+
+marine.a = ggplot(meta.Marine, aes(x = NPP.scale, y = log10(second.consumption))) +
+  ylab('Predation') + xlab("NPP") + ggtitle("Marine") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") +
+  theme(plot.title = element_text(face = "bold"))
+marine.b = ggplot(meta.Marine, aes(x = temperature_C, y = log10(second.consumption))) +
+  ylab('Predation') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") 
+marine.c = ggplot(meta.Marine, aes(x = NPP.scale, y = log10(prim.consumption))) +
+  ylab('Primary consumption') + xlab("NPP") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+marine.d = ggplot(meta.Marine, aes(x = temperature_C, y = log10(prim.consumption))) +
+  ylab('Primary consumption') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+
+soils.a = ggplot(meta.Soils, aes(x = NPP.scale, y = log10(second.consumption))) +
+  ylab('') + xlab("NPP") + ggtitle("Soils") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") +
+  theme(plot.title = element_text(face = "bold"))
+soils.b = ggplot(meta.Soils, aes(x = temperature_C, y = log10(second.consumption))) +
+  ylab('') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") 
+soils.c = ggplot(meta.Soils, aes(x = NPP.scale, y = log10(prim.consumption))) +
+  ylab('') + xlab("NPP") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+soils.d = ggplot(meta.Soils, aes(x = temperature_C, y = log10(prim.consumption))) +
+  ylab('') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+
+streams.a = ggplot(meta.Streams, aes(x = NPP.scale, y = log10(second.consumption))) +
+  ylab('') + xlab("NPP") + ggtitle("Streams") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") +
+  theme(plot.title = element_text(face = "bold")) 
+streams.b = ggplot(meta.Streams, aes(x = temperature_C, y = log10(second.consumption))) +
+  ylab('') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") 
+streams.c = ggplot(meta.Streams, aes(x = NPP.scale, y = log10(prim.consumption))) +
+  ylab('') + xlab("NPP") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+streams.d = ggplot(meta.Streams, aes(x = temperature_C, y = log10(prim.consumption))) +
+  ylab('') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+
+lakes.a = ggplot(meta.Lakes, aes(x = NPP.scale, y = log10(second.consumption))) +
+  ylab('') + xlab("NPP") + ggtitle("Lakes") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") +
+  theme(plot.title = element_text(face = "bold")) 
+lakes.b = ggplot(meta.Lakes, aes(x = temperature_C, y = log10(second.consumption))) +
+  ylab('') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#C257579E") + geom_smooth(method = "gam", color="#C257579E") 
+lakes.c = ggplot(meta.Lakes, aes(x = NPP.scale, y = log10(prim.consumption))) +
+  ylab('') + xlab("NPP") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+lakes.d = ggplot(meta.Lakes, aes(x = temperature_C, y = log10(prim.consumption))) +
+  ylab('') + xlab("Temperature (°C)") +
+  geom_point(alpha = 0.6, color="#3A67AE9E") + geom_smooth(method = "gam", color="#3A67AE9E") 
+
+ecosystem_combined <- grid.arrange(patchworkGrob(
+  (marine.a | soils.a | streams.a | lakes.a) /
+  (marine.b | soils.b | streams.b | lakes.b) /
+  (marine.c | soils.c | streams.c | lakes.c) /
+  (marine.d | soils.d | streams.d | lakes.d)))
 
 
 
@@ -226,7 +315,8 @@ ggsave("Supplementary Figure 3 scatterplots.png", Richness_main_SuppInfo, width 
 
 
 
-#### Reanalyse bivariate relationships with density covariate ####
+
+#### Reanalyse bivariate relationships with consumer density covariate ####
 
 ## Predation
 S.predation_Global <- lme(log10(second.consumption) ~ log10(S) + log(density), random = ~1|ecosystem.type/study_ID, data=all_data)
@@ -260,8 +350,9 @@ plot(S.prim.cons_Globala)
 qqnorm(S.prim.cons_Globala)
 summary(S.prim.cons_Globala)
 
-S.prim.cons_Globalb=update(S.prim.cons_Global, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S))) #Best model
-anova(S.prim.cons_Global,S.prim.cons_Globala,S.prim.cons_Globalb)
+S.prim.cons_Globalb=update(S.prim.cons_Global, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), 
+                           control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200)) #Best model
+anova(S.prim.cons_Global, S.prim.cons_Globala, S.prim.cons_Globalb)
 plot(S.prim.cons_Globalb)
 qqnorm(S.prim.cons_Globalb)
 summary(S.prim.cons_Globalb)
@@ -399,6 +490,7 @@ qqnorm(S.predation_STREAM.mm)
 summary(S.prim.cons_STREAM.mm)
 
 
+
 ##################################################################
 #### Structural Equation Models including food web stability #####
 ##################################################################
@@ -409,8 +501,7 @@ flux <- c(rep(c(rep("stability", 3), rep("PC.predation", 3)),2))
 FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 4)
 effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
 
-
-## Cross-ecosystem analysis with total flux - Supplementary Fig 1 ##
+#### Cross-ecosystem analysis with total flux - Supplementary Fig 1 ####
 
 
 mod2 = lme(logit(sim.total) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|study_ID, data=all_data)
@@ -469,6 +560,9 @@ all.totalSEM_table <- nice_table(results.all.totalSEM, col.format.custom = c(3:4
 
 #flextable::save_as_docx(all.totalSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/all.totalSEM_table.docx")
 
+
+
+
 ####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
 #Refit SEM.all2 without NPP.scale quadratic variable
 SEM.all.total2_no.NPP_R2 <- rsquared(psem(
@@ -488,7 +582,83 @@ colnames(SEM.all.total2_Q.Std.Est) <- c("response", "F^2")
 
 
 
-#### Cross-ecosystem SEM ####
+
+
+## Test stream SEM with density ##
+SEM.Streams.density <- psem(
+  
+  lme(log(S) ~ NPP.scale, random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
+  lme(log(density) ~ NPP.scale, random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
+  lme(log(MaxTL) ~ log(S), random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
+  lme(logit(sim.prim.cons) ~ log(MaxTL), random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
+  lme(logit(sim.sec.cons) ~ log(S) + log(density), random=~1|study_ID, weights=varExp(), data=meta.Streams),
+  lme(log(prim.consumption) ~ log(density) + logit(sim.prim.cons), random=~1|study_ID, data=meta.Streams),
+  lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons) + log(density), random=~1|study_ID, data=meta.Streams),
+  
+  log(S) %~~% log(density),
+  logit(sim.prim.cons) %~~% logit(sim.sec.cons),
+  log(prim.consumption) %~~% logit(sim.sec.cons),
+  log(second.consumption) %~~% logit(sim.prim.cons),
+  log(second.consumption) %~~% log(prim.consumption)
+)
+
+summary(SEM.Streams.density)
+
+results.streamsSEM <- summary(SEM.Streams.density)$coefficients[c(1:11, 16),c(1:5, 8, 7)]
+names(results.streamsSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
+streamsSEM_table <- nice_table(results.streamsSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
+
+#flextable::save_as_docx(streamsSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/streamsSEM_table with density.docx")
+
+
+## Create results dataframe for summary boxplots ##
+std.effect <- c(
+  SR.direct.pred <- 0,
+  MTL.direct.pred <- results.streamsSEM$`Std. Estimate`[results.streamsSEM$Response == 'log(second.consumption)' & results.streamsSEM$Predictor == 'log(MaxTL)'],
+  SIM.direct.pred <- results.streamsSEM$`Std. Estimate`[results.streamsSEM$Response == 'log(second.consumption)' & results.streamsSEM$Predictor == 'logit(sim.sec.cons)'],
+  SR.direct.prim <- 0,
+  MTL.direct.prim <- 0,
+  SIM.direct.prim <- 0,
+  
+  SR.indirect.pred <- 
+    results.streamsSEM$`Std. Estimate`[results.streamsSEM$Response == 'logit(sim.sec.cons)' & results.streamsSEM$Predictor == 'log(S)'] *
+    results.streamsSEM$`Std. Estimate`[results.streamsSEM$Response == 'log(second.consumption)' & results.streamsSEM$Predictor == 'logit(sim.sec.cons)'],
+  MTL.indirect.pred <- 0,
+  SIM.indirect.pred <- 0,
+  SR.indirect.prim <- 0,
+  MTL.indirect.prim <- 0,
+  SIM.indirect.prim <- 0
+)
+
+flux <- c(rep(c(rep("predation", 3), rep("primary consumption",3)),2))
+FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 4)
+effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
+
+eff.table_streams <- data.frame(FW_prop, flux, effect.type, std.effect)
+
+## Produce SEM effects plot
+streams.effects.density <- ggplot(eff.table_streams, 
+                          aes(x = flux, y = std.effect, fill = flux, pattern = effect.type)) + 
+  ylab('Effect size') + 
+  geom_hline(yintercept = 0, linetype = "dashed", linewidth = .5) +
+  geom_bar_pattern(stat = "identity", position = "stack", pattern_color = 'White', pattern_fill = "white", width = .98,
+                   pattern_alpha = 0.7, pattern_angle = 55, pattern_density = 0.75, pattern_spacing = 0.1, pattern_size=0) +
+  scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
+  scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
+  coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", 
+             labeller = label_wrap_gen(width=10), switch = "y") +
+  theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
+        strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
+        legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
+        axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
+
+ggsave("Streams effects_density.png", streams.effects.density, width = 6, height = 9, units = "cm", bg='transparent')
+
+
+
+
+#### Cross-ecosystem SEM with stability and PC.predation ####
 
 mod.PC.predation = lme(log(PC.predation) ~ logit(sim.sec.cons) + log(MaxTL), random=~1|study_ID, data=all_data, method='ML') 
   plot(mod.PC.predation, which=1)
@@ -595,9 +765,10 @@ names(results.allSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std
 fun <- function(x) {
   formatC(x, format = "f", digits = 3)
 }
-allSEM_table <- nice_table(results.allSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
+allSEM_table_stability <- nice_table(results.allSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
-#flextable::save_as_docx(allSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/allSEM_table.docx")
+flextable::save_as_docx(allSEM_table_stability, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/allSEM_table_stability.docx")
+
 
 
 ####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
@@ -630,6 +801,7 @@ SEM.all.total2_Q.Std.Est <- data.frame(SEM.all.total2_R2[,1],
                                        (SEM.all.total2_R2[,6] - SEM.all.total2_no.NPP_R2[,6]) / (1 - SEM.all.total2_R2[,6]),
                                        row.names=NULL)
 colnames(SEM.all.total2_Q.Std.Est) <- c("response", "F^2")
+
 
 
 #### Create results dataframe for summary boxplots ####
@@ -697,6 +869,7 @@ global.effects <- ggplot(eff.table_all,
 
 
 ggsave("Global effects Fig S3.png", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
+
 
 
 
