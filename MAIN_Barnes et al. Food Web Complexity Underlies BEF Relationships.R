@@ -1,13 +1,13 @@
 #=========================================================================================================================
 #     
 # Code for Barnes et al. 'Food Web Complexity Underlies the Relationship Between Biodiversity and Ecosystem Functioning'
-# Main text analyses and figure
+# Main text analyses and figures
 #
 #=========================================================================================================================
 
 # This code generates bivariate and SEM models testing for the effect of taxa richness, maximum trophic level, and
 # trophic dissimilarity on total primary consumption and predation rates (derived from estimated energy fluxes) in
-# 319 food webs, spanning marine, lake, stream, and soil food webs. 
+# 318 food webs, spanning marine, lake, stream, and soil food webs. 
 # 
 # All models presented in Barnes et al. are run according to the described methods in the manuscript.
 # The data accompanying this script are available on figshare DOI: 10.6084/m9.figshare.28646129
@@ -78,26 +78,6 @@ set_theme(base=theme_classic(base_size = 10))
 
 #### Cross-ecosystem analyses #####
 
-## Total flux
-S.flux_Global <- lme(log10(flux) ~ log10(S), random = ~1|ecosystem.type/study_ID, data=all_data, na.action=na.omit)
-plot(S.flux_Global, which=1)
-qqnorm(S.flux_Global)
-summary(S.flux_Global)
-
-S.flux_Globala=update(S.flux_Global, random = ~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID)) #Best model
-anova(S.flux_Global,S.flux_Globala)
-plot(S.flux_Globala)
-qqnorm(S.flux_Globala)
-summary(S.flux_Globala)
-
-S.flux_Global = S.flux_Globala
-
-# S.flux_Globalb=update(S.flux_Global, weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)))
-# anova(S.flux_Global,S.flux_Globala,S.flux_Globalb)
-# plot(S.flux_Globalb)
-# qqnorm(S.flux_Globalb)
-# summary(S.flux_Globalb)
-
 ## Predation
 S.predation_Global <- lme(log10(second.consumption) ~ log10(S), random = ~1|ecosystem.type/study_ID, data=all_data)
 plot(S.predation_Global, which=1)
@@ -141,25 +121,14 @@ S.prim.cons_Global = S.prim.cons_Globala
 all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
                                   levels = c("Marine", "Soils", "Streams", "Lakes"))
 
-## Graph BEF for total flux 
-Total_flux_Global=ggpredict(S.flux_Global, terms = "S")
-S.total.sjp_global <- ggplot(Total_flux_Global, aes(x, predicted)) + 
-  ylab(bquote('Total energy flux ('~J~day^-1*')')) + xlab("Multitrophic taxon richness") + 
-  geom_line(linewidth=1.5) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), linetype=2, alpha = 0.15) +
-  geom_point(data = all_data, aes(x = S, y = flux, colour=ecosystem.type), size=2, alpha=0.4) +
-  labs(colour = ("Ecosystem type")) +
-  scale_y_continuous(breaks=breaks_log(n = 6), labels = label_log(digits = 2)) +
-  scale_x_continuous(breaks=breaks_log(n=7), expand = expansion(mult = c(0.05, .1)))+
-  coord_trans(y = "log10", x = "log10")+
-  theme(legend.position="top", plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"), text=element_text(size=14)) 
-
-## Produce Supplementary Figure 1 ##
-#ggsave("Supplementary fig 1 scatterplot.svg", S.total.sjp_global, width = 16, height = 16, units = "cm")
-
 
 ## Graph BEF for predation and primary consumption 
 predation_global=ggpredict(S.predation_Global, terms = "S")
+# calculate predicted increase in fluxes with S
+abs.increase = round(max(predation_global$predicted) - min(predation_global$predicted)) #predation
+percent.increase = round((max(predation_global$predicted) - min(predation_global$predicted)) / 
+                           min(predation_global$predicted) * 100) #predation
+
 S.predation.sjp_global <- ggplot(predation_global, aes(x, predicted)) + 
   ylab('Predation') + 
   geom_line(aes(linetype=group, color='#C257579E'), linewidth=1.5) +
@@ -176,6 +145,11 @@ S.predation.sjp_global <- ggplot(predation_global, aes(x, predicted)) +
   scale_colour_identity()
 
 prim.cons_global=ggpredict(S.prim.cons_Global, terms = "S")
+# calculate predicted increase in fluxes with S
+abs.increase = round(max(prim.cons_global$predicted) - min(prim.cons_global$predicted)) #primary consumption
+percent.increase = round((max(prim.cons_global$predicted) - min(prim.cons_global$predicted)) / 
+                           min(prim.cons_global$predicted) * 100) #primary consumption
+
 S.prim.cons.sjp_global <- ggplot(prim.cons_global, aes(x, predicted)) + 
   geom_line(aes(linetype=group, color='#3A67AE9E'), linewidth=1.5) + 
   ylab('Primary consumption') + xlab("Taxon richness") +
@@ -638,7 +612,7 @@ allSEM_table <- nice_table(results.allSEM, col.format.custom = c(3:4,6:7), forma
 
 flextable::save_as_docx(allSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/allSEM_table.docx")
 
-####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
+#### calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM.all2 without NPP.scale quadratic variable
 SEM.all_no.NPP_R2 <- rsquared(psem(
   lme(log(S) ~ 1, random=~1|ecosystem.type/study_ID, data=all_data),
@@ -662,7 +636,7 @@ SEM.all2_Q.Std.Est <- data.frame(SEM.all2_R2[,1],
   row.names=NULL)
 colnames(SEM.all2_Q.Std.Est) <- c("response", "F^2")
 
-#### Create results dataframe for summary boxplots ####
+#### Create results dataframe for summary boxplots 
 std.effect <- c(
   SR.direct.pred <- results.allSEM$`Std. Estimate`[results.allSEM$Response == 'log(second.consumption)' & results.allSEM$Predictor == 'log(S)'],
   MTL.direct.pred <- results.allSEM$`Std. Estimate`[results.allSEM$Response == 'log(second.consumption)' & results.allSEM$Predictor == 'log(MaxTL)'],
@@ -847,7 +821,7 @@ marineSEM_table <- nice_table(results.marineSEM, col.format.custom = c(3:4,6:7),
 
 #flextable::save_as_docx(marineSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/marineSEM_table.docx")
 
-####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
+####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM without NPP.scale quadratic variable
 SEM.Marine3_no.NPP_R2 <- rsquared(psem(
   
@@ -871,7 +845,7 @@ SEM.Marine3_Q.Std.Est <- data.frame(SEM.Marine3_R2[,1],
                                  row.names=NULL)
 colnames(SEM.Marine3_Q.Std.Est) <- c("response", "F^2")
 
-#### Create results dataframe for summary boxplots ####
+#### Create results dataframe for summary boxplots 
 std.effect <- c(
   SR.direct.pred <- 0,
   MTL.direct.pred <- results.marineSEM$`Std. Estimate`[results.marineSEM$Response == 'log(second.consumption)' & results.marineSEM$Predictor == 'log(MaxTL)'],
@@ -1040,7 +1014,7 @@ soilsSEM_table <- nice_table(results.soilsSEM, col.format.custom = c(3:4,6:7), f
 
 #flextable::save_as_docx(soilsSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/soilsSEM_table.docx")
 
-####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
+####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM without NPP.scale quadratic variable
 SEM.Soils3_no.NPP_R2 <- rsquared(psem(
   
@@ -1065,7 +1039,7 @@ SEM.Soils3_Q.Std.Est <- data.frame(SEM.Soils3_R2[,1],
 colnames(SEM.Soils3_Q.Std.Est) <- c("response", "F^2")
 
 
-#### Create results dataframe for summary boxplots ####
+#### Create results dataframe for summary boxplots 
 std.effect <- c(
   SR.direct.pred <- results.soilsSEM$`Std. Estimate`[results.soilsSEM$Response == 'log(second.consumption)' & results.soilsSEM$Predictor == 'log(S)'],
   MTL.direct.pred <- results.soilsSEM$`Std. Estimate`[results.soilsSEM$Response == 'log(second.consumption)' & results.soilsSEM$Predictor == 'log(MaxTL)'],
@@ -1105,7 +1079,7 @@ ggsave("Soils effects.svg", soils.effects, width = 6, height = 9, units = "cm", 
 
 
 
-#### STREAMs ####
+#### STREAMS ####
 ggplot(meta.Streams, aes(x = NPP.scale, y = log(S))) +
   geom_point(alpha = 0.6) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
 ggplot(meta.Streams, aes(x = NPP.scale, y = log(MaxTL))) +
@@ -1222,7 +1196,7 @@ streamsSEM_table <- nice_table(results.streamsSEM, col.format.custom = c(3:4,6:7
 
 #flextable::save_as_docx(streamsSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/streamsSEM_table.docx")
 
-#### Create results dataframe for summary boxplots ####
+#### Create results dataframe for summary boxplots 
 std.effect <- c(
   SR.direct.pred <- 0,
   MTL.direct.pred <- results.streamsSEM$`Std. Estimate`[results.streamsSEM$Response == 'log(second.consumption)' & results.streamsSEM$Predictor == 'log(MaxTL)'],
@@ -1397,7 +1371,7 @@ lakesSEM_table <- nice_table(results.lakesSEM, col.format.custom = c(3:4,6:7), f
 
 #flextable::save_as_docx(lakesSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/lakesSEM_table.docx")
 
-####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)####
+####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM without NPP.scale quadratic variable
 SEM.Lakes3_no.NPP_R2 <- rsquared(psem(
   
