@@ -11,7 +11,7 @@
 ## Load packages ##
 library(tidyverse); library(sjPlot); library(ggeffects); library(gridExtra); library(piecewiseSEM);
 library(patchwork); library(nlme); library(grid); library(car); library(rempsyc); library(ggpattern);
-library(ggh4x); library(scales); library(ggtext); library(ggrain); library(glmmTMB)
+library(ggh4x); library(scales); library(ggtext); library(ggrain); library(glmmTMB); 
 
 ## Clear environment and read ecosystem-specific food web data sets ##
 rm(list=ls())
@@ -312,7 +312,6 @@ ecosystem_combined <- grid.arrange(patchworkGrob(
   (marine.b | soils.b | streams.b | lakes.b) /
   (marine.c | soils.c | streams.c | lakes.c) /
   (marine.d | soils.d | streams.d | lakes.d)))
-
 
 
 #### Reanalyse bivariate relationships with consumer density covariate ####
