@@ -1,6 +1,24 @@
+#=========================================================================================================================
+#     
+# Code for Barnes et al. 'Food Web Complexity Underlies the Relationship Between Biodiversity and Ecosystem Functioning'
+# Calculation of energy fluxes in 65 soil food webs
+#
+#=========================================================================================================================
+
+# This code calculates energy fluxes based on organism metabolic rates (estimated from body mass and temperature), 
+# trophic assimilation efficiency (based on resource type and temperature), and food web structure, following methods 
+# described in Gauzens et al. (2019) DOI: 10.1111/2041-210X.13109
+# The code is run on two datasets: the Biodiversity exploratories (Germany) and Russian boreal forest soils.
+
+# The data accompanying this script are available on the Zenodo repository DOI: 
+# Code was developed on R version 4.5.0
+
 rm(list=ls())
-setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
-source("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs\\Food_web_functions.r")
+
+## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
+setwd()
+
+source("Food_web_functions.r")
 library(fluxweb); library(igraph); library(dplyr); library(cheddar); library(colorspace)
 options(stringsAsFactors=FALSE)
 

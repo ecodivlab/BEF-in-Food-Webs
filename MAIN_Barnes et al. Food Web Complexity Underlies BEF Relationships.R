@@ -10,10 +10,11 @@
 # 318 food webs, spanning marine, lake, stream, and soil food webs. 
 # 
 # All models presented in Barnes et al. are run according to the described methods in the manuscript.
-# The data accompanying this script are available on figshare DOI: 10.6084/m9.figshare.28646129
+# The data accompanying this script are available on the Zenodo repository DOI: 
+# Code was developed on R version 4.5.0
 
 ## Load packages ##
-library(tidyverse); library(sjPlot); library(ggeffects); library(gridExtra); library(piecewiseSEM);
+library(tidyverse); library(ggeffects); library(gridExtra); library(piecewiseSEM);
 library(patchwork); library(nlme); library(grid); library(car); library(rempsyc); library(ggpattern);
 library(ggh4x); library(scales); library(ggtext); library(ggrain)
 
@@ -21,7 +22,8 @@ library(ggh4x); library(scales); library(ggtext); library(ggrain)
 rm(list=ls())
 options(scipen = 999)
 
-setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
+## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
+setwd()
 
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data
 meta.Marine <- read.csv('meta.Marine.csv')  
@@ -610,7 +612,6 @@ fun <- function(x) {
 }
 allSEM_table <- nice_table(results.allSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
-flextable::save_as_docx(allSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/allSEM_table.docx")
 
 #### calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM.all2 without NPP.scale quadratic variable
@@ -680,7 +681,7 @@ global.effects <- ggplot(eff.table_all,
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
 
-ggsave("Global effects.png", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Global effects.svg", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 
@@ -819,7 +820,6 @@ fun <- function(x) {
 }
 marineSEM_table <- nice_table(results.marineSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
-#flextable::save_as_docx(marineSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/marineSEM_table.docx")
 
 ####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM without NPP.scale quadratic variable
@@ -882,7 +882,7 @@ marine.effects <- ggplot(eff.table_marine,
         legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
-ggsave("Marine effects.png", marine.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Marine effects.svg", marine.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 
@@ -1012,7 +1012,6 @@ results.soilsSEM <- summary(SEM.Soils3)$coefficients[c(1:11, 15),c(1:5, 8, 7)]
 names(results.soilsSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
 soilsSEM_table <- nice_table(results.soilsSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
-#flextable::save_as_docx(soilsSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/soilsSEM_table.docx")
 
 ####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM without NPP.scale quadratic variable
@@ -1194,7 +1193,6 @@ results.streamsSEM <- summary(SEM.Streams3)$coefficients[c(1:7, 11),c(1:5, 8, 7)
 names(results.streamsSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
 streamsSEM_table <- nice_table(results.streamsSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
-#flextable::save_as_docx(streamsSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/streamsSEM_table.docx")
 
 #### Create results dataframe for summary boxplots 
 std.effect <- c(
@@ -1232,7 +1230,7 @@ streams.effects <- ggplot(eff.table_streams,
         legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
-ggsave("Streams effects.png", streams.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Streams effects.svg", streams.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 
@@ -1369,7 +1367,6 @@ results.lakesSEM <- summary(SEM.Lakes3)$coefficients[c(1:10, 14),c(1:5, 8, 7)]
 names(results.lakesSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
 lakesSEM_table <- nice_table(results.lakesSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
-#flextable::save_as_docx(lakesSEM_table, path = "C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/Data/lakesSEM_table.docx")
 
 ####calculate std. effect size for quadratic variables sensu Henseler et al. 2012 (https://doi.org/10.1057/ejis.2011.36)
 #Refit SEM without NPP.scale quadratic variable
@@ -1437,7 +1434,7 @@ lakes.effects <- ggplot(eff.table_lakes,
         legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
-#ggsave("Lakes effects.svg", lakes.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Lakes effects.svg", lakes.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 
@@ -1463,9 +1460,9 @@ ggplot() +
 # scale_size_continuous(range=c(4,5)) +
   theme_void()+
   labs(colour = ("Ecosystem type")) +
-  theme(panel.background = element_rect(fill = "white"), legend.key=element_blank(),
-        legend.position = c(.2, .4), legend.justification = c("right", "top"),
-        legend.box.just = "left", legend.margin = margin(6, 6, 6, 6)) + 
+  theme(panel.background = element_rect(fill = "white", colour = NA),legend.key=element_blank(),
+    legend.position = c(.2, .4), legend.justification = c("right", "top"), 
+    legend.box.just = "left", legend.margin = margin(6, 6, 6, 6)) + 
   guides(colour = guide_legend(override.aes = list(size=2.5, stroke = 1.5, shape=21, alpha=0.9)), shape=19)
-ggsave("map.svg", width = 17, height = 11, units = "cm")
+ggsave("map_food webs.png", width = 17, height = 11, units = "cm")
 

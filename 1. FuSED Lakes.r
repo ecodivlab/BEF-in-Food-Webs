@@ -1,7 +1,25 @@
+#=========================================================================================================================
+#     
+# Code for Barnes et al. 'Food Web Complexity Underlies the Relationship Between Biodiversity and Ecosystem Functioning'
+# Calculation of energy fluxes in 48 lake food webs
+#
+#=========================================================================================================================
+
+# This code calculates energy fluxes based on organism metabolic rates (estimated from body mass and temperature), 
+# trophic assimilation efficiency (based on resource type and temperature), and food web structure, following methods 
+# described in Gauzens et al. (2019) DOI: 10.1111/2041-210X.13109
+
+# The data accompanying this script are available on the Zenodo repository DOI: 
+# Code was developed on R version 4.5.0
+
 rm(list=ls())
-setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
-source("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs\\Food_web_functions.r")
-library(fluxweb); library(cheddar); library(igraph); library(RColorBrewer); library(colorspace); library(sp); library(dplyr); library(tibble)
+
+## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
+setwd()
+
+source("Food_web_functions.r")
+library(fluxweb); library(cheddar); library(igraph); library(RColorBrewer); 
+library(colorspace); library(sp); library(dplyr); library(tibble)
 options(stringsAsFactors=FALSE)
 
 #### Adirondack and Maggiore lakes ####
@@ -143,7 +161,7 @@ for(i in 1:length(lakes)) {
 
 meta.Lakes <- meta[,-c(2:32, 34)]
 
-meta.Lakes <- filter(meta.Lakes, second.consumption > 0) #remove food webs with no secondary consumers (Brooke Trout and South Lake. 
+meta.Lakes <- filter(meta.Lakes, second.consumption > 0) #remove food webs with no secondary consumers (Brooke Trout and South Lake). 
 
 write.csv(meta.Lakes, file = 'meta.Lakes.csv', row.names = F)
 

@@ -6,10 +6,11 @@
 #=========================================================================================================================
  
 # All models presented in Barnes et al. are run according to the described methods in the manuscript.
-# The data accompanying this script are available on figshare DOI: 10.6084/m9.figshare.28646129
+# The data accompanying this script are available on the Zenodo repository DOI: 
+# Code was developed on R version 4.5.0
 
 ## Load packages ##
-library(tidyverse); library(sjPlot); library(ggeffects); library(gridExtra); library(piecewiseSEM);
+library(tidyverse); library(ggeffects); library(gridExtra); library(piecewiseSEM);
 library(patchwork); library(nlme); library(grid); library(car); library(rempsyc); library(ggpattern);
 library(ggh4x); library(scales); library(ggtext); library(ggrain); library(glmmTMB); 
 
@@ -17,7 +18,9 @@ library(ggh4x); library(scales); library(ggtext); library(ggrain); library(glmmT
 rm(list=ls())
 options(scipen = 999)
 
-setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
+## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
+setwd()
+
 
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data
 meta.Marine <- read.csv('meta.Marine.csv')  
