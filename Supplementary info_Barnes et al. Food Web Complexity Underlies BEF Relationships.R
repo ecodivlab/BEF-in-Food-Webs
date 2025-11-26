@@ -6,7 +6,6 @@
 #=========================================================================================================================
  
 # All models presented in Barnes et al. are run according to the described methods in the manuscript.
-# The data accompanying this script are available on the Zenodo repository DOI: 
 # Code was developed on R version 4.5.0
 
 ## Load packages ##
