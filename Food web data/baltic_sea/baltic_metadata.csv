@@ -1,8 +1,0 @@
-FW_name,location,sampling.start.year,sampling.end.year,lat,lon,ecosystem.type,temperature_C
-fw1981,baltic_sea,1979,1983,57.78,23.48,Marine,3.5
-fw1986,baltic_sea,1984,1988,57.78,23.48,Marine,3.5
-fw1991,baltic_sea,1989,1993,57.78,23.48,Marine,3.5
-fw1996,baltic_sea,1994,1998,57.78,23.48,Marine,3.5
-fw2001,baltic_sea,1999,2003,57.78,23.48,Marine,3.5
-fw2006,baltic_sea,2004,2008,57.78,23.48,Marine,3.5
-fw2011,baltic_sea,2009,2013,57.78,23.48,Marine,3.5
