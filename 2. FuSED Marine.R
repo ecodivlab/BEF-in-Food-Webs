@@ -8,9 +8,7 @@
 # This code calculates energy fluxes based on organism metabolic rates (estimated from body mass and temperature), 
 # trophic assimilation efficiency (based on resource type and temperature), and food web structure, following methods 
 # described in Gauzens et al. (2019) DOI: 10.1111/2041-210X.13109
-# The code is run on two datasets: intertidal rockpools and Gulf of Riga Baltic Sea. 
-
-# The data accompanying this script are available on the Zenodo repository DOI: 
+# The code is run on two datasets: intertidal rockpools and Gulf of Riga Baltic Sea.  
 # Code was developed on R version 4.5.0
 
 rm(list=ls())

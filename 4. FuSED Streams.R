@@ -10,8 +10,6 @@
 # described in Gauzens et al. (2019) DOI: 10.1111/2041-210X.13109
 # The code is run on four datasets: Icelandic streams, UK chalk streams, 
 # Brauns et al (combining three studies - German, Spanish, and Appalachian streams), and Brazilian Atlantic Forest streams.
-
-# The data accompanying this script are available on the Zenodo repository DOI: 
 # Code was developed on R version 4.5.0
 
 rm(list=ls())
