@@ -14,7 +14,7 @@
 rm(list=ls())
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd()
+#setwd()
 
 source("Food_web_functions.r")
 library(fluxweb); library(igraph); library(dplyr); library(cheddar); library(colorspace)
@@ -29,6 +29,19 @@ meta.RP <- read.csv("Intertidalrockpools/Intertidalrockypools_metadata.csv")
 meta.RP$study_ID <- rep('Intertidal rockpools', nrow(meta.RP))
 perday <- 60*60*24
 web <- unique(meta.RP$FW_name)
+
+#### Omnivory function ####
+Omnivory.species = function(i, fw, TL){
+  # computes omnivory of species i
+  # TL: vector of all species' TLs
+  if (TL[i] == 1) {
+    omn = 0
+    return(omn)
+  }
+  prey = fw[,i] != 0
+  omn = 1/sum(fw[,i]) * sum(fw[prey,i] * (TL[prey] - (TL[i] - 1))^2)
+  return(omn)
+}
 
 
 for(i in 1:length(web)){
@@ -58,6 +71,8 @@ for(i in 1:length(web)){
   
   attributes$losses[is.na(attributes$losses)] <- 0
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(matrix), Omnivory.species, matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   
   prim.cons = attributes$TL == 2 # primary consumers
   basals = attributes$TL == 1 # basal species
@@ -110,6 +125,11 @@ for(i in 1:length(web)){
   meta.RP$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.RP$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta.RP$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta.RP$L[i] <- Number.of.links(matrix)
+  meta.RP$LD[i] <- Link.density(matrix)
+  meta.RP$C[i] <- Connectance(matrix)
+  meta.RP$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 
 
@@ -151,6 +171,8 @@ for(i in 1:length(web)){
   
   attributes$losses[is.na(attributes$losses)] <- 0
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(matrix), Omnivory.species, matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   
   prim.cons = attributes$TL == 2 # primary consumers
   basals = attributes$TL == 1 # basal species
@@ -201,6 +223,11 @@ for(i in 1:length(web)){
   meta.BS$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.BS$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta.BS$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta.BS$L[i] <- Number.of.links(matrix)
+  meta.BS$LD[i] <- Link.density(matrix)
+  meta.BS$C[i] <- Connectance(matrix)
+  meta.BS$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 
 

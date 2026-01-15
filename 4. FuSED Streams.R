@@ -15,7 +15,7 @@
 rm(list=ls())
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd()
+#setwd()
 
 source("Food_web_functions.r")
 library(fluxweb); library(igraph); library(dplyr); library(cheddar); library(colorspace)
@@ -31,6 +31,20 @@ boltz <- 0.00008617343
 T0 <- 273.15 + 20   
 web <- unique(meta.IS$FW_name)
 
+#### Omnivory function ####
+Omnivory.species = function(i, fw, TL){
+  # computes omnivory of species i
+  # TL: vector of all species' TLs
+  if (TL[i] == 1) {
+    omn = 0
+    return(omn)
+  }
+  prey = fw[,i] != 0
+  omn = 1/sum(fw[,i]) * sum(fw[prey,i] * (TL[prey] - (TL[i] - 1))^2)
+  return(omn)
+}
+
+
 for(i in 1:length(web)){
   
   matrix <- bin.matrix <- as.matrix(read.csv(paste("IcelandicStreams/IcelandicStreams_matrix_",web[i],".csv",sep=""),header=T))
@@ -42,6 +56,8 @@ for(i in 1:length(web)){
   attributes <- read.csv(paste("IcelandicStreams/IcelandicStreams_spAttributes_",web[i],".csv",sep=""))
   attributes$losses[is.na(attributes$losses)] <- 0 # Metabolic losses already calculated as ln(I)=ln(i_o)+0.71*ln(M)-E(1/kT)
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(bin.matrix), Omnivory.species, bin.matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   
   animals <- attributes$species_type == "animal"   
   plants <- attributes$species_type == "plant"
@@ -94,6 +110,11 @@ for(i in 1:length(web)){
   meta.IS$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.IS$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta.IS$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta.IS$L[i] <- Number.of.links(bin.matrix)
+  meta.IS$LD[i] <- Link.density(bin.matrix)
+  meta.IS$C[i] <- Connectance(bin.matrix)
+  meta.IS$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 
 
@@ -115,6 +136,8 @@ for(i in 1:length(web)){
   
   attributes <- read.csv(paste("UKstreams/UKstreams_spAttributes_",web[i],".csv",sep=""))
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(bin.matrix), Omnivory.species, bin.matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   attributes$bodymass <- (attributes$bodymass*4) # Convert body mass dry to fresh mass 
   
   animals <- attributes$species_type == "animal"   
@@ -180,6 +203,11 @@ for(i in 1:length(web)){
   meta.UK$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.UK$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta.UK$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta.UK$L[i] <- Number.of.links(bin.matrix)
+  meta.UK$LD[i] <- Link.density(bin.matrix)
+  meta.UK$C[i] <- Connectance(bin.matrix)
+  meta.UK$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 
 
@@ -221,6 +249,8 @@ for(i in 1:length(web)){
   
   attributes$losses[is.na(attributes$losses)] <- 0
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(bin.matrix), Omnivory.species, bin.matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   
   prim.cons = attributes$TL == 2 # primary consumers
   basals = attributes$TL == 1 # basal species
@@ -257,6 +287,7 @@ for(i in 1:length(web)){
   ## save stability value:
   meta.Brauns$stability[i] = stab
 
+  
   ## food web fluxes
   meta.Brauns$flux[i] <- sum(flux)
   meta.Brauns$second.consumption[i] <- sum(flux[eat.animals])
@@ -271,9 +302,13 @@ for(i in 1:length(web)){
   meta.Brauns$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.Brauns$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta.Brauns$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta.Brauns$L[i] <- Number.of.links(bin.matrix)
+  meta.Brauns$LD[i] <- Link.density(bin.matrix)
+  meta.Brauns$C[i] <- Connectance(bin.matrix)
+  meta.Brauns$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
-
-
+meta.Brauns$C <- as.numeric(meta.Brauns$C)
 
 
 #### Fluxweb analysis Brazilian streams ####
@@ -294,6 +329,8 @@ for(i in 1:length(web)){
   
   attributes <- read.csv(paste("Brazilian streams_Saito/CANANEIA_spAttributes_",web[i],".csv",sep=""))
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(bin.matrix), Omnivory.species, bin.matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   attributes$bodymass <- (attributes$bodymass*4)/1000 #Convert body mass in mg to g and dry to fresh mass conversion
   
   animals <- attributes$metabolic_type == "ectotherm invertebrate" | attributes$metabolic_type == "ectotherm vertebrate"   
@@ -359,6 +396,11 @@ for(i in 1:length(web)){
   meta.Brazil$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.Brazil$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta.Brazil$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta.Brazil$L[i] <- Number.of.links(bin.matrix)
+  meta.Brazil$LD[i] <- Link.density(bin.matrix)
+  meta.Brazil$C[i] <- Connectance(bin.matrix)
+  meta.Brazil$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 
 

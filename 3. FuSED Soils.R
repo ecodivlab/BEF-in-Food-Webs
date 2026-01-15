@@ -14,7 +14,7 @@
 rm(list=ls())
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd()
+#setwd()
 
 source("Food_web_functions.r")
 library(fluxweb); library(igraph); library(dplyr); library(cheddar); library(colorspace)
@@ -29,6 +29,19 @@ meta.BioExp <- read.csv("Biodiversity Exploratories/explo_metadata_copy.csv")
 meta.BioExp$study_ID <- rep('Biodiversity exploratories', nrow(meta.BioExp))
 perday <- 60*60*24
 web <- unique(meta.BioExp$FW_name)
+
+#### Omnivory function ####
+Omnivory.species = function(i, fw, TL){
+  # computes omnivory of species i
+  # TL: vector of all species' TLs
+  if (TL[i] == 1) {
+    omn = 0
+    return(omn)
+  }
+  prey = fw[,i] != 0
+  omn = 1/sum(fw[,i]) * sum(fw[prey,i] * (TL[prey] - (TL[i] - 1))^2)
+  return(omn)
+}
 
 
 for(i in 1:length(web)){
@@ -70,6 +83,8 @@ for(i in 1:length(web)){
   
   attributes$losses[is.na(attributes$losses)] <- 0
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(matrix), Omnivory.species, matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   
   prim.cons = attributes$TL == 2 # primary consumers
   basals = attributes$TL == 1 # basal species
@@ -117,7 +132,12 @@ for(i in 1:length(web)){
   meta.BioExp$MaxTL[i] <- max(attributes$TL)
   meta.BioExp$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.BioExp$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
-  meta.BioExp$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  meta.BioExp$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web  
+  
+  meta.BioExp$L[i] <- Number.of.links(matrix)
+  meta.BioExp$LD[i] <- Link.density(matrix)
+  meta.BioExp$C[i] <- Connectance(matrix)
+  meta.BioExp$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 
 
@@ -166,6 +186,8 @@ for(i in 1:length(web)){
   
   attributes$losses[is.na(attributes$losses)] <- 0
   attributes$TL <- TL(matrix)
+  attributes$omnivory = sapply(1:nrow(matrix), Omnivory.species, matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   
   prim.cons = attributes$TL == 2 # primary consumers
   basals = attributes$TL == 1 # basal species
@@ -214,6 +236,11 @@ for(i in 1:length(web)){
   meta.Russian$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta.Russian$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta.Russian$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta.Russian$L[i] <- Number.of.links(matrix)
+  meta.Russian$LD[i] <- Link.density(matrix)
+  meta.Russian$C[i] <- Connectance(matrix)
+  meta.Russian$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 
 commcols <- intersect(names(meta.BioExp), names(meta.Russian))

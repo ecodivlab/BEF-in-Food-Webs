@@ -13,7 +13,7 @@
 rm(list=ls())
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd()
+#setwd()
 
 source("Food_web_functions.r")
 library(fluxweb); library(cheddar); library(igraph); library(RColorBrewer); 
@@ -28,7 +28,21 @@ perday <- 60*60*24
 meta <- read.csv("Lakes/Lakes_metadata.csv")
 lakes <- unique(meta$FW_name)
 
+#### Omnivory function ####
+Omnivory.species = function(i, fw, TL){
+  # computes omnivory of species i
+  # TL: vector of all species' TLs
+  if (TL[i] == 1) {
+    omn = 0
+    return(omn)
+  }
+  prey = fw[,i] != 0
+  omn = 1/sum(fw[,i]) * sum(fw[prey,i] * (TL[prey] - (TL[i] - 1))^2)
+  return(omn)
+}
 
+
+#### Calculate food web properties and energy fluxes ####
 for(i in 1:length(lakes)) {
   
   # imports
@@ -95,6 +109,9 @@ for(i in 1:length(lakes)) {
   attributes <- nodes
   attributes$losses[is.na(attributes$losses)] <- 0
   attributes$TL <- TL(bin.matrix)[,1]
+  consumers <- (bin.matrix)[,1]
+  attributes$omnivory = sapply(1:nrow(bin.matrix), Omnivory.species, bin.matrix, attributes$TL, simplify = TRUE)
+  attributes$omnivory[attributes$TL == 1] <- NA
   
   animals <- attributes$metabolic.type == "invertebrate" | attributes$metabolic.type == "ectotherm vertebrate" 
   plants <- attributes$metabolic.type == "primary producer"
@@ -154,6 +171,11 @@ for(i in 1:length(lakes)) {
   meta$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
   meta$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
   meta$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
+  
+  meta$L[i] <- Number.of.links(bin.matrix)
+  meta$LD[i] <- Link.density(bin.matrix)
+  meta$C[i] <- Connectance(bin.matrix)
+  meta$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
 }
 #view(meta[,-c(2:32, 34)])
 

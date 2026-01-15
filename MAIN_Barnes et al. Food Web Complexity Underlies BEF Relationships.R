@@ -15,14 +15,14 @@
 ## Load packages ##
 library(tidyverse); library(ggeffects); library(gridExtra); library(piecewiseSEM);
 library(patchwork); library(nlme); library(grid); library(car); library(rempsyc); library(ggpattern);
-library(ggh4x); library(scales); library(ggtext); library(ggrain)
+library(ggh4x); library(scales); library(ggtext); library(ggplot2)
 
 ## Clear environment and read ecosystem-specific food web data sets ##
 rm(list=ls())
 options(scipen = 999)
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd()
+#setwd()
 
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data
 meta.Marine <- read.csv('meta.Marine.csv')  
@@ -41,8 +41,7 @@ meta.Soils <- read.csv('meta.Soils.csv')
                                       
 meta.Streams <- read.csv('meta.Streams.csv')
   meta.Streams <- meta.Streams %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name") %>%
-    rename(temperature_C = temperature, NPP.proxy = avg)
-  colnames(meta.Streams)[c(5,22)] <- c("temperature_C", "NPP.raw")
+    rename(temperature_C = temperature, NPP.raw = avg)
   meta.Streams <- meta.Streams %>% mutate(NPP.proxy = ifelse(NPP.raw < 0, 0, NPP.raw), # replace negative value at Cananeia SP6 with 0
                   NPP.scale = logit(NPP.proxy))
   meta.Streams <- meta.Streams %>% mutate(NPP.scale2 = NPP.scale^2)
@@ -69,7 +68,7 @@ all_data <- bind_rows(select(meta.Marine, all_of(commcols)),
 #write.csv(all_data, file="Master dataset_FuSED.csv", row.names = F)
 
 ## Set ggplot2 theme ##
-set_theme(base=theme_classic(base_size = 10))
+theme_set(theme_classic(base_size = 10))
 
 
 ############################################################################
@@ -489,7 +488,7 @@ effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect
 
 
 #### Cross-ecosystem SEM ####
-##Explore simple linearity of simple NPP relationships
+##Explore linearity of simple NPP relationships
 ggplot(all_data, aes(x = NPP.scale, y = log(S))) +
   geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
 ggplot(all_data, aes(x = NPP.scale, y = log(MaxTL))) +
