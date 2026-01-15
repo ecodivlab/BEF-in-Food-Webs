@@ -11,14 +11,14 @@
 ## Load packages ##
 library(tidyverse); library(ggeffects); library(gridExtra); library(piecewiseSEM);
 library(patchwork); library(nlme); library(grid); library(car); library(rempsyc); library(ggpattern);
-library(ggh4x); library(scales); library(ggtext); library(ggrain); library(glmmTMB); 
+library(ggh4x); library(scales); library(ggtext); library(ggrain); library(glmmTMB); library(ggcorrplot)
 
 ## Clear environment and read ecosystem-specific food web data sets ##
 rm(list=ls())
 options(scipen = 999)
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd()
+setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
 
 
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data
@@ -40,8 +40,7 @@ meta.Soils <- meta.Soils %>% mutate(stability.inv = 1-log10(stability))
 
 meta.Streams <- read.csv('meta.Streams.csv')
 meta.Streams <- meta.Streams %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name") %>%
-  rename(temperature_C = temperature, NPP.proxy = avg)
-colnames(meta.Streams)[c(5,22)] <- c("temperature_C", "NPP.raw")
+  rename(temperature_C = temperature, NPP.raw = avg)
 meta.Streams <- meta.Streams %>% mutate(NPP.proxy = ifelse(NPP.raw < 0, 0, NPP.raw), # replace negative value at Cananeia SP6 with 0
                                         NPP.scale = logit(NPP.proxy))
 meta.Streams <- meta.Streams %>% mutate(NPP.scale2 = NPP.scale^2)
@@ -67,9 +66,10 @@ all_data <- bind_rows(select(meta.Marine, all_of(commcols)),
                       select(meta.Lakes, all_of(commcols)))
 
 ## graphics settings ##
-set_theme(base=theme_classic(base_size = 10))
+theme_set(theme_classic(base_size = 10))
 all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
                                   levels = c("Marine", "Soils", "Streams", "Lakes"))
+
 
 #### Bivariate relationship total flux ~ taxon richness (Extended Data Fig. 1a) #####
 
@@ -110,9 +110,6 @@ S.total.sjp_global <- ggplot(Total_flux_Global, aes(x, predicted)) +
 
 ## Produce Supplementary Figure 1 scatterplot ##
 #ggsave("Supplementary fig 1 scatterplot.svg", S.total.sjp_global, width = 16, height = 16, units = "cm")
-
-
-
 
 
 
@@ -182,11 +179,10 @@ S.StabilityTotal_Global <- ggplot(Stability_Global, aes(x, predicted)) +
   theme(legend.position="none", plot.margin = unit(c(4, 5.5, 5.5, 5.5), "pt")) +
   scale_colour_identity()
 
-## Produce Supplementary Figure 3 ##
+## Produce Extended Data Figure 2a ##
 Richness_main_SuppInfo <- grid.arrange(patchworkGrob(PC.predation_Global / S.StabilityTotal_Global)) 
 
-ggsave("Supplementary Figure 3 scatterplots.png", Richness_main_SuppInfo, width = 8, height = 10.5, units = "cm")
-
+ggsave("Extended Data Figure 2 scatterplots.png", Richness_main_SuppInfo, width = 8, height = 10.5, units = "cm")
 
 
 
@@ -249,6 +245,21 @@ FW.Properties <- Richness_main <- grid.arrange(patchworkGrob((NPP | Temperature 
 ggsave(filename = "FW.Properties.png", FW.Properties, width = 200, height = 130, unit = "mm", dpi = 300)
 
 
+
+
+#### Correlations among food web properties ####
+fw.corr <- round(cor(all_data[,c(14,20:23,16:18)]), 1)
+colnames(fw.corr) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
+rownames(fw.corr) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
+
+fw.p.mat <- cor_pmat(all_data[,c(14,20:23,16:18)])
+colnames(fw.p.mat) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
+rownames(fw.p.mat) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
+
+ggcorrplot(fw.corr, p.mat = fw.p.mat, type = "upper", 
+           outline.color = "white", lab = TRUE, 
+           insig = "blank", lab_col="white",
+           colors = c("#A50103", "#FFFEFE", "#061486"))
 
 
 #### Predation/prim. consumption relationships with environmental temperature and NPP ####
@@ -582,6 +593,182 @@ colnames(SEM.all.total2_Q.Std.Est) <- c("response", "F^2")
 
 
 
+
+#### Cross-ecosystem SEM with additional food web properties ####
+##Explore linearity of simple NPP relationships
+ggplot(all_data, aes(x = NPP.scale, y = log(S))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(MaxTL))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = logit(sim.prim.cons))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = logit(sim.sec.cons))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(prim.consumption))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(second.consumption))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(C))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2)) +
+ggplot(all_data, aes(x = NPP.scale, y = log(omnivory))) +
+  geom_point(data = all_data, aes(alpha = 0.6, colour=ecosystem.type)) + geom_smooth(method = "lm", formula = y ~ x + I(x^2))
+
+modS = lme(log(S) ~ NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(modS, which=1)
+qqnorm(modS)
+modSa = lme(log(S) ~ poly(NPP.scale,2,raw=TRUE), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #best model
+plot(modSa, which=1)
+qqnorm(modSa)
+anova(modS, modSa)
+summary(modSa)
+
+
+mod1 = lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(mod1, which=1)
+qqnorm(mod1)
+mod1a = lme(log(MaxTL) ~ log(S) + poly(NPP.scale,2,raw=TRUE), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #best model
+plot(mod1, which=1)
+qqnorm(mod1)
+anova(mod1, mod1a)
+summary(mod1a)
+
+
+mod2 = lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(mod2)
+qqnorm(mod2)
+mod2a = lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights = varIdent(form=~1|study_ID), data=all_data, method="ML") #best model
+plot(mod2a)
+qqnorm(mod2a)
+mod2b = lme(logit(sim.prim.cons) ~ log(S) + poly(NPP.scale,2,raw=TRUE), weights=varIdent(form=~1|study_ID), 
+            control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(mod2b)
+qqnorm(mod2b)
+anova(mod2, mod2a, mod2b)
+summary(mod2a)
+
+mod3 = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML") 
+plot(mod3)
+qqnorm(mod3)
+mod3a = lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S) + NPP.scale, weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID,  # Best model
+            control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data, method="ML") 
+plot(mod3a)
+qqnorm(mod3a)
+anova(mod3, mod3a)
+summary(mod3a)
+
+mod4 = lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|study_ID, data=all_data, method="ML") # Best model
+plot(mod4, which=1)
+qqnorm(mod4)
+mod4a = lme(log(prim.consumption) ~ log(S) + poly(NPP.scale,2,raw=TRUE), random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(mod4a, which=1)
+qqnorm(mod4a)
+anova(mod4, mod4a)
+summary(mod4)
+
+mod5 = lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale + logit(sim.sec.cons), random=~1|study_ID, data=all_data, method="ML")  # Best model
+plot(mod5, which=1)
+qqnorm(mod5)
+mod5a = lme(log(second.consumption) ~ log(MaxTL) + log(S) + poly(NPP.scale,2,raw=TRUE) + logit(sim.sec.cons), random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(mod5a, which=1)
+qqnorm(mod5a)
+anova(mod5, mod5a)
+summary(mod5)
+
+mod6 = lme(log(C) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(mod6, which=1)
+qqnorm(mod6)
+mod6a = lme(log(C) ~ log(S) + poly(NPP.scale,2,raw=TRUE), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #best model
+plot(mod6a, which=1)
+qqnorm(mod6a)
+anova(mod6, mod6a)
+summary(mod6)
+
+mod7 = lme(log(omnivory) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
+plot(mod7, which=1)
+qqnorm(mod7)
+mod7a = lme(log(omnivory) ~ log(S) + poly(NPP.scale,2,raw=TRUE), random=~1|ecosystem.type/study_ID, data=all_data, method="ML") #best model
+plot(mod7a, which=1)
+qqnorm(mod7a)
+anova(mod7, mod7a)
+summary(mod7)
+
+mod7b = glmmTMB(omnivory ~ log(S) + NPP.scale + (1|ecosystem.type/study_ID), family = t_family(), data = all_data, REML = FALSE)
+summary(mod7b)
+
+
+### Maximal model
+SEM.all_properties <- psem(
+  lme(log(S) ~ NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(C) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  glmmTMB(omnivory ~ log(S) + NPP.scale + (1|ecosystem.type/study_ID), family = t_family(), data = all_data),
+  lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.prim.cons) ~ log(MaxTL) + log(S), weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID, 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(prim.consumption) ~ log(C) + omnivory + log(MaxTL) + logit(sim.prim.cons), random=~1|ecosystem.type/study_ID, 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(second.consumption) ~ log(C) + omnivory + log(MaxTL) + logit(sim.sec.cons), random=~1|ecosystem.type/study_ID, data=all_data),
+  
+  log(C) %~~% log(MaxTL),
+  log(C) %~~% omnivory,
+  log(C) %~~% logit(sim.prim.cons),
+  log(C) %~~% logit(sim.sec.cons),
+  logit(sim.prim.cons) %~~% logit(sim.sec.cons),
+  log(prim.consumption) %~~% logit(sim.sec.cons),
+  log(second.consumption) %~~% logit(sim.prim.cons),
+  log(second.consumption) %~~% log(prim.consumption)
+)
+
+summary(SEM.all_properties)
+
+
+### Min adequate model
+SEM.all_properties2 <- psem(
+  lme(log(S) ~ NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(C) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  glmmTMB(omnivory ~ log(MaxTL) + NPP.scale + (1|ecosystem.type/study_ID), family = t_family(), data = all_data),
+  lme(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(logit(sim.prim.cons) ~ log(S) + log(MaxTL) + omnivory, random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
+  lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale + logit(sim.sec.cons), random=~1|ecosystem.type/study_ID, data=all_data),
+  
+  log(C) %~~% log(MaxTL),
+  log(C) %~~% omnivory,
+  log(C) %~~% logit(sim.prim.cons),
+  log(C) %~~% logit(sim.sec.cons),
+  logit(sim.prim.cons) %~~% logit(sim.sec.cons),
+  log(prim.consumption) %~~% logit(sim.sec.cons),
+  log(second.consumption) %~~% logit(sim.prim.cons),
+  log(second.consumption) %~~% log(prim.consumption)
+)
+
+summary(SEM.all_properties2)
+
+all_omnivory.mod <- glmmTMB(omnivory ~ log(MaxTL) + NPP.scale + (1|ecosystem.type/study_ID), family = t_family(), data = all_data)
+library(performance)
+r2_nakagawa(all_omnivory.mod, tolerance = 1e-20) 
+
+betas_MaxTL <- fixef(all_omnivory.mod)$cond["log(MaxTL)"]       
+betas_NPP.scale <- fixef(all_omnivory.mod)$cond["NPP.scale"] 
+
+sd_x_MaxTL <- sd(log(all_data$MaxTL)) # SD of predictors 
+sd_x_NPP.scale <- sd(all_data$NPP.scale)
+
+lp <- predict(all_omnivory.mod, type = "link") 
+sd_y <- sd(lp)  # SD of response on link scale (Lefcheck 2016)
+beta_std_MaxTL <- betas_MaxTL * (sd_x_MaxTL / sd_y)  
+betas_std_NPP.scale <- betas_NPP.scale * (sd_x_NPP.scale / sd_y)
+
+results.all_propertiesSEM <- summary(SEM.all_properties2)$coefficients[c(1:19,27),c(1:5, 8, 7)]
+names(results.all_propertiesSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
+fun <- function(x) {
+  formatC(x, format = "f", digits = 3)
+}
+all_propertiesSEM_table <- nice_table(results.all_propertiesSEM, col.format.custom = c(3:4,6:7), format.custom = "fun")
 
 
 
