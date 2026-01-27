@@ -130,6 +130,11 @@ for(i in 1:length(web)){
   meta.RP$LD[i] <- Link.density(matrix)
   meta.RP$C[i] <- Connectance(matrix)
   meta.RP$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
+  
+  # modularity
+  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  community = cluster_walktrap(g)
+  meta.RP$modularity[i] = modularity(g, membership(community))
 }
 
 
@@ -228,6 +233,11 @@ for(i in 1:length(web)){
   meta.BS$LD[i] <- Link.density(matrix)
   meta.BS$C[i] <- Connectance(matrix)
   meta.BS$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
+  
+  # modularity
+  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  community = cluster_walktrap(g)
+  meta.BS$modularity[i] = modularity(g, membership(community))
 }
 
 

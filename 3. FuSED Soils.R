@@ -138,6 +138,11 @@ for(i in 1:length(web)){
   meta.BioExp$LD[i] <- Link.density(matrix)
   meta.BioExp$C[i] <- Connectance(matrix)
   meta.BioExp$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
+  
+  # modularity
+  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  community = cluster_walktrap(g)
+  meta.BioExp$modularity[i] = modularity(g, membership(community))
 }
 
 
@@ -241,6 +246,11 @@ for(i in 1:length(web)){
   meta.Russian$LD[i] <- Link.density(matrix)
   meta.Russian$C[i] <- Connectance(matrix)
   meta.Russian$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
+  
+  # modularity
+  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  community = cluster_walktrap(g)
+  meta.Russian$modularity[i] = modularity(g, membership(community))
 }
 
 commcols <- intersect(names(meta.BioExp), names(meta.Russian))

@@ -18,6 +18,7 @@ rm(list=ls())
 source("Food_web_functions.r")
 library(fluxweb); library(cheddar); library(igraph); library(RColorBrewer); 
 library(colorspace); library(sp); library(dplyr); library(tibble)
+
 options(stringsAsFactors=FALSE)
 
 #### Adirondack and Maggiore lakes ####
@@ -176,6 +177,11 @@ for(i in 1:length(lakes)) {
   meta$LD[i] <- Link.density(bin.matrix)
   meta$C[i] <- Connectance(bin.matrix)
   meta$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
+  
+  # modularity
+  g = graph_from_adjacency_matrix(bin.matrix, mode = "undirected")
+  community = cluster_walktrap(g)
+  meta$modularity[i] = modularity(g, membership(community))
 }
 #view(meta[,-c(2:32, 34)])
 
