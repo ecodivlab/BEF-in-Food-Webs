@@ -1,7 +1,7 @@
 #=========================================================================================================================
 #     
 # Code for Barnes et al. 'Food Web Complexity Underlies the Relationship Between Biodiversity and Ecosystem Functioning'
-# Calculation of energy fluxes in 48 lake food webs
+# Calculation of energy fluxes in 48 lake food webs applying sensitivty
 #
 #=========================================================================================================================
 
