@@ -50,23 +50,40 @@ perday <- 60*60*24
 
 
 ### set number of replicates to run ###
-n = 5
+n = 1000
 
 ### generate set of n parameter combination ###
 params = data.frame(
   n = 1:n,
-  X.exp = rnorm(n,0,1)
+  X.exp = rnorm(n,0,1),
+  X.temp = rnorm(n,0,1),
+  eff.exp.inv = rnorm(n,0,1),
+  eff.exp.prod = rnorm(n,0,1),
+  eff.exp.det = rnorm(n,0,1),
+  eff.temp.inv = rnorm(n,0,1),
+  eff.temp.prod = rnorm(n,0,1),
+  eff.temp.det = rnorm(n,0,1)
 )
 
 
 #### run the flux calculation for each parameter combination ####
+# test = function(x){
+#   cat(x, '\n')
+# }
+# apply(params, 1, test)
+
 results.lakes = apply(params, 1, flux.lakes)
 results.marine = apply(params, 1, flux.marine)
 results.soils = apply(params, 1, flux.soils)
 results.streams = apply(params, 1, flux.streams)
 
 # # parallelised version (check compatibility with windows systems)
-# results.lakes = future_apply(params, flux.lakes)
-# results$marine = future_apply(params, flux.marine)
-# results$soils = future_apply(params, flux.soils)
-# results$streams = future_apply(params, flux.streams)
+nbrOfWorkers() # see number of processors locally
+plan(multisession, workers = nbrOfWorkers() - 2)
+results.lakes = future_apply(params, 1, flux.lakes)
+results.marine = future_apply(params, 1, flux.marine)
+results.soils = future_apply(params, 1, flux.soils)
+results.streams = future_apply(params, 1, flux.streams)
+
+# save in a R object:
+save(results.lakes, results.marine, results.soils, results.streams, file = "sensitivities/sensitivity.Rdata")

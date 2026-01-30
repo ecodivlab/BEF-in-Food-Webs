@@ -10,6 +10,14 @@ flux.marine = function(params){
   
   # access specific parameter combination
   repl = params[1]
+  X.exp = params[2]
+  X.temp = params[3]
+  eff.exp.inv = params[4]
+  eff.exp.prod = params[5]
+  eff.exp.det = params[6]
+  eff.temp.inv = params[7]
+  eff.temp.prod = params[8]
+  eff.temp.det = params[9]
     
   #### Intertidal Rockpools ####
   meta.RP <- read.csv("Intertidalrockpools/Intertidalrockypools_metadata.csv")
@@ -104,9 +112,8 @@ flux.marine = function(params){
     meta.RP$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.RP$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.RP$modularity[i] = modularity(igraph, membership(community))
   }
   
   
@@ -207,15 +214,16 @@ flux.marine = function(params){
     meta.BS$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.BS$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.BS$modularity[i] = modularity(igraph, membership(community))
   }
   
   
   commcols <- intersect(names(meta.RP), names(meta.BS))
   meta.Marine <- bind_rows(select(meta.RP, all_of(commcols)),
                            select(meta.BS, all_of(commcols)))
+  
+  meta.Marine$replicate = repl
   
   return(meta.Marine)
   

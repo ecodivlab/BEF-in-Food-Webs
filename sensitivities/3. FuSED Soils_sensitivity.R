@@ -10,6 +10,14 @@ flux.soils = function(params){
   
   # access specific parameter combination
   repl = params[1]
+  X.exp = params[2]
+  X.temp = params[3]
+  eff.exp.inv = params[4]
+  eff.exp.prod = params[5]
+  eff.exp.det = params[6]
+  eff.temp.inv = params[7]
+  eff.temp.prod = params[8]
+  eff.temp.det = params[9]
   
   #### Biodiversity Exploratories ####
   meta.BioExp <- read.csv("Biodiversity Exploratories/explo_metadata_copy.csv")
@@ -113,9 +121,8 @@ flux.soils = function(params){
     meta.BioExp$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.BioExp$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.BioExp$modularity[i] = modularity(igraph, membership(community))
   }
   
   
@@ -221,14 +228,15 @@ flux.soils = function(params){
     meta.Russian$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.Russian$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.Russian$modularity[i] = modularity(igraph, membership(community))
   }
   
   commcols <- intersect(names(meta.BioExp), names(meta.Russian))
   meta.Soils <- bind_rows(select(meta.BioExp, all_of(commcols)),
                           select(meta.Russian, all_of(commcols)))
+  
+  meta.Soils$replicate = repl
   
   return(meta.Soils)
 }

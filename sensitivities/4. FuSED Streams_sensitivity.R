@@ -10,6 +10,14 @@ flux.streams = function(params){
   
   # access specific parameter combination
   repl = params[1]
+  X.exp = params[2]
+  X.temp = params[3]
+  eff.exp.inv = params[4]
+  eff.exp.prod = params[5]
+  eff.exp.det = params[6]
+  eff.temp.inv = params[7]
+  eff.temp.prod = params[8]
+  eff.temp.det = params[9]
   
   
   #### Fluxweb analysis Icelandic Streams ####
@@ -89,9 +97,8 @@ flux.streams = function(params){
     meta.IS$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.IS$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.IS$modularity[i] = modularity(igraph, membership(community))
     
   }
   
@@ -188,9 +195,8 @@ flux.streams = function(params){
     meta.UK$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.UK$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.UK$modularity[i] = modularity(igraph, membership(community))
   }
   
   
@@ -292,9 +298,8 @@ flux.streams = function(params){
     meta.Brauns$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.Brauns$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.Brauns$modularity[i] = modularity(igraph, membership(community))
   }
   meta.Brauns$C <- as.numeric(meta.Brauns$C)
   
@@ -391,9 +396,8 @@ flux.streams = function(params){
     meta.Brazil$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
     
     # modularity
-    g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-    community = cluster_walktrap(g)
-    meta.Brazil$modularity[i] = modularity(g, membership(community))
+    community = cluster_walktrap(igraph)
+    meta.Brazil$modularity[i] = modularity(igraph, membership(community))
   }
   
   
@@ -405,5 +409,7 @@ flux.streams = function(params){
                             select(meta.Brauns, all_of(commcols)),
                             select(meta.Brazil, all_of(commcols)))
   
-  write.csv(meta.Streams, file = 'meta.Streams.csv', row.names = F)
+  meta.Streams$replicate = repl
+  
+  return(meta.Streams)
 }
