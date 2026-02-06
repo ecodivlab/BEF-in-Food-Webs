@@ -153,7 +153,7 @@ flux.lakes = function(params){
     meta$sim.sec.cons[i] = mean(sim.mat[sec.cons, sec.cons]) # trophic similarity for secondary consumers
     meta$sim.prim.cons[i] = mean(sim.mat[primary.cons.and.omnivores, primary.cons.and.omnivores])
     meta$sim.total[i] = mean(sim.mat[!basals, !basals]) # trophic similarity for whole food web
-    
+    # cat(Number.of.links(bin.matrix), '\n')
     meta$L[i] <- Number.of.links(bin.matrix)
     meta$LD[i] <- Link.density(bin.matrix)
     meta$C[i] <- Connectance(bin.matrix)
@@ -164,7 +164,7 @@ flux.lakes = function(params){
     meta$modularity[i] = modularity(igraph, membership(community))
   }
   #view(meta[,-c(2:32, 34)])
-  
+  meta$L = as.numeric(meta$L) #not clear why converted to string just here
   meta.Lakes <- meta[,-c(2:32, 34)]
   
   meta.Lakes <- filter(meta.Lakes, second.consumption > 0) #remove food webs with no secondary consumers (Brooke Trout and South Lake). 

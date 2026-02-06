@@ -19,7 +19,7 @@ source("Food_web_functions.r")
 library(fluxweb); library(cheddar); library(igraph); library(RColorBrewer); 
 library(colorspace); library(sp); library(dplyr); library(tibble)
 
-library(future.apply)
+library(future)
 
 options(stringsAsFactors=FALSE)
 
@@ -50,7 +50,7 @@ perday <- 60*60*24
 
 
 ### set number of replicates to run ###
-n = 1000
+n = 10
 
 ### generate set of n parameter combination ###
 params = data.frame(
@@ -72,14 +72,14 @@ params = data.frame(
 # }
 # apply(params, 1, test)
 
-results.lakes = apply(params, 1, flux.lakes)
-results.marine = apply(params, 1, flux.marine)
-results.soils = apply(params, 1, flux.soils)
-results.streams = apply(params, 1, flux.streams)
+# results.lakes = apply(params, 1, flux.lakes)
+# results.marine = apply(params, 1, flux.marine)
+# results.soils = apply(params, 1, flux.soils)
+# results.streams = apply(params, 1, flux.streams)
 
 # # parallelised version (check compatibility with windows systems)
-nbrOfWorkers() # see number of processors locally
-plan(multisession, workers = nbrOfWorkers() - 2)
+nb.proc = availableCores() - 2 # see number of processors locally
+plan(multisession, workers = nb.proc)
 results.lakes = future_apply(params, 1, flux.lakes)
 results.marine = future_apply(params, 1, flux.marine)
 results.soils = future_apply(params, 1, flux.soils)
