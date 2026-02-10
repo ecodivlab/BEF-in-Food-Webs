@@ -55,12 +55,12 @@ n = 10
 ### generate set of n parameter combination ###
 params = data.frame(
   n = 1:n,
-  X.exp = rnorm(n,0,1),
+  X.exp = rnorm(n,0.71,1),
   X.temp = rnorm(n,0,1),
   eff.exp.inv = rnorm(n,0,1),
   eff.exp.prod = rnorm(n,0,1),
   eff.exp.det = rnorm(n,0,1),
-  eff.temp.inv = rnorm(n,0,1),
+  eff.temp.anim = rnorm(n,0,1),
   eff.temp.prod = rnorm(n,0,1),
   eff.temp.det = rnorm(n,0,1)
 )
