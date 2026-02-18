@@ -63,8 +63,8 @@ flux.lakes = function(params){
     
     # losses
     nodes$losses <- 0
-    nodes$losses[nodes$metabolic.type=="invertebrate"] <- exp((0.71 * log(nodes$mass.mean.g.[nodes$metabolic.type=="invertebrate"]) + 17.17) - 0.69/(boltz*(temp.K))) * nodes$density.comb[nodes$metabolic.type=="invertebrate"]
-    nodes$losses[nodes$metabolic.type=="ectotherm vertebrate"] <- exp((0.71 * log(nodes$mass.mean.g.[nodes$metabolic.type=="ectotherm vertebrate"]) + 18.47) - 0.69/(boltz*(temp.K))) * nodes$density.comb[nodes$metabolic.type=="ectotherm vertebrate"]
+    nodes$losses[nodes$metabolic.type=="invertebrate"] <- exp((X.exp * log(nodes$mass.mean.g.[nodes$metabolic.type=="invertebrate"]) + 17.17) - X.temp/(boltz*(temp.K))) * nodes$density.comb[nodes$metabolic.type=="invertebrate"]
+    nodes$losses[nodes$metabolic.type=="ectotherm vertebrate"] <- exp((X.exp * log(nodes$mass.mean.g.[nodes$metabolic.type=="ectotherm vertebrate"]) + 18.47) - X.temp/(boltz*(temp.K))) * nodes$density.comb[nodes$metabolic.type=="ectotherm vertebrate"]
     
     ## Losses for fish eggs?? - unknown density - currently these are omitted anyway
     nodes$losses[is.na(nodes$losses)] <- 0

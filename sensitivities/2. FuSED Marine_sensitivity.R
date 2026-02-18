@@ -42,10 +42,10 @@ flux.marine = function(params){
     animals <- attributes$metabolic_type != "primary producer"  
     plants <- attributes$metabolic_type == "primary producer"
     
-    attributes$losses[attributes$metabolic_type=="ectotherm invertebrate"] <- exp((0.71 * log(attributes$bodymass[attributes$metabolic_type=="ectotherm invertebrate"]) + 17.17) 
-                                                                                  - 0.69/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm invertebrate"]
-    attributes$losses[attributes$metabolic_type=="ectotherm vertebrate"] <- exp((0.71 * log(attributes$bodymass[attributes$metabolic_type=="ectotherm vertebrate"]) + 18.47) 
-                                                                                - 0.69/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm vertebrate"]
+    attributes$losses[attributes$metabolic_type=="ectotherm invertebrate"] <- exp((X.exp * log(attributes$bodymass[attributes$metabolic_type=="ectotherm invertebrate"]) + 17.17) 
+                                                                                  - X.temp/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm invertebrate"]
+    attributes$losses[attributes$metabolic_type=="ectotherm vertebrate"] <- exp((X.exp * log(attributes$bodymass[attributes$metabolic_type=="ectotherm vertebrate"]) + 18.47) 
+                                                                                - X.temp/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm vertebrate"]
     attributes$efficiencies[animals] <- exp(2.266)*exp(0.164*temp.arr) / (1 + exp(2.266)*exp(0.164*temp.arr))
     attributes$efficiencies[plants] <- exp(0.179)*exp(0.164*temp.arr) / (1 + exp(0.179)*exp(0.164*temp.arr))
     
