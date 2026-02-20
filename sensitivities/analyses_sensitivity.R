@@ -89,7 +89,7 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   
   results$sensitivity.all = output.all
   meta.Marine[1,1]
-  # weird interaction between gls and apply... have to make it global... deleteing it just after    
+  # weird interaction between gls and apply... have to make it global if in a function???
   meta.Marine2 <<- meta.Marine
   warning('2')
   ## Marine
@@ -107,8 +107,8 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
     log(second.consumption) %~~% logit(sim.prim.cons),
     log(second.consumption) %~~% log(prim.consumption)
   )
-  rm(meta.Marine2)
-  warning('3')
+  # rm(meta.Marine2)
+  # warning('3')
   #Extracts r-squared for primary & secondary consumption, global P-value, and p-values for paths to functions included in minimum adequate SEM (excluding NPP)
   xx = summary(SEM.Marine3)
   output.Marine = c(rsquared(SEM.Marine3)[5,5], rsquared(SEM.Marine3)[6,5], xx$Cstat[,3],
@@ -116,7 +116,7 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   names(output.Marine) = c('r2.prim.consumtion', 'r2.predation', 'SEM.P_value',
                            'P_taxa_prim.consumption', 'P_MaxTL_predation')
   results$sensitivity.Marine = output.Marine
-  warning('4')
+  # warning('4')
   
   ## Soils
   
@@ -135,8 +135,8 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
     log(second.consumption) %~~% logit(sim.prim.cons),
     log(second.consumption) %~~% log(prim.consumption)
   )
-  rm(meta.Soils2)
-  #Extracts r-squared for primary & secondary consumption, global P-value, and p-values for paths to functions included in minimum adequate SEM (excluding NPP)
+
+    #Extracts r-squared for primary & secondary consumption, global P-value, and p-values for paths to functions included in minimum adequate SEM (excluding NPP)
   xx = summary(SEM.Soils3)
   output.Soils = c(rsquared(SEM.Soils3)[5,5], rsquared(SEM.Soils3)[6,5], xx$Cstat[,3],
                    xx$coefficients[8,7], xx$coefficients[10,7], xx$coefficients[11,7]) 
@@ -186,8 +186,8 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
     log(second.consumption) %~~% logit(sim.prim.cons),
     log(second.consumption) %~~% log(prim.consumption)
   )
-  rm(meta.Lakes2)
-  #Extracts r-squared for primary & secondary consumption, global P-value, and p-values for paths to functions included in minimum adequate SEM (excluding NPP)
+
+    #Extracts r-squared for primary & secondary consumption, global P-value, and p-values for paths to functions included in minimum adequate SEM (excluding NPP)
   xx = summary(SEM.Lakes3)
   output.Lakes = c(rsquared(SEM.Lakes3)[5,5], rsquared(SEM.Lakes3)[6,5], xx$Cstat[,3],
                    xx$coefficients[7,7], xx$coefficients[8,7], xx$coefficients[9,7], xx$coefficients[10,7]) 
@@ -196,8 +196,6 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   results$sensitivity.Lakes = output.Lakes
   return(results)
 }
-
-n = 3
 
 # because of the replicative approch, some SEM might fail. using the wrapper funciton 
 # with a trycatch will ensure that NA are returned in that case (and not errors breaking everything)
@@ -214,27 +212,49 @@ SEM.wrapper = function(i, results.lakes, results.marine, results.soils, results.
              })
 }
 
-nb.proc = availableCores() - 2 # let two proc free
-plan(multisession, workers = nb.proc)
-combined.results = lapply(
-  as.list(1:n), 
-  # SEM.sensitivity,
-  SEM.wrapper,
-  results.lakes, results.marine, results.soils, results.streams)
+##########################################################################
+###### end of functions now different code options to run them ############
 
-# now remove list elements with NA
-combined.results <- combined.results[!sapply(combined.results, function(el) any(is.na(el$sensitivity.all)))]
+
+##### try with apply and par_apply. Failing between issues in variable scopes between PSEM and gls
+# nb.proc = availableCores() - 2 # let two proc free
+# plan(multisession, workers = nb.proc)
+# combined.results = lapply(
+#   as.list(1:n), 
+#   # SEM.sensitivity,
+#   SEM.wrapper,
+#   results.lakes, results.marine, results.soils, results.streams)
+# 
+# # now remove list elements with NA
+# combined.results <- combined.results[!sapply(combined.results, function(el) any(is.na(el$sensitivity.all)))]
 
 
 stack.vectors = function(name, combined.results) {
   as.data.frame(do.call(rbind, future_lapply(combined.results, `[[`, name)))
 }
 
+##### basic loop
+n = 50
+start_time <- Sys.time()
+combined.results = list()
+for (i in 1:n){
+  combined.results[[i]] = SEM.wrapper(i, results.lakes, results.marine, results.soils, results.streams)
+  rm(meta.Marine2)
+  rm(meta.Soils2)
+  rm(meta.Lakes2)
+}
+end.time = Sys.time()
+timing = end.time - start_time
+#check average duration of one iteration
+timing / n
 
-# xx = list()
-# for (i in 1:3){
-#   xx[[i]] = SEM.sensitivity(i, results.lakes, results.marine, results.soils, results.streams)
-# }
+combined.results <- combined.results[!sapply(combined.results, function(el) any(is.na(el$sensitivity.all)))]
+
+#average time of succesful iterations:
+timing / length(combined.results)
+
+#proportion that returned NAs:
+length(combined.results) / n
 
 # xx.all = stack.vectors("sensitivity.all", xx)
 
