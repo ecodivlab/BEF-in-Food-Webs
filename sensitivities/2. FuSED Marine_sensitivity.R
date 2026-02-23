@@ -46,8 +46,9 @@ flux.marine = function(params){
                                                                                   - X.temp/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm invertebrate"]
     attributes$losses[attributes$metabolic_type=="ectotherm vertebrate"] <- exp((X.exp * log(attributes$bodymass[attributes$metabolic_type=="ectotherm vertebrate"]) + 18.47) 
                                                                                 - X.temp/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm vertebrate"]
-    attributes$efficiencies[animals] <- exp(2.266)*exp(0.164*temp.arr) / (1 + exp(2.266)*exp(0.164*temp.arr))
-    attributes$efficiencies[plants] <- exp(0.179)*exp(0.164*temp.arr) / (1 + exp(0.179)*exp(0.164*temp.arr))
+    attributes$efficiencies[animals] <- exp(eff.exp.inv)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.inv)*exp(eff.temp.inv*temp.arr)) #animal
+    attributes$efficiencies[plants] <- exp(eff.exp.prod)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.prod)*exp(eff.temp.inv*temp.arr)) # plant
+    
     
     attributes$losses[is.na(attributes$losses)] <- 0
     attributes$TL <- TL(matrix)

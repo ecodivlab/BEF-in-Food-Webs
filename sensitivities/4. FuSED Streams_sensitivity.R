@@ -140,15 +140,15 @@ flux.streams = function(params){
     omnivores = eat.basals & eat.animals
     primary.cons.and.omnivores = omnivores | prim.cons
     
-    attributes$losses[attributes$metabolic_type=="ectotherm invertebrate"] <- exp((0.71 * log(attributes$bodymass[attributes$metabolic_type=="ectotherm invertebrate"]) + 17.17) 
-                                                                                  - 0.69/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm invertebrate"]
-    attributes$losses[attributes$metabolic_type=="ectotherm vertebrate"] <- exp((0.71 * log(attributes$bodymass[attributes$metabolic_type=="ectotherm vertebrate"]) + 18.47) 
-                                                                                - 0.69/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm vertebrate"]
+    attributes$losses[attributes$metabolic_type=="ectotherm invertebrate"] <- exp((X.exp * log(attributes$bodymass[attributes$metabolic_type=="ectotherm invertebrate"]) + 17.17) 
+                                                                                  - X.temp/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm invertebrate"]
+    attributes$losses[attributes$metabolic_type=="ectotherm vertebrate"] <- exp((X.exp * log(attributes$bodymass[attributes$metabolic_type=="ectotherm vertebrate"]) + 18.47) 
+                                                                                - X.temp/(boltz*(temp.K))) * attributes$abundance[attributes$metabolic_type=="ectotherm vertebrate"]
     attributes$losses[is.na(attributes$losses)] <- 0
     
-    attributes$efficiencies[attributes$metabolic_type=="ectotherm invertebrate"|attributes$metabolic_type=="ectotherm vertebrate"] <- exp(2.266)*exp(0.164*temp.arr) / (1 + exp(2.266)*exp(0.164*temp.arr))
-    attributes$efficiencies[attributes$metabolic_type=="plant"] <- exp(0.179)*exp(0.164*temp.arr) / (1 + exp(0.179)*exp(0.164*temp.arr))
-    attributes$efficiencies[attributes$metabolic_type=="detritus"] <- exp(-1.670)*exp(0.164*temp.arr) / (1 + exp(-1.670)*exp(0.164*temp.arr))
+    attributes$efficiencies[animals] <- exp(eff.exp.inv)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.inv)*exp(eff.temp.inv*temp.arr)) #animal
+    attributes$efficiencies[plants] <- exp(eff.exp.prod)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.prod)*exp(eff.temp.inv*temp.arr)) # plant
+    attributes$efficiencies[detritus] <- exp(eff.exp.det)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.det)*exp(eff.temp.inv*temp.arr)) #detritus
     
     
     ## Calculating fluxes

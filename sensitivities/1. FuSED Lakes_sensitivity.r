@@ -11,6 +11,7 @@
 
 flux.lakes = function(params){
   # access specific parameter combination
+  params = as.numeric(params)
   repl = params[1]
   X.exp = params[2]
   X.temp = params[3]
@@ -70,9 +71,9 @@ flux.lakes = function(params){
     nodes$losses[is.na(nodes$losses)] <- 0
     
     # efficiencies
-    nodes$efficiencies[nodes$metabolic.type=="invertebrate" | nodes$metabolic.type=="ectotherm vertebrate"] <- exp(2.266)*exp(0.164*temp.arr) / (1 + exp(2.266)*exp(0.164*temp.arr)) #animal
-    nodes$efficiencies[nodes$metabolic.type=="primary producer"] <- exp(0.179)*exp(0.164*temp.arr) / (1 + exp(0.179)*exp(0.164*temp.arr)) # plant
-    nodes$efficiencies[nodes$metabolic.type=="detritus"] <- exp(-1.670)*exp(0.164*temp.arr) / (1 + exp(-1.670)*exp(0.164*temp.arr)) #detritus
+    nodes$efficiencies[nodes$metabolic.type=="invertebrate" | nodes$metabolic.type=="ectotherm vertebrate"] <- exp(eff.exp.inv)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.inv)*exp(eff.temp.inv*temp.arr)) #animal
+    nodes$efficiencies[nodes$metabolic.type=="primary producer"] <- exp(eff.exp.prod)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.prod)*exp(eff.temp.inv*temp.arr)) # plant
+    nodes$efficiencies[nodes$metabolic.type=="detritus"] <- exp(eff.exp.det)*exp(eff.temp.inv*temp.arr) / (1 + exp(eff.exp.det)*exp(eff.temp.inv*temp.arr)) #detritus
     
     # preferences (biomass matrix)
     B.matrix <- matrix * nodes$biomass
