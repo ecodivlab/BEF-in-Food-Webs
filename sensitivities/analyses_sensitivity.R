@@ -234,7 +234,10 @@ stack.vectors = function(name, combined.results) {
 }
 
 ##### basic loop
-n = 50
+n = 10
+n = min(length(results.lakes), length(results.marine), length(results.soils), length(results.streams))
+n = 1450
+
 start_time <- Sys.time()
 combined.results = list()
 for (i in 1:n){
@@ -246,6 +249,7 @@ for (i in 1:n){
 end.time = Sys.time()
 timing = end.time - start_time
 #check average duration of one iteration
+timing
 timing / n
 
 combined.results <- combined.results[!sapply(combined.results, function(el) any(is.na(el$sensitivity.all)))]
