@@ -6,6 +6,8 @@ library(future.apply)
 
 
 rm(list = ls())
+options(digits = 5)
+
 
 ########## read and shape metadata for the different ecosystems ####################
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data
@@ -43,7 +45,7 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   meta.Streams <- meta.Streams %>% mutate(NPP.proxy = ifelse(NPP.raw < 0, 0, NPP.raw), # replace negative value at Cananeia SP6 with 0
                                           NPP.scale = logit(NPP.proxy))
   meta.Streams <- meta.Streams %>% mutate(NPP.scale2 = NPP.scale^2)
-  warning('1')
+
   meta.Lakes <- results.lakes[[i]]
   meta.Lakes <- meta.Lakes %>% left_join(NPP.proxy %>% select(FW_name, metric, avg), by = "FW_name") %>%
     rename(NPP.proxy = avg)
@@ -68,7 +70,8 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   SEM.all2 <- psem(
     lme(log(S) ~ NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
     lme(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
-    lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), data=all_data),
+    lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
     lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), 
         control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
     lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
@@ -91,7 +94,7 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   meta.Marine[1,1]
   # weird interaction between gls and apply... have to make it global if in a function???
   meta.Marine2 <<- meta.Marine
-  warning('2')
+ 
   ## Marine
   SEM.Marine3 <- psem(
     
@@ -99,16 +102,17 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
     gls(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, data=meta.Marine2),
     gls(logit(sim.prim.cons) ~ log(S), data=meta.Marine2),
     gls(logit(sim.sec.cons) ~ log(S) + log(MaxTL) + NPP.scale, data=meta.Marine2),
-    gls(log(prim.consumption) ~ log(S) + NPP.scale + NPP.scale2, weights=varPower(form=~NPP.scale), data=meta.Marine2),
-    gls(log(second.consumption) ~ log(MaxTL) + NPP.scale + NPP.scale2, weights=varPower(form=~S), data=meta.Marine2),
+    gls(log(prim.consumption) ~ log(S) + NPP.scale + NPP.scale2, weights=varPower(form=~NPP.scale), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Marine2),
+    gls(log(second.consumption) ~ log(MaxTL) + NPP.scale + NPP.scale2, weights=varPower(form=~S), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Marine2),
     
     logit(sim.prim.cons) %~~% logit(sim.sec.cons),
     log(prim.consumption) %~~% logit(sim.sec.cons),
     log(second.consumption) %~~% logit(sim.prim.cons),
     log(second.consumption) %~~% log(prim.consumption)
   )
-  # rm(meta.Marine2)
-  # warning('3')
+
   #Extracts r-squared for primary & secondary consumption, global P-value, and p-values for paths to functions included in minimum adequate SEM (excluding NPP)
   xx = summary(SEM.Marine3)
   output.Marine = c(rsquared(SEM.Marine3)[5,5], rsquared(SEM.Marine3)[6,5], xx$Cstat[,3],
@@ -116,7 +120,7 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   names(output.Marine) = c('r2.prim.consumtion', 'r2.predation', 'SEM.P_value',
                            'P_taxa_prim.consumption', 'P_MaxTL_predation')
   results$sensitivity.Marine = output.Marine
-  # warning('4')
+
   
   ## Soils
   
@@ -127,8 +131,10 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
     gls(log(MaxTL) ~ log(S), data=meta.Soils2),
     gls(logit(sim.prim.cons) ~ log(MaxTL) + log(S), data=meta.Soils2),
     gls(logit(sim.sec.cons) ~ NPP.scale + log(S), data=meta.Soils2),
-    gls(log(prim.consumption) ~ log(S) + NPP.scale, weights=varIdent(form=~1|study_ID), data=meta.Soils2),
-    gls(log(second.consumption) ~ log(S) + log(MaxTL), weights=varIdent(form=~1|study_ID), data=meta.Soils2),
+    gls(log(prim.consumption) ~ log(S) + NPP.scale, weights=varIdent(form=~1|study_ID), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Soils2),
+    gls(log(second.consumption) ~ log(S) + log(MaxTL), weights=varIdent(form=~1|study_ID), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Soils2),
     
     logit(sim.prim.cons) %~~% logit(sim.sec.cons),
     log(prim.consumption) %~~% logit(sim.sec.cons),
@@ -148,10 +154,14 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   ## Streams
   SEM.Streams3 <- psem(
     
-    lme(log(S) ~ NPP.scale, random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
-    lme(log(MaxTL) ~ log(S), random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
-    lme(logit(sim.prim.cons) ~ log(MaxTL), random=~1|study_ID, weights=varIdent(form=~1|study_ID), data=meta.Streams),
-    lme(logit(sim.sec.cons) ~ log(S), random=~1|study_ID, weights=varExp(), data=meta.Streams),
+    lme(log(S) ~ NPP.scale, random=~1|study_ID, weights=varIdent(form=~1|study_ID), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Streams),
+    lme(log(MaxTL) ~ log(S), random=~1|study_ID, weights=varIdent(form=~1|study_ID), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Streams),
+    lme(logit(sim.prim.cons) ~ log(MaxTL), random=~1|study_ID, weights=varIdent(form=~1|study_ID), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Streams),
+    lme(logit(sim.sec.cons) ~ log(S), random=~1|study_ID, weights=varExp(), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Streams),
     lme(log(prim.consumption) ~ log(S) , random=~1|study_ID, data=meta.Streams),
     lme(log(second.consumption) ~ log(MaxTL) + logit(sim.sec.cons), random=~1|study_ID, data=meta.Streams),
     
@@ -175,10 +185,14 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   SEM.Lakes3 <- psem(
     
     gls(log(S) ~ NPP.scale, data=meta.Lakes2),
-    gls(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, weights=varPower(form=~S), data=meta.Lakes2),
-    gls(logit(sim.prim.cons) ~ log(S), weights=varExp(form=~S), data=meta.Lakes2),
-    gls(logit(sim.sec.cons) ~ log(MaxTL), weights=varExp(form=~log(MaxTL)), data=meta.Lakes2),
-    gls(log(prim.consumption) ~ log(MaxTL) + log(S), weights=varPower(), data=meta.Lakes2),
+    gls(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, weights=varPower(form=~S), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Lakes2),
+    gls(logit(sim.prim.cons) ~ log(S), weights=varExp(form=~S), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Lakes2),
+    gls(logit(sim.sec.cons) ~ log(MaxTL), weights=varExp(form=~log(MaxTL)), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Lakes2),
+    gls(log(prim.consumption) ~ log(MaxTL) + log(S), weights=varPower(), 
+        control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=meta.Lakes2),
     gls(log(second.consumption) ~ logit(sim.sec.cons) + log(S), data=meta.Lakes2),
     
     logit(sim.prim.cons) %~~% logit(sim.sec.cons),
@@ -197,7 +211,7 @@ SEM.sensitivity = function(i, results.lakes, results.marine, results.soils, resu
   return(results)
 }
 
-# because of the replicative approch, some SEM might fail. using the wrapper funciton 
+# because of the replicative approach, some SEM might fail. using the wrapper function 
 # with a trycatch will ensure that NA are returned in that case (and not errors breaking everything)
 SEM.wrapper = function(i, results.lakes, results.marine, results.soils, results.streams){
   tryCatch(SEM.sensitivity(i, results.lakes, results.marine, results.soils, results.streams),
@@ -214,19 +228,6 @@ SEM.wrapper = function(i, results.lakes, results.marine, results.soils, results.
 
 ##########################################################################
 ###### end of functions now different code options to run them ############
-
-
-##### try with apply and par_apply. Failing between issues in variable scopes between PSEM and gls
-# nb.proc = availableCores() - 2 # let two proc free
-# plan(multisession, workers = nb.proc)
-# combined.results = lapply(
-#   as.list(1:n), 
-#   # SEM.sensitivity,
-#   SEM.wrapper,
-#   results.lakes, results.marine, results.soils, results.streams)
-# 
-# # now remove list elements with NA
-# combined.results <- combined.results[!sapply(combined.results, function(el) any(is.na(el$sensitivity.all)))]
 
 
 stack.vectors = function(name, combined.results) {
@@ -262,10 +263,128 @@ length(combined.results) / n
 
 # xx.all = stack.vectors("sensitivity.all", xx)
 
-sensitivity.all <- stack.vectors("sensitivity.all", combined.results)
-sensitivity.Marine <- stack.vectors("sensitivity.Marine", combined.results)
-sensitivity.Soils <- stack.vectors("sensitivity.Soils", combined.results)
-sensitivity.Streams <- stack.vectors("sensitivity.Streams", combined.results)
-sensitivity.Lakes <- stack.vectors("sensitivity.Lakes", combined.results)
+sensitivity.all <- stack.vectors("sensitivity.all", combined.results)[1:1000,]
+sensitivity.Marine <- stack.vectors("sensitivity.Marine", combined.results)[1:1000,]
+sensitivity.Soils <- stack.vectors("sensitivity.Soils", combined.results)[1:1000,]
+sensitivity.Streams <- stack.vectors("sensitivity.Streams", combined.results)[1:1000,]
+sensitivity.Lakes <- stack.vectors("sensitivity.Lakes", combined.results)[1:1000,]
 
+#save sensitivity data frames as RData files
+save(sensitivity.all, sensitivity.Marine, sensitivity.Soils, sensitivity.Streams, sensitivity.Lakes, file = "sensitivities/results_sensitivity.Rdata")
+
+
+#### Plot results ####
+library(ggdist)
+theme_set(theme_ggdist())
+
+#All data
+sensitivity.all.Pvalue <- sensitivity.all %>%
+  pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
+
+All.P = sensitivity.all.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
+  labs(x = "P value", y = "") + 
+  scale_y_discrete(labels = c("MaxTL->\npredation", "trophic complementarity->\npredation", "taxon richness->\npredation",
+                              "taxon richness->\nprimary consumption", "SEM global P"))
+
+
+sensitivity.all.R2 <- sensitivity.all %>%
+  pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
+
+All.R2 = sensitivity.all.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  labs(x = "R²", y = "") + 
+  scale_y_discrete(labels = c("predation", "primary consumption"))
+
+
+#Marine
+sensitivity.Marine.Pvalue <- sensitivity.Marine %>%
+  pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
+
+Marine.P = sensitivity.Marine.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
+  labs(x = "P value", y = "") + 
+  scale_y_discrete(labels = c("MaxTL->\npredation", "taxon richness->\nprimary consumption", "SEM global P"))
+
+
+sensitivity.Marine.R2 <- sensitivity.Marine %>%
+  pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
+
+Marine.R2 = sensitivity.Marine.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  labs(x = "R²", y = "") + 
+  scale_y_discrete(labels = c("predation", "primary consumption"))
+
+
+#Soils
+sensitivity.Soils.Pvalue <- sensitivity.Soils %>%
+  pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
+
+Soils.P = sensitivity.Soils.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top")+
+  geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
+  labs(x = "P value", y = "") + 
+  scale_y_discrete(labels = c("MaxTL->\npredation", "taxon richness->\npredation", 
+                              "taxon richness->\nprimary consumption", "SEM global P"))
+
+
+sensitivity.Soils.R2 <- sensitivity.Soils %>%
+  pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
+
+Soils.R2 = sensitivity.Soils.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  labs(x = "R²", y = "") + 
+  scale_y_discrete(labels = c("predation", "primary consumption"))
+
+
+#Streams
+sensitivity.Streams.Pvalue <- sensitivity.Streams %>%
+  pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
+
+Streams.P = sensitivity.Streams.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
+  labs(x = "P value", y = "") + 
+  scale_y_discrete(labels = c("MaxTL->\npredation", "trophic complementarity->\npredation", 
+                              "taxon richness->\nprimary consumption", "SEM global P"))
+
+
+sensitivity.Streams.R2 <- sensitivity.Streams %>%
+  pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
+
+Streams.R2 = sensitivity.Streams.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  labs(x = "R²", y = "") + 
+  scale_y_discrete(labels = c("predation", "primary consumption"))
+
+
+##Lakes
+sensitivity.Lakes.Pvalue <- sensitivity.Lakes %>%
+  pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
+
+Lakes.P = sensitivity.Lakes.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
+  labs(x = "P value", y = "") + 
+  scale_y_discrete(labels = c("MaxTL->\nprimary consumption", "trophic complementarity->\npredation", 
+                              "taxon richness->\npredation", "taxon richness->\nprimary consumption", "SEM global P"))
+
+
+sensitivity.Lakes.R2 <- sensitivity.Lakes %>%
+  pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
+
+Lakes.R2 = sensitivity.Lakes.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
+  stat_slabinterval(side = "top") +
+  labs(x = "R²", y = "") + 
+  scale_y_discrete(labels = c("predation", "primary consumption"))
+
+
+library(gridExtra)
+
+grid.arrange(
+  All.P, All.R2, Marine.P, Marine.R2, Soils.P, Soils.R2, Streams.P, Streams.R2, Lakes.P, Lakes.R2,
+  ncol = 2
+)
 
