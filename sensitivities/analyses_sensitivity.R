@@ -284,9 +284,9 @@ sensitivity.all.Pvalue <- sensitivity.all %>%
 All.P = sensitivity.all.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
-  labs(x = "P value", y = "") + 
+  labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\npredation", "trophic complementarity->\npredation", "taxon richness->\npredation",
-                              "taxon richness->\nprimary consumption", "SEM global P"))
+                              "taxon richness->\nprimary consumption", "global SEM"))
 
 
 sensitivity.all.R2 <- sensitivity.all %>%
@@ -294,8 +294,12 @@ sensitivity.all.R2 <- sensitivity.all %>%
 
 All.R2 = sensitivity.all.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
-  labs(x = "R²", y = "") + 
+  labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary consumption"))
+
+sensitivity.all.figure <- plot_grid(All.P, All.R2, ncol = 2)
+ggsave("Sensitivity results_all food webs.svg", sensitivity.all.figure, 
+       width = 20, height = 8, units = "cm")
 
 
 #Marine
@@ -305,8 +309,8 @@ sensitivity.Marine.Pvalue <- sensitivity.Marine %>%
 Marine.P = sensitivity.Marine.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
-  labs(x = "P value", y = "") + 
-  scale_y_discrete(labels = c("MaxTL->\npredation", "taxon richness->\nprimary consumption", "SEM global P"))
+  labs(x = expression(italic(p)~"value"), y = "") + 
+  scale_y_discrete(labels = c("MaxTL->\npredation", "taxon richness->\nprimary consumption", "global SEM"))
 
 
 sensitivity.Marine.R2 <- sensitivity.Marine %>%
@@ -314,7 +318,7 @@ sensitivity.Marine.R2 <- sensitivity.Marine %>%
 
 Marine.R2 = sensitivity.Marine.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
-  labs(x = "R²", y = "") + 
+  labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary consumption"))
 
 
@@ -325,9 +329,9 @@ sensitivity.Soils.Pvalue <- sensitivity.Soils %>%
 Soils.P = sensitivity.Soils.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top")+
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
-  labs(x = "P value", y = "") + 
+  labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\npredation", "taxon richness->\npredation", 
-                              "taxon richness->\nprimary consumption", "SEM global P"))
+                              "taxon richness->\nprimary consumption", "global SEM"))
 
 
 sensitivity.Soils.R2 <- sensitivity.Soils %>%
@@ -335,7 +339,7 @@ sensitivity.Soils.R2 <- sensitivity.Soils %>%
 
 Soils.R2 = sensitivity.Soils.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
-  labs(x = "R²", y = "") + 
+  labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary consumption"))
 
 
@@ -346,9 +350,9 @@ sensitivity.Streams.Pvalue <- sensitivity.Streams %>%
 Streams.P = sensitivity.Streams.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
-  labs(x = "P value", y = "") + 
+  labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\npredation", "trophic complementarity->\npredation", 
-                              "taxon richness->\nprimary consumption", "SEM global P"))
+                              "taxon richness->\nprimary consumption", "global SEM"))
 
 
 sensitivity.Streams.R2 <- sensitivity.Streams %>%
@@ -356,7 +360,7 @@ sensitivity.Streams.R2 <- sensitivity.Streams %>%
 
 Streams.R2 = sensitivity.Streams.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
-  labs(x = "R²", y = "") + 
+  labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary consumption"))
 
 
@@ -367,9 +371,9 @@ sensitivity.Lakes.Pvalue <- sensitivity.Lakes %>%
 Lakes.P = sensitivity.Lakes.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
-  labs(x = "P value", y = "") + 
+  labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\nprimary consumption", "trophic complementarity->\npredation", 
-                              "taxon richness->\npredation", "taxon richness->\nprimary consumption", "SEM global P"))
+                              "taxon richness->\npredation", "taxon richness->\nprimary consumption", "global SEM"))
 
 
 sensitivity.Lakes.R2 <- sensitivity.Lakes %>%
@@ -377,14 +381,48 @@ sensitivity.Lakes.R2 <- sensitivity.Lakes %>%
 
 Lakes.R2 = sensitivity.Lakes.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
-  labs(x = "R²", y = "") + 
+  labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary consumption"))
 
 
-library(gridExtra)
+###############
+library(ggplot2)
+library(cowplot)
+library(grid)
 
-grid.arrange(
-  All.P, All.R2, Marine.P, Marine.R2, Soils.P, Soils.R2, Streams.P, Streams.R2, Lakes.P, Lakes.R2,
-  ncol = 2
-)
+vertical_label <- function(text) {
+  ggdraw() +
+    draw_label(text, angle = -90, fontface = "bold", size = 12, vjust = 0.5)
+}
+
+left_col  <- align_plots(Marine.P,  Soils.P,  Streams.P,  Lakes.P, align = "v", axis = "l")
+right_col <- align_plots(Marine.R2, Soils.R2, Streams.R2, Lakes.R2, align = "v", axis = "l")
+
+pair_marine  <- align_plots(left_col[[1]],  right_col[[1]],  align = "h", axis = "lr")
+pair_soils   <- align_plots(left_col[[2]],  right_col[[2]],  align = "h", axis = "lr")
+pair_streams <- align_plots(left_col[[3]],  right_col[[3]],  align = "h", axis = "lr")
+pair_lakes   <- align_plots(left_col[[4]],  right_col[[4]],  align = "h", axis = "lr")
+
+
+row_marine <- plot_grid(
+  pair_marine[[1]], pair_marine[[2]], vertical_label("Marine"),
+  ncol = 3, rel_widths = c(1, 1, 0.15), align = "h")
+
+row_soils <- plot_grid(
+  pair_soils[[1]], pair_soils[[2]], vertical_label("Soils"),
+  ncol = 3, rel_widths = c(1, 1, 0.15), align = "h")
+
+row_streams <- plot_grid(
+  pair_streams[[1]], pair_streams[[2]], vertical_label("Streams"),
+  ncol = 3, rel_widths = c(1, 1, 0.15), align = "h")
+
+row_lakes <- plot_grid(
+  pair_lakes[[1]], pair_lakes[[2]], vertical_label("Lakes"),
+  ncol = 3, rel_widths = c(1, 1, 0.15), align = "h")
+
+
+sensitivity.ecosystems.figure <- plot_grid(row_marine, row_soils, row_streams, row_lakes,
+  ncol = 1, rel_heights = c(1, 1, 1, 1))
+
+
 

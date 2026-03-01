@@ -116,11 +116,10 @@ for(i in 1:length(web)){
   meta.IS$C[i] <- Connectance(bin.matrix)
   meta.IS$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
   
-  # modularity
-  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-  community = cluster_walktrap(g)
-  meta.IS$modularity[i] = modularity(g, membership(community))
-  
+  # # modularity
+  # g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  # community = cluster_walktrap(g)
+  # meta.IS$modularity[i] = modularity(g, membership(community))
 }
 
 
@@ -215,10 +214,10 @@ for(i in 1:length(web)){
   meta.UK$C[i] <- Connectance(bin.matrix)
   meta.UK$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
   
-  # modularity
-  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-  community = cluster_walktrap(g)
-  meta.UK$modularity[i] = modularity(g, membership(community))
+  # # modularity
+  # g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  # community = cluster_walktrap(g)
+  # meta.UK$modularity[i] = modularity(g, membership(community))
 }
 
 
@@ -318,11 +317,11 @@ for(i in 1:length(web)){
   meta.Brauns$LD[i] <- Link.density(bin.matrix)
   meta.Brauns$C[i] <- Connectance(bin.matrix)
   meta.Brauns$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
-  
-  # modularity
-  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-  community = cluster_walktrap(g)
-  meta.Brauns$modularity[i] = modularity(g, membership(community))
+
+  # # modularity
+  # g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  # community = cluster_walktrap(g)
+  # meta.Brauns$modularity[i] = modularity(g, membership(community))
 }
 meta.Brauns$C <- as.numeric(meta.Brauns$C)
 
@@ -418,10 +417,10 @@ for(i in 1:length(web)){
   meta.Brazil$C[i] <- Connectance(bin.matrix)
   meta.Brazil$omnivory[i] <- mean(attributes$omnivory, na.rm=T)
   
-  # modularity
-  g = graph_from_adjacency_matrix(matrix, mode = "undirected")
-  community = cluster_walktrap(g)
-  meta.Brazil$modularity[i] = modularity(g, membership(community))
+  # # modularity
+  # g = graph_from_adjacency_matrix(matrix, mode = "undirected")
+  # community = cluster_walktrap(g)
+  # meta.Brazil$modularity[i] = modularity(g, membership(community))
 }
 
 

@@ -11,7 +11,7 @@
 rm(list=ls())
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd("~/BEF-in-Food-Webs/")
+setwd("C:/Users/barnesa/OneDrive - The University of Waikato/FuSED/BEF-in-Food-Webs/")
 
 
 

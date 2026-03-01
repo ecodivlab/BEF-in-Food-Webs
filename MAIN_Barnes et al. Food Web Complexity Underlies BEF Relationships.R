@@ -525,7 +525,8 @@ summary(mod1a)
 mod2 = lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data, method="ML")
   plot(mod2)
   qqnorm(mod2)
-mod2a = lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights = varIdent(form=~1|study_ID), data=all_data, method="ML") #best model
+mod2a = lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights = varIdent(form=~1|study_ID), 
+            control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data, method="ML") #best model
   plot(mod2a)
   qqnorm(mod2a)
 mod2b = lme(logit(sim.prim.cons) ~ log(S) + poly(NPP.scale,2,raw=TRUE), weights=varIdent(form=~1|study_ID), 
