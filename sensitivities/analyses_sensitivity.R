@@ -274,7 +274,11 @@ save(sensitivity.all, sensitivity.Marine, sensitivity.Soils, sensitivity.Streams
 
 
 #### Plot results ####
+load(file = "sensitivities/results_sensitivity.Rdata")
 library(ggdist)
+library(ggplot2)
+library(cowplot)
+library(grid)
 theme_set(theme_ggdist())
 
 #All data
@@ -283,7 +287,7 @@ sensitivity.all.Pvalue <- sensitivity.all %>%
 
 All.P = sensitivity.all.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
-  geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
+  geom_vline(xintercept = 0.05, linewidth = .5, linetype = "dashed", colour = "red") + 
   labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\npredation", "trophic complementarity->\npredation", "taxon richness->\npredation",
                               "taxon richness->\nprimary consumption", "global SEM"))
@@ -295,11 +299,11 @@ sensitivity.all.R2 <- sensitivity.all %>%
 All.R2 = sensitivity.all.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   labs(x = expression(italic(R)^2), y = "") + 
-  scale_y_discrete(labels = c("predation", "primary consumption"))
+  scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
 sensitivity.all.figure <- plot_grid(All.P, All.R2, ncol = 2)
-ggsave("Sensitivity results_all food webs.svg", sensitivity.all.figure, 
-       width = 20, height = 8, units = "cm")
+ggsave("Sensitivity results_all food webs.pdf", sensitivity.all.figure, 
+       width = 18, height = 7, units = "cm")
 
 
 #Marine
@@ -319,7 +323,7 @@ sensitivity.Marine.R2 <- sensitivity.Marine %>%
 Marine.R2 = sensitivity.Marine.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   labs(x = expression(italic(R)^2), y = "") + 
-  scale_y_discrete(labels = c("predation", "primary consumption"))
+  scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
 
 #Soils
@@ -340,7 +344,7 @@ sensitivity.Soils.R2 <- sensitivity.Soils %>%
 Soils.R2 = sensitivity.Soils.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   labs(x = expression(italic(R)^2), y = "") + 
-  scale_y_discrete(labels = c("predation", "primary consumption"))
+  scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
 
 #Streams
@@ -361,7 +365,7 @@ sensitivity.Streams.R2 <- sensitivity.Streams %>%
 Streams.R2 = sensitivity.Streams.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   labs(x = expression(italic(R)^2), y = "") + 
-  scale_y_discrete(labels = c("predation", "primary consumption"))
+  scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
 
 ##Lakes
@@ -382,14 +386,10 @@ sensitivity.Lakes.R2 <- sensitivity.Lakes %>%
 Lakes.R2 = sensitivity.Lakes.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
   stat_slabinterval(side = "top") +
   labs(x = expression(italic(R)^2), y = "") + 
-  scale_y_discrete(labels = c("predation", "primary consumption"))
+  scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
 
 ###############
-library(ggplot2)
-library(cowplot)
-library(grid)
-
 vertical_label <- function(text) {
   ggdraw() +
     draw_label(text, angle = -90, fontface = "bold", size = 12, vjust = 0.5)
@@ -424,5 +424,6 @@ row_lakes <- plot_grid(
 sensitivity.ecosystems.figure <- plot_grid(row_marine, row_soils, row_streams, row_lakes,
   ncol = 1, rel_heights = c(1, 1, 1, 1))
 
-
+ggsave("Sensitivity results_ecosystems food webs.png", sensitivity.ecosystems.figure, 
+       width = 22, height = 24, units = "cm")
 
