@@ -67,7 +67,7 @@ all_data <- bind_rows(select(meta.Marine, all_of(commcols)),
 
 ## graphics settings ##
 theme_set(theme_classic(base_size = 10))
-all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
+#all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
                                   levels = c("Marine", "Soils", "Streams", "Lakes"))
 
 
@@ -227,7 +227,7 @@ prim.similarity <- ggplot(all_data, aes(x = ecosystem.type, y = sim.prim.cons, f
   geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
             boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
             violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) +  
-  ylab('1\u00B0 consumer dissimilarity') + xlab('Ecosystem type') +
+  ylab('1\u00B0 consumer complementarity') + xlab('Ecosystem type') +
   theme(legend.position="none", 
         plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
 
@@ -235,7 +235,7 @@ pred.similarity <- ggplot(all_data, aes(x = ecosystem.type, y = sim.sec.cons, fi
   geom_rain(alpha = .3, cov='ecosystem.type', rain.side = 'r',
             boxplot.args.pos = list(width = .15, position = position_nudge(x = -.2), linewidth=0.25),
             violin.args.pos =  list(width = .8, position = position_nudge(x = .15), linewidth=0.25)) + 
-  ylab('Predator dissimilarity') + xlab('Ecosystem type') +
+  ylab('Predator complementarity') + xlab('Ecosystem type') +
   theme(legend.position="none", 
         plot.margin = unit(c(5.5, 5.5, 6, 5.5), "pt"))
 
@@ -249,17 +249,19 @@ ggsave(filename = "FW.Properties.png", FW.Properties, width = 200, height = 130,
 
 #### Correlations among food web properties ####
 fw.corr <- round(cor(all_data[,c(14,20:23,16:18)]), 1)
-colnames(fw.corr) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
-rownames(fw.corr) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
+colnames(fw.corr) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic compl.", "1° cons. tophic compl.")
+rownames(fw.corr) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic compl.", "1° cons. tophic compl.")
 
 fw.p.mat <- cor_pmat(all_data[,c(14,20:23,16:18)])
-colnames(fw.p.mat) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
-rownames(fw.p.mat) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic dissim.", "1° cons. tophic dissim.")
+colnames(fw.p.mat) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic compl.", "1° cons. tophic compl.")
+rownames(fw.p.mat) <- c("taxon richness", "link richness", "linkage density", "connectance", "omnivory", "Max TL", "pred. trophic compl.", "1° cons. tophic compl.")
 
-ggcorrplot(fw.corr, p.mat = fw.p.mat, type = "upper", 
+correlations.FW.properties <- ggcorrplot(fw.corr, p.mat = fw.p.mat, type = "upper", 
            outline.color = "white", lab = TRUE, 
            insig = "blank", lab_col="white",
            colors = c("#A50103", "#FFFEFE", "#061486"))
+
+ggsave(filename = "FW.Properties Corrplot.png", correlations.FW.properties, width = 150, height = 150, unit = "mm", dpi = 300)
 
 
 #### Predation/prim. consumption relationships with environmental temperature and NPP ####
@@ -508,11 +510,6 @@ summary(S.prim.cons_STREAM.mm)
 #####################################
 
 
-## Create vectors for effect size plotting ##
-flux <- c(rep(c(rep("stability", 3), rep("PC.predation", 3)),2))
-FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 4)
-effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
-
 #### Cross-ecosystem analysis with total flux (Extended Data Fig. 1b) ####
 
 
@@ -547,7 +544,8 @@ SEM.all.total <- psem(
   
   lme(log(S) ~ NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
   lme(log(MaxTL) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
-  lme(logit(sim.total) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), random=~1|study_ID, data=all_data),
+  lme(logit(sim.total) ~ log(MaxTL) + log(S), weights=varComb(varIdent(form=~1|study_ID), varPower(form=~S)), 
+      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), random=~1|study_ID, data=all_data),
   lme(log(flux) ~ logit(sim.total) + log(MaxTL), weights=varComb(varIdent(form=~1|study_ID)), random=~1|study_ID, data=all_data)
 )
 
@@ -748,6 +746,7 @@ SEM.all_properties2 <- psem(
 
 summary(SEM.all_properties2)
 
+#Estimate r-squared for student-t model
 all_omnivory.mod <- glmmTMB(omnivory ~ log(MaxTL) + NPP.scale + (1|ecosystem.type/study_ID), family = t_family(), data = all_data)
 library(performance)
 r2_nakagawa(all_omnivory.mod, tolerance = 1e-20) 
@@ -763,7 +762,7 @@ sd_y <- sd(lp)  # SD of response on link scale (Lefcheck 2016)
 beta_std_MaxTL <- betas_MaxTL * (sd_x_MaxTL / sd_y)  
 betas_std_NPP.scale <- betas_NPP.scale * (sd_x_NPP.scale / sd_y)
 
-results.all_propertiesSEM <- summary(SEM.all_properties2)$coefficients[c(1:19,27),c(1:5, 8, 7)]
+results.all_propertiesSEM <- summary(SEM.all_properties2)$coefficients[c(1:20,28),c(1:5, 8, 7)]
 names(results.all_propertiesSEM) <- c("Response", "Predictor", "Estimate", "SE", "df", "Std. Estimate", "p")
 fun <- function(x) {
   formatC(x, format = "f", digits = 3)
@@ -819,7 +818,7 @@ std.effect <- c(
 )
 
 flux <- c(rep(c(rep("predation", 3), rep("primary consumption",3)),2))
-FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 4)
+FW_prop <- rep(c("Taxon richness","Max TL","Trophic compl."), 4)
 effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
 
 eff.table_streams <- data.frame(FW_prop, flux, effect.type, std.effect)
@@ -834,7 +833,7 @@ streams.effects.density <- ggplot(eff.table_streams,
   scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
-  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", 
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic compl.')~., scales = "free_y", 
              labeller = label_wrap_gen(width=10), switch = "y") +
   theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
         strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
@@ -847,6 +846,12 @@ ggsave("Streams effects_density.png", streams.effects.density, width = 6, height
 
 
 #### Cross-ecosystem SEM with stability and PC.predation (Extended Data Fig. 1b and c) ####
+
+
+## Create vectors for effect size plotting ##
+flux <- c(rep(c(rep("stability", 3), rep("PC.predation", 3)),2))
+FW_prop <- rep(c("Taxon richness","Max TL","Trophic compl."), 4)
+effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
 
 mod.PC.predation = lme(log(PC.predation) ~ logit(sim.sec.cons) + log(MaxTL), random=~1|study_ID, data=all_data, method='ML') 
   plot(mod.PC.predation, which=1)
@@ -909,10 +914,9 @@ SEM.all2 <- psem(
   lme(log(S) ~ NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
   lme(log(MaxTL) ~ log(S) + NPP.scale + NPP.scale2, random=~1|ecosystem.type/study_ID, data=all_data),
   lme(logit(sim.prim.cons) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), data=all_data),
-  lme(logit(sim.sec.cons) ~ NPP.scale + log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), 
+  lme(logit(sim.sec.cons) ~ log(MaxTL) + log(S), random=~1|ecosystem.type/study_ID, weights=varIdent(form=~1|study_ID), 
       control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
-  lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, 
-      control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
+  lme(log(prim.consumption) ~ log(S) + NPP.scale, random=~1|ecosystem.type/study_ID, data=all_data),
   lme(log(second.consumption) ~ log(MaxTL) + log(S) + NPP.scale + logit(sim.sec.cons), random=~1|ecosystem.type/study_ID, data=all_data),
   lme(log(PC.predation) ~ logit(sim.sec.cons) + log(MaxTL) + NPP.scale, weights=varIdent(form=~1|study_ID), random=~1|ecosystem.type/study_ID,
       control=nlmeControl(opt = "nlminb",maxIter = 200,msMaxIter=200), data=all_data),
@@ -1048,14 +1052,14 @@ global.effects <- ggplot(eff.table_all,
   scale_fill_manual(values = c("#489FA759", "#F5C2699E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
-  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic compl.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
   theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
         strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
         legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
 
-#ggsave("Global effects Fig S3.png", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Global effects Fig S3.png", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 

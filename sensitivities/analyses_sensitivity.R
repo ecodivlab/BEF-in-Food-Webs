@@ -302,7 +302,7 @@ All.R2 = sensitivity.all.R2 %>% ggplot(aes(x = parameter.value, y = parameter.ou
   scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
 sensitivity.all.figure <- plot_grid(All.P, All.R2, ncol = 2)
-ggsave("Sensitivity results_all food webs.pdf", sensitivity.all.figure, 
+ggsave("Sensitivity results_all food webs.png", sensitivity.all.figure, 
        width = 18, height = 7, units = "cm")
 
 

@@ -482,7 +482,7 @@ ggsave(filename = "Figure 4 scatterplots.svg", Richness_ECOSYSTEM, width = 200, 
 
 ## Create vectors for effect size plotting ##
 flux <- c(rep(c(rep("predation", 3), rep("primary consumption",3)),2))
-FW_prop <- rep(c("Taxon richness","Max TL","Trophic dissim."), 4)
+FW_prop <- rep(c("Taxon richness","Max TL","Trophic compl."), 4)
 effect.type <- factor(c(rep("direct", 6),rep("indirect", 6)), levels=c('indirect', 'direct'))
 
 
@@ -673,14 +673,14 @@ global.effects <- ggplot(eff.table_all,
   scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
-  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic compl.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
   theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
         strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
         legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
 
-ggsave("Global effects.svg", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Global effects.png", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 
@@ -874,7 +874,7 @@ marine.effects <- ggplot(eff.table_marine,
   scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
-  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", 
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic compl.')~., scales = "free_y", 
              labeller = label_wrap_gen(width=10), switch = "y") +
   theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
         strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
@@ -1066,7 +1066,7 @@ soils.effects <- ggplot(eff.table_soils,
   scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
-  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic compl.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
   theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
         strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
         legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
@@ -1222,7 +1222,7 @@ streams.effects <- ggplot(eff.table_streams,
   scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
-  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", 
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic compl.')~., scales = "free_y", 
              labeller = label_wrap_gen(width=10), switch = "y") +
   theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
         strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
@@ -1427,7 +1427,7 @@ lakes.effects <- ggplot(eff.table_lakes,
   scale_fill_manual(values = c("#C257579E", "#3A67AE9E")) + 
   scale_pattern_manual(values = c(indirect = "stripe", direct = "none")) +
   coord_flip(ylim=c(-0.5, 0.5)) + scale_y_continuous(labels = c(-0.5, '',0.0, '',0.5)) +
-  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic dissim.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
+  facet_grid(fct_relevel(FW_prop,'Taxon richness', 'Max TL', 'Trophic compl.')~., scales = "free_y", labeller = label_wrap_gen(width=10)) +
   theme(panel.background = element_rect(fill='transparent'), plot.background = element_rect(fill='transparent', color=NA), 
         strip.clip = "off", strip.background = element_blank(), strip.text.y = element_text(size = 13), 
         legend.position = "none", axis.text.y=element_blank(), axis.ticks.y=element_blank(), axis.line.y=element_blank(), 
