@@ -67,8 +67,7 @@ all_data <- bind_rows(select(meta.Marine, all_of(commcols)),
 
 ## graphics settings ##
 theme_set(theme_classic(base_size = 10))
-#all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
-                                  levels = c("Marine", "Soils", "Streams", "Lakes"))
+#all_data$ecosystem.type <- factor(all_data$ecosystem.type, levels = c("Marine", "Soils", "Streams", "Lakes"))
 
 
 #### Bivariate relationship total flux ~ taxon richness (Extended Data Fig. 1a) #####

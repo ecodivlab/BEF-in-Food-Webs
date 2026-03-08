@@ -680,7 +680,7 @@ global.effects <- ggplot(eff.table_all,
         axis.title.y=element_blank(), axis.text=element_text(size=13), axis.title=element_text(size=13))
 
 
-ggsave("Global effects.png", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
+ggsave("Global effects.svg", global.effects, width = 6, height = 9, units = "cm", bg='transparent')
 
 
 
