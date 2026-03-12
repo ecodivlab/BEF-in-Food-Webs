@@ -8,6 +8,8 @@ library(future.apply)
 rm(list = ls())
 options(digits = 5)
 
+## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
+#setwd()
 
 ########## read and shape metadata for the different ecosystems ####################
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data

@@ -18,7 +18,7 @@ rm(list=ls())
 options(scipen = 999)
 
 ## To run this code, a local working directory must be set where all accompanying data and source code are lodged ##
-setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
+#setwd()
 
 
 NPP.proxy <- read.csv("NDVI and Chlorophyll-a/data/proxy-npp.csv") ## import NDVI & Chl-a data
