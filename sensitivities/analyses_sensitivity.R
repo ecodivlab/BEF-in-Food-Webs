@@ -236,7 +236,7 @@ stack.vectors = function(name, combined.results) {
   as.data.frame(do.call(rbind, future_lapply(combined.results, `[[`, name)))
 }
 
-##### basic loop
+#### basic loop ####
 n = 10
 n = min(length(results.lakes), length(results.marine), length(results.soils), length(results.streams))
 n = 1450
@@ -313,7 +313,7 @@ sensitivity.Marine.Pvalue <- sensitivity.Marine %>%
   pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
 
 Marine.P = sensitivity.Marine.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top") +
+  stat_slabinterval(side = "top", fill = "#F9837B", colour = "#F9837B", slab_alpha = 0.35) +
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
   labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\npredation", "taxon richness->\nprimary consumption", "global SEM"))
@@ -323,7 +323,7 @@ sensitivity.Marine.R2 <- sensitivity.Marine %>%
   pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
 
 Marine.R2 = sensitivity.Marine.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top") +
+  stat_slabinterval(side = "top", fill = "#F9837B", colour = "#F9837B", slab_alpha = 0.35) +
   labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
@@ -333,7 +333,7 @@ sensitivity.Soils.Pvalue <- sensitivity.Soils %>%
   pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
 
 Soils.P = sensitivity.Soils.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top")+
+  stat_slabinterval(side = "top", fill = "#89B619", colour = "#89B619", slab_alpha = 0.35)+
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
   labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\npredation", "taxon richness->\npredation", 
@@ -344,7 +344,7 @@ sensitivity.Soils.R2 <- sensitivity.Soils %>%
   pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
 
 Soils.R2 = sensitivity.Soils.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top") +
+  stat_slabinterval(side = "top", fill = "#89B619", colour = "#89B619", slab_alpha = 0.35) +
   labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
@@ -354,7 +354,7 @@ sensitivity.Streams.Pvalue <- sensitivity.Streams %>%
   pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
 
 Streams.P = sensitivity.Streams.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top") +
+  stat_slabinterval(side = "top", fill = "#19C5CA", colour = "#19C5CA", slab_alpha = 0.35) +
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
   labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\npredation", "trophic complementarity->\npredation", 
@@ -365,7 +365,7 @@ sensitivity.Streams.R2 <- sensitivity.Streams %>%
   pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
 
 Streams.R2 = sensitivity.Streams.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top") +
+  stat_slabinterval(side = "top", fill = "#19C5CA", colour = "#19C5CA", slab_alpha = 0.35) +
   labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
@@ -375,7 +375,7 @@ sensitivity.Lakes.Pvalue <- sensitivity.Lakes %>%
   pivot_longer(cols = starts_with("SEM.P") | starts_with("P_"), names_to = "parameter.output",  values_to = "parameter.value")
 
 Lakes.P = sensitivity.Lakes.Pvalue %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top") +
+  stat_slabinterval(side = "top", fill = "#CC89FF", colour = "#CC89FF", slab_alpha = 0.35) +
   geom_vline(xintercept = 0.05, linewidth = .75, linetype = "dashed", colour = "red") + 
   labs(x = expression(italic(p)~"value"), y = "") + 
   scale_y_discrete(labels = c("MaxTL->\nprimary consumption", "trophic complementarity->\npredation", 
@@ -386,7 +386,7 @@ sensitivity.Lakes.R2 <- sensitivity.Lakes %>%
   pivot_longer(cols = starts_with("r2."), names_to = "parameter.output",  values_to = "parameter.value")
 
 Lakes.R2 = sensitivity.Lakes.R2 %>% ggplot(aes(x = parameter.value, y = parameter.output)) + 
-  stat_slabinterval(side = "top") +
+  stat_slabinterval(side = "top", fill = "#CC89FF", colour = "#CC89FF", slab_alpha = 0.35) +
   labs(x = expression(italic(R)^2), y = "") + 
   scale_y_discrete(labels = c("predation", "primary\nconsumption"))
 
