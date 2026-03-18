@@ -29,6 +29,8 @@ Each of these scripts additionally call functions from the file 'Food_web_functi
 
 The folder 'NDVI and Chlorophyll-a' provides code and data for estimation of NPP via remotely sensed NDVI & Chlorophyll-a. We used the Normalized Difference Vegetation Index (NDVI) and the concentration of chlorophyll-a as proxies for the net primary productivity (NPP) for land and marine environments, respectively.
 
+The folder 'sensitivities' provides code used to evaluate how uncertainty in metabolic rates and assimilation efficiencies influences energy‑flux estimates and the resulting structural equation models. By repeatedly resampling published regression coefficients, it generates 1000 alternative model outputs and corresponding distributions of p‑values and R² values.
+
 
 
 
