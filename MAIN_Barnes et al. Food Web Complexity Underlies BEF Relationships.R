@@ -11,6 +11,7 @@
 # 
 # All models presented in Barnes et al. are run according to the described methods in the manuscript.
 # Code was developed on R version 4.5.0
+setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
 
 ## Load packages ##
 library(tidyverse); library(ggeffects); library(gridExtra); library(piecewiseSEM);
@@ -118,8 +119,8 @@ summary(S.prim.cons_Globala)
 
 S.prim.cons_Global = S.prim.cons_Globala
 
-all_data$ecosystem.type <- factor(all_data$ecosystem.type, 
-                                  levels = c("Marine", "Soils", "Streams", "Lakes"))
+## Use the following ordering code for graphing only
+#all_data$ecosystem.type <- factor(all_data$ecosystem.type, levels = c("Marine", "Soils", "Streams", "Lakes"))
 
 
 ## Graph BEF for predation and primary consumption 
@@ -170,8 +171,6 @@ S.prim.cons.sjp_global <- ggplot(prim.cons_global, aes(x, predicted)) +
 Richness_main <- grid.arrange(patchworkGrob(S.predation.sjp_global / S.prim.cons.sjp_global)) 
 
 ggsave("Figure 3 scatterplots.svg", Richness_main, width = 8, height = 10.5, units = "cm")
-
-
 
 
 #### Ecosystem-specific analyses #####
