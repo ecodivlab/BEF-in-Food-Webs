@@ -6,7 +6,7 @@
 "IS5","Caloneis","plant","plant","plant","genus","sessile",2.7e-09,43038.8848,0.00011620498896,NA,0.551729832015487
 "IS5","Cocconeis","plant","plant","plant","genus","sessile",8.04133333333332e-09,20526099.3813333,0.165057207158428,NA,0.551729832015487
 "IS5","CPOM","detritus","detritus","detritus",NA,"sessile",NA,NA,NA,NA,0.162283135594272
-"IS5","Cricotopus sp. A","animal","ectotherm invertebrate","herbivore","genus","walking",0.000112613612,656,0.073874529472,4.57518456347977e-05,0.908434014413912
+"IS5","Cricotopus sp A","animal","ectotherm invertebrate","herbivore","genus","walking",0.000112613612,656,0.073874529472,4.57518456347977e-05,0.908434014413912
 "IS5","Cyclotella","plant","plant","plant","genus","sessile",5.96e-09,1034303.09,0.0061644464164,NA,0.551729832015487
 "IS5","Cymbella","plant","plant","plant","genus","sessile",6.84e-10,10441729.86,0.00714214322424,NA,0.551729832015487
 "IS5","Diatoma","plant","plant","plant","genus","sessile",7.64e-09,216954.0082,0.001657528622648,NA,0.551729832015487
@@ -24,9 +24,9 @@
 "IS5","Macrophytes","plant","plant","plant",NA,"sessile",NA,NA,NA,NA,0.551729832015487
 "IS5","Melosira","plant","plant","plant","genus","sessile",1.172e-08,7255482.531,0.08503425526332,NA,0.551729832015487
 "IS5","Meridion","plant","plant","plant","genus","sessile",1.052e-09,216954.0082,0.0002282356166264,NA,0.551729832015487
-"IS5","Mesoveliidae indet. sp. A","animal","ectotherm invertebrate","carnivore","family","swimming",0.002339461736,20,0.04678923472,1.20220233089373e-05,0.908434014413912
-"IS5","Mesoveliidae indet. sp. B","animal","ectotherm invertebrate","carnivore","family","swimming",0.005052119932,4,0.020208479728,4.15337870765947e-06,0.908434014413912
-"IS5","Metriocnemus sp. B","animal","ectotherm invertebrate","herbivore","genus","walking",8.4348364e-05,8,0.000674786912,4.5444325956787e-07,0.908434014413912
+"IS5","Mesoveliidae indet sp A","animal","ectotherm invertebrate","carnivore","family","swimming",0.002339461736,20,0.04678923472,1.20220233089373e-05,0.908434014413912
+"IS5","Mesoveliidae indet sp B","animal","ectotherm invertebrate","carnivore","family","swimming",0.005052119932,4,0.020208479728,4.15337870765947e-06,0.908434014413912
+"IS5","Metriocnemus sp B","animal","ectotherm invertebrate","herbivore","genus","walking",8.4348364e-05,8,0.000674786912,4.5444325956787e-07,0.908434014413912
 "IS5","Micropsectra atrofasciata","animal","ectotherm invertebrate","herbivore","species","walking",3.2411904e-05,128,0.004148723712,3.68710447778136e-06,0.908434014413912
 "IS5","Navicula","plant","plant","plant","genus","sessile",1.408e-09,3832772.91646,0.00539654426637568,NA,0.551729832015487
 "IS5","Nitzschia","plant","plant","plant","genus","sessile",5.012e-10,5765899.581125,0.00288986887005985,NA,0.551729832015487

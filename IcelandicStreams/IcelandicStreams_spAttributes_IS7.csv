@@ -5,7 +5,7 @@
 "IS7","Clinocera stagnalis","animal","ectotherm invertebrate","carnivore","species","walking",0.00014695688,16,0.00235131008,3.80026473769581e-07,0.880136145438191
 "IS7","Cocconeis","plant","plant","plant","genus","sessile",8.89733333333332e-09,49222370.14,0.437947834592293,NA,0.476696907735133
 "IS7","CPOM","detritus","detritus","detritus",NA,"sessile",NA,NA,NA,NA,0.125397594152005
-"IS7","Cricotopus sp. B","animal","ectotherm invertebrate","herbivore","genus","walking",0.00033147506,188,0.06231731128,7.95549088135725e-06,0.880136145438191
+"IS7","Cricotopus sp B","animal","ectotherm invertebrate","herbivore","genus","walking",0.00033147506,188,0.06231731128,7.95549088135725e-06,0.880136145438191
 "IS7","Cymbella","plant","plant","plant","genus","sessile",2.476e-10,1427146.461,0.0003533614637436,NA,0.476696907735133
 "IS7","Diamesa bertrami","animal","ectotherm invertebrate","herbivore","species","walking",0.000207386412,204,0.042306828048,6.18775632642784e-06,0.880136145438191
 "IS7","Diamesa zernyi","animal","ectotherm invertebrate","herbivore","species","walking",0.0002667296,84,0.0224052864,3.04634349785054e-06,0.880136145438191
@@ -19,9 +19,9 @@
 "IS7","Gomphonema","plant","plant","plant","genus","sessile",2.56933333333333e-10,284708257.31,0.0731510415781826,NA,0.476696907735133
 "IS7","Green algae","plant","plant","plant",NA,"sessile",NA,NA,NA,NA,0.476696907735133
 "IS7","Meridion","plant","plant","plant","genus","sessile",1.724e-09,58795925.18,0.10136417501032,NA,0.476696907735133
-"IS7","Mesoveliidae indet. sp. A","animal","ectotherm invertebrate","carnivore","family","swimming",0.002647550832,12,0.031770609984,2.22018788271521e-06,0.880136145438191
-"IS7","Metriocnemus sp. A","animal","ectotherm invertebrate","herbivore","genus","walking",0.000368129172,48,0.017670200256,2.18821720025587e-06,0.880136145438191
-"IS7","Metriocnemus sp. B","animal","ectotherm invertebrate","herbivore","genus","walking",5.229712e-05,4,0.00020918848,4.56213606644947e-08,0.880136145438191
+"IS7","Mesoveliidae indet sp A","animal","ectotherm invertebrate","carnivore","family","swimming",0.002647550832,12,0.031770609984,2.22018788271521e-06,0.880136145438191
+"IS7","Metriocnemus sp A","animal","ectotherm invertebrate","herbivore","genus","walking",0.000368129172,48,0.017670200256,2.18821720025587e-06,0.880136145438191
+"IS7","Metriocnemus sp B","animal","ectotherm invertebrate","herbivore","genus","walking",5.229712e-05,4,0.00020918848,4.56213606644947e-08,0.880136145438191
 "IS7","Micropsectra atrofasciata","animal","ectotherm invertebrate","herbivore","species","walking",0.000251820072,24,0.006043681728,8.35553782745664e-07,0.880136145438191
 "IS7","Navicula","plant","plant","plant","genus","sessile",2.74533333333333e-09,7821669.47476667,0.0214730899313928,NA,0.476696907735133
 "IS7","Nitzschia","plant","plant","plant","genus","sessile",2.41266666666667e-10,43168191.2565,0.0104150456104849,NA,0.476696907735133

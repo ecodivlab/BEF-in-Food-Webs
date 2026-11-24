@@ -6,7 +6,7 @@
 "IS13","Clinocera stagnalis","animal","ectotherm invertebrate","carnivore","species","walking",5.8781564e-05,36,0.002116136304,3.60167822697143e-07,0.874665072781184
 "IS13","Cocconeis","plant","plant","plant","genus","sessile",1.764e-09,1131300.948,0.001995614872272,NA,0.464025138133967
 "IS13","CPOM","detritus","detritus","detritus",NA,"sessile",NA,NA,NA,NA,0.119924161044385
-"IS13","Cricotopus sp. A","animal","ectotherm invertebrate","herbivore","genus","walking",7.7398784e-05,8,0.000619190272,9.73043883403193e-08,0.874665072781184
+"IS13","Cricotopus sp A","animal","ectotherm invertebrate","herbivore","genus","walking",7.7398784e-05,8,0.000619190272,9.73043883403193e-08,0.874665072781184
 "IS13","Cymbella","plant","plant","plant","genus","sessile",8.44e-10,707663.495,0.00059726798978,NA,0.464025138133967
 "IS13","Diamesa bertrami","animal","ectotherm invertebrate","herbivore","species","walking",0.000125935032,608,0.076568499456,1.04483770590696e-05,0.874665072781184
 "IS13","Diamesa zernyi","animal","ectotherm invertebrate","herbivore","species","walking",0.000185088436,68,0.012586013648,1.53599360598277e-06,0.874665072781184
@@ -22,8 +22,8 @@
 "IS13","Green algae","plant","plant","plant",NA,"sessile",NA,NA,NA,NA,0.464025138133967
 "IS13","Macrophytes","plant","plant","plant",NA,"sessile",NA,NA,NA,NA,0.464025138133967
 "IS13","Meridion","plant","plant","plant","genus","sessile",2.212e-09,106584709.9,0.2357653782988,NA,0.464025138133967
-"IS13","Mesoveliidae indet. sp. A","animal","ectotherm invertebrate","carnivore","family","swimming",0.002714699772,4,0.010858799088,6.08196163406932e-07,0.874665072781184
-"IS13","Metriocnemus sp. A","animal","ectotherm invertebrate","herbivore","genus","walking",0.000332444072,4,0.001329776288,1.3693718466066e-07,0.874665072781184
+"IS13","Mesoveliidae indet sp A","animal","ectotherm invertebrate","carnivore","family","swimming",0.002714699772,4,0.010858799088,6.08196163406932e-07,0.874665072781184
+"IS13","Metriocnemus sp A","animal","ectotherm invertebrate","herbivore","genus","walking",0.000332444072,4,0.001329776288,1.3693718466066e-07,0.874665072781184
 "IS13","Micropsectra atrofasciata","animal","ectotherm invertebrate","herbivore","species","walking",0.00026951756,32,0.00862456192,9.43860904558244e-07,0.874665072781184
 "IS13","Navicula","plant","plant","plant","genus","sessile",6.27533333333332e-10,46095603.7421667,0.0289265278683343,NA,0.464025138133967
 "IS13","Nitzschia","plant","plant","plant","genus","sessile",6.252e-10,1608646.65033333,0.0010057258857884,NA,0.464025138133967

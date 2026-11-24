@@ -11,8 +11,8 @@
 # 
 # All models presented in Barnes et al. are run according to the described methods in the manuscript.
 # Code was developed on R version 4.5.0
-#setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\Published correction\\nature_checks\\BEF-in-Food-Webs")
-#setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
+# setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\Published correction\\nature_checks\\BEF-in-Food-Webs")
+# setwd("C:\\Users\\barnesa\\OneDrive - The University of Waikato\\FuSED\\BEF-in-Food-Webs")
 # setwd("~/projects/Andrew/nature_checks/BEF-in-Food-Webs")
 ## Load packages ##
 library(tidyverse); library(ggeffects); library(gridExtra); library(piecewiseSEM); library(flextable);

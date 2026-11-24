@@ -5,7 +5,7 @@
 "IS11","Clinocera stagnalis","animal","ectotherm invertebrate","carnivore","species","walking",0.000421896444,16,0.006750343104,1.27009052663252e-06,0.891149389544999
 "IS11","Cocconeis","plant","plant","plant","genus","sessile",6.606e-09,75281564.21,0.49731001317126,NA,0.503883842524901
 "IS11","CPOM","detritus","detritus","detritus",NA,"sessile",NA,NA,NA,NA,0.137826091377668
-"IS11","Cricotopus sp. B","animal","ectotherm invertebrate","herbivore","genus","walking",0.000413242688,64,0.026447532032,5.00615371080226e-06,0.891149389544999
+"IS11","Cricotopus sp B","animal","ectotherm invertebrate","herbivore","genus","walking",0.000413242688,64,0.026447532032,5.00615371080226e-06,0.891149389544999
 "IS11","Cymbella","plant","plant","plant","genus","sessile",1.264e-09,156275.0395,0.000197531649928,NA,0.503883842524901
 "IS11","Diatoma","plant","plant","plant","genus","sessile",3.56e-09,2615643.963,0.00931169250828,NA,0.503883842524901
 "IS11","Dicranota exclusa","animal","ectotherm invertebrate","omnivore","species","walking",0.000895868952,44,0.039418233888,5.96162687780908e-06,0.891149389544999
@@ -22,7 +22,7 @@
 "IS11","Limnophora riparia","animal","ectotherm invertebrate","carnivore","species","walking",0.00041573442,12,0.00498881304,9.42668779286617e-07,0.891149389544999
 "IS11","Melosira","plant","plant","plant","genus","sessile",1.032e-08,2583156.729,0.02665817744328,NA,0.503883842524901
 "IS11","Meridion","plant","plant","plant","genus","sessile",2.728e-09,32745193.11,0.08932888680408,NA,0.503883842524901
-"IS11","Mesoveliidae indet. sp. A","animal","ectotherm invertebrate","carnivore","family","swimming",0.003195194516,8,0.025561556128,2.67363182118103e-06,0.891149389544999
+"IS11","Mesoveliidae indet sp A","animal","ectotherm invertebrate","carnivore","family","swimming",0.003195194516,8,0.025561556128,2.67363182118103e-06,0.891149389544999
 "IS11","Micropsectra atrofasciata","animal","ectotherm invertebrate","herbivore","species","walking",0.000154710156,144,0.022278262464,5.60711401524827e-06,0.891149389544999
 "IS11","Navicula","plant","plant","plant","genus","sessile",2.64566666666667e-09,2418479.56753333,0.00639849077583735,NA,0.503883842524901
 "IS11","Nitzschia","plant","plant","plant","genus","sessile",2.268e-10,5992743.10325,0.0013591541358171,NA,0.503883842524901
