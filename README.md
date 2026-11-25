@@ -13,17 +13,17 @@ A) Datasets with node-level information used to calculate energy fluxes and food
   8. UKstreams
   9. baltic_sea
 
-B) Derived datasets with food web-level information used to carry out statistical analyses and produce figures in Barnes *et al.*. Datasets are divided by ecosystem type, accompanied by a metadata file with information on each data column, as follows:
+B) Derived datasets with food web-level information used to carry out statistical analyses and produce results in Barnes *et al.* (2026). Datasets are divided by ecosystem type, accompanied by a metadata file with information on each data column, as follows:
   1. Barnes et al Metadata.xlsx
   2. meta.Lakes.csv
-  3. meta.Marine.csv
-  4. meta.Soils.csv
-  5. meta.Streams.csv
+  3. meta.Marine_correction.csv
+  4. meta.Soils_correction.csv
+  5. meta.Streams_correction.csv
 
 ## Code
-Custom R code to calculate energy fluxes and food web metrics, and to reproduce results presented in Barnes *et al.*. 
+Custom R code to calculate energy fluxes and food web metrics to reproduce results presented in the forthcoming author correction of Barnes *et al.*. Original results presented in Barnes *et al.* (2026) can be reproduced using the code in the folder "Original code for Barnes et al 2026".
 
-The following R scripts call datasets contained within the node-level data folder structure (A) to calculate taxa richness, energy fluxes (using the 'fluxweb' R package), and food web metrics found in the derived datasets (B): '1. FuSED Lakes.r', '2. FuSED Marine.r', '3. FuSED Soils.r', and '4. FuSED Streams.r'. 
+The following R scripts call datasets contained within the node-level data folder structure (A) to calculate taxa richness, energy fluxes (using the 'fluxweb' R package), and food web metrics found in the derived datasets (B): '1. FuSED Lakes_correction.r', '2. FuSED Marine_correction.r', '3. FuSED Soils_correction.r', and '4. FuSED Streams_correction.r'. 
 
 Each of these scripts additionally call functions from the file 'Food_web_functions.r' created by Benoit Gauzens (https://github.com/gauzens), which contains custom functions to calculate various food web properties.
 
