@@ -1,5 +1,5 @@
 # BEF-in-Food-Webs
-Code and data for to reproducing all results in Barnes *et al.* "Food Web Complexity Underlies the Relationship Between Biodiversity and Ecosystem Functioning". 
+Code and data for to reproducing all results in Barnes *et al.* (2026) "Food Web Complexity Underlies the Relationship Between Biodiversity and Ecosystem Functioning" (https://doi.org/10.1038/s41586-026-10710-5). 
 
 ## Data
 A) Datasets with node-level information used to calculate energy fluxes and food web metrics. Each folder contains (i) one adjacency matrix (a resource by consumer matrix of trophic interactions) and (ii) one taxon attributes file (containing information such as body mass and biomass of individual taxa) per food web, as well as (iii) a single 'meta' file containing food web-level information for all food webs contained within each folder. Data are contained in the following folders:
@@ -21,7 +21,7 @@ B) Derived datasets with food web-level information used to carry out statistica
   5. meta.Streams_correction.csv
 
 ## Code
-Custom R code to calculate energy fluxes and food web metrics to reproduce results presented in the forthcoming author correction of Barnes *et al.*. Original results presented in Barnes *et al.* (2026) can be reproduced using the code in the folder "Original code for Barnes et al 2026".
+Custom R code to calculate energy fluxes and food web metrics to reproduce results presented in the forthcoming author correction of Barnes *et al.* (2026). Original results presented in Barnes *et al.* (2026) can be reproduced using the code in the folder "Original code for Barnes et al 2026".
 
 The following R scripts call datasets contained within the node-level data folder structure (A) to calculate taxa richness, energy fluxes (using the 'fluxweb' R package), and food web metrics found in the derived datasets (B): '1. FuSED Lakes_correction.r', '2. FuSED Marine_correction.r', '3. FuSED Soils_correction.r', and '4. FuSED Streams_correction.r'. 
 
